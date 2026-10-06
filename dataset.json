@@ -1,5 +1,5 @@
 {
-  "branchId": "JS_V26_ROLLUP_PNPM_MICRO",
+  "branchId": "JS_V26_ROLLUP_PNPM_MONO",
   "repository": "javascript-combos",
   "productName": "GraniteMill",
   "packageName": "granite-mill",
@@ -10,8 +10,8 @@
   "bundler": "Rollup",
   "packageManager": "pnpm",
   "bundledNpm": "10.9.2",
-  "architecture": "Microservices",
-  "sourceRoot": "packages",
+  "architecture": "Monolith",
+  "sourceRoot": "src",
   "package": "granite-mill",
   "testRunner": "mocha@12.0.1",
   "branchFunctional": true,
@@ -286,8 +286,8 @@
   ],
   "plantedFixtures": {
     "duplication": [
-      "packages/shared/src/http-errors.js",
-      "packages/shared/src/http-errors-legacy.js"
+      "src/http-errors.js",
+      "src/http-errors-legacy.js"
     ]
   },
   "metrics": [
