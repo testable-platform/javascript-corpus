@@ -1,25 +1,26 @@
 {
   "name": "granite-mill",
   "version": "1.0.0",
-  "description": "GraniteMill -- Community garden plots (JS_V24_ROLLUP_YARN_MONO)",
+  "description": "GraniteMill -- Community garden plots (JS_V24_RSPACK_BUN_MICRO)",
   "private": true,
-  "main": "src/index.js",
+  "main": "packages/api/src/index.js",
   "engines": {
     "node": ">=24.20.0"
   },
   "scripts": {
-    "build": "rollup -c rollup.config.mjs",
-    "test": "mocha tests/**/*.test.js",
+    "build": "rspack build -c rspack.config.cjs",
+    "test": "mocha packages/shared/tests/**/*.test.js",
     "lint": "eslint .",
     "lint:oxlint": "oxlint .",
     "coverage": "nyc npm test",
     "duplication": "jscpd .",
     "mutation": "stryker run",
-    "dataflow": "node scripts/dataflow-scope.js src",
+    "dataflow": "node scripts/dataflow-scope.js packages",
     "audit": "npm audit --json"
   },
   "devDependencies": {
     "@dodona/dolos": "^2.9.3",
+    "@rspack/cli": "^1.0.0",
     "@stryker-mutator/core": "^10.0.0",
     "@stryker-mutator/mocha-runner": "^10.0.0",
     "cognitive-complexity-ts": "^0.8.2",
@@ -35,8 +36,7 @@
     "mocha": "^12.0.1",
     "monocart-coverage-reports": "^2.13.0",
     "nyc": "^18.0.0",
-    "oxlint": "^1.83.0",
-    "rollup": "^4.24.0"
+    "oxlint": "^1.83.0"
   },
-  "packageManager": "yarn@4.5.3"
+  "packageManager": "bun@1.1.34"
 }
