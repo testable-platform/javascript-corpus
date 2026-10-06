@@ -1,6 +1,6 @@
 {
   "entry": [
-    "src/index.js"
+    "packages/*/src/index.js"
   ],
   "project": [
     "src/**/*.js",
