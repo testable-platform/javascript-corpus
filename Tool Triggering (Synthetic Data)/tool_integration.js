@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 /**
- * Tool integration entry point for branch JS_V26_SWC_NPM_MONO (Node 26).
+ * Tool integration entry point for branch JS_V26_SWC_PNPM_MICRO (Node 26).
  *
  *   node tools/tool_integration.js            banner
  *   node tools/tool_integration.js --verify   check every tool is wired
@@ -52,7 +52,7 @@ function loadDataset() {
 function banner() {
   const data = loadDataset();
   console.log('='.repeat(78));
-  console.log(`  JS_V26_SWC_NPM_MONO  --  Node 26 (26.8.1)`);
+  console.log(`  JS_V26_SWC_PNPM_MICRO  --  Node 26 (26.8.1)`);
   console.log('='.repeat(78));
   console.log(`  bundler        : ${data.bundler}`);
   console.log(`  package manager: ${data.packageManager}`);
