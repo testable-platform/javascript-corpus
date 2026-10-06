@@ -1,10 +1,10 @@
-# JS_V24_ESBUILD_PNPM_MONO -- Node 24.20.0 / pnpm
+# JS_V24_ESBUILD_YARN_MICRO -- Node 24.20.0 / yarn
 NODE ?= node
 
 .PHONY: help setup install lock test check tools verify audit clean
 
 help:
-	@echo "JS_V24_ESBUILD_PNPM_MONO  (Node 24.20.0 / pnpm)"
+	@echo "JS_V24_ESBUILD_YARN_MICRO  (Node 24.20.0 / yarn)"
 	@echo ""
 	@echo "  make setup     install the package manager this branch is pinned to"
 	@echo "  make install   install the project and its tool pins"
@@ -16,13 +16,13 @@ help:
 	@echo "  make audit     dependency listing for this branch's manager"
 
 setup:
-	@echo "this branch is pinned to pnpm -- see README.md for install instructions"
+	@echo "this branch is pinned to yarn -- see README.md for install instructions"
 
 install:
-	pnpm install
+	yarn install
 
 lock:
-	pnpm install --frozen-lockfile
+	yarn install --immutable
 
 test:
 	npm test
@@ -37,7 +37,7 @@ verify:
 	$(NODE) tools/tool_integration.js --verify
 
 audit:
-	pnpm list -r
+	yarn list
 
 clean:
 	rm -rf reports coverage dist .nyc_output .stryker-tmp .parcel-cache .turbo
