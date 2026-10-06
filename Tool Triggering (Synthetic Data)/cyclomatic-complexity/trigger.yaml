@@ -3,7 +3,7 @@ tool: cyclomatic-complexity
 dir: cyclomatic-complexity
 role: alternative
 block: Cyclomatic Complexity
-branch: JS_V22_ROLLUP_YARN_MICRO
+branch: JS_V22_ROLLUP_YARN_MONO
 node_family: "22"
 node_version: "22.23.2"
 pin: cyclomatic-complexity@1.2.5
