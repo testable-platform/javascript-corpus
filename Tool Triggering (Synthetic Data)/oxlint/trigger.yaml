@@ -3,7 +3,7 @@ tool: oxlint
 dir: oxlint
 role: alternative
 block: Lint / Rule Violations
-branch: JS_V20_TURBOPACK_BUN_MONO
+branch: JS_V20_TURBOPACK_NPM_MICRO
 node_family: "20"
 node_version: "20.20.2"
 pin: oxlint@1.83.0
