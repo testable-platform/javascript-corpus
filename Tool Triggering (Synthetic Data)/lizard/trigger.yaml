@@ -3,17 +3,17 @@ tool: Lizard
 dir: lizard
 role: primary
 block: Cyclomatic Complexity
-branch: JS_V22_ESBUILD_NPM_MICRO
+branch: JS_V22_ESBUILD_NPM_MONO
 node_family: "22"
 node_version: "22.23.2"
 pin: lizard (pip, latest)
 status: active
-measured: true
+measured: false
 entrypoint: tools/lizard/run_lizard.sh
 outputs: reports/lizard.csv
 expects: >-
-  cyclomatic complexity for every function; measured directly (a real lizard run against this domain's src/): policy.js's evaluatePolicy is the highest-CCN function at 18, not the dataflow.js tally loop (17), which is the closer runner-up
+  cyclomatic complexity for every function; the dataflow.js tally loop is the highest-CCN function in the domain
 note: >-
-  measured directly: pip-installed and run for real against this domain's src/ (lizard 1.24.0). Found policy.js's evaluatePolicy as the highest-CCN function at 18 -- corrects an earlier assumption that dataflow.js's tally loop (CCN 17) was highest; Node-independent by construction, so this holds on every family.
+  Lizard is a Python package invoked externally via lizard -- Node-version-independent by construction.
 skip_exit_code: 3          # cannot run on this Node family
 missing_exit_code: 4       # binary/toolchain absent from this host

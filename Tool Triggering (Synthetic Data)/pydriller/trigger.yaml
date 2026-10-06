@@ -3,16 +3,16 @@ tool: PyDriller
 dir: pydriller
 role: primary
 block: Code Churn
-branch: JS_V22_ESBUILD_NPM_MICRO
+branch: JS_V22_ESBUILD_NPM_MONO
 node_family: "22"
 node_version: "22.23.2"
 pin: pydriller (pip, latest)
 status: active
 measured: false
-entrypoint: tools/pydriller/run_pydriller.py
+entrypoint: tools/pydriller/run_pydriller.sh
 outputs: reports/pydriller.json
 expects: >-
-  per-file commit/churn counts from this branch's real git history. A real invocation was attempted from this session's Linux verification bridge and failed only because that bridge mounts this worktree through a `.git` file whose `gitdir:` pointer is a Windows-style absolute path it cannot resolve -- not a pydriller or corpus defect. The same command is expected to run normally on the real Windows host, the same way Claude Code's other real per-family verifications did.
+  per-file commit/churn counts from this branch's real git history
 note: >-
   PyDriller is a Python package invoked externally via a small wrapper script -- Node-version-independent by construction.
 skip_exit_code: 3          # cannot run on this Node family

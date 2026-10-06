@@ -1,4 +1,4 @@
-﻿# JS_V22_ESBUILD_NPM_MICRO
+﻿# JS_V22_ESBUILD_NPM_MONO
 
 Part of the `javascript-combos` white-box test-repo corpus (GraniteMill /
 `granite-mill`, domain: Community garden plots).
@@ -7,13 +7,13 @@ Part of the `javascript-combos` white-box test-repo corpus (GraniteMill /
 
 | Variable | This branch |
 | --- | --- |
-| Branch | `JS_V22_ESBUILD_NPM_MICRO` |
+| Branch | `JS_V22_ESBUILD_NPM_MONO` |
 | Node.js | 22.23.2 (family V22) |
 | Bundler | esbuild |
 | Package manager | npm |
 | Bundled npm | 10.9.2 |
-| Architecture | Microservices |
-| Source root | `packages/shared/src` |
+| Architecture | Monolith |
+| Source root | `src` |
 
 The application code under `src/` (or `packages/*/src/` for Microservices
 branches) is byte-identical across all 576 branches of this corpus; only the
@@ -38,7 +38,7 @@ is a claim, invoking is the fact, and this corpus never blurs the two.
 
 | Tool | Role | Pin | Why |
 | --- | --- | --- | --- |
-| `Lizard` | primary | lizard (pip) | measured directly: pip-installed and run for real against this domain's src/ (lizard 1.24.0). Found policy.js's evaluatePolicy as the highest-CCN function at 18 -- corrects an earlier assumption that dataflow.js's tally loop (CCN 17) was highest; Node-independent by construction, so this holds on every family. _(measured: real invocation confirmed by Claude Code)_ |
+| `Lizard` | primary | lizard (pip) | Lizard is a Python package invoked externally via lizard -- Node-version-independent by construction. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
 | `cyclomatic-complexity` | alternative | cyclomatic-complexity==1.2.5 | cyclomatic-complexity 1.2.5 declares Node 22 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
 | `eslint-plugin-sonarjs` | primary | eslint-plugin-sonarjs==4.2.1 | eslint-plugin-sonarjs 4.2.1 declares Node 22 compatibility; runs through eslint itself. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
 | `cognitive-complexity-ts` | alternative | cognitive-complexity-ts==0.8.2 | cognitive-complexity-ts 0.8.2 declares Node 22 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
@@ -49,7 +49,7 @@ is a claim, invoking is the fact, and this corpus never blurs the two.
 | `nyc + mocha` | primary | nyc==18.0.0 | clean on every family once the architecture-aware test glob (bug #1) and the Microservices require() path (bug #4) were both fixed. _(measured: real invocation confirmed by Claude Code)_ |
 | `monocart-coverage-reports` | alternative | monocart-coverage-reports==2.13.0 | monocart-coverage-reports 2.13.0 declares Node 22 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
 | `gutcheck` | alternative | gutcheck==0.10.0 | gutcheck 0.10.0 declares Node 22 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `diff-cover` | primary | diff-cover (pip) | the diff-cover CLI itself was invoked for real (pip install + --help) and works; its coverage-delta output depends on nyc's cobertura report, which needs a full npm install this session's verification bridge could not complete (slow mounted filesystem + shared disk quota, not a tool defect -- see javascript-repos-build-contract.md). Node-independent by construction. _(measured: real invocation confirmed by Claude Code)_ |
+| `diff-cover` | primary | diff-cover (pip) | diff-cover is a Python package invoked externally via diff-cover -- Node-version-independent by construction. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
 | `ESLint (eslint-scope)` | primary | eslint-scope==9.1.2 | clean on every family tested (12 through 26) -- the dataflow script is hand-written without `?.`/`??` specifically so it never depends on the same syntax features that break other tools on the oldest families. _(measured: real invocation confirmed by Claude Code)_ |
 | `knip` | alternative | knip==6.36.0 | knip 6.36.0 declares Node 22 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
 | `PyDriller` | primary | pydriller (pip) | PyDriller is a Python package invoked externally via a small wrapper script -- Node-version-independent by construction. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
@@ -75,13 +75,13 @@ npm run build
 ## Run
 
 ```
-node packages/shared/src/index.js
+node src/index.js
 ```
 
 ## Test
 
 ```
-npm test              # mocha packages/shared/tests/**/*.test.js
+npm test              # mocha tests/**/*.test.js
 npm run coverage      # nyc + mocha
 make check            # tools/full_check.js -- cross-file consistency audit
 ```
@@ -136,14 +136,14 @@ reason it does not. Only the third is a finding.
 
 | Fixture | File(s) | Planted for |
 | --- | --- | --- |
-| Duplication | [`packages/shared/src/http-errors.js`](packages/shared/src/http-errors.js) + [`packages/shared/src/http-errors-legacy.js`](packages/shared/src/http-errors-legacy.js) | jscpd, Dolos |
+| Duplication | [`src/http-errors.js`](src/http-errors.js) + [`src/http-errors-legacy.js`](src/http-errors-legacy.js) | jscpd, Dolos |
 
 ## Workspace layout
 
 ```
-javascript-combos/  (JS_V22_ESBUILD_NPM_MICRO)
+javascript-combos/  (JS_V22_ESBUILD_NPM_MONO)
 |-- .github/
-|-- packages/
+|-- src/
 |-- tests/  (or packages/shared/tests/ for Microservices)
 |-- tools/  (21 tool directories + _skip.sh, tool_integration.js, full_check.js)
 |-- Makefile
