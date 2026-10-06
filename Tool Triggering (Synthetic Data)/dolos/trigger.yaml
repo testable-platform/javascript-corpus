@@ -3,7 +3,7 @@ tool: Dolos
 dir: dolos
 role: alternative
 block: Code Duplication
-branch: JS_V21_ESBUILD_PNPM_MICRO
+branch: JS_V21_ESBUILD_PNPM_MONO
 node_family: "21"
 node_version: "21.7.3"
 pin: @dodona/dolos@2.9.3
