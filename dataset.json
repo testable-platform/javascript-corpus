@@ -1,5 +1,5 @@
 {
-  "branchId": "JS_V21_RSPACK_BUN_MICRO",
+  "branchId": "JS_V21_RSPACK_BUN_MONO",
   "repository": "javascript-combos",
   "productName": "GraniteMill",
   "packageName": "granite-mill",
@@ -10,8 +10,8 @@
   "bundler": "Rspack",
   "packageManager": "bun",
   "bundledNpm": "10.9.2",
-  "architecture": "Microservices",
-  "sourceRoot": "packages",
+  "architecture": "Monolith",
+  "sourceRoot": "src",
   "package": "granite-mill",
   "testRunner": "mocha@11.8.0",
   "branchFunctional": true,
@@ -276,8 +276,8 @@
   ],
   "plantedFixtures": {
     "duplication": [
-      "packages/shared/src/http-errors.js",
-      "packages/shared/src/http-errors-legacy.js"
+      "src/http-errors.js",
+      "src/http-errors-legacy.js"
     ]
   },
   "metrics": [

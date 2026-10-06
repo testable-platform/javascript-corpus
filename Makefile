@@ -1,10 +1,10 @@
-# JS_V21_RSPACK_BUN_MICRO -- Node 21.7.3 / bun
+# JS_V21_RSPACK_BUN_MONO -- Node 21.7.3 / bun
 NODE ?= node
 
 .PHONY: help setup install lock test check tools verify audit clean
 
 help:
-	@echo "JS_V21_RSPACK_BUN_MICRO  (Node 21.7.3 / bun)"
+	@echo "JS_V21_RSPACK_BUN_MONO  (Node 21.7.3 / bun)"
 	@echo ""
 	@echo "  make setup     install the package manager this branch is pinned to"
 	@echo "  make install   install the project and its tool pins"
