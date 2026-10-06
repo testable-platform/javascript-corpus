@@ -3,7 +3,7 @@ tool: jscpd
 dir: jscpd
 role: primary
 block: Code Duplication
-branch: JS_V22_ESBUILD_BUN_MICRO
+branch: JS_V22_ESBUILD_BUN_MONO
 node_family: "22"
 node_version: "22.23.2"
 pin: jscpd@5.2.1
