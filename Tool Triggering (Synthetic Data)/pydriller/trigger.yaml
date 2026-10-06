@@ -3,7 +3,7 @@ tool: PyDriller
 dir: pydriller
 role: primary
 block: Code Churn
-branch: JS_V24_ESBUILD_BUN_MONO
+branch: JS_V24_ESBUILD_NPM_MICRO
 node_family: "24"
 node_version: "24.20.0"
 pin: pydriller (pip, latest)
