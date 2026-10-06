@@ -3,10 +3,10 @@ tool: oxlint
 dir: oxlint
 role: alternative
 block: Lint / Rule Violations
-branch: JS_V20_WEBPACK_YARN_MONO
-node_family: "20"
-node_version: "20.20.2"
-pin: oxlint@1.83.0
+branch: JS_V21_ESBUILD_BUN_MICRO
+node_family: "21"
+node_version: "21.7.3"
+pin: oxlint@1.16.0
 status: skipped
 measured: true
 entrypoint: tools/oxlint/run_oxlint.sh
@@ -14,6 +14,6 @@ outputs: reports/oxlint.json
 expects: >-
   the same lint findings as eslint, from an independent (Rust-based) linter
 note: >-
-  same oxlint 1.16.0-vs-1.83.0 range-drift break as N18; 1.83.0 resolves here even more often since N20 favours newer optional native bindings.
+  a third distinct oxlint-1.83.0 breakage mode: `node_modules/@oxlint/` exists but is empty -- the platform-specific native-binding optional dependency didn't install, so oxlint's own bindings loader has nothing to load, regardless of package manager.
 skip_exit_code: 3          # cannot run on this Node family
 missing_exit_code: 4       # binary/toolchain absent from this host

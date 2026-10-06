@@ -3,9 +3,9 @@ tool: cognitive-complexity-ts
 dir: cognitive-complexity-ts
 role: alternative
 block: Cognitive Complexity
-branch: JS_V20_WEBPACK_YARN_MONO
-node_family: "20"
-node_version: "20.20.2"
+branch: JS_V21_ESBUILD_BUN_MICRO
+node_family: "21"
+node_version: "21.7.3"
 pin: cognitive-complexity-ts@0.8.2
 status: active
 measured: false
@@ -14,6 +14,6 @@ outputs: reports/cognitive-complexity-ts.json
 expects: >-
   the same cognitive-complexity hotspot as eslint-plugin-sonarjs, from an independent scorer
 note: >-
-  cognitive-complexity-ts 0.8.2 declares Node 20 compatibility (npm registry engines.node range).
+  cognitive-complexity-ts 0.8.2 declares Node 21 compatibility (npm registry engines.node range).
 skip_exit_code: 3          # cannot run on this Node family
 missing_exit_code: 4       # binary/toolchain absent from this host

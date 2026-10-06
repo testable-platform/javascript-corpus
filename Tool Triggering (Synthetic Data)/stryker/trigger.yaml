@@ -3,17 +3,17 @@ tool: StrykerJS + Mocha
 dir: stryker
 role: primary
 block: Mutation Score
-branch: JS_V20_WEBPACK_YARN_MONO
-node_family: "20"
-node_version: "20.20.2"
+branch: JS_V21_ESBUILD_BUN_MICRO
+node_family: "21"
+node_version: "21.7.3"
 pin: @stryker-mutator/core@9.6.1
-status: skipped
+status: active
 measured: true
 entrypoint: tools/stryker/run_stryker.sh
 outputs: reports/mutation.json
 expects: >-
   mutants in policy.js/service.js's decision branches to be killed by the existing mocha suite
 note: >-
-  mocha's own latest release (12.0.1) has moved ahead of what any current Stryker release supports -- `@stryker-mutator/mocha-runner@9.6.1`'s peer range caps at `mocha < 12`; on npm this is install-blocking (ERESOLVE), on yarn/pnpm/bun (which only warn on unmet peers) it installs but fails at runtime with `Cannot find module '.../mocha/lib/cli/run-helpers'` -- mocha 12 relocated an internal CLI module Stryker's runner still requires by hardcoded path. An upstream incompatibility between two independently-versioned tools, not fixable from this corpus's own config.
+  this family happened to resolve an older, mutually-compatible mocha/Stryker pairing at install time -- confirms the N20 incompatibility is driven by registry/cache state, not Node version.
 skip_exit_code: 3          # cannot run on this Node family
 missing_exit_code: 4       # binary/toolchain absent from this host

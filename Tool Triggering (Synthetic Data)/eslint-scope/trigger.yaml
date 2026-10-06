@@ -3,10 +3,10 @@ tool: ESLint (eslint-scope)
 dir: eslint-scope
 role: primary
 block: All Definition Coverage / All Uses Coverage
-branch: JS_V20_WEBPACK_YARN_MONO
-node_family: "20"
-node_version: "20.20.2"
-pin: eslint-scope@9.1.2
+branch: JS_V21_ESBUILD_BUN_MICRO
+node_family: "21"
+node_version: "21.7.3"
+pin: eslint-scope@8.4.0
 status: active
 measured: true
 entrypoint: tools/eslint-scope/run_eslint_scope.sh

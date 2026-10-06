@@ -3,9 +3,9 @@ tool: jscpd
 dir: jscpd
 role: primary
 block: Code Duplication
-branch: JS_V20_WEBPACK_YARN_MONO
-node_family: "20"
-node_version: "20.20.2"
+branch: JS_V21_ESBUILD_BUN_MICRO
+node_family: "21"
+node_version: "21.7.3"
 pin: jscpd@5.2.1
 status: active
 measured: false
@@ -14,6 +14,6 @@ outputs: reports/jscpd-report.json
 expects: >-
   the planted http-errors.js / http-errors-legacy.js near-duplicate pair
 note: >-
-  jscpd 5.2.1 declares Node 20 compatibility (npm registry engines.node range).
+  jscpd 5.2.1 declares Node 21 compatibility (npm registry engines.node range).
 skip_exit_code: 3          # cannot run on this Node family
 missing_exit_code: 4       # binary/toolchain absent from this host

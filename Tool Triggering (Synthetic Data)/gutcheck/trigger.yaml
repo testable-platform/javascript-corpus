@@ -3,9 +3,9 @@ tool: gutcheck
 dir: gutcheck
 role: alternative
 block: Mutation Score
-branch: JS_V20_WEBPACK_YARN_MONO
-node_family: "20"
-node_version: "20.20.2"
+branch: JS_V21_ESBUILD_BUN_MICRO
+node_family: "21"
+node_version: "21.7.3"
 pin: gutcheck@0.10.0
 status: active
 measured: false
@@ -14,6 +14,6 @@ outputs: reports/gutcheck.json
 expects: >-
   a second, independent mutation-score reading to cross-check Stryker's
 note: >-
-  gutcheck 0.10.0 declares Node 20 compatibility (npm registry engines.node range).
+  gutcheck 0.10.0 declares Node 21 compatibility (npm registry engines.node range).
 skip_exit_code: 3          # cannot run on this Node family
 missing_exit_code: 4       # binary/toolchain absent from this host
