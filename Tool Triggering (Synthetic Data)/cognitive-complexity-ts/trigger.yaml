@@ -3,7 +3,7 @@ tool: cognitive-complexity-ts
 dir: cognitive-complexity-ts
 role: alternative
 block: Cognitive Complexity
-branch: JS_V22_ROLLUP_NPM_MICRO
+branch: JS_V22_ROLLUP_NPM_MONO
 node_family: "22"
 node_version: "22.23.2"
 pin: cognitive-complexity-ts@0.8.2
