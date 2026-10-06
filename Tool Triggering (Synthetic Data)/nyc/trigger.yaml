@@ -3,7 +3,7 @@ tool: nyc + mocha
 dir: nyc
 role: primary
 block: Statement Coverage / Branch Coverage / Path Coverage (proxy)
-branch: JS_V21_VITE_NPM_MONO
+branch: JS_V21_VITE_PNPM_MICRO
 node_family: "21"
 node_version: "21.7.3"
 pin: nyc@17.1.0
