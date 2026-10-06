@@ -1,10 +1,10 @@
-# JS_V26_TURBOPACK_BUN_MICRO -- Node 26.8.1 / bun
+# JS_V26_TURBOPACK_BUN_MONO -- Node 26.8.1 / bun
 NODE ?= node
 
 .PHONY: help setup install lock test check tools verify audit clean
 
 help:
-	@echo "JS_V26_TURBOPACK_BUN_MICRO  (Node 26.8.1 / bun)"
+	@echo "JS_V26_TURBOPACK_BUN_MONO  (Node 26.8.1 / bun)"
 	@echo ""
 	@echo "  make setup     install the package manager this branch is pinned to"
 	@echo "  make install   install the project and its tool pins"
