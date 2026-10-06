@@ -3,7 +3,7 @@ tool: cognitive-complexity-ts
 dir: cognitive-complexity-ts
 role: alternative
 block: Cognitive Complexity
-branch: JS_V12_ESBUILD_NPM_MONO
+branch: JS_V12_ESBUILD_NPM_MICRO
 node_family: "12"
 node_version: "12.22.12"
 pin: cognitive-complexity-ts@0.8.2

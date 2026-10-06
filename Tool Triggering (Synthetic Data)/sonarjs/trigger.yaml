@@ -3,7 +3,7 @@ tool: eslint-plugin-sonarjs
 dir: sonarjs
 role: primary
 block: Cognitive Complexity
-branch: JS_V12_ESBUILD_NPM_MONO
+branch: JS_V12_ESBUILD_NPM_MICRO
 node_family: "12"
 node_version: "12.22.12"
 pin: eslint-plugin-sonarjs@4.2.1

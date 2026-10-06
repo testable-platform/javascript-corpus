@@ -1,21 +1,21 @@
 {
   "name": "granite-mill",
   "version": "1.0.0",
-  "description": "GraniteMill -- Community garden plots (JS_V12_ESBUILD_NPM_MONO)",
+  "description": "GraniteMill -- Community garden plots (JS_V12_ESBUILD_NPM_MICRO)",
   "private": true,
-  "main": "src/index.js",
+  "main": "packages/api/src/index.js",
   "engines": {
     "node": ">=12.22.12"
   },
   "scripts": {
     "build": "node esbuild.config.cjs",
-    "test": "mocha tests/**/*.test.js",
+    "test": "mocha packages/shared/tests/**/*.test.js",
     "lint": "eslint .",
     "lint:oxlint": "oxlint .",
     "coverage": "nyc npm test",
     "duplication": "jscpd .",
     "mutation": "stryker run",
-    "dataflow": "node scripts/dataflow-scope.js src",
+    "dataflow": "node scripts/dataflow-scope.js packages",
     "audit": "npm audit --json"
   },
   "devDependencies": {
