@@ -1,21 +1,21 @@
 {
   "name": "granite-mill",
   "version": "1.0.0",
-  "description": "GraniteMill -- Community garden plots (JS_V26_WEBPACK_BUN_MONO)",
+  "description": "GraniteMill -- Community garden plots (JS_V26_WEBPACK_NPM_MICRO)",
   "private": true,
-  "main": "src/index.js",
+  "main": "packages/api/src/index.js",
   "engines": {
     "node": ">=26.8.1"
   },
   "scripts": {
     "build": "webpack --config webpack.config.cjs",
-    "test": "mocha tests/**/*.test.js",
+    "test": "mocha packages/shared/tests/**/*.test.js",
     "lint": "eslint .",
     "lint:oxlint": "oxlint .",
     "coverage": "nyc npm test",
     "duplication": "jscpd .",
     "mutation": "stryker run",
-    "dataflow": "node scripts/dataflow-scope.js src",
+    "dataflow": "node scripts/dataflow-scope.js packages",
     "audit": "npm audit --json"
   },
   "devDependencies": {
@@ -38,6 +38,5 @@
     "oxlint": "^1.83.0",
     "webpack": "^5.90.0",
     "webpack-cli": "^5.1.4"
-  },
-  "packageManager": "bun@1.1.34"
+  }
 }
