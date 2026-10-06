@@ -1,10 +1,10 @@
-# JS_V21_PARCEL_YARN_MICRO -- Node 21.7.3 / yarn
+# JS_V21_PARCEL_YARN_MONO -- Node 21.7.3 / yarn
 NODE ?= node
 
 .PHONY: help setup install lock test check tools verify audit clean
 
 help:
-	@echo "JS_V21_PARCEL_YARN_MICRO  (Node 21.7.3 / yarn)"
+	@echo "JS_V21_PARCEL_YARN_MONO  (Node 21.7.3 / yarn)"
 	@echo ""
 	@echo "  make setup     install the package manager this branch is pinned to"
 	@echo "  make install   install the project and its tool pins"
