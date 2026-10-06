@@ -1,10 +1,10 @@
-# JS_V21_RSPACK_YARN_MONO -- Node 21.7.3 / yarn
+# JS_V21_SWC_BUN_MICRO -- Node 21.7.3 / bun
 NODE ?= node
 
 .PHONY: help setup install lock test check tools verify audit clean
 
 help:
-	@echo "JS_V21_RSPACK_YARN_MONO  (Node 21.7.3 / yarn)"
+	@echo "JS_V21_SWC_BUN_MICRO  (Node 21.7.3 / bun)"
 	@echo ""
 	@echo "  make setup     install the package manager this branch is pinned to"
 	@echo "  make install   install the project and its tool pins"
@@ -16,13 +16,13 @@ help:
 	@echo "  make audit     dependency listing for this branch's manager"
 
 setup:
-	@echo "this branch is pinned to yarn -- see README.md for install instructions"
+	@echo "this branch is pinned to bun -- see README.md for install instructions"
 
 install:
-	yarn install
+	bun install
 
 lock:
-	yarn install --immutable
+	bun install --frozen-lockfile
 
 test:
 	npm test
@@ -37,7 +37,7 @@ verify:
 	$(NODE) tools/tool_integration.js --verify
 
 audit:
-	yarn list
+	bun pm ls
 
 clean:
 	rm -rf reports coverage dist .nyc_output .stryker-tmp .parcel-cache .turbo
