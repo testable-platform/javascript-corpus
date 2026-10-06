@@ -3,9 +3,9 @@ tool: Lizard
 dir: lizard
 role: primary
 block: Cyclomatic Complexity
-branch: JS_V22_WEBPACK_YARN_MONO
-node_family: "22"
-node_version: "22.23.2"
+branch: JS_V24_ESBUILD_BUN_MICRO
+node_family: "24"
+node_version: "24.20.0"
 pin: lizard (pip, latest)
 status: active
 measured: true

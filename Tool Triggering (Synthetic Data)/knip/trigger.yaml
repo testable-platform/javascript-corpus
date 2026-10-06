@@ -3,9 +3,9 @@ tool: knip
 dir: knip
 role: alternative
 block: All Definition Coverage / All Uses Coverage
-branch: JS_V22_WEBPACK_YARN_MONO
-node_family: "22"
-node_version: "22.23.2"
+branch: JS_V24_ESBUILD_BUN_MICRO
+node_family: "24"
+node_version: "24.20.0"
 pin: knip@6.36.0
 status: active
 measured: false
@@ -14,6 +14,6 @@ outputs: reports/knip.json
 expects: >-
   the same unused-export/unreached-definition signal as eslint-scope, from an independent dependency-graph tool
 note: >-
-  knip 6.36.0 declares Node 22 compatibility (npm registry engines.node range).
+  knip 6.36.0 declares Node 24 compatibility (npm registry engines.node range).
 skip_exit_code: 3          # cannot run on this Node family
 missing_exit_code: 4       # binary/toolchain absent from this host
