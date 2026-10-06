@@ -3,7 +3,7 @@ tool: oxlint
 dir: oxlint
 role: alternative
 block: Lint / Rule Violations
-branch: JS_V22_WEBPACK_NPM_MONO
+branch: JS_V22_WEBPACK_PNPM_MICRO
 node_family: "22"
 node_version: "22.23.2"
 pin: oxlint@1.83.0
