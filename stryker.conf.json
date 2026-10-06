@@ -8,6 +8,6 @@
   ],
   "coverageAnalysis": "perTest",
   "mutate": [
-    "src/**/*.js"
+    "packages/**/src/**/*.js"
   ]
 }
