@@ -10,6 +10,6 @@ jobs:
           node-version: '26.8.1'
       - run: npm install --no-audit --no-fund || true
       - run: npm test || true
-      # JS_V26_ESBUILD_PNPM_MONO: exit-code contract is enforced by the corpus's own
+      # JS_V26_ESBUILD_YARN_MICRO: exit-code contract is enforced by the corpus's own
       # verification script, not by this placeholder workflow -- see
       # javascript-repos-build-contract.md for the 0/1/3/4 gate.
