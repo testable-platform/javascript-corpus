@@ -3,7 +3,7 @@ tool: jscpd
 dir: jscpd
 role: primary
 block: Code Duplication
-branch: JS_V26_ESBUILD_YARN_MICRO
+branch: JS_V26_ESBUILD_YARN_MONO
 node_family: "26"
 node_version: "26.8.1"
 pin: jscpd@5.2.1
