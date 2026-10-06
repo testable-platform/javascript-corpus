@@ -1,28 +1,29 @@
 {
   "name": "granite-mill",
   "version": "1.0.0",
-  "description": "GraniteMill -- Community garden plots (JS_V24_RSPACK_YARN_MONO)",
+  "description": "GraniteMill -- Community garden plots (JS_V24_SWC_BUN_MICRO)",
   "private": true,
-  "main": "src/index.js",
+  "main": "packages/api/src/index.js",
   "engines": {
     "node": ">=24.20.0"
   },
   "scripts": {
-    "build": "rspack build -c rspack.config.cjs",
-    "test": "mocha tests/**/*.test.js",
+    "build": "swc src -d dist --config-file .swcrc",
+    "test": "mocha packages/shared/tests/**/*.test.js",
     "lint": "eslint .",
     "lint:oxlint": "oxlint .",
     "coverage": "nyc npm test",
     "duplication": "jscpd .",
     "mutation": "stryker run",
-    "dataflow": "node scripts/dataflow-scope.js src",
+    "dataflow": "node scripts/dataflow-scope.js packages",
     "audit": "npm audit --json"
   },
   "devDependencies": {
     "@dodona/dolos": "^2.9.3",
-    "@rspack/cli": "^1.0.0",
     "@stryker-mutator/core": "^10.0.0",
     "@stryker-mutator/mocha-runner": "^10.0.0",
+    "@swc/cli": "^0.3.0",
+    "@swc/core": "^1.9.0",
     "cognitive-complexity-ts": "^0.8.2",
     "cyclomatic-complexity": "^1.2.5",
     "eslint": "^10.10.0",
@@ -38,5 +39,5 @@
     "nyc": "^18.0.0",
     "oxlint": "^1.83.0"
   },
-  "packageManager": "yarn@4.5.3"
+  "packageManager": "bun@1.1.34"
 }
