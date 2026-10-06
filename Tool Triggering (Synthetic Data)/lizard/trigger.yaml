@@ -3,7 +3,7 @@ tool: Lizard
 dir: lizard
 role: primary
 block: Cyclomatic Complexity
-branch: JS_V22_PARCEL_BUN_MONO
+branch: JS_V22_PARCEL_NPM_MICRO
 node_family: "22"
 node_version: "22.23.2"
 pin: lizard (pip, latest)
