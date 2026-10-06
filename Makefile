@@ -1,10 +1,10 @@
-# JS_V24_PARCEL_BUN_MONO -- Node 24.20.0 / bun
+# JS_V24_PARCEL_NPM_MICRO -- Node 24.20.0 / npm
 NODE ?= node
 
 .PHONY: help setup install lock test check tools verify audit clean
 
 help:
-	@echo "JS_V24_PARCEL_BUN_MONO  (Node 24.20.0 / bun)"
+	@echo "JS_V24_PARCEL_NPM_MICRO  (Node 24.20.0 / npm)"
 	@echo ""
 	@echo "  make setup     install the package manager this branch is pinned to"
 	@echo "  make install   install the project and its tool pins"
@@ -16,13 +16,13 @@ help:
 	@echo "  make audit     dependency listing for this branch's manager"
 
 setup:
-	@echo "this branch is pinned to bun -- see README.md for install instructions"
+	@echo "this branch is pinned to npm -- see README.md for install instructions"
 
 install:
-	bun install
+	npm install
 
 lock:
-	bun install --frozen-lockfile
+	npm ci
 
 test:
 	npm test
@@ -37,7 +37,7 @@ verify:
 	$(NODE) tools/tool_integration.js --verify
 
 audit:
-	bun pm ls
+	npm ls --all
 
 clean:
 	rm -rf reports coverage dist .nyc_output .stryker-tmp .parcel-cache .turbo
