@@ -3,7 +3,7 @@ tool: OpenGrep
 dir: opengrep
 role: alternative
 block: Static Vulnerabilities (SAST)
-branch: JS_V12_ESBUILD_PNPM_MICRO
+branch: JS_V12_ESBUILD_BUN_MONO
 node_family: "12"
 node_version: "12.22.12"
 pin: null
