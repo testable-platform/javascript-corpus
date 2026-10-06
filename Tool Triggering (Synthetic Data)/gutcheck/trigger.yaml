@@ -3,7 +3,7 @@ tool: gutcheck
 dir: gutcheck
 role: alternative
 block: Mutation Score
-branch: JS_V21_RSPACK_NPM_MONO
+branch: JS_V21_RSPACK_PNPM_MICRO
 node_family: "21"
 node_version: "21.7.3"
 pin: gutcheck@0.10.0
