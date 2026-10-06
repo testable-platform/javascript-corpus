@@ -3,7 +3,7 @@ tool: eslint
 dir: eslint
 role: primary
 block: Lint / Rule Violations
-branch: JS_V26_PARCEL_PNPM_MICRO
+branch: JS_V26_PARCEL_PNPM_MONO
 node_family: "26"
 node_version: "26.8.1"
 pin: eslint@10.10.0
