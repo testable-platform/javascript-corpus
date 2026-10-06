@@ -1,5 +1,5 @@
 {
-  "branchId": "JS_V26_RSPACK_YARN_MONO",
+  "branchId": "JS_V26_SWC_BUN_MICRO",
   "repository": "javascript-combos",
   "productName": "GraniteMill",
   "packageName": "granite-mill",
@@ -7,11 +7,11 @@
   "language": "JavaScript",
   "node": "26.8.1",
   "nodeFamily": 26,
-  "bundler": "Rspack",
-  "packageManager": "yarn (Berry)",
+  "bundler": "SWC",
+  "packageManager": "bun",
   "bundledNpm": "10.9.2",
-  "architecture": "Monolith",
-  "sourceRoot": "src",
+  "architecture": "Microservices",
+  "sourceRoot": "packages",
   "package": "granite-mill",
   "testRunner": "mocha@12.0.1",
   "branchFunctional": true,
@@ -286,8 +286,8 @@
   ],
   "plantedFixtures": {
     "duplication": [
-      "src/http-errors.js",
-      "src/http-errors-legacy.js"
+      "packages/shared/src/http-errors.js",
+      "packages/shared/src/http-errors-legacy.js"
     ]
   },
   "metrics": [

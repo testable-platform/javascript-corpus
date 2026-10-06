@@ -3,7 +3,7 @@ tool: eslint-plugin-sonarjs
 dir: sonarjs
 role: primary
 block: Cognitive Complexity
-branch: JS_V26_RSPACK_YARN_MONO
+branch: JS_V26_SWC_BUN_MICRO
 node_family: "26"
 node_version: "26.8.1"
 pin: eslint-plugin-sonarjs@4.2.1
