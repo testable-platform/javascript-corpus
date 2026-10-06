@@ -3,7 +3,7 @@ tool: Trivy
 dir: trivy
 role: alternative
 block: Dependency Risk (SCA)
-branch: JS_V26_TURBOPACK_YARN_MICRO
+branch: JS_V26_TURBOPACK_YARN_MONO
 node_family: "26"
 node_version: "26.8.1"
 pin: null
