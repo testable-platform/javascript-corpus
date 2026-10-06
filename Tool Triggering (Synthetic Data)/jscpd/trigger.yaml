@@ -3,7 +3,7 @@ tool: jscpd
 dir: jscpd
 role: primary
 block: Code Duplication
-branch: JS_V24_WEBPACK_PNPM_MONO
+branch: JS_V24_WEBPACK_YARN_MICRO
 node_family: "24"
 node_version: "24.20.0"
 pin: jscpd@5.2.1
