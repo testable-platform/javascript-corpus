@@ -3,7 +3,7 @@ tool: Trivy
 dir: trivy
 role: alternative
 block: Dependency Risk (SCA)
-branch: JS_V21_ROLLUP_BUN_MICRO
+branch: JS_V21_ROLLUP_BUN_MONO
 node_family: "21"
 node_version: "21.7.3"
 pin: null
