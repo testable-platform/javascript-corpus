@@ -3,7 +3,7 @@ tool: OpenGrep
 dir: opengrep
 role: alternative
 block: Static Vulnerabilities (SAST)
-branch: JS_V20_PARCEL_NPM_MONO
+branch: JS_V20_PARCEL_PNPM_MICRO
 node_family: "20"
 node_version: "20.20.2"
 pin: null
