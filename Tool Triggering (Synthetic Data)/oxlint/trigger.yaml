@@ -3,7 +3,7 @@ tool: oxlint
 dir: oxlint
 role: alternative
 block: Lint / Rule Violations
-branch: JS_V21_ESBUILD_YARN_MICRO
+branch: JS_V21_ESBUILD_YARN_MONO
 node_family: "21"
 node_version: "21.7.3"
 pin: oxlint@1.16.0
