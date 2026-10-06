@@ -3,7 +3,7 @@ tool: eslint
 dir: eslint
 role: primary
 block: Lint / Rule Violations
-branch: JS_V21_TURBOPACK_PNPM_MONO
+branch: JS_V21_TURBOPACK_YARN_MICRO
 node_family: "21"
 node_version: "21.7.3"
 pin: eslint@9.39.5
