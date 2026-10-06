@@ -3,7 +3,7 @@ tool: jscpd
 dir: jscpd
 role: primary
 block: Code Duplication
-branch: JS_V20_ROLLUP_BUN_MONO
+branch: JS_V20_ROLLUP_NPM_MICRO
 node_family: "20"
 node_version: "20.20.2"
 pin: jscpd@5.2.1
