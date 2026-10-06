@@ -1,10 +1,10 @@
-# JS_V22_TURBOPACK_YARN_MICRO -- Node 22.23.2 / yarn
+# JS_V22_TURBOPACK_YARN_MONO -- Node 22.23.2 / yarn
 NODE ?= node
 
 .PHONY: help setup install lock test check tools verify audit clean
 
 help:
-	@echo "JS_V22_TURBOPACK_YARN_MICRO  (Node 22.23.2 / yarn)"
+	@echo "JS_V22_TURBOPACK_YARN_MONO  (Node 22.23.2 / yarn)"
 	@echo ""
 	@echo "  make setup     install the package manager this branch is pinned to"
 	@echo "  make install   install the project and its tool pins"
