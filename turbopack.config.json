@@ -1,5 +1,0 @@
-{
-  "note": "Turbopack has no standalone Node-library CLI outside Next.js; this config documents the intended entry/output. The actual build script below invokes esbuild.config.cjs as the real bundling backend -- see that file, not this one, for what `npm run build` actually runs.",
-  "entry": "src/index.js",
-  "outDir": "dist"
-}
