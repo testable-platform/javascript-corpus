@@ -3,7 +3,7 @@ tool: diff-cover
 dir: diff-cover
 role: primary
 block: Coverage Delta
-branch: JS_V26_VITE_NPM_MICRO
+branch: JS_V26_VITE_NPM_MONO
 node_family: "26"
 node_version: "26.8.1"
 pin: diff-cover (pip, latest)
