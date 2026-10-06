@@ -3,7 +3,7 @@ tool: cyclomatic-complexity
 dir: cyclomatic-complexity
 role: alternative
 block: Cyclomatic Complexity
-branch: JS_V21_WEBPACK_PNPM_MONO
+branch: JS_V21_WEBPACK_YARN_MICRO
 node_family: "21"
 node_version: "21.7.3"
 pin: cyclomatic-complexity@1.2.5
