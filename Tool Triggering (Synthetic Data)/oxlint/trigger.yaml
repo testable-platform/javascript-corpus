@@ -3,7 +3,7 @@ tool: oxlint
 dir: oxlint
 role: alternative
 block: Lint / Rule Violations
-branch: JS_V24_ROLLUP_PNPM_MONO
+branch: JS_V24_ROLLUP_YARN_MICRO
 node_family: "24"
 node_version: "24.20.0"
 pin: oxlint@1.83.0
