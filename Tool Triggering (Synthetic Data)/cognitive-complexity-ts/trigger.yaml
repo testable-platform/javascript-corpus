@@ -3,7 +3,7 @@ tool: cognitive-complexity-ts
 dir: cognitive-complexity-ts
 role: alternative
 block: Cognitive Complexity
-branch: JS_V20_WEBPACK_BUN_MONO
+branch: JS_V20_WEBPACK_NPM_MICRO
 node_family: "20"
 node_version: "20.20.2"
 pin: cognitive-complexity-ts@0.8.2
