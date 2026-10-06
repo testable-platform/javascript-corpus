@@ -1,0 +1,13 @@
+{
+  "threshold": 0,
+  "reporters": [
+    "json",
+    "consoleFull"
+  ],
+  "ignore": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/coverage/**"
+  ],
+  "absolute": true
+}

@@ -1,0 +1,28 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "es2021": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "script"
+  },
+  "plugins": [
+    "sonarjs",
+    "security"
+  ],
+  "extends": [
+    "eslint:recommended"
+  ],
+  "rules": {
+    "sonarjs/cognitive-complexity": [
+      "warn",
+      15
+    ],
+    "security/detect-object-injection": "warn",
+    "security/detect-non-literal-fs-filename": "warn",
+    "no-unused-vars": "warn"
+  }
+}

@@ -1,0 +1,3 @@
+(setq $V (get ...))
+...
+(eval $V)

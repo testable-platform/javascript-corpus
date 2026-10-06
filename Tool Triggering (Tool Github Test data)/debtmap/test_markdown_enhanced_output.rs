@@ -1,0 +1,266 @@
+use debtmap::io::writers::MarkdownWriter;
+use debtmap::io::writers::markdown::EnhancedMarkdownWriter;
+use debtmap::priority::{
+    CallGraph, DebtType, FunctionRole, FunctionVisibility, ImpactMetrics, UnifiedAnalysis,
+    UnifiedAnalysisUtils,
+    unified_scorer::{Location, UnifiedDebtItem, UnifiedScore},
+};
+use std::io::Cursor;
+use std::path::PathBuf;
+
+fn create_sample_unified_item() -> UnifiedDebtItem {
+    UnifiedDebtItem {
+        location: Location {
+            file: PathBuf::from("src/main.rs"),
+            function: "process_data".to_string(),
+            line: 42,
+        },
+        debt_type: DebtType::TestingGap {
+            coverage: 0.3,
+            cyclomatic: 15,
+            cognitive: 20,
+        },
+        unified_score: UnifiedScore {
+            complexity_factor: 7.5,
+            coverage_factor: 8.0,
+            dependency_factor: 4.0,
+            role_multiplier: 1.2,
+            final_score: 7.8,
+            base_score: None,
+            exponential_factor: None,
+            risk_boost: None,
+            pre_adjustment_score: None,
+            adjustment_applied: None,
+            purity_factor: None,
+            refactorability_factor: None,
+            pattern_factor: None,
+            // Spec 260: Score transparency fields
+            debt_adjustment: None,
+            pre_normalization_score: None,
+            structural_multiplier: Some(1.0),
+            has_coverage_data: false,
+            contextual_risk_multiplier: None,
+            pre_contextual_score: None,
+            debt_type_multiplier: None,
+            score_trace: Vec::new(),
+        },
+        function_role: FunctionRole::PureLogic,
+        recommendation: debtmap::priority::ActionableRecommendation {
+            primary_action: "Add unit tests".to_string(),
+            rationale: "High complexity with low coverage".to_string(),
+            implementation_steps: vec![],
+            related_items: vec![],
+            steps: None,
+            estimated_effort_hours: None,
+        },
+        expected_impact: ImpactMetrics {
+            coverage_improvement: 30.0,
+            lines_reduction: 0,
+            complexity_reduction: 0.0,
+            risk_reduction: 25.0,
+        },
+        transitive_coverage: None,
+        file_context: None,
+        upstream_dependencies: 3,
+        downstream_dependencies: 5,
+        upstream_callers: vec![],
+        downstream_callees: vec![],
+        upstream_production_callers: vec![],
+        upstream_test_callers: vec![],
+        production_blast_radius: 0,
+        immediate_neighbor_count: None,
+        nesting_depth: 3,
+        function_length: 50,
+        cyclomatic_complexity: 15,
+        cognitive_complexity: 20,
+        is_pure: None,
+        purity_confidence: None,
+        purity_level: None,
+        god_object_indicators: None,
+        tier: None,
+        function_context: None,
+        context_confidence: None,
+        contextual_recommendation: None,
+        pattern_analysis: None,
+        context_multiplier: None,
+        context_type: None,
+        language_specific: None, // spec 190
+        detected_pattern: None,
+        contextual_risk: None, // spec 203
+        file_line_count: None,
+        responsibility_category: None,
+        error_swallowing_count: None,
+        error_swallowing_patterns: None,
+        entropy_analysis: None,
+        context_suggestion: None,
+    }
+}
+
+#[test]
+fn test_enhanced_markdown_priority_section() {
+    let call_graph = CallGraph::new();
+    let mut analysis = UnifiedAnalysis::new(call_graph);
+
+    // Add a sample item
+    let item = create_sample_unified_item();
+    analysis.add_item(item);
+    analysis.sort_by_priority();
+
+    let mut output = Vec::new();
+    let mut writer = MarkdownWriter::new(Cursor::new(&mut output));
+
+    // Write priority section
+    writer.write_priority_section(&analysis).unwrap();
+
+    let markdown = String::from_utf8(output).unwrap();
+
+    // Print for debugging if needed
+    if !markdown.contains("process_data") {
+        println!("Markdown output:\n{}", markdown);
+    }
+
+    // Verify the output contains expected sections
+    assert!(markdown.contains("## Priority Technical Debt"));
+    if !markdown.contains("_No priority items found._") {
+        assert!(markdown.contains("### Top"));
+        assert!(markdown.contains("| Rank | Score | Function | Type | Issue |"));
+        assert!(markdown.contains("src/main.rs:42")); // Check for location instead
+        assert!(markdown.contains("Testing Gap"));
+    }
+}
+
+#[test]
+fn test_enhanced_markdown_dead_code_section() {
+    let call_graph = CallGraph::new();
+    let mut analysis = UnifiedAnalysis::new(call_graph);
+
+    // Add a dead code item
+    let mut item = create_sample_unified_item();
+    item.debt_type = DebtType::DeadCode {
+        visibility: FunctionVisibility::Private,
+        cyclomatic: 10,
+        cognitive: 15,
+        usage_hints: vec![],
+    };
+    analysis.add_item(item);
+
+    let mut output = Vec::new();
+    let mut writer = MarkdownWriter::new(Cursor::new(&mut output));
+
+    // Write dead code section
+    writer.write_dead_code_section(&analysis).unwrap();
+
+    let markdown = String::from_utf8(output).unwrap();
+
+    // Verify the output
+    assert!(markdown.contains("## Dead Code Detection"));
+    assert!(markdown.contains("### Unused Functions"));
+    assert!(markdown.contains("| Function | Visibility | Complexity | Recommendation |"));
+    assert!(markdown.contains("process_data"));
+    assert!(markdown.contains("private"));
+}
+
+#[test]
+fn test_enhanced_markdown_testing_recommendations() {
+    let call_graph = CallGraph::new();
+    let mut analysis = UnifiedAnalysis::new(call_graph);
+
+    // Add a testing gap item
+    let item = create_sample_unified_item();
+    analysis.add_item(item);
+
+    let mut output = Vec::new();
+    let mut writer = MarkdownWriter::new(Cursor::new(&mut output));
+
+    // Write testing recommendations
+    writer.write_testing_recommendations(&analysis).unwrap();
+
+    let markdown = String::from_utf8(output).unwrap();
+
+    // Verify the output
+    assert!(markdown.contains("## Testing Recommendations"));
+    assert!(markdown.contains("### ROI-Based Testing Priorities"));
+    assert!(markdown.contains("| Function | ROI | Complexity | Coverage | Risk Reduction |"));
+    assert!(markdown.contains("process_data"));
+    assert!(markdown.contains("30%")); // Coverage
+}
+
+#[test]
+fn test_enhanced_markdown_with_verbosity() {
+    let call_graph = CallGraph::new();
+    let mut analysis = UnifiedAnalysis::new(call_graph);
+
+    // Add multiple items
+    for i in 0..3 {
+        let mut item = create_sample_unified_item();
+        item.location.function = format!("function_{}", i);
+        item.unified_score.final_score = 10.0 - i as f64;
+        analysis.add_item(item);
+    }
+
+    analysis.sort_by_priority();
+
+    let mut output = Vec::new();
+    let mut writer = MarkdownWriter::with_verbosity(Cursor::new(&mut output), 2);
+
+    // Write full analysis
+    writer.write_unified_analysis(&analysis).unwrap();
+
+    let markdown = String::from_utf8(output).unwrap();
+
+    // Verify verbosity features
+    assert!(markdown.contains("<details>"));
+    assert!(markdown.contains("Score Breakdown"));
+    assert!(markdown.contains("## Call Graph Analysis"));
+    assert!(markdown.contains("### Module Statistics"));
+}
+
+#[test]
+fn test_enhanced_markdown_full_report() {
+    let call_graph = CallGraph::new();
+    let mut analysis = UnifiedAnalysis::new(call_graph);
+
+    // Add various types of debt items
+    let mut item1 = create_sample_unified_item();
+    item1.location.function = "untested_function".to_string();
+    analysis.add_item(item1);
+
+    let mut item2 = create_sample_unified_item();
+    item2.location.function = "dead_function".to_string();
+    item2.debt_type = DebtType::DeadCode {
+        visibility: FunctionVisibility::Public,
+        cyclomatic: 5,
+        cognitive: 8,
+        usage_hints: vec!["Consider removing".to_string()],
+    };
+    analysis.add_item(item2);
+
+    let mut item3 = create_sample_unified_item();
+    item3.location.function = "complex_function".to_string();
+    item3.debt_type = DebtType::ComplexityHotspot {
+        cyclomatic: 25,
+        cognitive: 30,
+    };
+    analysis.add_item(item3);
+
+    analysis.sort_by_priority();
+
+    let mut output = Vec::new();
+    let mut writer = MarkdownWriter::with_verbosity(Cursor::new(&mut output), 1);
+
+    // Write full analysis
+    writer.write_unified_analysis(&analysis).unwrap();
+
+    let markdown = String::from_utf8(output).unwrap();
+
+    // Verify all sections are present
+    assert!(markdown.contains("## Priority Technical Debt"));
+    assert!(markdown.contains("## Dead Code Detection"));
+    assert!(markdown.contains("## Testing Recommendations"));
+    assert!(markdown.contains("Top 3 Priority Items"));
+
+    // Verify specific items appear
+    assert!(markdown.contains("untested_function"));
+    assert!(markdown.contains("dead_function"));
+    assert!(markdown.contains("complex_function"));
+}

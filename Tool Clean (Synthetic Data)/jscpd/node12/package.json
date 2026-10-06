@@ -1,0 +1,13 @@
+{
+  "name": "spicecrate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Spice inventory crate for the jscpd clean-corpus folder.",
+  "type": "commonjs",
+  "scripts": {
+    "duplication": "jscpd src/ --min-lines 5 --min-tokens 30 --threshold 0 --reporters console"
+  },
+  "devDependencies": {
+    "jscpd": "4.3.0"
+  }
+}

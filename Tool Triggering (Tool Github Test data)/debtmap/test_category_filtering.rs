@@ -1,0 +1,272 @@
+use debtmap::priority::{
+    CallGraph, DebtCategory, DebtType, FunctionRole, FunctionVisibility, ImpactMetrics,
+    UnifiedAnalysis, UnifiedAnalysisUtils,
+    unified_scorer::{Location, UnifiedDebtItem, UnifiedScore},
+};
+use std::path::PathBuf;
+
+fn create_testing_item(function_name: &str) -> UnifiedDebtItem {
+    UnifiedDebtItem {
+        location: Location {
+            file: PathBuf::from("src/test.rs"),
+            function: function_name.to_string(),
+            line: 10,
+        },
+        debt_type: DebtType::TestingGap {
+            coverage: 0.2,
+            cyclomatic: 10,
+            cognitive: 12,
+        },
+        unified_score: UnifiedScore {
+            complexity_factor: 6.0,
+            coverage_factor: 7.0,
+            dependency_factor: 3.0,
+            role_multiplier: 1.0,
+            final_score: 6.5,
+            base_score: None,
+            exponential_factor: None,
+            risk_boost: None,
+            pre_adjustment_score: None,
+            adjustment_applied: None,
+            purity_factor: None,
+            refactorability_factor: None,
+            pattern_factor: None,
+            // Spec 260: Score transparency fields
+            debt_adjustment: None,
+            pre_normalization_score: None,
+            structural_multiplier: Some(1.0),
+            has_coverage_data: false,
+            contextual_risk_multiplier: None,
+            pre_contextual_score: None,
+            debt_type_multiplier: None,
+            score_trace: Vec::new(),
+        },
+        function_role: FunctionRole::PureLogic,
+        recommendation: debtmap::priority::ActionableRecommendation {
+            primary_action: "Add unit tests".to_string(),
+            rationale: "Low test coverage".to_string(),
+            implementation_steps: vec![],
+            related_items: vec![],
+            steps: None,
+            estimated_effort_hours: None,
+        },
+        expected_impact: ImpactMetrics {
+            coverage_improvement: 25.0,
+            lines_reduction: 0,
+            complexity_reduction: 0.0,
+            risk_reduction: 20.0,
+        },
+        transitive_coverage: None,
+        file_context: None,
+        upstream_dependencies: 2,
+        downstream_dependencies: 3,
+        upstream_callers: vec![],
+        downstream_callees: vec![],
+        upstream_production_callers: vec![],
+        upstream_test_callers: vec![],
+        production_blast_radius: 0,
+        immediate_neighbor_count: None,
+        nesting_depth: 2,
+        function_length: 30,
+        cyclomatic_complexity: 10,
+        cognitive_complexity: 12,
+        is_pure: None,
+        purity_confidence: None,
+        purity_level: None,
+        god_object_indicators: None,
+        tier: None,
+        function_context: None,
+        context_confidence: None,
+        contextual_recommendation: None,
+        pattern_analysis: None,
+        context_multiplier: None,
+        context_type: None,
+        language_specific: None, // spec 190
+        detected_pattern: None,  // spec 204
+        contextual_risk: None,   // spec 203
+        file_line_count: None,
+        responsibility_category: None,
+        error_swallowing_count: None,
+        error_swallowing_patterns: None,
+        entropy_analysis: None,
+        context_suggestion: None,
+    }
+}
+
+fn create_architecture_item(function_name: &str) -> UnifiedDebtItem {
+    let mut item = create_testing_item(function_name);
+    item.debt_type = DebtType::GodObject {
+        methods: 15,
+        fields: Some(8),
+        responsibilities: 8,
+        god_object_score: 50.0,
+        lines: 150,
+    };
+    item
+}
+
+fn create_performance_item(function_name: &str) -> UnifiedDebtItem {
+    let mut item = create_testing_item(function_name);
+    item.debt_type = DebtType::ResourceLeak {
+        resource_type: "File Handle".to_string(),
+        cleanup_missing: "Missing file.close() in error path".to_string(),
+    };
+    item
+}
+
+fn create_dead_code_item(function_name: &str) -> UnifiedDebtItem {
+    let mut item = create_testing_item(function_name);
+    item.debt_type = DebtType::DeadCode {
+        visibility: FunctionVisibility::Private,
+        cyclomatic: 8,
+        cognitive: 10,
+        usage_hints: vec![],
+    };
+    item
+}
+
+#[test]
+fn test_filter_testing_category() {
+    let call_graph = CallGraph::new();
+    let mut analysis = UnifiedAnalysis::new(call_graph);
+
+    // Add items from different categories
+    analysis.add_item(create_testing_item("test_func"));
+    analysis.add_item(create_architecture_item("god_func"));
+    analysis.add_item(create_performance_item("leak_func"));
+    analysis.add_item(create_dead_code_item("dead_func"));
+
+    // Filter by Testing category
+    let filtered = analysis.filter_by_categories(&[DebtCategory::Testing]);
+
+    // Should only contain testing items
+    assert_eq!(filtered.items.len(), 1);
+    assert!(filtered.items.iter().all(|item| {
+        matches!(
+            DebtCategory::from_debt_type(&item.debt_type),
+            DebtCategory::Testing
+        )
+    }));
+}
+
+#[test]
+fn test_filter_architecture_category() {
+    let call_graph = CallGraph::new();
+    let mut analysis = UnifiedAnalysis::new(call_graph);
+
+    // Add items from different categories
+    analysis.add_item(create_testing_item("test_func"));
+    analysis.add_item(create_architecture_item("god_func"));
+    analysis.add_item(create_performance_item("leak_func"));
+    analysis.add_item(create_dead_code_item("dead_func"));
+
+    // Filter by Architecture category
+    let filtered = analysis.filter_by_categories(&[DebtCategory::Architecture]);
+
+    // Should contain architecture items (GodObject + DeadCode)
+    assert!(!filtered.items.is_empty());
+    assert!(filtered.items.iter().all(|item| {
+        matches!(
+            DebtCategory::from_debt_type(&item.debt_type),
+            DebtCategory::Architecture
+        )
+    }));
+}
+
+#[test]
+fn test_filter_multiple_categories() {
+    let call_graph = CallGraph::new();
+    let mut analysis = UnifiedAnalysis::new(call_graph);
+
+    // Add items from different categories
+    analysis.add_item(create_testing_item("test_func"));
+    analysis.add_item(create_architecture_item("god_func"));
+    analysis.add_item(create_performance_item("leak_func"));
+    analysis.add_item(create_dead_code_item("dead_func"));
+
+    // Filter by Architecture and Testing categories
+    let filtered =
+        analysis.filter_by_categories(&[DebtCategory::Architecture, DebtCategory::Testing]);
+
+    // Should contain both architecture and testing items
+    assert!(filtered.items.len() >= 2);
+    assert!(filtered.items.iter().all(|item| {
+        let category = DebtCategory::from_debt_type(&item.debt_type);
+        matches!(category, DebtCategory::Architecture | DebtCategory::Testing)
+    }));
+}
+
+#[test]
+fn test_category_from_string() {
+    // Test valid category strings
+    assert_eq!(
+        DebtCategory::from_string("Architecture"),
+        Some(DebtCategory::Architecture)
+    );
+    assert_eq!(
+        DebtCategory::from_string("architecture"),
+        Some(DebtCategory::Architecture)
+    );
+    assert_eq!(
+        DebtCategory::from_string("Testing"),
+        Some(DebtCategory::Testing)
+    );
+    assert_eq!(
+        DebtCategory::from_string("testing"),
+        Some(DebtCategory::Testing)
+    );
+    assert_eq!(
+        DebtCategory::from_string("Performance"),
+        Some(DebtCategory::Performance)
+    );
+    assert_eq!(
+        DebtCategory::from_string("performance"),
+        Some(DebtCategory::Performance)
+    );
+
+    // Test CodeQuality aliases
+    assert_eq!(
+        DebtCategory::from_string("CodeQuality"),
+        Some(DebtCategory::CodeQuality)
+    );
+    assert_eq!(
+        DebtCategory::from_string("code_quality"),
+        Some(DebtCategory::CodeQuality)
+    );
+    assert_eq!(
+        DebtCategory::from_string("quality"),
+        Some(DebtCategory::CodeQuality)
+    );
+
+    // Test invalid category
+    assert_eq!(DebtCategory::from_string("InvalidCategory"), None);
+}
+
+#[test]
+fn test_filter_empty_categories() {
+    let call_graph = CallGraph::new();
+    let mut analysis = UnifiedAnalysis::new(call_graph);
+
+    analysis.add_item(create_testing_item("test_func"));
+    analysis.add_item(create_architecture_item("god_func"));
+
+    // Filter by empty category list should return nothing
+    let filtered = analysis.filter_by_categories(&[]);
+
+    assert_eq!(filtered.items.len(), 0);
+}
+
+#[test]
+fn test_filter_preserves_call_graph() {
+    let call_graph = CallGraph::new();
+    let mut analysis = UnifiedAnalysis::new(call_graph.clone());
+
+    analysis.add_item(create_testing_item("test_func"));
+    analysis.add_item(create_architecture_item("god_func"));
+
+    // Filter should preserve the call graph
+    let filtered = analysis.filter_by_categories(&[DebtCategory::Testing]);
+
+    // The call graph should still be present (we can't compare directly, but we can verify it's not empty)
+    assert_eq!(filtered.items.len(), 1);
+}

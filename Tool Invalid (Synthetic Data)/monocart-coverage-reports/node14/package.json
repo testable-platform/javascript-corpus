@@ -1,0 +1,15 @@
+{
+  "name": "shelfcount",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Warehouse shelf count for the monocart-coverage-reports invalid-corpus folder.",
+  "type": "commonjs",
+  "scripts": {
+    "test": "mocha test/**/*.test.js",
+    "coverage": "mcr node node_modules/.bin/mocha test/**/*.test.js -r v8,json-summary -o coverage-report"
+  },
+  "devDependencies": {
+    "mocha": "10.8.2",
+    "monocart-coverage-reports": "2.13.0"
+  }
+}

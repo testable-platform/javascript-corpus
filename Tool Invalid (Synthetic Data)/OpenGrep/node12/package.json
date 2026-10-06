@@ -1,0 +1,8 @@
+{
+  "name": "gatewatch",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gate access control simulator for the OpenGrep invalid-corpus folder.",
+  "type": "commonjs",
+  "devDependencies": {}
+}

@@ -1,0 +1,9 @@
+rules:
+- id: constant_propagation_ref_in_class
+  patterns:
+    - pattern: int d = 3;
+  languages:
+    - java
+  message: bad
+  severity: ERROR
+

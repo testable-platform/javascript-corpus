@@ -1,0 +1,514 @@
+{
+  "branchId": "JS_V12_ESBUILD_NPM_MONO",
+  "repository": "javascript-combos",
+  "productName": "GraniteMill",
+  "packageName": "granite-mill",
+  "domain": "Community garden plots",
+  "language": "JavaScript",
+  "node": "12.22.12",
+  "nodeFamily": 12,
+  "bundler": "esbuild",
+  "packageManager": "npm",
+  "bundledNpm": "6.14.18",
+  "architecture": "Monolith",
+  "sourceRoot": "src",
+  "package": "granite-mill",
+  "testRunner": "mocha@9.2.2",
+  "branchFunctional": true,
+  "toolRosterVersion": "js-roster-v2-2026-09-17",
+  "uniqueMetrics": 103,
+  "toolsWired": 21,
+  "toolsActive": 8,
+  "toolsDark": 13,
+  "toolsActiveDetail": [
+    {
+      "tool": "Lizard",
+      "dir": "lizard",
+      "role": "primary",
+      "block": "Cyclomatic Complexity",
+      "pin": "lizard (pip)",
+      "status": "active",
+      "measured": true,
+      "note": "measured directly: pip-installed and run for real against this domain's src/ (lizard 1.24.0). Found policy.js's evaluatePolicy as the highest-CCN function at 18 -- corrects an earlier assumption that dataflow.js's tally loop (CCN 17) was highest; Node-independent by construction, so this holds on every family."
+    },
+    {
+      "tool": "cyclomatic-complexity",
+      "dir": "cyclomatic-complexity",
+      "role": "alternative",
+      "block": "Cyclomatic Complexity",
+      "pin": null,
+      "status": "skipped",
+      "measured": false,
+      "note": "cyclomatic-complexity has no release compatible with Node 12 (npm registry engines.node range, prereleases excluded)."
+    },
+    {
+      "tool": "eslint-plugin-sonarjs",
+      "dir": "sonarjs",
+      "role": "primary",
+      "block": "Cognitive Complexity",
+      "pin": "eslint-plugin-sonarjs==4.2.1",
+      "status": "skipped",
+      "measured": true,
+      "note": "Runs through eslint itself, whose own status on Node 12 governs this plugin: eslint-plugin-sonarjs's own dependency code uses `?.`, which Node 12's V8 (7.8) cannot parse at all -- confirmed by direct invocation, not just the declared engines range."
+    },
+    {
+      "tool": "cognitive-complexity-ts",
+      "dir": "cognitive-complexity-ts",
+      "role": "alternative",
+      "block": "Cognitive Complexity",
+      "pin": "cognitive-complexity-ts==0.8.2",
+      "status": "active",
+      "measured": false,
+      "note": "cognitive-complexity-ts 0.8.2 declares Node 12 compatibility (npm registry engines.node range)."
+    },
+    {
+      "tool": "jscpd",
+      "dir": "jscpd",
+      "role": "primary",
+      "block": "Code Duplication",
+      "pin": "jscpd==4.3.0",
+      "status": "skipped",
+      "measured": true,
+      "note": "jscpd's dependency fs-extra uses `??`, which crashes outright on Node 12's V8 (7.8)."
+    },
+    {
+      "tool": "Dolos",
+      "dir": "dolos",
+      "role": "alternative",
+      "block": "Code Duplication",
+      "pin": "@dodona/dolos==1.6.0",
+      "status": "not_installed",
+      "measured": false,
+      "note": "dolos's native tree-sitter step needs a C++ toolchain -- already documented as absent on this host by the C#/Python sibling corpora's own precedent; installs with --ignore-scripts, which skips the native build"
+    },
+    {
+      "tool": "eslint",
+      "dir": "eslint",
+      "role": "primary",
+      "block": "Lint / Rule Violations",
+      "pin": "eslint==8.57.1",
+      "status": "skipped",
+      "measured": true,
+      "note": "eslint-plugin-sonarjs's own dependency code uses `?.`, which Node 12's V8 (7.8) cannot parse at all -- confirmed by direct invocation, not just the declared engines range."
+    },
+    {
+      "tool": "oxlint",
+      "dir": "oxlint",
+      "role": "alternative",
+      "block": "Lint / Rule Violations",
+      "pin": "oxlint==1.16.0",
+      "status": "skipped",
+      "measured": true,
+      "note": "ERR_UNKNOWN_FILE_EXTENSION loading oxlint's own native binary -- Node-version-independent for this pin (1.16.0); reproduces identically on 12 and 14."
+    },
+    {
+      "tool": "eslint-plugin-security",
+      "dir": "security",
+      "role": "primary",
+      "block": "Static Vulnerabilities (SAST)",
+      "pin": "eslint-plugin-security==2.1.1",
+      "status": "skipped",
+      "measured": true,
+      "note": "Runs through eslint itself, whose own status on Node 12 governs this plugin: eslint-plugin-sonarjs's own dependency code uses `?.`, which Node 12's V8 (7.8) cannot parse at all -- confirmed by direct invocation, not just the declared engines range."
+    },
+    {
+      "tool": "OpenGrep",
+      "dir": "opengrep",
+      "role": "alternative",
+      "block": "Static Vulnerabilities (SAST)",
+      "pin": null,
+      "status": "not_installed",
+      "measured": false,
+      "note": "standalone binary, not installable via npm/pip on this host -- same category as Dolos's native step and the Python corpus's own Trivy/OpenGrep entries"
+    },
+    {
+      "tool": "npm audit + npm ls",
+      "dir": "npm-audit",
+      "role": "primary",
+      "block": "Dependency Risk (SCA)",
+      "pin": null,
+      "status": "active",
+      "measured": false,
+      "note": "npm's own bundled audit/ls -- ships with npm itself on every Node family this corpus supports."
+    },
+    {
+      "tool": "Trivy",
+      "dir": "trivy",
+      "role": "alternative",
+      "block": "Dependency Risk (SCA)",
+      "pin": null,
+      "status": "not_installed",
+      "measured": false,
+      "note": "standalone binary, not installable via npm/pip on this host"
+    },
+    {
+      "tool": "nyc + mocha",
+      "dir": "nyc",
+      "role": "primary",
+      "block": "Statement Coverage / Branch Coverage / Path Coverage (proxy)",
+      "pin": "nyc==15.1.0",
+      "status": "active",
+      "measured": true,
+      "note": "clean on every family once the architecture-aware test glob (bug #1) and the Microservices require() path (bug #4) were both fixed."
+    },
+    {
+      "tool": "monocart-coverage-reports",
+      "dir": "monocart",
+      "role": "alternative",
+      "block": "Statement Coverage / Branch Coverage / Path Coverage (proxy) / Coverage Delta",
+      "pin": "monocart-coverage-reports==2.13.0",
+      "status": "active",
+      "measured": false,
+      "note": "monocart-coverage-reports 2.13.0 declares Node 12 compatibility (npm registry engines.node range)."
+    },
+    {
+      "tool": "StrykerJS + Mocha",
+      "dir": "stryker",
+      "role": "primary",
+      "block": "Mutation Score",
+      "pin": "@stryker-mutator/core==5.6.1",
+      "status": "skipped",
+      "measured": true,
+      "note": "stryker's dependency chain (inquirer) uses `??`, which crashes on Node 12's V8. Separately, this family's resolved `@stryker-mutator/mocha-runner` (5.6.1, the newest release Node 12's `engines` floor allows) predates a mocha-runner internal bridge compatible with the mocha release that also resolves here -- two independent, compounding reasons this tool cannot run."
+    },
+    {
+      "tool": "gutcheck",
+      "dir": "gutcheck",
+      "role": "alternative",
+      "block": "Mutation Score",
+      "pin": null,
+      "status": "skipped",
+      "measured": false,
+      "note": "gutcheck has no release compatible with Node 12 (npm registry engines.node range, prereleases excluded)."
+    },
+    {
+      "tool": "diff-cover",
+      "dir": "diff-cover",
+      "role": "primary",
+      "block": "Coverage Delta",
+      "pin": "diff-cover (pip)",
+      "status": "active",
+      "measured": true,
+      "note": "the diff-cover CLI itself was invoked for real (pip install + --help) and works; its coverage-delta output depends on nyc's cobertura report, which needs a full npm install this session's verification bridge could not complete (slow mounted filesystem + shared disk quota, not a tool defect -- see javascript-repos-build-contract.md). Node-independent by construction."
+    },
+    {
+      "tool": "ESLint (eslint-scope)",
+      "dir": "eslint-scope",
+      "role": "primary",
+      "block": "All Definition Coverage / All Uses Coverage",
+      "pin": "eslint-scope==7.2.2",
+      "status": "active",
+      "measured": true,
+      "note": "clean on every family tested (12 through 26) -- the dataflow script is hand-written without `?.`/`??` specifically so it never depends on the same syntax features that break other tools on the oldest families."
+    },
+    {
+      "tool": "knip",
+      "dir": "knip",
+      "role": "alternative",
+      "block": "All Definition Coverage / All Uses Coverage",
+      "pin": null,
+      "status": "skipped",
+      "measured": false,
+      "note": "knip has no release compatible with Node 12 (npm registry engines.node range, prereleases excluded)."
+    },
+    {
+      "tool": "PyDriller",
+      "dir": "pydriller",
+      "role": "primary",
+      "block": "Code Churn",
+      "pin": "pydriller (pip)",
+      "status": "active",
+      "measured": false,
+      "note": "PyDriller is a Python package invoked externally via a small wrapper script -- Node-version-independent by construction."
+    },
+    {
+      "tool": "Git-Spark",
+      "dir": "git-spark",
+      "role": "alternative",
+      "block": "Code Churn",
+      "pin": null,
+      "status": "skipped",
+      "measured": false,
+      "note": "Git-Spark has no release compatible with Node 12 (npm registry engines.node range, prereleases excluded)."
+    }
+  ],
+  "toolsInactive": [
+    {
+      "tool": "cyclomatic-complexity",
+      "dir": "cyclomatic-complexity",
+      "role": "alternative",
+      "block": "Cyclomatic Complexity",
+      "pin": null,
+      "status": "skipped",
+      "measured": false,
+      "note": "cyclomatic-complexity has no release compatible with Node 12 (npm registry engines.node range, prereleases excluded)."
+    },
+    {
+      "tool": "eslint-plugin-sonarjs",
+      "dir": "sonarjs",
+      "role": "primary",
+      "block": "Cognitive Complexity",
+      "pin": "eslint-plugin-sonarjs==4.2.1",
+      "status": "skipped",
+      "measured": true,
+      "note": "Runs through eslint itself, whose own status on Node 12 governs this plugin: eslint-plugin-sonarjs's own dependency code uses `?.`, which Node 12's V8 (7.8) cannot parse at all -- confirmed by direct invocation, not just the declared engines range."
+    },
+    {
+      "tool": "jscpd",
+      "dir": "jscpd",
+      "role": "primary",
+      "block": "Code Duplication",
+      "pin": "jscpd==4.3.0",
+      "status": "skipped",
+      "measured": true,
+      "note": "jscpd's dependency fs-extra uses `??`, which crashes outright on Node 12's V8 (7.8)."
+    },
+    {
+      "tool": "Dolos",
+      "dir": "dolos",
+      "role": "alternative",
+      "block": "Code Duplication",
+      "pin": "@dodona/dolos==1.6.0",
+      "status": "not_installed",
+      "measured": false,
+      "note": "dolos's native tree-sitter step needs a C++ toolchain -- already documented as absent on this host by the C#/Python sibling corpora's own precedent; installs with --ignore-scripts, which skips the native build"
+    },
+    {
+      "tool": "eslint",
+      "dir": "eslint",
+      "role": "primary",
+      "block": "Lint / Rule Violations",
+      "pin": "eslint==8.57.1",
+      "status": "skipped",
+      "measured": true,
+      "note": "eslint-plugin-sonarjs's own dependency code uses `?.`, which Node 12's V8 (7.8) cannot parse at all -- confirmed by direct invocation, not just the declared engines range."
+    },
+    {
+      "tool": "oxlint",
+      "dir": "oxlint",
+      "role": "alternative",
+      "block": "Lint / Rule Violations",
+      "pin": "oxlint==1.16.0",
+      "status": "skipped",
+      "measured": true,
+      "note": "ERR_UNKNOWN_FILE_EXTENSION loading oxlint's own native binary -- Node-version-independent for this pin (1.16.0); reproduces identically on 12 and 14."
+    },
+    {
+      "tool": "eslint-plugin-security",
+      "dir": "security",
+      "role": "primary",
+      "block": "Static Vulnerabilities (SAST)",
+      "pin": "eslint-plugin-security==2.1.1",
+      "status": "skipped",
+      "measured": true,
+      "note": "Runs through eslint itself, whose own status on Node 12 governs this plugin: eslint-plugin-sonarjs's own dependency code uses `?.`, which Node 12's V8 (7.8) cannot parse at all -- confirmed by direct invocation, not just the declared engines range."
+    },
+    {
+      "tool": "OpenGrep",
+      "dir": "opengrep",
+      "role": "alternative",
+      "block": "Static Vulnerabilities (SAST)",
+      "pin": null,
+      "status": "not_installed",
+      "measured": false,
+      "note": "standalone binary, not installable via npm/pip on this host -- same category as Dolos's native step and the Python corpus's own Trivy/OpenGrep entries"
+    },
+    {
+      "tool": "Trivy",
+      "dir": "trivy",
+      "role": "alternative",
+      "block": "Dependency Risk (SCA)",
+      "pin": null,
+      "status": "not_installed",
+      "measured": false,
+      "note": "standalone binary, not installable via npm/pip on this host"
+    },
+    {
+      "tool": "StrykerJS + Mocha",
+      "dir": "stryker",
+      "role": "primary",
+      "block": "Mutation Score",
+      "pin": "@stryker-mutator/core==5.6.1",
+      "status": "skipped",
+      "measured": true,
+      "note": "stryker's dependency chain (inquirer) uses `??`, which crashes on Node 12's V8. Separately, this family's resolved `@stryker-mutator/mocha-runner` (5.6.1, the newest release Node 12's `engines` floor allows) predates a mocha-runner internal bridge compatible with the mocha release that also resolves here -- two independent, compounding reasons this tool cannot run."
+    },
+    {
+      "tool": "gutcheck",
+      "dir": "gutcheck",
+      "role": "alternative",
+      "block": "Mutation Score",
+      "pin": null,
+      "status": "skipped",
+      "measured": false,
+      "note": "gutcheck has no release compatible with Node 12 (npm registry engines.node range, prereleases excluded)."
+    },
+    {
+      "tool": "knip",
+      "dir": "knip",
+      "role": "alternative",
+      "block": "All Definition Coverage / All Uses Coverage",
+      "pin": null,
+      "status": "skipped",
+      "measured": false,
+      "note": "knip has no release compatible with Node 12 (npm registry engines.node range, prereleases excluded)."
+    },
+    {
+      "tool": "Git-Spark",
+      "dir": "git-spark",
+      "role": "alternative",
+      "block": "Code Churn",
+      "pin": null,
+      "status": "skipped",
+      "measured": false,
+      "note": "Git-Spark has no release compatible with Node 12 (npm registry engines.node range, prereleases excluded)."
+    }
+  ],
+  "plantedFixtures": {
+    "duplication": [
+      "src/http-errors.js",
+      "src/http-errors-legacy.js"
+    ]
+  },
+  "metrics": [
+    {
+      "block": "Cyclomatic Complexity",
+      "metricCount": 6,
+      "primaryTool": "Lizard",
+      "primaryVersion": null,
+      "alternativeTool": "cyclomatic-complexity",
+      "alternativeVersion": null,
+      "compatNotes": [
+        "cyclomatic-complexity not available on Node 12 (engines.node excludes this family)"
+      ]
+    },
+    {
+      "block": "Cognitive Complexity",
+      "metricCount": 7,
+      "primaryTool": "eslint-plugin-sonarjs",
+      "primaryVersion": "4.2.1",
+      "alternativeTool": "cognitive-complexity-ts",
+      "alternativeVersion": "0.8.2",
+      "compatNotes": []
+    },
+    {
+      "block": "Code Duplication",
+      "metricCount": 7,
+      "primaryTool": "jscpd",
+      "primaryVersion": "4.3.0",
+      "alternativeTool": "Dolos",
+      "alternativeVersion": "1.6.0",
+      "compatNotes": []
+    },
+    {
+      "block": "Lint / Rule Violations",
+      "metricCount": 12,
+      "primaryTool": "eslint",
+      "primaryVersion": "8.57.1",
+      "alternativeTool": "oxlint",
+      "alternativeVersion": "1.16.0",
+      "compatNotes": []
+    },
+    {
+      "block": "Static Vulnerabilities (SAST)",
+      "metricCount": 7,
+      "primaryTool": "eslint-plugin-security",
+      "primaryVersion": "2.1.1",
+      "alternativeTool": "OpenGrep",
+      "alternativeVersion": null,
+      "compatNotes": []
+    },
+    {
+      "block": "Dependency Risk (SCA)",
+      "metricCount": 8,
+      "primaryTool": "npm audit + npm ls",
+      "primaryVersion": null,
+      "alternativeTool": "trivy",
+      "alternativeVersion": null,
+      "compatNotes": []
+    },
+    {
+      "block": "Statement Coverage",
+      "metricCount": 5,
+      "primaryTool": "nyc + mocha",
+      "primaryVersion": "15.1.0",
+      "alternativeTool": "monocart-coverage-reports",
+      "alternativeVersion": "2.13.0",
+      "compatNotes": []
+    },
+    {
+      "block": "Branch Coverage",
+      "metricCount": 7,
+      "primaryTool": "nyc + mocha",
+      "primaryVersion": "15.1.0",
+      "alternativeTool": "monocart-coverage-reports",
+      "alternativeVersion": "2.13.0",
+      "compatNotes": []
+    },
+    {
+      "block": "Path Coverage",
+      "metricCount": 10,
+      "primaryTool": "nyc + mocha (branch-coverage proxy)",
+      "primaryVersion": "15.1.0",
+      "alternativeTool": "monocart-coverage-reports",
+      "alternativeVersion": "2.13.0",
+      "compatNotes": [
+        "No JS-native path-coverage tool resolved; branch coverage used as a documented proxy."
+      ]
+    },
+    {
+      "block": "Mutation Score",
+      "metricCount": 7,
+      "primaryTool": "StrykerJS + Mocha",
+      "primaryVersion": "5.6.1",
+      "alternativeTool": "gutcheck",
+      "alternativeVersion": null,
+      "compatNotes": [
+        "gutcheck not available on Node 12 (engines.node excludes this family)"
+      ]
+    },
+    {
+      "block": "Coverage Delta",
+      "metricCount": 6,
+      "primaryTool": "diff-cover",
+      "primaryVersion": null,
+      "alternativeTool": "monocart-coverage-reports",
+      "alternativeVersion": "2.13.0",
+      "compatNotes": []
+    },
+    {
+      "block": "All Definition Coverage",
+      "metricCount": 6,
+      "primaryTool": "ESLint (eslint-scope)",
+      "primaryVersion": "7.2.2",
+      "alternativeTool": "knip",
+      "alternativeVersion": null,
+      "compatNotes": [
+        "knip not available on Node 12 (engines.node excludes this family)"
+      ]
+    },
+    {
+      "block": "All Uses Coverage",
+      "metricCount": 10,
+      "primaryTool": "ESLint (eslint-scope)",
+      "primaryVersion": "7.2.2",
+      "alternativeTool": "knip",
+      "alternativeVersion": null,
+      "compatNotes": [
+        "knip not available on Node 12 (engines.node excludes this family)"
+      ]
+    },
+    {
+      "block": "Code Churn",
+      "metricCount": 5,
+      "primaryTool": "pydriller",
+      "primaryVersion": null,
+      "alternativeTool": "Git-Spark",
+      "alternativeVersion": null,
+      "compatNotes": [
+        "Git-Spark not available on Node 12 (engines.node excludes this family)"
+      ]
+    }
+  ],
+  "status": "generated"
+}

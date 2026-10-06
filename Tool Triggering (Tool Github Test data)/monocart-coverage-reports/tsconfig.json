@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "ignoreDeprecations": "6.0",
+        "types": [
+            "node"
+        ]
+    }
+}

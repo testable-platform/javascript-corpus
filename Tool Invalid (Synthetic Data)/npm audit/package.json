@@ -1,0 +1,11 @@
+{
+  "name": "cratebox",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shipping crate manifest for the npm-audit invalid-corpus folder.",
+  "type": "commonjs",
+  "dependencies": {
+    "minimist": "0.0.8"
+  },
+  "devDependencies": {}
+}

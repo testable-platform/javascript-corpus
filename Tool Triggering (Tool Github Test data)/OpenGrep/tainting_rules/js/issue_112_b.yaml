@@ -1,0 +1,22 @@
+rules:
+  - id: issue_112_b
+    message: message
+    languages:
+      - javascript
+    severity: ERROR
+    mode: taint
+    pattern-sinks:
+    - patterns:
+        - pattern: |
+           `$FIRST${$_}$SECOND${$EXPR}...`
+        - metavariable-regex:
+            metavariable: $SECOND
+            regex:  \sother text \\`other text inside backticks\\`\s
+    pattern-sources:
+    - patterns:
+        - pattern-inside: |
+            ($IGNORE, $INPUT, ...) => {
+              ...
+            }
+        - pattern: $INPUT
+

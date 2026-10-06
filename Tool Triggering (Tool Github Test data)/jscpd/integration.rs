@@ -1,0 +1,3040 @@
+// rust/crates/cpd/tests/integration.rs
+
+mod common;
+
+use std::path::PathBuf;
+use std::process::Command;
+use std::process::Output;
+
+fn cpd_bin() -> PathBuf {
+    // Compile-time CARGO_BIN_EXE_cpd: cargo guarantees the bin target is
+    // built before integration tests run, with the correct target dir and
+    // executable suffix. Do NOT shell out to `cargo build` here — each test
+    // process doing so raced: cargo refreshes target/debug/cpd by removing
+    // and re-creating a hardlink, and a parallel test spawning the binary in
+    // that window failed with NotFound (flaked on macOS CI).
+    PathBuf::from(env!("CARGO_BIN_EXE_cpd"))
+}
+
+fn maybe_bin() -> Option<PathBuf> {
+    let bin = cpd_bin();
+    if bin.exists() { Some(bin) } else { None }
+}
+
+fn run_cpd<I, S>(args: I) -> Option<Output>
+where
+    I: IntoIterator<Item = S>,
+    S: AsRef<std::ffi::OsStr>,
+{
+    let bin = maybe_bin()?;
+    Some(
+        Command::new(&bin)
+            .args(args)
+            .output()
+            .expect("failed to run cpd"),
+    )
+}
+
+fn run_cpd_config(fixture: &str) -> Option<Output> {
+    let config_path = fixtures_dir().join(fixture);
+    run_cpd([
+        "--config",
+        config_path.to_str().unwrap(),
+        "--reporters",
+        "silent",
+        ".",
+    ])
+}
+
+fn assert_config_loads_successfully(fixture: &str) {
+    let output = run_cpd_config(fixture).expect("cpd binary must exist");
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        !stderr.contains("config file"),
+        "config {} should not have config errors, got: {}",
+        fixture,
+        stderr
+    );
+    assert!(
+        stderr.contains("Using config from"),
+        "config {} should load config file, got: {}",
+        fixture,
+        stderr
+    );
+}
+
+fn fixtures_dir() -> PathBuf {
+    let mut path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    path.push("tests/fixtures");
+    path
+}
+
+#[test]
+fn help_exits_zero() {
+    let output = run_cpd(["--help"]).expect("cpd binary must exist");
+    assert!(output.status.success(), "--help must exit 0");
+}
+
+#[test]
+fn list_prints_formats() {
+    let output = run_cpd(["--list"]).expect("cpd binary must exist");
+    assert!(output.status.success(), "--list must exit 0");
+    let stdout = String::from_utf8_lossy(&output.stdout);
+    assert!(
+        stdout.contains("javascript"),
+        "--list must include 'javascript'"
+    );
+    assert!(stdout.contains("python"), "--list must include 'python'");
+}
+
+#[test]
+fn scan_nonexistent_path_exits_without_panic() {
+    let _output = run_cpd(["--reporters", "silent", "/tmp/cpd-nonexistent-xyz-12345"]);
+    // Just verify it doesn't crash (SIGSEGV etc.) — any exit code is fine
+}
+
+/// Run cpd in a given working directory (for config auto-discovery tests).
+fn run_cpd_in_dir(dir: &std::path::Path) -> Option<Output> {
+    let bin = maybe_bin()?;
+    Some(
+        Command::new(&bin)
+            .args(["--reporters", "silent", "."])
+            .current_dir(dir)
+            .output()
+            .expect("failed to run cpd"),
+    )
+}
+
+/// Two files sharing one small function: the smallest clone that clears
+/// `--min-tokens 10`, used by the reporter and path-handling tests below.
+const GREET_DUP: &str = "function greet(name) {\n  const message = \"Hello, \" + name + \"!\";\n  console.log(message);\n  console.log(\"Welcome to the system\");\n  console.log(\"Have a nice day now\");\n  return message;\n}\n";
+
+fn write_greet_pair(dir: &std::path::Path) {
+    std::fs::write(dir.join("a.js"), GREET_DUP).expect("write a.js");
+    std::fs::write(dir.join("b.js"), GREET_DUP).expect("write b.js");
+}
+
+/// Fresh temp root named after `name` with `subdir` (or the root itself when
+/// empty) holding the greet pair. Returns (root, scan dir).
+fn greet_root(name: &str, subdir: &str) -> (PathBuf, PathBuf) {
+    let root = std::env::temp_dir().join(format!("cpd-{name}-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    let dir = if subdir.is_empty() {
+        root.clone()
+    } else {
+        root.join(subdir)
+    };
+    std::fs::create_dir_all(&dir).expect("create scan dir");
+    write_greet_pair(&dir);
+    (root, dir)
+}
+
+/// Run cpd with `args` from `cwd` and assert it exited successfully.
+fn run_ok_in(cwd: &std::path::Path, args: &[&str]) -> Output {
+    let output = Command::new(cpd_bin())
+        .args(args)
+        .current_dir(cwd)
+        .output()
+        .expect("failed to run cpd");
+    assert!(
+        output.status.success(),
+        "cpd must succeed, stderr: {}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    output
+}
+
+fn read_json(path: &std::path::Path) -> serde_json::Value {
+    let content = std::fs::read_to_string(path)
+        .unwrap_or_else(|e| panic!("{} must exist: {e}", path.display()));
+    serde_json::from_str(&content).expect("valid JSON")
+}
+
+/// Scan `dir` with `args` plus the json+silent reporters writing to `out`;
+/// returns the parsed report and stderr.
+/// Kind, similarity and matched tokens of every duplicate in a JSON report.
+fn duplicate_shapes(report: &serde_json::Value) -> Vec<(String, Option<f64>, u64)> {
+    report["duplicates"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .map(|d| {
+            (
+                d["kind"].as_str().unwrap().to_string(),
+                d["similarity"].as_f64(),
+                d["tokens"].as_u64().unwrap(),
+            )
+        })
+        .collect()
+}
+
+fn scan_json(
+    dir: &std::path::Path,
+    out: &std::path::Path,
+    args: &[&str],
+) -> (serde_json::Value, String) {
+    let output = Command::new(cpd_bin())
+        .args(args)
+        .args([
+            "--reporters",
+            "json,silent",
+            "--output",
+            out.to_str().unwrap(),
+        ])
+        .arg(dir)
+        .output()
+        .expect("failed to run cpd");
+    assert!(output.status.success(), "scan failed: {}", output.status);
+    (
+        read_json(&out.join("jscpd-report.json")),
+        String::from_utf8_lossy(&output.stderr).to_string(),
+    )
+}
+
+/// Run cpd on a scratch directory with `args`, delete the directory, and
+/// return the exit code with stderr.
+fn run_scratch(dir: &std::path::Path, args: &[&str]) -> (Option<i32>, String) {
+    let mut full: Vec<std::ffi::OsString> = vec![dir.as_os_str().to_owned()];
+    full.extend(args.iter().map(std::ffi::OsString::from));
+    let output = run_cpd(full).expect("cpd binary must exist");
+    std::fs::remove_dir_all(dir).ok();
+    (
+        output.status.code(),
+        String::from_utf8_lossy(&output.stderr).to_string(),
+    )
+}
+
+/// Temp dir named `name` holding the given (relative path, content) files.
+fn config_dir(name: &str, files: &[(&str, &str)]) -> PathBuf {
+    let dir = std::env::temp_dir().join(format!("cpd-{name}-{}", std::process::id()));
+    for (rel, content) in files {
+        let path = dir.join(rel);
+        std::fs::create_dir_all(path.parent().unwrap()).unwrap();
+        std::fs::write(path, content).unwrap();
+    }
+    dir
+}
+
+/// Run cpd inside `dir` (config auto-discovery), delete it, return stderr.
+fn stderr_in_dir(dir: &std::path::Path) -> String {
+    let output = run_cpd_in_dir(dir).expect("cpd binary must exist");
+    std::fs::remove_dir_all(dir).ok();
+    String::from_utf8_lossy(&output.stderr).to_string()
+}
+
+#[test]
+fn dot_config_subfolder_is_discovered() {
+    let dir = config_dir(
+        "dotconfig",
+        &[(".config/jscpd.json", r#"{"minTokens": 42}"#)],
+    );
+
+    let stderr = stderr_in_dir(&dir);
+    assert!(
+        stderr.contains("Using config from .config/jscpd.json"),
+        "must discover .config/jscpd.json, got stderr: {}",
+        stderr
+    );
+}
+
+#[test]
+fn root_config_wins_over_dot_config_subfolder() {
+    let dir = config_dir(
+        "dotconfig-prec",
+        &[
+            (".jscpd.json", r#"{"minTokens": 42}"#),
+            (".config/jscpd.json", r#"{"minTokens": 99}"#),
+        ],
+    );
+
+    let stderr = stderr_in_dir(&dir);
+    assert!(
+        stderr.contains("Using config from .jscpd.json"),
+        "root .jscpd.json must take precedence, got stderr: {}",
+        stderr
+    );
+}
+
+#[test]
+fn a_config_beside_the_scanned_path_is_not_read() {
+    // `npx jscpd ../project` reads config from the working directory only; a
+    // `.jscpd.json` inside the scanned project (fixtures/ has one with
+    // `"silent": true`) must not silence `-r ai`.
+    let dir = config_dir(
+        "scanned-path-config",
+        &[
+            ("project/.jscpd.json", r#"{"silent": true}"#),
+            ("project/a.js", "const a = 1;\n"),
+            ("elsewhere/keep.txt", "no config here\n"),
+        ],
+    );
+    let Some(bin) = maybe_bin() else { return };
+    let output = Command::new(&bin)
+        .args(["--reporters", "silent", "../project"])
+        .current_dir(dir.join("elsewhere"))
+        .output()
+        .expect("failed to run cpd");
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    std::fs::remove_dir_all(&dir).ok();
+    assert!(
+        !stderr.contains("Using config from"),
+        "only the working directory is searched, got stderr: {stderr}"
+    );
+}
+
+#[test]
+fn unknown_format_is_an_error() {
+    // #964 made this a warning; #1047 makes it fatal, because a scan that
+    // matches no files otherwise reports a clean run with exit 0.
+    let output = run_cpd(["--format", "zzzznotalang", "--reporters", "silent", "."])
+        .expect("cpd binary must exist");
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert_eq!(output.status.code(), Some(1), "stderr: {}", stderr);
+    assert!(
+        stderr.contains("Error: --format: 'zzzznotalang' is not a supported format"),
+        "unknown --format must be an error, got stderr: {}",
+        stderr
+    );
+}
+
+#[test]
+fn custom_format_from_formats_names_is_accepted() {
+    let output = run_cpd([
+        "--format",
+        "zzzzcustom",
+        "--formats-names",
+        "zzzzcustom:Zzzzfile",
+        "--reporters",
+        "silent",
+        ".",
+    ])
+    .expect("cpd binary must exist");
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        !stderr.contains("not a supported format"),
+        "a format introduced by --formats-names must be accepted, got stderr: {}",
+        stderr
+    );
+}
+
+#[test]
+fn known_format_prints_no_warning() {
+    let output = run_cpd(["--format", "csharp", "--reporters", "silent", "."])
+        .expect("cpd binary must exist");
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        !stderr.contains("not a supported format"),
+        "known --format must not warn, got stderr: {}",
+        stderr
+    );
+}
+
+#[test]
+fn store_flag_prints_warning() {
+    let output = run_cpd(["--store", "leveldb", "--reporters", "silent", "."])
+        .expect("cpd binary must exist");
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        stderr.contains("not supported")
+            || stderr.contains("Warning")
+            || stderr.contains("ignored"),
+        "--store must print warning, got stderr: {}",
+        stderr
+    );
+}
+
+#[test]
+fn time_printed_automatically() {
+    let output = run_cpd(["--reporters", "console", "."]).expect("cpd binary must exist");
+    let stdout = String::from_utf8_lossy(&output.stdout);
+    assert!(
+        stdout.contains("time:") && (stdout.contains("ms") || stdout.contains("s")),
+        "timing should be printed automatically, got: {}",
+        stdout
+    );
+}
+
+#[test]
+fn time_not_printed_for_silent() {
+    let output = run_cpd(["--reporters", "silent", "."]).expect("cpd binary must exist");
+    let stdout = String::from_utf8_lossy(&output.stdout);
+    assert!(
+        !stdout.contains("time:"),
+        "timing should NOT be printed for silent reporter, got: {}",
+        stdout
+    );
+}
+
+#[test]
+fn explicit_config_malformed_json_exits_with_error() {
+    let output = run_cpd_config("malformed_json.jscpd.json").expect("cpd binary must exist");
+
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        !output.status.success(),
+        "malformed config must exit non-zero, got: {}",
+        output.status
+    );
+    assert!(
+        stderr.contains("config file"),
+        "stderr must mention 'config file', got: {}",
+        stderr
+    );
+    assert!(
+        stderr.contains("ParseError")
+            || stderr.contains("parse")
+            || stderr.contains("trailing comma")
+            || stderr.contains("expected"),
+        "stderr must mention JSON parse error, got: {}",
+        stderr
+    );
+}
+
+#[test]
+fn explicit_config_unknown_field_warns() {
+    let output = run_cpd_config("unknown_fields.jscpd.json").expect("cpd binary must exist");
+
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        output.status.success(),
+        "unknown field must not be fatal, got: {}",
+        output.status
+    );
+    assert!(
+        stderr.contains("minTokenz"),
+        "stderr must mention the unknown field 'minTokenz', got: {}",
+        stderr
+    );
+    assert!(
+        stderr.contains("unknown field"),
+        "stderr must contain 'unknown field', got: {}",
+        stderr
+    );
+}
+
+#[test]
+fn explicit_config_invalid_mode_warns() {
+    let output = run_cpd_config("invalid_mode.jscpd.json").expect("cpd binary must exist");
+
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        output.status.success(),
+        "invalid mode must not be fatal, got: {}",
+        output.status
+    );
+    assert!(
+        stderr.contains("mode"),
+        "stderr must mention 'mode', got: {}",
+        stderr
+    );
+    assert!(
+        stderr.contains("fast"),
+        "stderr must mention 'fast', got: {}",
+        stderr
+    );
+    assert!(
+        stderr.contains("mild") || stderr.contains("weak") || stderr.contains("strict"),
+        "stderr must mention valid modes, got: {}",
+        stderr
+    );
+}
+
+#[test]
+fn explicit_config_valid_succeeds() {
+    let output = run_cpd_config("valid.jscpd.json").expect("cpd binary must exist");
+
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        output.status.success(),
+        "valid config must exit 0, got: {}",
+        output.status
+    );
+    assert!(
+        stderr.contains("Using config from"),
+        "should load config file, got: {}",
+        stderr
+    );
+}
+
+#[test]
+fn explicit_config_type_mismatch_exits_with_error() {
+    let output = run_cpd_config("type_mismatch.jscpd.json").expect("cpd binary must exist");
+
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        !output.status.success(),
+        "type mismatch config must exit non-zero, got: {}",
+        output.status
+    );
+    assert!(
+        stderr.contains("config file") || stderr.contains("invalid type"),
+        "stderr must mention config/type error, got: {}",
+        stderr
+    );
+}
+
+#[test]
+fn explicit_config_v4_fields_warns() {
+    let output = run_cpd_config("v4_fields.jscpd.json").expect("cpd binary must exist");
+
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        output.status.success(),
+        "v4 removed fields must not be fatal, got: {}",
+        output.status
+    );
+    assert!(
+        stderr.contains("removed from config file in v5"),
+        "stderr must warn about removed v4 fields, got: {}",
+        stderr
+    );
+}
+
+#[test]
+fn config_with_ignore_and_ignore_pattern_succeeds() {
+    assert_config_loads_successfully("v4_ignore_and_pattern.jscpd.json");
+}
+
+#[test]
+fn config_with_ignore_pattern_regex_succeeds() {
+    assert_config_loads_successfully("v4_ignore_pattern_regex.jscpd.json");
+}
+
+#[test]
+fn config_with_mixed_v4_fields_and_ignore_succeeds() {
+    assert_config_loads_successfully("v4_mixed_ignore_fields.jscpd.json");
+}
+
+#[test]
+fn config_with_jsonc_comments_and_ignore_succeeds() {
+    assert_config_loads_successfully("v4_ignore_with_jsonc.jscpd.json");
+}
+
+#[test]
+fn cli_ignore_flag_accepted() {
+    let output = run_cpd([
+        "--ignore",
+        "*.test.js,*.spec.ts",
+        "--reporters",
+        "silent",
+        ".",
+    ])
+    .expect("cpd binary must exist");
+
+    assert!(
+        output.status.success(),
+        "--ignore flag must be accepted, got: {}",
+        output.status
+    );
+}
+
+#[test]
+fn cli_ignore_pattern_flag_accepted() {
+    let output = run_cpd(["--ignore-pattern", "function", "--reporters", "silent", "."])
+        .expect("cpd binary must exist");
+
+    assert!(
+        output.status.success(),
+        "--ignore-pattern flag must be accepted, got: {}",
+        output.status
+    );
+}
+
+#[test]
+fn cli_invalid_ignore_pattern_regex_warns() {
+    let output = run_cpd(["--ignore-pattern", "(", "--reporters", "silent", "."])
+        .expect("cpd binary must exist");
+
+    assert!(
+        output.status.success(),
+        "an invalid --ignore-pattern must not abort the scan, got: {}",
+        output.status
+    );
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        stderr.contains("Warning: --ignore-pattern: invalid regex '(' is skipped"),
+        "invalid regex must produce a warning, got: {}",
+        stderr
+    );
+}
+
+/// Regression: config-file `ignorePattern` entries without glob characters used
+/// to be resolved against the config directory as if they were paths, which
+/// silently disabled plain regexes such as `Copyright 2026 Example Authors`.
+#[test]
+fn config_ignore_pattern_without_glob_chars_is_applied() {
+    let Some(bin) = maybe_bin() else {
+        return;
+    };
+    let dir = std::env::temp_dir().join(format!("cpd-ignore-pattern-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&dir);
+    std::fs::create_dir_all(&dir).unwrap();
+    let header = "// Copyright 2026 Example Authors\n// Licensed under the Example License\n// you may not use this file except in compliance\n// You may obtain a copy of the License\n";
+    for (name, body) in [("a.cs", "int alpha = 1;"), ("b.cs", "int beta = 2;")] {
+        std::fs::write(dir.join(name), format!("{header}{body}\n")).unwrap();
+    }
+    let config = dir.join("plain.jscpd.json");
+    std::fs::write(
+        &config,
+        r#"{"ignorePattern": ["Copyright 2026 Example Authors", "Licensed under the Example License", "you may not use this file", "You may obtain a copy"]}"#,
+    )
+    .unwrap();
+
+    let scan = |extra: &[&str]| {
+        let output = Command::new(&bin)
+            .args([
+                "--min-tokens",
+                "4",
+                "--min-lines",
+                "2",
+                "--reporters",
+                "console",
+                "--no-colors",
+            ])
+            .args(extra)
+            .arg(&dir)
+            .output()
+            .expect("failed to run cpd");
+        assert!(output.status.success(), "scan failed: {}", output.status);
+        String::from_utf8_lossy(&output.stdout).to_string()
+    };
+
+    let without = scan(&[]);
+    assert!(
+        without.contains("Found 1 clones."),
+        "the shared header must be a clone without ignorePattern, got: {without}"
+    );
+    let with = scan(&["--config", config.to_str().unwrap()]);
+    assert!(
+        with.contains("Found 0 clones."),
+        "plain ignorePattern entries from the config file must remove the clone, got: {with}"
+    );
+    let _ = std::fs::remove_dir_all(&dir);
+}
+
+/// Type-2 detection (issue #998): renamed identifiers are only a clone with
+/// `--ignore-identifiers`, and such a clone is reported as `kind: renamed`
+/// while an exact copy in the same run stays `kind: exact`.
+#[test]
+fn ignore_identifiers_reports_renamed_and_exact_kinds() {
+    if maybe_bin().is_none() {
+        return;
+    }
+    let dir = std::env::temp_dir().join(format!("cpd-type2-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&dir);
+    std::fs::create_dir_all(&dir).unwrap();
+    let body = |f: &str, p: &str, acc: &str| {
+        format!(
+            "export function {f}({p}, rate) {{\n  let {acc} = 0;\n  for (const it of {p}) {{\n    {acc} += it.price * it.quantity;\n  }}\n  const tax = {acc} * rate;\n  return {{ {acc}, tax, total: {acc} + tax }};\n}}\n"
+        )
+    };
+    std::fs::write(dir.join("a.js"), body("cartTotal", "items", "subtotal")).unwrap();
+    std::fs::write(dir.join("b.js"), body("basketTotal", "entries", "net")).unwrap();
+    std::fs::write(dir.join("c.js"), body("cartTotal", "items", "subtotal")).unwrap();
+    // The report must not land inside the scanned directory: the JSON file
+    // itself would be scanned on the next run and its repeated snippets
+    // would show up as exact clones.
+    let out = std::env::temp_dir().join(format!("cpd-type2-report-{}", std::process::id()));
+    let scan = |extra: &[&str]| {
+        let (json, _) = scan_json(
+            &dir,
+            &out,
+            &[&["--min-tokens", "20", "--min-lines", "3"][..], extra].concat(),
+        );
+        let mut kinds: Vec<String> = json["duplicates"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|d| d["kind"].as_str().unwrap().to_string())
+            .collect();
+        kinds.sort();
+        kinds
+    };
+
+    assert_eq!(
+        scan(&[]),
+        vec!["exact"],
+        "only the verbatim copy is a clone by default"
+    );
+    assert_eq!(
+        scan(&["--ignore-identifiers"]),
+        vec!["exact", "renamed"],
+        "the renamed pair joins as a renamed clone; the copy stays exact"
+    );
+    assert_eq!(
+        scan(&["--ignore-identifiers", "--kind", "renamed"]),
+        vec!["renamed"],
+        "--kind keeps only the kinds it names"
+    );
+    assert_eq!(
+        scan(&["--ignore-identifiers", "--kind", "exact,renamed"]),
+        vec!["exact", "renamed"]
+    );
+    let (json, _) = scan_json(
+        &dir,
+        &out,
+        &[
+            "--min-tokens",
+            "20",
+            "--min-lines",
+            "3",
+            "--ignore-identifiers",
+            "--kind",
+            "exact",
+        ],
+    );
+    assert_eq!(
+        json["statistics"]["total"]["clones"], 1,
+        "statistics count the clones reported, not the ones filtered out"
+    );
+    let _ = std::fs::remove_dir_all(&dir);
+    let _ = std::fs::remove_dir_all(&out);
+}
+
+#[test]
+fn an_unknown_kind_is_an_error() {
+    let dir = config_dir("kind-typo", &[("a.js", GREET_DUP)]);
+    let (code, stderr) = run_scratch(&dir, &["--kind", "exact,renamd"]);
+    assert_eq!(
+        code,
+        Some(1),
+        "a typo must not filter out every clone: {stderr}"
+    );
+    assert!(stderr.contains("unknown clone kind 'renamd'"), "{stderr}");
+}
+
+#[test]
+fn a_kind_whose_detector_is_off_warns() {
+    let dir = config_dir("kind-off", &[("a.js", GREET_DUP)]);
+    let (code, stderr) = run_scratch(&dir, &["--kind", "ast", "--reporters", "silent"]);
+    assert_eq!(code, Some(0), "{stderr}");
+    assert!(
+        stderr.contains("--kind ast: no such clones are found without --similarity"),
+        "{stderr}"
+    );
+}
+
+/// `--complexity` (no clone detection): the summary ranked by complexity,
+/// written as `jscpd-complexity.json` next to where a clone report would go.
+#[test]
+fn complexity_reports_without_detecting_clones() {
+    if maybe_bin().is_none() {
+        return;
+    }
+    let branchy = "export function route(req) {\n  if (req.a && req.b) {\n    return 1;\n  }\n  for (const x of req.items) {\n    if (x || req.c) { return 2; }\n  }\n  return 3;\n}\n";
+    let flat = "export function name(user) {\n  const first = user.first;\n  const last = user.last;\n  return first + ' ' + last;\n}\n";
+    let dir = config_dir(
+        "complexity-mode",
+        &[
+            ("src/route.js", branchy),
+            ("src/name.js", flat),
+            ("src/copy.js", flat),
+        ],
+    );
+    let out = dir.join("out");
+    let output = run_ok_in(
+        &dir,
+        &[
+            "src",
+            "--complexity",
+            "--min-tokens",
+            "5",
+            "-r",
+            "json,console",
+            "-o",
+            "out",
+            "--no-colors",
+        ],
+    );
+    let stdout = String::from_utf8_lossy(&output.stdout);
+    let report = read_json(&out.join("jscpd-complexity.json"));
+    std::fs::remove_dir_all(&dir).ok();
+
+    assert!(
+        stdout.contains("Complexity (by complexity; 3 files"),
+        "{stdout}"
+    );
+    assert!(
+        !stdout.contains("DUP%") && !stdout.contains("Clone"),
+        "no clone output: {stdout}"
+    );
+    let files = report["summary"]["files"].as_array().unwrap();
+    assert_eq!(report["summary"]["by"], "complexity");
+    assert_eq!(files[0]["path"], "route.js", "{report}");
+    assert_eq!(
+        files[0]["complexity"], 6,
+        "1 function + if, &&, for, if, ||"
+    );
+    assert!(files.iter().all(|f| f["duplicatedLines"] == 0), "{report}");
+}
+
+/// `--dashboard`: one screen with every section, filled from one run.
+#[test]
+fn dashboard_shows_duplication_complexity_and_dead_code() {
+    if maybe_bin().is_none() {
+        return;
+    }
+    let branchy = "export function route(req) {\n  if (req.a && req.b) {\n    return 1;\n  }\n  for (const x of req.items) {\n    if (x || req.c) { return 2; }\n  }\n  return 3;\n}\n";
+    let dir = config_dir(
+        "dashboard",
+        &[
+            (
+                "package.json",
+                r#"{"name": "demo", "main": "src/index.js"}"#,
+            ),
+            (
+                "src/index.js",
+                "import { route } from './route.js';\nroute({ items: [] });\n",
+            ),
+            ("src/route.js", branchy),
+            ("src/a.js", GREET_DUP),
+            ("src/b.js", GREET_DUP),
+        ],
+    );
+    let output = run_ok_in(&dir, &["--dashboard", "--no-colors", "--min-tokens", "20"]);
+    let stdout = String::from_utf8_lossy(&output.stdout);
+    std::fs::remove_dir_all(&dir).ok();
+
+    for section in [
+        "── Project",
+        "── Duplication",
+        "── Complexity",
+        "── Dead code",
+    ] {
+        assert!(stdout.contains(section), "missing {section}: {stdout}");
+    }
+    assert!(stdout.contains("1 clone (1 exact)"), "{stdout}");
+    assert!(
+        stdout.contains("src/a.js") || stdout.contains("a.js"),
+        "{stdout}"
+    );
+    assert!(
+        stdout.contains("unused-file"),
+        "a.js and b.js are never imported: {stdout}"
+    );
+}
+
+/// The dashboard is subject to the same exit gates as a clone run, and
+/// refuses the same bad options as `--dead-code`.
+#[test]
+fn dashboard_applies_exit_gates() {
+    if maybe_bin().is_none() {
+        return;
+    }
+    let dir = config_dir(
+        "dashboard-gates",
+        &[("src/a.js", GREET_DUP), ("src/b.js", GREET_DUP)],
+    );
+    let code = |args: &[&str]| {
+        Command::new(cpd_bin())
+            .args(args)
+            .args(["--min-tokens", "20", "src"])
+            .current_dir(&dir)
+            .output()
+            .expect("failed to run cpd")
+            .status
+            .code()
+    };
+    assert_eq!(code(&["--dashboard", "--no-colors"]), Some(0));
+    assert_eq!(
+        code(&["--dashboard", "--threshold", "0", "--no-colors"]),
+        Some(1),
+        "--threshold gates a dashboard run too"
+    );
+    assert_eq!(
+        code(&["--dashboard", "--exit-code", "7", "--no-colors"]),
+        Some(7)
+    );
+    assert_eq!(
+        code(&["--dashboard", "--dead-code-categories", "nope"]),
+        Some(1),
+        "a bad dead-code option is a refusal, not a clean screen"
+    );
+    assert_eq!(
+        code(&["--dashboard", "--fail-on-new-clones"]),
+        Some(1),
+        "a gate that cannot work here must not pass silently"
+    );
+    std::fs::remove_dir_all(&dir).ok();
+}
+
+/// `--complexity` ranks by complexity unless a metric was asked for — by the
+/// flag or by the config file.
+#[test]
+fn complexity_honours_a_configured_summary_by() {
+    if maybe_bin().is_none() {
+        return;
+    }
+    let rows = "  'row',\n".repeat(30);
+    let dir = config_dir(
+        "complexity-summary-by",
+        &[
+            (".jscpd.json", r#"{"summaryBy": "lines", "minTokens": 5}"#),
+            (
+                "src/short-branchy.js",
+                "export function f(a) {\n  if (a) { return 1; }\n  return a ? 2 : 3;\n}\n",
+            ),
+            (
+                "src/long-flat.js",
+                &format!("export const rows = [\n{rows}];\n"),
+            ),
+        ],
+    );
+    let output = run_ok_in(&dir, &["src", "--complexity", "--no-colors", "--no-tips"]);
+    let stdout = String::from_utf8_lossy(&output.stdout);
+    std::fs::remove_dir_all(&dir).ok();
+    assert!(stdout.contains("Complexity (by lines"), "{stdout}");
+    let first_row = stdout
+        .lines()
+        .skip_while(|l| !l.contains("PATH"))
+        .nth(1)
+        .unwrap_or_default();
+    assert!(
+        first_row.contains("long-flat.js"),
+        "the configured metric ranks the rows: {stdout}"
+    );
+}
+
+/// A small project with one clone, one unused file and one branchy function.
+fn health_project(name: &str) -> PathBuf {
+    let branchy = "export function route(req) {\n  if (req.a && req.b) {\n    return 1;\n  }\n  for (const x of req.items) {\n    if (x || req.c) { return 2; }\n  }\n  return 3;\n}\n";
+    config_dir(
+        name,
+        &[
+            (
+                "package.json",
+                r#"{"name": "demo", "main": "src/index.js"}"#,
+            ),
+            (
+                "src/index.js",
+                "import { route } from './route.js';\nroute({ items: [] });\n",
+            ),
+            ("src/route.js", branchy),
+            ("src/a.js", GREET_DUP),
+            ("src/b.js", GREET_DUP),
+        ],
+    )
+}
+
+/// `--health` prints the badge alone; `json` and `badge` write their files.
+#[test]
+fn health_prints_the_badge_and_writes_json_and_svg() {
+    if maybe_bin().is_none() {
+        return;
+    }
+    let dir = health_project("health-badge");
+    let output = run_ok_in(
+        &dir,
+        &[
+            "src",
+            "--health",
+            "--min-tokens",
+            "20",
+            "--no-colors",
+            "-r",
+            "console,json,badge",
+            "-o",
+            "out",
+        ],
+    );
+    let stdout = String::from_utf8_lossy(&output.stdout);
+    let report = read_json(&dir.join("out/jscpd-health.json"));
+    let svg = std::fs::read_to_string(dir.join("out/jscpd-health-badge.svg")).unwrap();
+    std::fs::remove_dir_all(&dir).ok();
+
+    assert!(stdout.starts_with("Health "), "{stdout}");
+    assert!(
+        stdout.contains("/100") && stdout.contains("lines of code"),
+        "{stdout}"
+    );
+    assert!(!stdout.contains("── Project"), "the badge only: {stdout}");
+    let health = &report["health"];
+    let ids: Vec<&str> = health["dimensions"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .map(|d| d["id"].as_str().unwrap())
+        .collect();
+    assert_eq!(ids, ["duplication", "dead-code", "complexity"], "{report}");
+    let score = health["score"].as_f64().unwrap();
+    assert!((0.0..=100.0).contains(&score), "{report}");
+    assert_eq!(health["size"]["class"], "XS");
+    assert!(svg.contains("health") && svg.contains(health["grade"].as_str().unwrap()));
+}
+
+/// Metrics from other tools join the score through `--health-input` or the
+/// `health` config object, and a metric that cannot be scored is refused.
+#[test]
+fn health_takes_external_metrics() {
+    if maybe_bin().is_none() {
+        return;
+    }
+    let dir = health_project("health-input");
+    std::fs::write(
+        dir.join(".jscpd.json"),
+        r#"{"minTokens": 20, "health": {"metrics": [{"id": "security", "score": 100, "weight": 2}]}}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        dir.join("metrics.json"),
+        r#"{"metrics": [{"id": "coverage", "value": 60, "direction": "higher", "halfLife": 40}]}"#,
+    )
+    .unwrap();
+    std::fs::write(dir.join("bad.json"), r#"{"metrics": [{"id": "tests"}]}"#).unwrap();
+
+    let args = ["src", "--health", "-r", "json", "-o", "out"];
+    run_ok_in(
+        &dir,
+        &[&args[..], &["--health-input", "metrics.json"]].concat(),
+    );
+    let report = read_json(&dir.join("out/jscpd-health.json"));
+    let bad = Command::new(cpd_bin())
+        .args(args)
+        .args(["--health-input", "bad.json"])
+        .current_dir(&dir)
+        .output()
+        .unwrap();
+    std::fs::remove_dir_all(&dir).ok();
+
+    let dimensions = report["health"]["dimensions"].as_array().unwrap();
+    let find = |id: &str| dimensions.iter().find(|d| d["id"] == id).unwrap();
+    assert_eq!(
+        find("coverage")["score"],
+        50.0,
+        "40 short of 100, half-life 40"
+    );
+    assert_eq!(find("coverage")["source"], "external");
+    assert_eq!(find("security")["weight"], 2.0, "from the config file");
+    assert_eq!(bad.status.code(), Some(1));
+    let stderr = String::from_utf8_lossy(&bad.stderr);
+    assert!(stderr.contains("metric 'tests'"), "{stderr}");
+}
+
+/// The dashboard carries the health badge on top, and its JSON report holds
+/// every section the console shows.
+#[test]
+fn dashboard_has_the_health_badge_and_a_json_report() {
+    if maybe_bin().is_none() {
+        return;
+    }
+    let dir = health_project("dashboard-json");
+    let output = run_ok_in(
+        &dir,
+        &[
+            "--dashboard",
+            "--min-tokens",
+            "20",
+            "--no-colors",
+            "-r",
+            "console,json",
+            "-o",
+            "out",
+        ],
+    );
+    let stdout = String::from_utf8_lossy(&output.stdout);
+    let report = read_json(&dir.join("out/jscpd-dashboard.json"));
+    std::fs::remove_dir_all(&dir).ok();
+
+    assert!(
+        stdout.starts_with("Health "),
+        "the badge comes first: {stdout}"
+    );
+    assert!(stdout.contains("── Project"), "{stdout}");
+    assert!(stdout.contains("Largest code files:"), "{stdout}");
+    for key in ["health", "project", "duplication", "complexity", "deadCode"] {
+        assert!(!report[key].is_null(), "missing {key}: {report}");
+    }
+    assert_eq!(report["duplication"]["clones"], 1, "{report}");
+    assert_eq!(report["duplication"]["exact"], 1);
+    // route.js is the longest file; package.json is data and never listed.
+    assert_eq!(report["project"]["largestFiles"][0]["path"], "src/route.js");
+    assert_eq!(report["complexity"]["files"][0]["path"], "src/route.js");
+    assert_eq!(
+        report["deadCode"]["byCategory"][0]["category"],
+        "unused-file"
+    );
+}
+
+#[test]
+fn dashboard_and_dead_code_cannot_be_combined() {
+    let dir = config_dir("dashboard-dead-code", &[("a.js", GREET_DUP)]);
+    let (code, stderr) = run_scratch(&dir, &["--dashboard", "--dead-code"]);
+    assert_ne!(code, Some(0), "{stderr}");
+}
+
+#[test]
+fn complexity_and_dead_code_cannot_be_combined() {
+    let dir = config_dir("complexity-dead-code", &[("a.js", GREET_DUP)]);
+    let (code, stderr) = run_scratch(&dir, &["--complexity", "--dead-code"]);
+    assert_ne!(code, Some(0), "{stderr}");
+}
+
+/// `--dead-code` alone refuses a `--format` that excludes every language it
+/// reads, because that is the whole point of the run; `--dashboard` and
+/// `--health` must not, since dead code is only one of several sections —
+/// they drop that section instead, the same way a project with none of
+/// those files already does.
+#[test]
+fn dashboard_drops_dead_code_rather_than_refusing_an_unsupported_format() {
+    let dir = config_dir(
+        "dashboard-format-css",
+        &[
+            ("a.css", ".a { color: red; }\n"),
+            ("b.css", ".b { color: red; }\n"),
+        ],
+    );
+    let (code, stderr) = run_scratch(&dir, &["--dashboard", "--format", "css"]);
+    assert_eq!(code, Some(0), "{stderr}");
+    assert!(!stderr.contains("--format selected no format"), "{stderr}");
+
+    let dir = config_dir("dead-code-format-css", &[("a.css", ".a { color: red; }\n")]);
+    let (code, stderr) = run_scratch(&dir, &["--dead-code", "--format", "css"]);
+    assert_ne!(
+        code,
+        Some(0),
+        "--dead-code alone must still refuse: {stderr}"
+    );
+}
+
+/// Dropping the dead-code section for an unsupported `--format` must not
+/// also drop validation of the dead-code options that are still the same
+/// option misused regardless: a bad `--dead-code-categories` stays a
+/// refusal even though there is no dead-code section to build.
+/// (Copilot review, PR #1076.)
+#[test]
+fn dashboard_still_validates_dead_code_categories_when_dropping_the_section() {
+    let dir = config_dir(
+        "dashboard-format-css-bad-category",
+        &[("a.css", ".a { color: red; }\n")],
+    );
+    let (code, stderr) = run_scratch(
+        &dir,
+        &[
+            "--dashboard",
+            "--format",
+            "css",
+            "--dead-code-categories",
+            "not-a-category",
+        ],
+    );
+    assert_ne!(code, Some(0), "{stderr}");
+    assert!(stderr.contains("--dead-code-categories"), "{stderr}");
+}
+
+/// The "does not analyze" warning is about the dead-code section
+/// specifically; a dashboard/health run that never asked for a dead-code
+/// report alone should not print it either.
+#[test]
+fn dashboard_does_not_warn_about_formats_dead_code_cannot_analyze() {
+    let dir = config_dir(
+        "dashboard-mixed-formats",
+        &[
+            ("a.css", ".a { color: red; }\n"),
+            ("b.js", "function f() { return 1; }\n"),
+        ],
+    );
+    let (code, stderr) = run_scratch(&dir, &["--dashboard", "--format", "css,javascript"]);
+    assert_eq!(code, Some(0), "{stderr}");
+    assert!(!stderr.contains("does not analyze"), "{stderr}");
+}
+
+#[test]
+fn dead_code_and_complexity_conflict_with_mcp() {
+    let dir = config_dir("dead-code-mcp", &[("a.js", GREET_DUP)]);
+    let (code, stderr) = run_scratch(&dir, &["--dead-code", "--mcp"]);
+    assert_ne!(code, Some(0), "{stderr}");
+
+    let dir = config_dir("complexity-mcp", &[("a.js", GREET_DUP)]);
+    let (code, stderr) = run_scratch(&dir, &["--complexity", "--mcp"]);
+    assert_ne!(code, Some(0), "{stderr}");
+}
+
+/// `--complexity` never detects clones, so the gates that measure or act on
+/// them (#1047's --fail-on-empty included) have nothing to do; it must warn
+/// about that rather than silently accepting and ignoring them.
+#[test]
+fn complexity_warns_about_gates_it_cannot_apply_and_still_honours_fail_on_empty() {
+    let dir = config_dir("complexity-gates", &[("a.js", GREET_DUP)]);
+    let (code, stderr) = run_scratch(
+        &dir,
+        &[
+            "--complexity",
+            "--threshold",
+            "0",
+            "--exit-code",
+            "3",
+            "--fail-on-empty",
+            "--format",
+            "java",
+        ],
+    );
+    assert_eq!(code, Some(1), "{stderr}");
+    assert!(stderr.contains("ignores --threshold"), "{stderr}");
+    assert!(stderr.contains("analyzed no files"), "{stderr}");
+}
+
+/// `--fail-on-empty` changes the exit code, not whether a CI job can
+/// inspect what ran: the clone-detection and dead-code paths write reports
+/// before applying the gate, and `--complexity` returning early skipped
+/// that. (Copilot review, PR #1076.)
+#[test]
+fn complexity_fail_on_empty_still_writes_reports() {
+    let dir = config_dir(
+        "complexity-fail-on-empty-json",
+        &[("a.css", ".a { color: red; }\n")],
+    );
+    let out = dir.join("out");
+    let output = Command::new(cpd_bin())
+        .args([
+            "--complexity",
+            "--fail-on-empty",
+            "--format",
+            "java",
+            "-r",
+            "json",
+            "-o",
+            out.to_str().unwrap(),
+        ])
+        .arg(&dir)
+        .output()
+        .expect("failed to run cpd");
+    let report_path = out.join("jscpd-complexity.json");
+    let report_exists = report_path.exists();
+    std::fs::remove_dir_all(&dir).ok();
+    assert_eq!(
+        output.status.code(),
+        Some(1),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    assert!(report_exists, "the report must still be written");
+}
+
+/// basta's standalone CLI already clamps an out-of-range `--min-confidence`
+/// with a warning; jscpd's `--dead-code` builds `BastaConfig` directly and
+/// must clamp the same way instead of silently hiding every finding.
+#[test]
+fn dead_code_clamps_an_out_of_range_min_confidence() {
+    let dir = config_dir(
+        "dead-code-min-confidence",
+        &[
+            (
+                "index.js",
+                "import { unused } from './lib.js';\nconsole.log('hi');\n",
+            ),
+            ("lib.js", "export function unused() { return 1; }\n"),
+            ("package.json", r#"{"main": "index.js"}"#),
+        ],
+    );
+    let output = run_ok_in(
+        &dir,
+        &["--dead-code", "--min-confidence", "200", "--no-colors"],
+    );
+    let stdout = String::from_utf8_lossy(&output.stdout);
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(stderr.contains("above 100"), "{stderr}");
+    assert!(
+        stdout.contains("Found 1 dead code finding"),
+        "the clamp should let a real, 100%-confidence finding through: {stdout}"
+    );
+    std::fs::remove_dir_all(&dir).ok();
+}
+
+/// basta needs whole files for an accurate import graph, so `--max-lines`
+/// cannot reach the dead-code section the way it reaches duplication and
+/// complexity; `--dashboard` must say so rather than let the sections
+/// quietly disagree about what was scanned.
+#[test]
+fn dashboard_warns_that_max_lines_does_not_reach_dead_code() {
+    let dir = config_dir("dashboard-max-lines", &[("a.js", GREET_DUP)]);
+    let (code, stderr) = run_scratch(&dir, &["--dashboard", "--max-lines", "1"]);
+    assert_eq!(code, Some(0), "{stderr}");
+    assert!(
+        stderr.contains("--max-lines applies to duplication and complexity"),
+        "{stderr}"
+    );
+}
+
+/// `--formats-exts` lets a user name a format anything, and the console
+/// "By format" table used to print that name raw: an embedded newline
+/// forged an extra table row out of nothing. (Copilot review, PR #1076.)
+#[test]
+fn dashboard_console_survives_a_hostile_format_name() {
+    let js = GREET_DUP;
+    let dir = config_dir(
+        "dashboard-hostile-format",
+        &[("a.weirdext", js), ("b.weirdext", js)],
+    );
+    let hostile_ext_map = "evil\nFORGED ROW:weirdext";
+    let output = run_ok_in(
+        &dir,
+        &[
+            "--dashboard",
+            "--no-colors",
+            "--min-tokens",
+            "5",
+            "--formats-exts",
+            hostile_ext_map,
+        ],
+    );
+    std::fs::remove_dir_all(&dir).ok();
+    let stdout = String::from_utf8_lossy(&output.stdout);
+    assert!(
+        stdout.contains("evil FORGED ROW"),
+        "the format name should still appear, just sanitized: {stdout}"
+    );
+    assert!(
+        !stdout.contains("evil\nFORGED ROW"),
+        "a newline in a format name must not survive into a table row: {stdout}"
+    );
+}
+
+/// Near-miss detection (issue #999, stage 1): two exact halves around an
+/// inserted line stay separate by default and merge into one `similar` clone
+/// with `--max-gap-lines 1`.
+#[test]
+fn max_gap_lines_merges_near_miss_clones_only_when_set() {
+    if maybe_bin().is_none() {
+        return;
+    }
+    let dir = std::env::temp_dir().join(format!("cpd-type3-{}", std::process::id()));
+    let out = std::env::temp_dir().join(format!("cpd-type3-report-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&dir);
+    std::fs::create_dir_all(&dir).unwrap();
+    let head = "export function saveUser(user, db) {\n  const row = toRow(user);\n  row.updatedAt = Date.now();\n  row.version = (row.version || 0) + 1;\n";
+    let tail = "  db.put('users', row.id, row);\n  audit('save', row.id, row.version);\n  notify(user.email, 'profile-updated');\n  return row;\n}\n";
+    std::fs::write(dir.join("a.js"), format!("{head}{tail}")).unwrap();
+    std::fs::write(
+        dir.join("b.js"),
+        format!("{head}  if (!row.id) throw new Error('missing id');\n{tail}"),
+    )
+    .unwrap();
+    let scan = |extra: &[&str]| {
+        let (json, _) = scan_json(
+            &dir,
+            &out,
+            &[&["--min-tokens", "15", "--min-lines", "2"][..], extra].concat(),
+        );
+        duplicate_shapes(&json)
+    };
+
+    let default = scan(&[]);
+    assert_eq!(default.len(), 2, "two exact halves by default: {default:?}");
+    assert!(default.iter().all(|(k, s, _)| k == "exact" && s.is_none()));
+    assert_eq!(scan(&["--max-gap-lines", "0"]), default, "0 is the default");
+
+    let merged = scan(&["--max-gap-lines", "1"]);
+    assert_eq!(merged.len(), 1, "one similar clone: {merged:?}");
+    let (kind, similarity, tokens) = &merged[0];
+    assert_eq!(kind, "similar");
+    let similarity = similarity.expect("similar clones carry a similarity");
+    assert!(similarity > 0.7 && similarity < 1.0, "got {similarity}");
+    assert!(
+        *tokens > default[0].2 && *tokens < default[0].2 + default[1].2,
+        "matched tokens cover both halves minus the shared boundary token"
+    );
+    let _ = std::fs::remove_dir_all(&dir);
+    let _ = std::fs::remove_dir_all(&out);
+}
+
+/// Function-level similarity (issue #999, stage 2): a pair with renames and
+/// two inserted statements is invisible to exact detection and to gap
+/// merging, and appears as one `similar` clone only with `--similarity`.
+#[test]
+fn similarity_reports_structurally_similar_functions_only_when_set() {
+    if maybe_bin().is_none() {
+        return;
+    }
+    let dir = std::env::temp_dir().join(format!("cpd-similarity-{}", std::process::id()));
+    let out = std::env::temp_dir().join(format!("cpd-similarity-report-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&dir);
+    std::fs::create_dir_all(&dir).unwrap();
+    std::fs::write(dir.join("invoice.js"), common::INVOICE_JS).unwrap();
+    std::fs::write(dir.join("credit-note.js"), common::CREDIT_NOTE_JS).unwrap();
+    let scan = |extra: &[&str]| {
+        let (json, stderr) = scan_json(&dir, &out, extra);
+        (duplicate_shapes(&json), stderr)
+    };
+
+    assert!(scan(&[]).0.is_empty(), "no exact clone");
+    assert!(
+        scan(&["--max-gap-lines", "3"]).0.is_empty(),
+        "no run long enough to merge"
+    );
+    assert!(
+        scan(&["--similarity", "0.85"]).0.is_empty(),
+        "below a strict threshold"
+    );
+    let (loose, _) = scan(&["--similarity", "0.7"]);
+    assert_eq!(loose.len(), 1, "{loose:?}");
+    assert_eq!(loose[0].0, "similar");
+    let sim = loose[0].1.expect("similarity present");
+    assert!(sim > 0.7 && sim < 0.9, "got {sim}");
+    let (exact_only, stderr) = scan(&["--similarity", "1"]);
+    assert!(
+        exact_only.is_empty(),
+        "1 is the default and means exact matches only"
+    );
+    assert!(!stderr.contains("Warning"), "1 is valid: {stderr}");
+    let (none, stderr) = scan(&["--similarity", "1.5"]);
+    assert!(none.is_empty());
+    assert!(stderr.contains("Warning: --similarity"), "got: {stderr}");
+    let _ = std::fs::remove_dir_all(&dir);
+    let _ = std::fs::remove_dir_all(&out);
+}
+
+/// Issue #1023: a JS file with a redeclaration error used to fall back to the
+/// word-split tokenizer and could no longer match any oxc-tokenized file, so
+/// every a↔b clone vanished and only b's self-clone remained.
+#[test]
+fn js_file_with_parse_diagnostics_still_matches_other_files() {
+    let Some(bin) = maybe_bin() else {
+        return;
+    };
+    let dir = std::env::temp_dir().join(format!("cpd-1023-{}", std::process::id()));
+    let out = std::env::temp_dir().join(format!("cpd-1023-report-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&dir);
+    std::fs::create_dir_all(&dir).unwrap();
+    let p = "export function saveUser(user, db) {\n  const row = toRow(user);\n  row.updatedAt = Date.now();\n  row.version = (row.version || 0) + 1;\n";
+    let q = "  db.put('users', row.id, row);\n  audit('save', row.id, row.version);\n  notify(user.email, 'profile-updated');\n  return row;\n}\n";
+    std::fs::write(dir.join("a.js"), format!("{p}{q}")).unwrap();
+    // b: P, an inserted line, Q, then a second copy of P (a redeclaration).
+    std::fs::write(
+        dir.join("b.js"),
+        format!("{p}  if (!row.id) throw new Error('missing id');\n{q}\n{p}  return null;\n}}\n"),
+    )
+    .unwrap();
+    let output = Command::new(&bin)
+        .args([
+            "--min-tokens",
+            "15",
+            "--min-lines",
+            "2",
+            "--reporters",
+            "json,silent",
+        ])
+        .args(["--output", out.to_str().unwrap()])
+        .arg(&dir)
+        .output()
+        .expect("failed to run cpd");
+    assert!(output.status.success());
+    let json: serde_json::Value =
+        serde_json::from_str(&std::fs::read_to_string(out.join("jscpd-report.json")).unwrap())
+            .unwrap();
+    let pairs: Vec<(String, String)> = json["duplicates"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .map(|d| {
+            let name = |v: &serde_json::Value| {
+                v["name"]
+                    .as_str()
+                    .unwrap()
+                    .rsplit('/')
+                    .next()
+                    .unwrap()
+                    .to_string()
+            };
+            (name(&d["firstFile"]), name(&d["secondFile"]))
+        })
+        .collect();
+    let cross = pairs.iter().filter(|(x, y)| x != y).count();
+    assert!(
+        cross >= 2,
+        "a↔b clones for both halves must survive b's redeclaration: {pairs:?}"
+    );
+    // b's own repeated half now pairs with a's copy instead (the primary pass
+    // keeps the first stored occurrence); grouping all copies is #221.
+    assert!(pairs.len() >= 3, "{pairs:?}");
+    let _ = std::fs::remove_dir_all(&dir);
+    let _ = std::fs::remove_dir_all(&out);
+}
+
+// --- snippet regression test (scan root != CWD) --------------------------------
+
+#[test]
+fn report_snippets_populated_when_scan_root_differs_from_cwd() {
+    if maybe_bin().is_none() {
+        return;
+    }
+
+    let (root, _) = greet_root("snippet-test", "pkg");
+
+    let out = root.join("report");
+
+    run_ok_in(
+        &root,
+        &[
+            "pkg",
+            "--min-tokens",
+            "10",
+            "--reporters",
+            "json,html",
+            "--output",
+            out.to_str().unwrap(),
+        ],
+    );
+
+    let marker = "Welcome to the system";
+
+    let json = std::fs::read_to_string(out.join("jscpd-report.json")).expect("json report exists");
+    assert!(
+        json.contains(marker),
+        "JSON fragment must contain snippet text, not be empty"
+    );
+
+    let html = std::fs::read_to_string(out.join("jscpd-report.html")).expect("html report exists");
+    assert!(
+        html.contains(marker),
+        "HTML report must contain snippet text, not be empty"
+    );
+
+    // source_id should be scan-root-relative (just "a.js", not "pkg/a.js")
+    let parsed: serde_json::Value = serde_json::from_str(&json).expect("valid JSON");
+    let first_name = parsed["duplicates"][0]["firstFile"]["name"]
+        .as_str()
+        .unwrap_or("");
+    assert!(
+        first_name == "a.js" || first_name == "b.js",
+        "source path must be scan-root-relative (a.js or b.js), got: {}",
+        first_name
+    );
+
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn sarif_includes_original_uri_base_ids() {
+    if maybe_bin().is_none() {
+        return;
+    }
+
+    let (root, _) = greet_root("sarif-root", "pkg");
+
+    let out = root.join("report");
+
+    run_ok_in(
+        &root,
+        &[
+            "pkg",
+            "--min-tokens",
+            "10",
+            "--reporters",
+            "sarif",
+            "--output",
+            out.to_str().unwrap(),
+        ],
+    );
+
+    let parsed = read_json(&out.join("jscpd-report.sarif"));
+    let run = &parsed["runs"][0];
+
+    assert!(
+        run.get("originalUriBaseIds").is_some(),
+        "SARIF must include originalUriBaseIds when source_root is set"
+    );
+
+    // #915: tool.driver.version must match what `cpd --version` prints,
+    // bundled from this crate's version at build time.
+    assert_eq!(
+        run["tool"]["driver"]["version"],
+        env!("CARGO_PKG_VERSION"),
+        "SARIF driver.version must match the cpd crate version"
+    );
+
+    let uri = run["results"][0]["locations"][0]["physicalLocation"]["artifactLocation"]["uri"]
+        .as_str()
+        .unwrap_or("");
+    assert!(
+        uri == "a.js" || uri == "b.js",
+        "SARIF artifact URI must be scan-root-relative, got: {}",
+        uri
+    );
+
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn codeclimate_reporter_writes_code_quality_report() {
+    if maybe_bin().is_none() {
+        return;
+    }
+
+    let (root, _) = greet_root("codeclimate", "src");
+
+    let out = root.join("report");
+    run_ok_in(
+        &root,
+        &[
+            "src",
+            "--min-tokens",
+            "10",
+            "--reporters",
+            "codeclimate",
+            "--output",
+            out.to_str().unwrap(),
+        ],
+    );
+
+    let report = std::fs::read_to_string(out.join("gl-code-quality-report.json"))
+        .expect("gl-code-quality-report.json exists");
+    let parsed: serde_json::Value = serde_json::from_str(&report).expect("valid JSON");
+    let issues = parsed.as_array().expect("report must be a JSON array");
+    assert_eq!(
+        issues.len(),
+        2,
+        "one clone must yield an issue per fragment"
+    );
+
+    for issue in issues {
+        assert_eq!(issue["type"], "issue");
+        assert_eq!(issue["check_name"], "jscpd/duplicate-code");
+        assert_eq!(issue["severity"], "minor");
+        let path = issue["location"]["path"].as_str().unwrap_or("");
+        assert!(
+            path == "a.js" || path == "b.js",
+            "path must be scan-root-relative, got: {}",
+            path
+        );
+        assert!(issue["location"]["lines"]["begin"].is_u64());
+        let fp = issue["fingerprint"].as_str().unwrap_or("");
+        assert!(
+            fp.len() == 16 && fp.chars().all(|c| c.is_ascii_hexdigit()),
+            "fingerprint must be 16-char hex, got: {}",
+            fp
+        );
+    }
+    assert_ne!(
+        issues[0]["fingerprint"], issues[1]["fingerprint"],
+        "the two issues of one clone must have distinct fingerprints"
+    );
+
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn sarif_error_tokens_flag_controls_result_level() {
+    let bin = match maybe_bin() {
+        Some(b) => b,
+        None => return,
+    };
+
+    let (root, _) = greet_root("sarif-level", "src");
+
+    let run_and_get_level = |extra_args: &[&str]| -> String {
+        let out = root.join("report");
+        let _ = std::fs::remove_dir_all(&out);
+        let mut args = vec![
+            "src",
+            "--min-tokens",
+            "10",
+            "--reporters",
+            "sarif",
+            "--output",
+            out.to_str().unwrap(),
+        ];
+        args.extend_from_slice(extra_args);
+        run_ok_in(&root, &args);
+        let parsed = read_json(&out.join("jscpd-report.sarif"));
+        parsed["runs"][0]["results"][0]["level"]
+            .as_str()
+            .unwrap_or("")
+            .to_string()
+    };
+
+    // #908: default stays warning; a low cutoff turns the clone into an error,
+    // and a cutoff above the clone size leaves it a warning.
+    assert_eq!(run_and_get_level(&[]), "warning");
+    assert_eq!(run_and_get_level(&["--sarif-error-tokens", "10"]), "error");
+    assert_eq!(
+        run_and_get_level(&["--sarif-error-tokens", "100000"]),
+        "warning"
+    );
+
+    // Exceeding --threshold escalates every result to error. This run exits
+    // non-zero (ThresholdExceeded), so check the report without asserting
+    // success — reporters run before the threshold check fails the build.
+    let out = root.join("report");
+    let _ = std::fs::remove_dir_all(&out);
+    let output = Command::new(&bin)
+        .args([
+            "src",
+            "--min-tokens",
+            "10",
+            "--reporters",
+            "sarif",
+            "--threshold",
+            "0",
+            "--output",
+            out.to_str().unwrap(),
+        ])
+        .current_dir(&root)
+        .output()
+        .expect("failed to run cpd");
+    assert!(
+        !output.status.success(),
+        "cpd must exit non-zero when duplication exceeds --threshold"
+    );
+    let parsed = read_json(&out.join("jscpd-report.sarif"));
+    assert_eq!(
+        parsed["runs"][0]["results"][0]["level"], "error",
+        "results must be errors when duplication exceeds --threshold"
+    );
+
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn cli_both_ignore_flags_work_together() {
+    let output = run_cpd([
+        "--ignore",
+        "*.test.js",
+        "--ignore-pattern",
+        "function",
+        "--reporters",
+        "silent",
+        ".",
+    ])
+    .expect("cpd binary must exist");
+
+    assert!(
+        output.status.success(),
+        "both --ignore and --ignore-pattern must work together, got: {}",
+        output.status
+    );
+}
+
+#[test]
+fn blame_populated_when_scan_root_differs_from_cwd() {
+    if maybe_bin().is_none() {
+        return;
+    }
+    // Requires git on PATH; skip quietly if unavailable.
+    if Command::new("git").arg("--version").output().is_err() {
+        return;
+    }
+
+    let (root, _) = greet_root("blame-subdir", "pkg");
+
+    // Init a git repo at `root` and commit, so `git blame` has data.
+    let git = |args: &[&str]| {
+        let out = Command::new("git")
+            .args(args)
+            .current_dir(&root)
+            .output()
+            .expect("git command failed to spawn");
+        assert!(
+            out.status.success(),
+            "git {:?} failed: {}",
+            args,
+            String::from_utf8_lossy(&out.stderr)
+        );
+    };
+    git(&["init", "-q"]);
+    git(&["config", "user.email", "test@example.com"]);
+    git(&["config", "user.name", "Blame Tester"]);
+    git(&["add", "."]);
+    git(&["commit", "-q", "-m", "init"]);
+
+    let out = root.join("report");
+
+    // Scan the `pkg` subdirectory from the repo root (scan root != file dirs
+    // relative to CWD after scan-root relativization).
+    run_ok_in(
+        &root,
+        &[
+            "pkg",
+            "--min-tokens",
+            "10",
+            "--blame",
+            "--reporters",
+            "json",
+            "--output",
+            out.to_str().unwrap(),
+        ],
+    );
+
+    let parsed = read_json(&out.join("jscpd-report.json"));
+    let first_file = &parsed["duplicates"][0]["firstFile"];
+    assert!(
+        first_file.get("blame").is_some(),
+        "blame data must be populated when scan root differs from CWD, got: {}",
+        first_file
+    );
+    assert_eq!(
+        first_file["blame"]["author"].as_str().unwrap_or(""),
+        "Blame Tester",
+        "blame author must come from git history"
+    );
+
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn single_file_scan_preserves_filename() {
+    if maybe_bin().is_none() {
+        return;
+    }
+
+    let (root, _) = greet_root("single-file", "");
+
+    let out = root.join("report");
+    let a_path = root.join("a.js");
+    let b_path = root.join("b.js");
+
+    run_ok_in(
+        &root,
+        &[
+            a_path.to_str().unwrap(),
+            b_path.to_str().unwrap(),
+            "--min-tokens",
+            "10",
+            "--reporters",
+            "json",
+            "--output",
+            out.to_str().unwrap(),
+        ],
+    );
+
+    let parsed = read_json(&out.join("jscpd-report.json"));
+    let first_name = parsed["duplicates"][0]["firstFile"]["name"]
+        .as_str()
+        .unwrap_or("");
+    assert!(
+        first_name == "a.js" || first_name == "b.js",
+        "source_id must be the filename (not empty), got: '{}'",
+        first_name
+    );
+
+    let fragment = parsed["duplicates"][0]["fragment"].as_str().unwrap_or("");
+    assert!(
+        fragment.contains("Welcome to the system"),
+        "snippet must be populated for single-file scan"
+    );
+
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn sarif_multi_root_distinct_artifact_indexes() {
+    if maybe_bin().is_none() {
+        return;
+    }
+
+    let root = std::env::temp_dir().join(format!("cpd-multi-sarif-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    let dir_a = root.join("alpha/src");
+    let dir_b = root.join("beta/src");
+    std::fs::create_dir_all(&dir_a).expect("create alpha");
+    std::fs::create_dir_all(&dir_b).expect("create beta");
+
+    let dup = "function greet(name) {\n  \
+        const message = \"Hello, \" + name + \"!\";\n  \
+        console.log(message);\n  \
+        console.log(\"Welcome to the system\");\n  \
+        console.log(\"Have a nice day now\");\n  \
+        return message;\n}\n";
+    // Same relative path under two different roots
+    std::fs::write(dir_a.join("a.js"), dup).expect("write alpha/src/a.js");
+    std::fs::write(dir_b.join("a.js"), dup).expect("write beta/src/a.js");
+
+    let out = root.join("report");
+
+    run_ok_in(
+        &root,
+        &[
+            "alpha",
+            "beta",
+            "--min-tokens",
+            "10",
+            "--reporters",
+            "sarif",
+            "--output",
+            out.to_str().unwrap(),
+        ],
+    );
+
+    let parsed = read_json(&out.join("jscpd-report.sarif"));
+    let artifacts = parsed["runs"][0]["artifacts"]
+        .as_array()
+        .expect("artifacts array");
+
+    assert!(
+        artifacts.len() >= 2,
+        "same relative path under different roots must produce distinct artifacts, got {}",
+        artifacts.len()
+    );
+
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+// --- cross-formats e2e -------------------------------------------------------
+
+fn cross_formats_fixture_dir() -> PathBuf {
+    fixtures_dir().join("cross_formats")
+}
+
+fn run_cross_formats(extra_args: &[&str]) -> Output {
+    let dir = cross_formats_fixture_dir();
+    let mut args: Vec<&str> = vec![
+        "--min-tokens",
+        "20",
+        "--min-lines",
+        "1",
+        "--reporters",
+        "console",
+    ];
+    args.extend_from_slice(extra_args);
+    let dir_str = dir.to_str().unwrap();
+    args.push(dir_str);
+    run_cpd(args).expect("cpd binary must exist")
+}
+
+fn stdout_of(output: &Output) -> String {
+    String::from_utf8_lossy(&output.stdout).to_string()
+}
+
+#[test]
+fn cross_formats_off_no_ts_js_clone() {
+    let output = run_cross_formats(&[]);
+    let stdout = stdout_of(&output);
+    assert!(
+        !(stdout.contains("a.ts") && stdout.contains("b.js")),
+        "without --cross-formats the TS/JS pair must not be reported, got: {stdout}"
+    );
+}
+
+#[test]
+fn cross_formats_flag_detects_ts_js_clone() {
+    let output = run_cross_formats(&["--cross-formats", "javascript,typescript"]);
+    let stdout = stdout_of(&output);
+    assert!(
+        stdout.contains("a.ts") && stdout.contains("b.js"),
+        "--cross-formats must report the TS/JS pair, got: {stdout}"
+    );
+}
+
+#[test]
+fn cross_formats_preset_detects_ts_js_clone() {
+    let output = run_cross_formats(&["--cross-formats", "js-ts"]);
+    let stdout = stdout_of(&output);
+    assert!(
+        stdout.contains("a.ts") && stdout.contains("b.js"),
+        "--cross-formats js-ts preset must report the TS/JS pair, got: {stdout}"
+    );
+}
+
+#[test]
+fn cross_formats_from_config_file() {
+    let config_path = fixtures_dir().join("cross_formats.jscpd.json");
+    let dir = cross_formats_fixture_dir();
+    let output = run_cpd([
+        "--config",
+        config_path.to_str().unwrap(),
+        "--reporters",
+        "console",
+        dir.to_str().unwrap(),
+    ])
+    .expect("cpd binary must exist");
+    let stdout = stdout_of(&output);
+    assert!(
+        stdout.contains("a.ts") && stdout.contains("b.js"),
+        "crossFormats from config file must report the TS/JS pair, got: {stdout}"
+    );
+}
+
+#[test]
+fn cross_formats_shown_in_debug_output() {
+    let output = run_cpd(["--cross-formats", "javascript,typescript", "--debug", "."])
+        .expect("cpd binary must exist");
+    let stdout = stdout_of(&output);
+    assert!(
+        stdout.contains("cross_formats"),
+        "--debug must include cross_formats in merged config, got: {stdout}"
+    );
+    assert!(
+        stdout.contains("typescript"),
+        "--debug must show the configured group, got: {stdout}"
+    );
+}
+
+// --- tips ---
+
+#[test]
+fn tips_are_not_printed_when_stdout_is_not_a_tty() {
+    // Command::output() pipes stdout, so this is the CI-log / `| grep` case.
+    // Clear the env vars that also disable tips so only the TTY check applies.
+    let dir = cross_formats_fixture_dir();
+    let output = Command::new(cpd_bin())
+        .env_remove("CI")
+        .env_remove("JSCPD_NO_TIPS")
+        .args(["--min-tokens", "20", "--min-lines", "1", "--no-colors"])
+        .arg(&dir)
+        .output()
+        .expect("failed to run cpd");
+    let stdout = stdout_of(&output);
+    assert!(
+        stdout.contains("time:"),
+        "run must still print the timing line, got: {stdout}"
+    );
+    assert!(
+        !stdout.contains("opencollective.com/jscpd"),
+        "tips must not be printed to a non-TTY stdout, got: {stdout}"
+    );
+}
+
+// --- --summary ---
+
+fn run_summary(extra_args: &[&str]) -> Output {
+    let dir = cross_formats_fixture_dir();
+    let mut args: Vec<&str> = vec![
+        "--min-tokens",
+        "20",
+        "--min-lines",
+        "1",
+        "--no-colors",
+        "--no-tips",
+    ];
+    args.extend_from_slice(extra_args);
+    let dir_str = dir.to_str().unwrap();
+    args.push(dir_str);
+    run_cpd(args).expect("cpd binary must exist")
+}
+
+#[test]
+fn summary_flag_prints_summary_block() {
+    let output = run_summary(&["--summary", "--reporters", "console"]);
+    let stdout = stdout_of(&output);
+    assert!(
+        stdout.contains("Summary") && stdout.contains("Top files:"),
+        "--summary must print the summary block, got: {stdout}"
+    );
+    assert!(
+        stdout.contains("Top folders:"),
+        "--summary must print the folder rollup, got: {stdout}"
+    );
+    assert!(
+        stdout.contains("a.ts"),
+        "summary must list scanned files, got: {stdout}"
+    );
+}
+
+#[test]
+fn summary_absent_by_default() {
+    let output = run_summary(&["--reporters", "console"]);
+    let stdout = stdout_of(&output);
+    assert!(
+        !stdout.contains("Top files:"),
+        "summary must be opt-in; default output changed: {stdout}"
+    );
+}
+
+#[test]
+fn summary_ai_reporter_prints_compact_block() {
+    let output = run_summary(&["--summary", "--reporters", "ai"]);
+    let stdout = stdout_of(&output);
+    assert!(
+        stdout.contains("files (tokens/lines/size/cx/dup%):"),
+        "ai reporter must print the compact summary, got: {stdout}"
+    );
+}
+
+#[test]
+fn summary_json_key_present_only_when_enabled() {
+    let out_on = std::env::temp_dir().join("cpd-summary-json-on");
+    let _ = std::fs::remove_dir_all(&out_on);
+    run_summary(&[
+        "--summary",
+        "--reporters",
+        "json",
+        "--output",
+        out_on.to_str().unwrap(),
+    ]);
+    let report = std::fs::read_to_string(out_on.join("jscpd-report.json")).unwrap();
+    let parsed: serde_json::Value = serde_json::from_str(&report).unwrap();
+    let summary = parsed
+        .get("summary")
+        .expect("--summary must add a summary key to the JSON report");
+    assert!(summary.get("files").is_some(), "summary.files expected");
+    assert!(summary.get("folders").is_some(), "summary.folders expected");
+    assert!(
+        summary.get("totalFiles").is_some(),
+        "summary.totalFiles expected (camelCase)"
+    );
+
+    let out_off = std::env::temp_dir().join("cpd-summary-json-off");
+    let _ = std::fs::remove_dir_all(&out_off);
+    run_summary(&["--reporters", "json", "--output", out_off.to_str().unwrap()]);
+    let report = std::fs::read_to_string(out_off.join("jscpd-report.json")).unwrap();
+    let parsed: serde_json::Value = serde_json::from_str(&report).unwrap();
+    assert!(
+        parsed.get("summary").is_none(),
+        "without --summary the JSON schema must be unchanged"
+    );
+}
+
+#[test]
+fn summary_by_invalid_value_warns_and_defaults() {
+    let output = run_summary(&[
+        "--summary",
+        "--summary-by",
+        "bogus",
+        "--reporters",
+        "console",
+    ]);
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        stderr.contains("summary-by") && stderr.contains("bogus"),
+        "invalid --summary-by must warn, got: {stderr}"
+    );
+    let stdout = stdout_of(&output);
+    assert!(
+        stdout.contains("(by tokens;"),
+        "invalid metric must fall back to tokens, got: {stdout}"
+    );
+}
+
+#[test]
+fn summary_top_limits_file_and_folder_lists() {
+    let output = run_summary(&["--summary", "--summary-top", "1", "--reporters", "console"]);
+    let stdout = stdout_of(&output);
+    let rows_after = |heading: &str| {
+        stdout
+            .split(heading)
+            .nth(1)
+            .unwrap_or("")
+            .lines()
+            .skip(2) // empty remainder of the heading line, then the column header
+            .take_while(|l| l.starts_with("  "))
+            .count()
+    };
+    assert_eq!(
+        rows_after("Top files:"),
+        1,
+        "--summary-top 1 must list exactly one file, got: {stdout}"
+    );
+    assert_eq!(
+        rows_after("Top folders:"),
+        1,
+        "--summary-top 1 must list exactly one folder, got: {stdout}"
+    );
+}
+
+// ---------------------------------------------------------------------------
+// Baseline (--baseline / --update-baseline / --fail-on-new-clones, issue #944)
+// ---------------------------------------------------------------------------
+
+/// Unique scratch dir per call: parallel test threads must not share files.
+fn baseline_tmp_dir(suffix: &str) -> PathBuf {
+    static NEXT_ID: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(0);
+    let dir = std::env::temp_dir().join(format!(
+        "cpd-it-baseline-{}-{}-{}",
+        suffix,
+        std::process::id(),
+        NEXT_ID.fetch_add(1, std::sync::atomic::Ordering::Relaxed)
+    ));
+    std::fs::create_dir_all(&dir).unwrap();
+    dir
+}
+
+fn dup_function(name: &str) -> String {
+    format!(
+        r#"function {name}(alpha, beta, gamma) {{
+  const first = alpha * beta + gamma;
+  const second = first - alpha / beta;
+  const third = second + gamma * gamma;
+  const fourth = third - first + alpha;
+  const fifth = fourth * second - beta;
+  console.log(first, second, third, fourth, fifth);
+  return fifth + fourth + third + second + first;
+}}
+"#
+    )
+}
+
+/// Temp root whose `src/` holds a.js and b.js sharing one duplicated
+/// function. Returns (root, src).
+fn baseline_root_with_pair(suffix: &str) -> (PathBuf, PathBuf) {
+    let root = baseline_tmp_dir(suffix);
+    let scan = root.join("src");
+    std::fs::create_dir_all(&scan).unwrap();
+    std::fs::write(scan.join("a.js"), dup_function("known")).unwrap();
+    std::fs::write(scan.join("b.js"), dup_function("known")).unwrap();
+    (root, scan)
+}
+
+/// Scan dir with one duplicated function shared by a.js and b.js.
+/// Returns (scan_dir, baseline_path); the baseline file lives outside the
+/// scan dir so it is never scanned itself.
+fn setup_baseline_scan(suffix: &str) -> (PathBuf, PathBuf) {
+    let (root, scan) = baseline_root_with_pair(suffix);
+    (scan, root.join("baseline.json"))
+}
+
+/// Add a second, distinct duplicated pair to the scan dir.
+fn add_new_duplicate(scan: &std::path::Path) {
+    let body = dup_function("fresh").replace("alpha", "omega");
+    std::fs::write(scan.join("c.js"), &body).unwrap();
+    std::fs::write(scan.join("d.js"), &body).unwrap();
+}
+
+fn run_baseline_cpd(scan: &std::path::Path, baseline: &std::path::Path, extra: &[&str]) -> Output {
+    let mut args = vec![
+        "--min-tokens",
+        "20",
+        "--baseline",
+        baseline.to_str().unwrap(),
+    ];
+    args.extend_from_slice(extra);
+    args.push(scan.to_str().unwrap());
+    run_cpd(args).expect("cpd binary must exist")
+}
+
+#[test]
+fn update_baseline_creates_file_and_prints_counts() {
+    let (scan, baseline) = setup_baseline_scan("create");
+    let output = run_baseline_cpd(
+        &scan,
+        &baseline,
+        &["--update-baseline", "--reporters", "silent"],
+    );
+    assert!(output.status.success(), "update run must exit 0");
+    assert!(baseline.exists(), "baseline file must be created");
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        stderr.contains("1 fingerprints added, 0 removed (1 total)"),
+        "update must print added/removed counts, got: {stderr}"
+    );
+    let content = std::fs::read_to_string(&baseline).unwrap();
+    let parsed: serde_json::Value = serde_json::from_str(&content).unwrap();
+    assert_eq!(parsed["version"], 1);
+    assert_eq!(parsed["fingerprints"].as_object().unwrap().len(), 1);
+}
+
+#[test]
+fn baseline_gate_passes_when_no_new_clones() {
+    let (scan, baseline) = setup_baseline_scan("pass");
+    run_baseline_cpd(
+        &scan,
+        &baseline,
+        &["--update-baseline", "--reporters", "silent"],
+    );
+    let output = run_baseline_cpd(
+        &scan,
+        &baseline,
+        &["--fail-on-new-clones", "--reporters", "silent"],
+    );
+    assert!(
+        output.status.success(),
+        "no new clones must exit 0, stderr: {}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+}
+
+#[test]
+fn baseline_gate_fails_on_new_clones() {
+    let (scan, baseline) = setup_baseline_scan("fail");
+    run_baseline_cpd(
+        &scan,
+        &baseline,
+        &["--update-baseline", "--reporters", "silent"],
+    );
+    add_new_duplicate(&scan);
+    let output = run_baseline_cpd(
+        &scan,
+        &baseline,
+        &["--fail-on-new-clones", "--reporters", "silent"],
+    );
+    assert_eq!(
+        output.status.code(),
+        Some(1),
+        "new clones must exit 1, stderr: {}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        stderr.contains("new clones not in the baseline"),
+        "gate must explain the failure, got: {stderr}"
+    );
+}
+
+#[test]
+fn baseline_gate_allows_n_new_clones() {
+    let (scan, baseline) = setup_baseline_scan("allow-n");
+    run_baseline_cpd(
+        &scan,
+        &baseline,
+        &["--update-baseline", "--reporters", "silent"],
+    );
+    add_new_duplicate(&scan);
+    let output = run_baseline_cpd(
+        &scan,
+        &baseline,
+        &["--fail-on-new-clones", "1", "--reporters", "silent"],
+    );
+    assert!(
+        output.status.success(),
+        "one new clone within --fail-on-new-clones 1 must exit 0, stderr: {}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+}
+
+#[test]
+fn missing_baseline_file_errors_with_update_hint() {
+    let (scan, baseline) = setup_baseline_scan("missing");
+    let output = run_baseline_cpd(&scan, &baseline, &["--reporters", "silent"]);
+    assert_eq!(output.status.code(), Some(1));
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        stderr.contains("not found") && stderr.contains("--update-baseline"),
+        "missing baseline must hint at --update-baseline, got: {stderr}"
+    );
+}
+
+#[test]
+fn fail_on_new_clones_requires_baseline() {
+    let output =
+        run_cpd(["--fail-on-new-clones", "--reporters", "silent", "."]).expect("cpd binary");
+    assert_eq!(output.status.code(), Some(1));
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        stderr.contains("--fail-on-new-clones requires --baseline"),
+        "got: {stderr}"
+    );
+}
+
+#[test]
+fn update_baseline_requires_baseline() {
+    let output = run_cpd(["--update-baseline", "--reporters", "silent", "."]).expect("cpd binary");
+    assert_eq!(output.status.code(), Some(1));
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        stderr.contains("--update-baseline requires --baseline"),
+        "got: {stderr}"
+    );
+}
+
+#[test]
+fn json_report_marks_new_clones_and_statistics() {
+    let (scan, baseline) = setup_baseline_scan("json");
+    run_baseline_cpd(
+        &scan,
+        &baseline,
+        &["--update-baseline", "--reporters", "silent"],
+    );
+    add_new_duplicate(&scan);
+    let report_dir = scan.parent().unwrap().join("report");
+    let output = run_baseline_cpd(
+        &scan,
+        &baseline,
+        &[
+            "--reporters",
+            "json",
+            "--output",
+            report_dir.to_str().unwrap(),
+        ],
+    );
+    assert!(
+        output.status.success(),
+        "stderr: {}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    let content = std::fs::read_to_string(report_dir.join("jscpd-report.json")).unwrap();
+    let parsed: serde_json::Value = serde_json::from_str(&content).unwrap();
+    assert_eq!(parsed["statistics"]["total"]["newClones"], 1);
+    let dups = parsed["duplicates"].as_array().unwrap();
+    assert_eq!(dups.len(), 2);
+    assert_eq!(
+        dups.iter().filter(|d| d["isNew"] == true).count(),
+        1,
+        "exactly the added pair must be new: {content}"
+    );
+}
+
+#[test]
+fn console_marks_new_clones() {
+    let (scan, baseline) = setup_baseline_scan("console");
+    run_baseline_cpd(
+        &scan,
+        &baseline,
+        &["--update-baseline", "--reporters", "silent"],
+    );
+    add_new_duplicate(&scan);
+    let output = run_baseline_cpd(&scan, &baseline, &["--reporters", "console", "--no-colors"]);
+    let stdout = String::from_utf8_lossy(&output.stdout);
+    assert!(
+        stdout.contains("[NEW]"),
+        "console must flag new clones, got: {stdout}"
+    );
+    assert!(
+        stdout.contains("Found 2 clones (1 new)."),
+        "found-count must include new count, got: {stdout}"
+    );
+}
+
+// ---------------------------------------------------------------------------
+// Ephemeral baseline from a git ref (--baseline-from-ref, issue #944 phase 2)
+// ---------------------------------------------------------------------------
+
+/// Run git in `dir` with identity/signing config that works on any machine.
+fn git_in(dir: &std::path::Path, args: &[&str]) -> Output {
+    Command::new("git")
+        .arg("-C")
+        .arg(dir)
+        .args([
+            "-c",
+            "user.email=cpd-test@example.com",
+            "-c",
+            "user.name=cpd-test",
+            "-c",
+            "commit.gpgsign=false",
+        ])
+        .args(args)
+        .output()
+        .expect("failed to run git")
+}
+
+/// Git repo whose HEAD commit contains src/a.js and src/b.js sharing one
+/// duplicated function. Returns the repo root.
+fn setup_git_baseline_repo(suffix: &str) -> PathBuf {
+    let (root, _scan) = baseline_root_with_pair(suffix);
+    assert!(git_in(&root, &["init", "-q"]).status.success());
+    assert!(git_in(&root, &["add", "-A"]).status.success());
+    let commit = git_in(&root, &["commit", "-q", "-m", "base"]);
+    assert!(
+        commit.status.success(),
+        "git commit failed: {}",
+        String::from_utf8_lossy(&commit.stderr)
+    );
+    root
+}
+
+fn run_from_ref_cpd(root: &std::path::Path, git_ref: &str, extra: &[&str]) -> Output {
+    let scan = root.join("src");
+    let mut args = vec!["--min-tokens", "20", "--baseline-from-ref", git_ref];
+    args.extend_from_slice(extra);
+    args.push(scan.to_str().unwrap());
+    run_cpd(args).expect("cpd binary must exist")
+}
+
+#[test]
+fn baseline_from_ref_passes_when_no_new_clones() {
+    let root = setup_git_baseline_repo("ref-pass");
+    let output = run_from_ref_cpd(
+        &root,
+        "HEAD",
+        &["--fail-on-new-clones", "--reporters", "silent"],
+    );
+    assert!(
+        output.status.success(),
+        "clones present in the base ref must not fail the gate, stderr: {}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    // The temporary worktree must be cleaned up and unregistered.
+    let list = git_in(&root, &["worktree", "list"]);
+    let worktrees = String::from_utf8_lossy(&list.stdout);
+    assert_eq!(
+        worktrees.lines().count(),
+        1,
+        "no leftover worktrees expected, got: {worktrees}"
+    );
+}
+
+#[test]
+fn baseline_from_ref_fails_on_new_uncommitted_pair() {
+    let root = setup_git_baseline_repo("ref-fail");
+    add_new_duplicate(&root.join("src"));
+    let output = run_from_ref_cpd(
+        &root,
+        "HEAD",
+        &["--fail-on-new-clones", "--reporters", "silent"],
+    );
+    assert_eq!(
+        output.status.code(),
+        Some(1),
+        "a clone absent from the base ref must fail the gate, stderr: {}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        stderr.contains("1 new clones not in the baseline"),
+        "got: {stderr}"
+    );
+}
+
+#[test]
+fn baseline_from_ref_unknown_ref_errors_with_fetch_hint() {
+    let root = setup_git_baseline_repo("ref-missing");
+    let output = run_from_ref_cpd(&root, "no-such-ref", &["--reporters", "silent"]);
+    assert_eq!(output.status.code(), Some(1));
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        stderr.contains("not found") && stderr.contains("fetch"),
+        "missing ref must mention fetching in shallow checkouts, got: {stderr}"
+    );
+}
+
+#[test]
+fn baseline_from_ref_conflicts_with_baseline_flag() {
+    let output = run_cpd([
+        "--baseline",
+        "b.json",
+        "--baseline-from-ref",
+        "HEAD",
+        "--reporters",
+        "silent",
+        ".",
+    ])
+    .expect("cpd binary must exist");
+    assert!(
+        !output.status.success(),
+        "--baseline and --baseline-from-ref must conflict"
+    );
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        stderr.contains("cannot be used with") || stderr.contains("not both"),
+        "got: {stderr}"
+    );
+}
+
+#[test]
+fn baseline_from_ref_marks_new_clone_in_console() {
+    let root = setup_git_baseline_repo("ref-console");
+    add_new_duplicate(&root.join("src"));
+    let output = run_from_ref_cpd(&root, "HEAD", &["--reporters", "console", "--no-colors"]);
+    assert!(output.status.success(), "no gate requested, must exit 0");
+    let stdout = String::from_utf8_lossy(&output.stdout);
+    assert!(
+        stdout.contains("Found 2 clones (1 new)."),
+        "known pair stays known, added pair is new, got: {stdout}"
+    );
+}
+
+// ── Binary name follows the invoked executable ──────────────────────────────
+//
+// `cpd` and `jscpd` are two bin targets built from the same main.rs. The clap
+// command name used to be the literal "cpd", so `jscpd --version` printed
+// `cpd 5.x.y`. The name is now taken from argv[0] at runtime.
+
+fn run_named_bin(bin: &str, args: &[&str]) -> Output {
+    Command::new(bin)
+        .args(args)
+        .output()
+        .unwrap_or_else(|e| panic!("failed to run {bin}: {e}"))
+}
+
+#[test]
+fn version_output_uses_invoked_binary_name() {
+    let jscpd = run_named_bin(env!("CARGO_BIN_EXE_jscpd"), &["--version"]);
+    let stdout = String::from_utf8_lossy(&jscpd.stdout);
+    assert!(
+        stdout.starts_with("jscpd "),
+        "jscpd --version should start with 'jscpd ', got: {stdout:?}"
+    );
+    assert!(
+        stdout.trim().ends_with(env!("CARGO_PKG_VERSION")),
+        "jscpd --version should end with the crate version, got: {stdout:?}"
+    );
+
+    let cpd = run_named_bin(env!("CARGO_BIN_EXE_cpd"), &["--version"]);
+    let stdout = String::from_utf8_lossy(&cpd.stdout);
+    assert!(
+        stdout.starts_with("cpd "),
+        "cpd --version should start with 'cpd ', got: {stdout:?}"
+    );
+}
+
+#[test]
+fn help_usage_line_uses_invoked_binary_name() {
+    let jscpd = run_named_bin(env!("CARGO_BIN_EXE_jscpd"), &["--help"]);
+    let stdout = String::from_utf8_lossy(&jscpd.stdout);
+    assert!(
+        stdout.contains("Usage: jscpd"),
+        "jscpd --help usage line should name jscpd, got: {stdout}"
+    );
+
+    let cpd = run_named_bin(env!("CARGO_BIN_EXE_cpd"), &["--help"]);
+    let stdout = String::from_utf8_lossy(&cpd.stdout);
+    assert!(
+        stdout.contains("Usage: cpd"),
+        "cpd --help usage line should name cpd, got: {stdout}"
+    );
+}
+
+// ── exit codes (#1047) ───────────────────────────────────────────────────
+
+fn scratch_dir(name: &str) -> PathBuf {
+    let dir = std::env::temp_dir().join(format!("cpd-{name}-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&dir);
+    std::fs::create_dir_all(&dir).unwrap();
+    dir
+}
+
+/// A JavaScript file whose only content is comments: JS comments produce no
+/// detection tokens, so the directory exists but nothing gets analyzed.
+fn write_comment_only_js(dir: &std::path::Path) {
+    std::fs::write(
+        dir.join("only-comments.js"),
+        "// nothing to analyze here\n// just comments\n// and more comments\n",
+    )
+    .unwrap();
+}
+
+#[test]
+fn nonexistent_path_is_an_error() {
+    let missing = std::env::temp_dir().join(format!("cpd-missing-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&missing);
+    let (code, stderr) = run_scratch(&missing, &["--reporters", "silent"]);
+    assert_eq!(code, Some(1), "stderr: {}", stderr);
+    assert!(
+        stderr.contains("Error: path does not exist:"),
+        "missing path must be an error, got stderr: {}",
+        stderr
+    );
+}
+
+#[test]
+fn empty_scan_warns_and_exits_zero() {
+    let dir = scratch_dir("empty-warn");
+    write_comment_only_js(&dir);
+    let (code, stderr) = run_scratch(&dir, &["--reporters", "silent"]);
+    assert_eq!(code, Some(0), "stderr: {}", stderr);
+    assert!(
+        stderr.contains("Warning: jscpd analyzed no files"),
+        "empty scan must warn, got stderr: {}",
+        stderr
+    );
+}
+
+#[test]
+fn fail_on_empty_exits_one_when_nothing_analyzed() {
+    let dir = scratch_dir("empty-fail");
+    write_comment_only_js(&dir);
+    let (code, stderr) = run_scratch(&dir, &["--fail-on-empty", "--reporters", "silent"]);
+    assert_eq!(code, Some(1), "stderr: {}", stderr);
+    assert!(
+        stderr.contains("ERROR: jscpd analyzed no files (--fail-on-empty)"),
+        "got stderr: {}",
+        stderr
+    );
+}
+
+#[test]
+fn fail_on_empty_from_config_file() {
+    let dir = scratch_dir("empty-config");
+    write_comment_only_js(&dir);
+    let config = dir.join("jscpd.json");
+    std::fs::write(&config, r#"{"failOnEmpty": true}"#).unwrap();
+    let (code, stderr) = run_scratch(
+        &dir,
+        &[
+            "--config",
+            config.to_str().unwrap(),
+            "--reporters",
+            "silent",
+        ],
+    );
+    assert_eq!(code, Some(1), "stderr: {}", stderr);
+    assert!(
+        !stderr.contains("unknown field"),
+        "failOnEmpty must be a known config key, got stderr: {}",
+        stderr
+    );
+}
+
+#[test]
+fn fail_on_empty_passes_when_files_are_analyzed() {
+    let dir = scratch_dir("empty-pass");
+    let body: String = (0..12)
+        .map(|i| {
+            format!("function f{i}(a, b) {{\n  const x{i} = a * {i} + b;\n  return x{i} - a;\n}}\n")
+        })
+        .collect();
+    std::fs::write(dir.join("code.js"), body).unwrap();
+    let (code, stderr) = run_scratch(&dir, &["--fail-on-empty", "--reporters", "silent"]);
+    assert_eq!(code, Some(0), "stderr: {}", stderr);
+    assert!(
+        !stderr.contains("analyzed no files"),
+        "got stderr: {}",
+        stderr
+    );
+}
+
+#[test]
+fn reporter_write_failure_exits_one() {
+    let dir = scratch_dir("reporter-fail");
+    write_comment_only_js(&dir);
+    // A regular file where the output directory should be: creating the
+    // directory fails on every platform, so the json reporter cannot write.
+    let blocker = dir.join("blocker");
+    std::fs::write(&blocker, "not a directory").unwrap();
+    let out_dir = blocker.join("report");
+    let (code, stderr) = run_scratch(
+        &dir,
+        &["--reporters", "json", "--output", out_dir.to_str().unwrap()],
+    );
+    assert_eq!(code, Some(1), "stderr: {}", stderr);
+    assert!(
+        stderr.contains("Reporter 'json' error:")
+            && stderr.contains("ERROR: a reporter failed to write its output"),
+        "got stderr: {}",
+        stderr
+    );
+}
+
+// ── --history: duplication trend over git history (#1002) ─────────────────
+
+/// Repo with four commits: no clone, one clone (b.js copies a.js), two
+/// clones (c.js copies too), one clone again (b.js rewritten). Dates are
+/// fixed so the series is deterministic.
+fn setup_history_repo() -> PathBuf {
+    let root = baseline_tmp_dir("history");
+    let src = root.join("src");
+    std::fs::create_dir_all(&src).unwrap();
+    assert!(git_in(&root, &["init", "-q"]).status.success());
+    let commit = |msg: &str, date: &str| {
+        assert!(git_in(&root, &["add", "-A"]).status.success());
+        let out = Command::new("git")
+            .arg("-C")
+            .arg(&root)
+            .args([
+                "-c",
+                "user.email=cpd-test@example.com",
+                "-c",
+                "user.name=cpd-test",
+                "-c",
+                "commit.gpgsign=false",
+                "commit",
+                "-q",
+                "-m",
+                msg,
+                "--date",
+                date,
+            ])
+            .env("GIT_COMMITTER_DATE", date)
+            .output()
+            .expect("failed to run git");
+        assert!(
+            out.status.success(),
+            "git commit failed: {}",
+            String::from_utf8_lossy(&out.stderr)
+        );
+    };
+    std::fs::write(src.join("a.js"), dup_function("total")).unwrap();
+    commit("initial", "2026-08-01T10:00:00");
+    std::fs::write(src.join("b.js"), dup_function("total")).unwrap();
+    commit("copy into b", "2026-08-08T10:00:00");
+    std::fs::write(src.join("c.js"), dup_function("total")).unwrap();
+    commit("copy into c", "2026-08-15T10:00:00");
+    std::fs::write(src.join("b.js"), "export const rate = (n) => n * 7;\n").unwrap();
+    commit("rewrite b", "2026-08-22T10:00:00");
+    root
+}
+
+/// Dates of the committed points of a `history` report, working tree excluded.
+fn commit_dates(report: &serde_json::Value) -> Vec<String> {
+    report["history"]["points"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .filter(|p| p["commit"] != "working tree")
+        .map(|p| p["date"].as_str().unwrap().to_string())
+        .collect()
+}
+
+/// Stdout of a history run over a fresh repository that must succeed.
+fn history_stdout(extra: &[&str]) -> String {
+    let root = setup_history_repo();
+    let output = run_history_cpd(&root, extra);
+    std::fs::remove_dir_all(&root).ok();
+    assert!(
+        output.status.success(),
+        "stderr: {}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    String::from_utf8_lossy(&output.stdout).into_owned()
+}
+
+fn run_history_cpd(root: &std::path::Path, extra: &[&str]) -> Output {
+    let scan = root.join("src");
+    let mut args = vec!["--min-tokens", "20", "--no-colors", "--no-tips"];
+    args.extend_from_slice(extra);
+    args.push(scan.to_str().unwrap());
+    run_cpd(args).expect("cpd binary must exist")
+}
+
+#[test]
+fn history_json_has_one_point_per_commit_plus_working_tree() {
+    let Some(_) = maybe_bin() else { return };
+    let root = setup_history_repo();
+    let out_dir = root.join("report");
+    let output = run_history_cpd(
+        &root,
+        &[
+            "--history-since",
+            "2026-01-01",
+            "--reporters",
+            "json",
+            "--output",
+            out_dir.to_str().unwrap(),
+        ],
+    );
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(output.status.success(), "stderr: {stderr}");
+    let report = read_json(&out_dir.join("jscpd-report.json"));
+    std::fs::remove_dir_all(&root).ok();
+    let history = &report["history"];
+    assert_eq!(history["range"], "since 2026-01-01");
+    let points = history["points"].as_array().unwrap();
+    assert_eq!(points.len(), 5, "4 commits + working tree: {points:?}");
+    let clones: Vec<u64> = points
+        .iter()
+        .map(|p| p["clones"].as_u64().unwrap())
+        .collect();
+    assert_eq!(clones, vec![0, 1, 2, 1, 1]);
+    let dates: Vec<&str> = points.iter().map(|p| p["date"].as_str().unwrap()).collect();
+    assert_eq!(
+        &dates[..4],
+        &["2026-08-01", "2026-08-08", "2026-08-15", "2026-08-22"]
+    );
+    assert_eq!(points[1]["subject"], "copy into b");
+    assert_eq!(points[4]["commit"], "working tree");
+    assert!(points[2]["percentage"].as_f64().unwrap() > points[1]["percentage"].as_f64().unwrap());
+}
+
+#[test]
+fn history_console_prints_chart_table_and_threshold_hint() {
+    let Some(_) = maybe_bin() else { return };
+    let stdout = history_stdout(&["--history", "HEAD~3..HEAD", "--threshold", "80"]);
+    assert!(
+        stdout.contains("History (HEAD~3..HEAD: 3 commits + working tree)"),
+        "{stdout}"
+    );
+    assert!(
+        stdout.contains("min ") && stdout.contains("now "),
+        "{stdout}"
+    );
+    assert!(
+        stdout.chars().any(|c| "▁▂▃▄▅▆▇█".contains(c)),
+        "sparkline missing: {stdout}"
+    );
+    assert!(stdout.contains("CHANGE  SUBJECT"), "{stdout}");
+    assert!(stdout.contains("(uncommitted changes)"), "{stdout}");
+    assert!(stdout.contains("Trend: "), "{stdout}");
+    assert!(stdout.contains("tighten it with --threshold"), "{stdout}");
+}
+
+#[test]
+fn history_block_is_printed_by_console_full_too() {
+    let Some(_) = maybe_bin() else { return };
+    let stdout = history_stdout(&["--history", "HEAD~1..HEAD", "--reporters", "console-full"]);
+    assert!(
+        stdout.contains("History (HEAD~1..HEAD: 1 commits + working tree)"),
+        "{stdout}"
+    );
+    assert!(stdout.contains("CHANGE  SUBJECT"), "{stdout}");
+}
+
+#[test]
+fn history_every_and_limit_thin_the_series() {
+    let Some(_) = maybe_bin() else { return };
+    let root = setup_history_repo();
+    let out_dir = root.join("report");
+    let output = run_history_cpd(
+        &root,
+        &[
+            "--history-since",
+            "2026-01-01",
+            "--history-every",
+            "2",
+            "--reporters",
+            "json",
+            "--output",
+            out_dir.to_str().unwrap(),
+        ],
+    );
+    assert!(output.status.success());
+    let report = read_json(&out_dir.join("jscpd-report.json"));
+    let dates = commit_dates(&report);
+    assert_eq!(
+        dates,
+        vec!["2026-08-08", "2026-08-22"],
+        "every 2nd, newest kept"
+    );
+
+    let output = run_history_cpd(
+        &root,
+        &[
+            "--history-since",
+            "2026-01-01",
+            "--history-limit",
+            "2",
+            "--reporters",
+            "json",
+            "--output",
+            out_dir.to_str().unwrap(),
+        ],
+    );
+    assert!(output.status.success());
+    let report = read_json(&out_dir.join("jscpd-report.json"));
+    std::fs::remove_dir_all(&root).ok();
+    let dates = commit_dates(&report);
+    assert_eq!(
+        dates,
+        vec!["2026-08-01", "2026-08-22"],
+        "limit keeps both ends"
+    );
+}
+
+#[test]
+fn history_without_matching_commits_is_an_error() {
+    let Some(_) = maybe_bin() else { return };
+    let root = setup_history_repo();
+    let output = run_history_cpd(&root, &["--history", "nosuchref..HEAD"]);
+    std::fs::remove_dir_all(&root).ok();
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert_eq!(output.status.code(), Some(1), "stderr: {stderr}");
+    assert!(
+        stderr.contains("--history: git log nosuchref..HEAD failed"),
+        "{stderr}"
+    );
+}
+
+#[test]
+fn history_outside_a_git_repository_is_an_error() {
+    let Some(_) = maybe_bin() else { return };
+    let dir = scratch_dir("history-nogit");
+    std::fs::write(dir.join("a.js"), dup_function("x")).unwrap();
+    let (code, stderr) = run_scratch(&dir, &["--history", "HEAD", "--reporters", "silent"]);
+    assert_eq!(code, Some(1), "stderr: {}", stderr);
+    assert!(
+        stderr.contains("is not inside a git repository"),
+        "{stderr}"
+    );
+}
+
+// --- --follow-symlinks (issue #1059) -------------------------------------
+
+/// One source and no clone: the symlinked copy was not read. Removes the
+/// layout afterwards.
+#[cfg(unix)]
+fn assert_only_the_real_file_was_scanned(report: &serde_json::Value, root: &std::path::Path) {
+    assert_eq!(report["statistics"]["total"]["sources"], 1, "{report}");
+    assert_eq!(report["statistics"]["total"]["clones"], 0, "{report}");
+    std::fs::remove_dir_all(root.parent().unwrap()).ok();
+}
+
+/// The layout from issue #1059 under a scratch dir; returns the scan root.
+#[cfg(unix)]
+fn symlink_layout(name: &str) -> PathBuf {
+    let dir = scratch_dir(name);
+    std::fs::create_dir_all(dir.join("root/candidate")).unwrap();
+    std::fs::create_dir_all(dir.join("outside/S1")).unwrap();
+    std::fs::write(dir.join("root/candidate/app.js"), GREET_DUP).unwrap();
+    std::fs::write(dir.join("outside/S1/app.js"), GREET_DUP).unwrap();
+    std::os::unix::fs::symlink("../outside", dir.join("root/corpus")).unwrap();
+    std::os::unix::fs::symlink("candidate/app.js", dir.join("root/linked.js")).unwrap();
+    dir.join("root")
+}
+
+#[cfg(unix)]
+fn clone_names(report: &serde_json::Value) -> Vec<String> {
+    let mut names: Vec<String> = report["duplicates"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .flat_map(|d| {
+            [
+                d["firstFile"]["name"].as_str().unwrap().to_string(),
+                d["secondFile"]["name"].as_str().unwrap().to_string(),
+            ]
+        })
+        .collect();
+    names.sort();
+    names
+}
+
+#[cfg(unix)]
+#[test]
+fn follow_symlinks_reports_walked_paths_and_counts_each_file_once() {
+    let Some(_) = maybe_bin() else { return };
+    let root = symlink_layout("symlinks-report");
+    let out = root.join(".r");
+    let (report, _) = scan_json(&root, &out, &["--min-tokens", "20", "--follow-symlinks"]);
+    assert_eq!(report["statistics"]["total"]["sources"], 2, "{report}");
+    assert_eq!(report["statistics"]["total"]["lines"], 14, "{report}");
+    assert_eq!(
+        clone_names(&report),
+        ["candidate/app.js", "corpus/S1/app.js"]
+    );
+
+    let (report, _) = scan_json(
+        &root,
+        &out,
+        &["--min-tokens", "20", "--follow-symlinks", "--absolute"],
+    );
+    let canonical_root = std::fs::canonicalize(&root).unwrap();
+    for name in clone_names(&report) {
+        assert!(
+            std::path::Path::new(&name).starts_with(&canonical_root) && !name.contains("outside"),
+            "absolute paths stay under the scan root: {name}"
+        );
+    }
+    std::fs::remove_dir_all(root.parent().unwrap()).ok();
+}
+
+#[cfg(unix)]
+#[test]
+fn follow_symlinks_ignore_sees_the_reported_path() {
+    let Some(_) = maybe_bin() else { return };
+    let root = symlink_layout("symlinks-ignore");
+    let out = root.join(".r");
+    let (report, _) = scan_json(
+        &root,
+        &out,
+        &[
+            "--min-tokens",
+            "20",
+            "--follow-symlinks",
+            "--ignore",
+            "corpus/**",
+        ],
+    );
+    assert_only_the_real_file_was_scanned(&report, &root);
+}
+
+#[cfg(unix)]
+#[test]
+fn symlinks_are_skipped_without_the_flag() {
+    let Some(_) = maybe_bin() else { return };
+    let root = symlink_layout("symlinks-default");
+    let out = root.join(".r");
+    let (report, _) = scan_json(&root, &out, &["--min-tokens", "20"]);
+    assert_only_the_real_file_was_scanned(&report, &root);
+}
+
+// `--min-duplicated-lines` was documented until 5.3.2 but no code ever read
+// it. Scripts that pass it must keep working, and must be told it does nothing.
+#[test]
+fn min_duplicated_lines_is_accepted_and_warns_that_it_does_nothing() {
+    let dir = config_dir(
+        "min-duplicated-lines",
+        &[("a.js", common::INVOICE_JS), ("b.js", common::INVOICE_JS)],
+    );
+    let (code, stderr) = run_scratch(&dir, &["--min-duplicated-lines", "50", "--silent"]);
+    assert_eq!(code, Some(0), "the flag must not fail the run: {stderr}");
+    assert!(
+        stderr.contains("--min-duplicated-lines has never had an effect"),
+        "expected the deprecation warning, got: {stderr}"
+    );
+}
+
+#[test]
+fn min_duplicated_lines_is_hidden_from_help() {
+    let output = run_cpd(["--help"]).expect("cpd binary must exist");
+    let help = String::from_utf8_lossy(&output.stdout);
+    assert!(
+        !help.contains("min-duplicated-lines"),
+        "a flag that does nothing should not be offered in --help"
+    );
+}

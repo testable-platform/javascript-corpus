@@ -1,0 +1,96 @@
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
+import {
+  getDefinitelyTypedFor,
+  getPackageFromDefinitelyTyped,
+  getPackageNameFromFilePath,
+  getPackageNameFromModuleSpecifier,
+  isStartsLikePackageName,
+  sanitizeSpecifier,
+} from '../../src/util/modules.ts';
+import { resolve } from '../helpers/resolve.ts';
+
+const store = resolve('fixtures/yarn-pnpm-store/node_modules/.store');
+
+test('Should return definitely typed package for package name', () => {
+  assert.equal(getDefinitelyTypedFor('node'), '@types/node');
+  assert.equal(getDefinitelyTypedFor('@npmcli/map-workspaces'), '@types/npmcli__map-workspaces');
+  assert.equal(getDefinitelyTypedFor('@types/node'), '@types/node');
+});
+
+test('Should return package name from definitely typed package name', () => {
+  assert.equal(getPackageFromDefinitelyTyped('node'), 'node');
+  assert.equal(getPackageFromDefinitelyTyped('npmcli__map-workspaces'), '@npmcli/map-workspaces');
+});
+
+test('Should detect specifiers that look like package names', () => {
+  assert.equal(isStartsLikePackageName('react'), true);
+  assert.equal(isStartsLikePackageName('@scope/pkg'), true);
+  assert.equal(isStartsLikePackageName('@~private/pkg'), true);
+  assert.equal(isStartsLikePackageName('@.internal/pkg'), true);
+  assert.equal(isStartsLikePackageName('@_private/pkg'), true);
+  assert.equal(isStartsLikePackageName('./relative'), false);
+  assert.equal(isStartsLikePackageName('../parent'), false);
+  assert.equal(isStartsLikePackageName('/absolute'), false);
+  assert.equal(isStartsLikePackageName('#subpath'), false);
+  assert.equal(isStartsLikePackageName('$dollar'), false);
+  assert.equal(isStartsLikePackageName('~/alias'), false);
+  assert.equal(isStartsLikePackageName('~bare'), false);
+});
+
+test('Should extract package name from module specifier', () => {
+  assert.equal(getPackageNameFromModuleSpecifier('@scope/pkg'), '@scope/pkg');
+  assert.equal(getPackageNameFromModuleSpecifier('@scope/pkg/deep'), '@scope/pkg');
+  assert.equal(getPackageNameFromModuleSpecifier('@~private/pkg'), '@~private/pkg');
+  assert.equal(getPackageNameFromModuleSpecifier('@~private/pkg/deep'), '@~private/pkg');
+  assert.equal(getPackageNameFromModuleSpecifier('react'), 'react');
+  assert.equal(getPackageNameFromModuleSpecifier('react/jsx-runtime'), 'react');
+  assert.equal(getPackageNameFromModuleSpecifier('~/something'), undefined);
+  assert.equal(getPackageNameFromModuleSpecifier('./relative'), undefined);
+  assert.equal(getPackageNameFromModuleSpecifier('#subpath'), undefined);
+});
+
+test('Should extract package name from file path', () => {
+  assert.equal(getPackageNameFromFilePath('/root/node_modules/lodash/index.js'), 'lodash');
+  assert.equal(getPackageNameFromFilePath('/root/node_modules/@scope/pkg/index.js'), '@scope/pkg');
+  assert.equal(getPackageNameFromFilePath('/root/node_modules/@scope/pkg/node_modules/nested/index.js'), 'nested');
+  assert.equal(getPackageNameFromFilePath('file:///root/node_modules/lodash/index.js'), 'lodash');
+});
+
+test('Should resolve package name from Yarn pnpm-linker store via package.json', () => {
+  assert.equal(
+    getPackageNameFromFilePath(`${store}/@remix-run-router-npm-1.19.2-abc123/package/dist/index.js`),
+    '@remix-run/router'
+  );
+  assert.equal(getPackageNameFromFilePath(`${store}/write-file-atomic-npm-5.0.1-def456/package`), 'write-file-atomic');
+  assert.equal(getPackageNameFromFilePath(`${store}/does-not-exist-npm-1.0.0-000000/package/index.js`), '.store');
+});
+
+test('Should sanitize import specifier', () => {
+  assert.equal(sanitizeSpecifier('specifier'), 'specifier');
+  assert.equal(sanitizeSpecifier('/specifier'), '/specifier');
+  assert.equal(sanitizeSpecifier('./specifier'), './specifier');
+  assert.equal(sanitizeSpecifier('../specifier.ext'), '../specifier.ext');
+  assert.equal(sanitizeSpecifier('./icon.svg?raw'), './icon.svg');
+  assert.equal(sanitizeSpecifier('../styles.css#hash'), '../styles.css');
+  assert.equal(sanitizeSpecifier('specifier?query=1'), 'specifier');
+  assert.equal(sanitizeSpecifier('specifier#hash'), 'specifier');
+  assert.equal(sanitizeSpecifier('style-loader!css-loader?modules!./styles.css'), 'style-loader');
+  assert.equal(sanitizeSpecifier('!!style-loader!css-loader?modules!./styles.css'), 'style-loader');
+  assert.equal(sanitizeSpecifier('-!style-loader!css-loader?modules!./styles.css'), 'style-loader');
+  assert.equal(sanitizeSpecifier('css-loader?modules!./styles.css'), 'css-loader');
+  assert.equal(sanitizeSpecifier('./:id/specifier'), './:id/specifier');
+  assert.equal(sanitizeSpecifier('#specifier'), '#specifier');
+  assert.equal(sanitizeSpecifier('#id/specifier'), '#id/specifier');
+  assert.equal(sanitizeSpecifier('#:/specifier'), '#:/specifier');
+  assert.equal(sanitizeSpecifier('#:specifier'), '#:specifier');
+  assert.equal(sanitizeSpecifier('~/id/specifier'), '~/id/specifier');
+  assert.equal(sanitizeSpecifier(':/id/specifier'), ':/id/specifier');
+  assert.equal(sanitizeSpecifier(':id/specifier'), ':id/specifier');
+  assert.equal(sanitizeSpecifier('astro:content'), 'astro');
+  assert.equal(sanitizeSpecifier('astro:env/client'), 'astro');
+  assert.equal(sanitizeSpecifier('virtual:specifier'), 'virtual:specifier');
+  assert.equal(sanitizeSpecifier('fs'), 'fs');
+  assert.equal(sanitizeSpecifier('node:fs'), 'node:fs');
+  assert.equal(sanitizeSpecifier('node:assert/strict'), 'node:assert/strict');
+});

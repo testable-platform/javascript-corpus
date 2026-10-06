@@ -1,0 +1,16 @@
+{
+  "name": "latchbox",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Combination-lock simulator for the eslint-plugin-security clean-corpus folder.",
+  "type": "commonjs",
+  "scripts": {
+    "lint": "eslint src/ test/",
+    "test": "mocha test/**/*.test.js"
+  },
+  "devDependencies": {
+    "eslint": "10.10.0",
+    "eslint-plugin-security": "4.0.1",
+    "mocha": "12.0.1"
+  }
+}

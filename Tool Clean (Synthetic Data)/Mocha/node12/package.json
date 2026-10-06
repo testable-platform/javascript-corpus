@@ -1,0 +1,13 @@
+{
+  "name": "librastack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Library stack catalog for the Mocha clean-corpus folder.",
+  "type": "commonjs",
+  "scripts": {
+    "test": "mocha test/**/*.test.js"
+  },
+  "devDependencies": {
+    "mocha": "9.2.2"
+  }
+}

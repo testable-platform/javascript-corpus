@@ -1,0 +1,10 @@
+{
+  "name": "kelpfield",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aquarium kelp tracker for the Dolos invalid-corpus folder.",
+  "type": "commonjs",
+  "devDependencies": {
+    "@dodona/dolos": "2.9.3"
+  }
+}

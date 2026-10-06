@@ -1,0 +1,8 @@
+{
+  "name": "windmill",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Windmill power output calculator for the Lizard clean-corpus folder.",
+  "type": "commonjs",
+  "devDependencies": {}
+}

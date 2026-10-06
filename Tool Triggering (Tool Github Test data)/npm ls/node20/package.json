@@ -1,0 +1,12 @@
+{
+  "name": "satchel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Delivery satchel route tracker for the npm-ls invalid-corpus folder.",
+  "type": "commonjs",
+  "dependencies": {
+    "left-pad": "999.999.999",
+    "is-odd": "0.0.1"
+  },
+  "devDependencies": {}
+}

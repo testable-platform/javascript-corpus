@@ -1,0 +1,21 @@
+rules:
+  - id: issue_112
+    message: message
+    languages:
+      - javascript
+    severity: ERROR
+    mode: taint
+    pattern-sinks:
+    - patterns:
+        - pattern: |
+           `$FIRST${$EXPR}...`
+        - metavariable-regex:
+            metavariable: $FIRST
+            regex: ^Text before escaped backtick,\s.*
+    pattern-sources:
+    - patterns:
+        - pattern-inside: |
+            (..., $INPUT, ...) => {
+              ...
+            }
+        - pattern: $INPUT

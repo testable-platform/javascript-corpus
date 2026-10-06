@@ -1,0 +1,19 @@
+{
+  "all": true,
+  "check-coverage": false,
+  "include": [
+    "src/**/*.js",
+    "packages/**/*.js"
+  ],
+  "exclude": [
+    "tests/**",
+    "dist/**",
+    "scripts/**"
+  ],
+  "reporter": [
+    "text",
+    "lcov",
+    "cobertura"
+  ],
+  "report-dir": "coverage"
+}

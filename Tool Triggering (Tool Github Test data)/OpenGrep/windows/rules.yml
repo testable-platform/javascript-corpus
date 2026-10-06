@@ -1,0 +1,9 @@
+rules:
+  - id: basic-test
+    pattern: print($X)
+    message: Basic test
+    severity: ERROR
+    languages: [python]
+    paths:
+      include:
+        - test.py

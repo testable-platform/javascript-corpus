@@ -1,0 +1,1692 @@
+//! Integration tests for batch file analysis using the traverse pattern.
+//!
+//! These tests verify the parallel analysis functionality and error accumulation
+//! behavior across multiple files and scenarios.
+
+use debtmap::analyzers::batch::{
+    analyze_files_effect, analyze_single_file_effect, validate_and_analyze_files, validate_files,
+};
+use debtmap::config::{
+    BatchAnalysisConfig, DebtmapConfig, GeneratedCodeMode, GoLanguageConfig, LanguageFeatures,
+    LanguagesConfig, ParallelConfig, SolidityLanguageConfig,
+};
+use debtmap::effects::{run_effect, run_validation};
+use std::fs;
+use std::path::PathBuf;
+use tempfile::TempDir;
+
+/// Helper to create a temp directory with test files.
+fn create_test_project(files: &[(&str, &str)]) -> (TempDir, Vec<PathBuf>) {
+    let temp_dir = TempDir::new().expect("Failed to create temp directory");
+    let mut paths = Vec::with_capacity(files.len());
+
+    for (name, content) in files {
+        let file_path = temp_dir.path().join(name);
+        if let Some(parent) = file_path.parent() {
+            fs::create_dir_all(parent).expect("Failed to create parent directory");
+        }
+        fs::write(&file_path, content).expect("Failed to write test file");
+        paths.push(file_path);
+    }
+
+    (temp_dir, paths)
+}
+
+fn config_with_go_generated_mode(mode: GeneratedCodeMode) -> DebtmapConfig {
+    DebtmapConfig {
+        languages: Some(LanguagesConfig {
+            go: Some(GoLanguageConfig {
+                generated_code: mode,
+                ..Default::default()
+            }),
+            ..Default::default()
+        }),
+        ..Default::default()
+    }
+}
+
+fn config_with_solidity_vendor_mode(mode: GeneratedCodeMode) -> DebtmapConfig {
+    DebtmapConfig {
+        languages: Some(LanguagesConfig {
+            solidity: Some(SolidityLanguageConfig {
+                vendor_code: mode,
+                ..Default::default()
+            }),
+            ..Default::default()
+        }),
+        ..Default::default()
+    }
+}
+
+// ============================================================================
+// Parallel Analysis Tests
+// ============================================================================
+
+#[test]
+fn test_parallel_analysis_multiple_files() {
+    let files: Vec<(&str, &str)> = vec![
+        ("file_a.rs", "fn a() { let x = 1; }"),
+        ("file_b.rs", "fn b() { let y = 2; }"),
+        ("file_c.rs", "fn c() { let z = 3; }"),
+        ("file_d.rs", "fn d() { let w = 4; }"),
+        ("file_e.rs", "fn e() { let v = 5; }"),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig {
+        batch_analysis: Some(BatchAnalysisConfig::default()),
+        ..Default::default()
+    };
+
+    let effect = analyze_files_effect(paths.clone());
+    let results = run_effect(effect, config).expect("Analysis should succeed");
+
+    assert_eq!(results.len(), 5, "Should analyze all 5 files");
+    for (result, path) in results.iter().zip(paths.iter()) {
+        assert_eq!(result.path, *path);
+    }
+}
+
+#[test]
+fn test_parallel_analysis_with_timing() {
+    let files: Vec<(&str, &str)> = vec![
+        ("mod1.rs", "fn func1() { let a = 1 + 2; }"),
+        ("mod2.rs", "fn func2() { let b = 3 + 4; }"),
+        ("mod3.rs", "fn func3() { let c = 5 + 6; }"),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig {
+        batch_analysis: Some(BatchAnalysisConfig::default().with_timing()),
+        ..Default::default()
+    };
+
+    let effect = analyze_files_effect(paths);
+    let results = run_effect(effect, config).expect("Analysis should succeed");
+
+    // All results should have timing information
+    for result in &results {
+        assert!(
+            result.analysis_time.is_some(),
+            "Each result should have timing info"
+        );
+    }
+}
+
+#[test]
+fn test_parallel_vs_sequential_produces_same_results() {
+    let files: Vec<(&str, &str)> = vec![
+        ("src/lib.rs", "pub fn add(a: i32, b: i32) -> i32 { a + b }"),
+        (
+            "src/util.rs",
+            "pub fn multiply(a: i32, b: i32) -> i32 { a * b }",
+        ),
+        ("src/helper.rs", "pub fn negate(x: i32) -> i32 { -x }"),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    // Run with parallel processing
+    let parallel_config = DebtmapConfig {
+        batch_analysis: Some(BatchAnalysisConfig {
+            parallelism: ParallelConfig::default(),
+            fail_fast: false,
+            collect_timing: false,
+        }),
+        ..Default::default()
+    };
+
+    let parallel_results =
+        run_effect(analyze_files_effect(paths.clone()), parallel_config).expect("Parallel failed");
+
+    // Run with sequential processing
+    let sequential_config = DebtmapConfig {
+        batch_analysis: Some(BatchAnalysisConfig {
+            parallelism: ParallelConfig::sequential(),
+            fail_fast: false,
+            collect_timing: false,
+        }),
+        ..Default::default()
+    };
+
+    let sequential_results =
+        run_effect(analyze_files_effect(paths), sequential_config).expect("Sequential failed");
+
+    // Results should be equivalent (order may differ)
+    assert_eq!(
+        parallel_results.len(),
+        sequential_results.len(),
+        "Same number of results"
+    );
+
+    // Sort by path for comparison
+    let mut parallel_sorted: Vec<_> = parallel_results.iter().collect();
+    let mut sequential_sorted: Vec<_> = sequential_results.iter().collect();
+    parallel_sorted.sort_by_key(|r| &r.path);
+    sequential_sorted.sort_by_key(|r| &r.path);
+
+    for (p, s) in parallel_sorted.iter().zip(sequential_sorted.iter()) {
+        assert_eq!(p.path, s.path, "Paths should match");
+        assert_eq!(
+            p.metrics.complexity.functions.len(),
+            s.metrics.complexity.functions.len(),
+            "Function count should match for {}",
+            p.path.display()
+        );
+    }
+}
+
+#[test]
+fn test_parallel_analysis_large_batch() {
+    // Create 25 files to test batch processing
+    let files: Vec<(String, String)> = (0..25)
+        .map(|i| {
+            let name = format!("file_{}.rs", i);
+            let content = format!("fn func_{}() {{ let x = {}; }}", i, i * 10);
+            (name, content)
+        })
+        .collect();
+
+    let files_refs: Vec<(&str, &str)> = files
+        .iter()
+        .map(|(n, c)| (n.as_str(), c.as_str()))
+        .collect();
+    let (_temp_dir, paths) = create_test_project(&files_refs);
+
+    let config = DebtmapConfig {
+        batch_analysis: Some(BatchAnalysisConfig {
+            parallelism: ParallelConfig {
+                enabled: true,
+                max_concurrency: None,
+                batch_size: Some(10), // Process in batches of 10
+            },
+            fail_fast: false,
+            collect_timing: false,
+        }),
+        ..Default::default()
+    };
+
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+
+    assert_eq!(results.len(), 25, "Should analyze all 25 files");
+}
+
+// ============================================================================
+// Validation and Error Accumulation Tests
+// ============================================================================
+
+#[test]
+fn test_validation_accumulates_all_errors() {
+    let files: Vec<(&str, &str)> = vec![("valid.rs", "fn valid() {}")];
+    let (temp_dir, _) = create_test_project(&files);
+
+    // Mix valid and invalid paths
+    let paths = vec![
+        temp_dir.path().join("valid.rs"),
+        PathBuf::from("/nonexistent/file_1.rs"),
+        PathBuf::from("/nonexistent/file_2.rs"),
+        PathBuf::from("/nonexistent/file_3.rs"),
+    ];
+
+    let result = validate_files(&paths);
+
+    match result {
+        stillwater::Validation::Failure(errors) => {
+            let errors_vec: Vec<_> = errors.into_iter().collect();
+            // Should have exactly 3 errors (for the 3 nonexistent files)
+            assert_eq!(
+                errors_vec.len(),
+                3,
+                "Should accumulate all 3 errors, not fail at first"
+            );
+        }
+        stillwater::Validation::Success(_) => {
+            panic!("Expected failure due to nonexistent files");
+        }
+    }
+}
+
+#[test]
+fn test_validation_syntax_errors_accumulate() {
+    let files: Vec<(&str, &str)> = vec![
+        ("valid.rs", "fn valid() {}"),
+        ("invalid1.rs", "fn broken( { }"), // Missing paren
+        ("invalid2.rs", "struct { }"),     // Missing name
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let result = validate_files(&paths);
+
+    match result {
+        stillwater::Validation::Failure(errors) => {
+            let errors_vec: Vec<_> = errors.into_iter().collect();
+            // Should have 2 syntax errors
+            assert_eq!(errors_vec.len(), 2, "Should accumulate both syntax errors");
+        }
+        stillwater::Validation::Success(_) => {
+            panic!("Expected failure due to syntax errors");
+        }
+    }
+}
+
+#[test]
+fn test_validate_and_analyze_success() {
+    let files: Vec<(&str, &str)> = vec![
+        ("module_a.rs", "pub fn a() -> i32 { 1 }"),
+        ("module_b.rs", "pub fn b() -> i32 { 2 }"),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let result = run_validation(validate_and_analyze_files(&paths));
+
+    assert!(result.is_ok(), "Should succeed for valid files");
+    let results = result.unwrap();
+    assert_eq!(results.len(), 2);
+}
+
+#[test]
+fn test_validate_and_analyze_mixed() {
+    let files: Vec<(&str, &str)> = vec![("valid.rs", "fn ok() {}")];
+    let (temp_dir, _) = create_test_project(&files);
+
+    let paths = vec![
+        temp_dir.path().join("valid.rs"),
+        PathBuf::from("/nonexistent/missing.rs"),
+    ];
+
+    let result = run_validation(validate_and_analyze_files(&paths));
+
+    // Should fail because one file doesn't exist
+    assert!(result.is_err(), "Should fail when any file is invalid");
+}
+
+// ============================================================================
+// Complex File Analysis Tests
+// ============================================================================
+
+#[test]
+fn test_analysis_detects_complexity() {
+    let content = r#"
+pub fn complex_function(data: &[i32], threshold: i32) -> Vec<i32> {
+    let mut results = Vec::new();
+    for &value in data {
+        if value > threshold {
+            if value % 2 == 0 {
+                results.push(value * 2);
+            } else {
+                results.push(value * 3);
+            }
+        } else if value == threshold {
+            results.push(value);
+        } else {
+            results.push(value / 2);
+        }
+    }
+    results
+}
+"#;
+
+    let files: Vec<(&str, &str)> = vec![("complex.rs", content)];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+
+    assert_eq!(results.len(), 1);
+    let result = &results[0];
+
+    // Should detect the complex function
+    assert!(
+        !result.metrics.complexity.functions.is_empty(),
+        "Should find functions"
+    );
+
+    // The complex_function should have notable complexity
+    let complex_fn = result
+        .metrics
+        .complexity
+        .functions
+        .iter()
+        .find(|f| f.name == "complex_function");
+
+    assert!(complex_fn.is_some(), "Should find complex_function");
+    let func = complex_fn.unwrap();
+
+    // Should have measurable cyclomatic complexity (multiple branches)
+    assert!(
+        func.cyclomatic > 1,
+        "Complex function should have cyclomatic > 1"
+    );
+}
+
+#[test]
+fn test_analysis_multiple_languages() {
+    let files: Vec<(&str, &str)> = vec![
+        ("lib.rs", "pub fn rust_fn() { let x = 1; }"),
+        ("script.py", "def python_fn():\n    x = 1"),
+        ("app.js", "function jsFn() { let x = 1; }"),
+        (
+            "main.go",
+            "package main\n\nfunc goFn() { println(\"hello\") }",
+        ),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+
+    assert_eq!(results.len(), 4, "Should analyze all 4 files");
+
+    // Each file should have at least one function detected
+    for result in &results {
+        // Note: Python and JS may have different detection capabilities
+        // This test ensures they don't crash during analysis
+        assert!(
+            result.metrics.complexity.functions.is_empty()
+                || !result.metrics.complexity.functions.is_empty(),
+            "Should complete analysis without error"
+        );
+    }
+}
+
+#[test]
+fn test_analysis_go_file() {
+    let files = vec![(
+        "service.go",
+        r#"package service
+
+import "context"
+
+func Serve(ctx context.Context, ok bool) error {
+    if ok {
+        return nil
+    }
+    return nil
+}
+"#,
+    )];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+    let metrics = &results[0].metrics;
+
+    assert_eq!(metrics.language, debtmap::core::Language::Go);
+    assert_eq!(metrics.dependencies[0].name, "context");
+    assert_eq!(metrics.complexity.functions[0].name, "Serve");
+    assert!(metrics.complexity.functions[0].cyclomatic > 1);
+}
+
+#[test]
+fn test_go_generated_file_default_suppresses_debt() {
+    let files = vec![(
+        "service.pb.go",
+        r#"// Code generated by protoc. DO NOT EDIT.
+package service
+
+func Generated(ok bool) int {
+    if ok {
+        return 1
+    }
+    if ok { return 2 }
+    if ok { return 3 }
+    if ok { return 4 }
+    if ok { return 5 }
+    if ok { return 6 }
+    if ok { return 7 }
+    if ok { return 8 }
+    if ok { return 9 }
+    if ok { return 10 }
+    if ok { return 11 }
+    return 0
+}
+"#,
+    )];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+
+    assert_eq!(results.len(), 1);
+    assert_eq!(results[0].metrics.complexity.functions.len(), 1);
+    assert!(results[0].debt_items.is_empty());
+}
+
+#[test]
+fn test_go_generated_file_analyze_mode_emits_debt() {
+    let files = vec![(
+        "service.pb.go",
+        r#"// Code generated by protoc. DO NOT EDIT.
+package service
+
+func Generated(ok bool) int {
+    if ok {
+        return 1
+    }
+    if ok { return 2 }
+    if ok { return 3 }
+    if ok { return 4 }
+    if ok { return 5 }
+    if ok { return 6 }
+    if ok { return 7 }
+    if ok { return 8 }
+    if ok { return 9 }
+    if ok { return 10 }
+    if ok { return 11 }
+    return 0
+}
+"#,
+    )];
+    let (_temp_dir, paths) = create_test_project(&files);
+    let config = config_with_go_generated_mode(GeneratedCodeMode::Analyze);
+
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+
+    assert_eq!(results.len(), 1);
+    assert!(!results[0].debt_items.is_empty());
+}
+
+#[test]
+fn test_go_generated_file_exclude_mode_skips_result() {
+    let files = vec![
+        (
+            "service.pb.go",
+            r#"// Code generated by protoc. DO NOT EDIT.
+package service
+
+func Generated() {}
+"#,
+        ),
+        (
+            "service.go",
+            r#"package service
+
+func Regular() {}
+"#,
+        ),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+    let config = config_with_go_generated_mode(GeneratedCodeMode::Exclude);
+
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+
+    assert_eq!(results.len(), 1);
+    assert!(results[0].path.ends_with("service.go"));
+    assert_eq!(results[0].metrics.complexity.functions[0].name, "Regular");
+}
+
+#[test]
+fn single_go_analysis_uses_the_same_generated_policy_as_batch() {
+    let source = r#"// Code generated by protoc. DO NOT EDIT.
+package service
+
+func Generated(ok bool) int {
+    if ok { return 1 }; if ok { return 2 }; if ok { return 3 }
+    if ok { return 4 }; if ok { return 5 }; if ok { return 6 }
+    if ok { return 7 }; if ok { return 8 }; if ok { return 9 }
+    if ok { return 10 }; if ok { return 11 }; return 0
+}
+"#;
+
+    for mode in [
+        GeneratedCodeMode::Analyze,
+        GeneratedCodeMode::SuppressDebt,
+        GeneratedCodeMode::Exclude,
+    ] {
+        let (_temp_dir, paths) = create_test_project(&[("service.pb.go", source)]);
+        let config = config_with_go_generated_mode(mode);
+        let single = run_effect(analyze_single_file_effect(paths[0].clone()), config.clone())
+            .expect("single analysis");
+        let batch = run_effect(analyze_files_effect(paths), config).expect("batch analysis");
+
+        match mode {
+            GeneratedCodeMode::Analyze => {
+                assert!(!single.debt_items.is_empty());
+                assert_eq!(single.debt_items, batch[0].debt_items);
+            }
+            GeneratedCodeMode::SuppressDebt => {
+                assert!(single.debt_items.is_empty());
+                assert_eq!(single.debt_items, batch[0].debt_items);
+            }
+            GeneratedCodeMode::Exclude => {
+                assert!(single.metrics.complexity.functions.is_empty());
+                assert!(batch.is_empty());
+            }
+        }
+    }
+}
+
+#[test]
+fn single_and_batch_go_analysis_filter_disabled_complexity() {
+    let source = r#"package service
+
+func Complex(value int) int {
+    if value > 0 { return 1 }; if value > 1 { return 2 }
+    if value > 2 { return 3 }; if value > 3 { return 4 }
+    if value > 4 { return 5 }; if value > 5 { return 6 }
+    if value > 6 { return 7 }; if value > 7 { return 8 }
+    if value > 8 { return 9 }; if value > 9 { return 10 }
+    if value > 10 { return 11 }
+    return 0
+}
+"#;
+    let (_temp_dir, paths) = create_test_project(&[("service.go", source)]);
+    let config = DebtmapConfig {
+        languages: Some(LanguagesConfig {
+            go: Some(GoLanguageConfig {
+                features: LanguageFeatures {
+                    detect_complexity: false,
+                    ..LanguageFeatures::default()
+                },
+                generated_code: GeneratedCodeMode::Analyze,
+            }),
+            ..LanguagesConfig::default()
+        }),
+        ..DebtmapConfig::default()
+    };
+
+    let single = run_effect(analyze_single_file_effect(paths[0].clone()), config.clone())
+        .expect("single analysis");
+    let batch = run_effect(analyze_files_effect(paths), config).expect("batch analysis");
+
+    assert!(single.metrics.debt_items.is_empty());
+    assert!(single.debt_items.is_empty());
+    assert_eq!(single.debt_items, batch[0].debt_items);
+    assert_eq!(single.metrics.debt_items, batch[0].metrics.debt_items);
+}
+
+#[test]
+fn test_solidity_generated_file_default_suppresses_debt() {
+    let files = vec![(
+        "Generated.sol",
+        r#"// Automatically generated by forge. DO NOT EDIT.
+pragma solidity 0.8.20;
+
+contract Generated {
+    function unsafeAuth() public view returns (bool) {
+        return tx.origin == msg.sender;
+    }
+}
+"#,
+    )];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let results =
+        run_effect(analyze_files_effect(paths), DebtmapConfig::default()).expect("analyze");
+
+    assert_eq!(results.len(), 1);
+    assert_eq!(results[0].metrics.complexity.functions.len(), 1);
+    assert!(results[0].debt_items.is_empty());
+}
+
+#[test]
+fn test_solidity_generated_file_analyze_mode_emits_debt() {
+    let files = vec![(
+        "Generated.sol",
+        r#"// Automatically generated by forge. DO NOT EDIT.
+pragma solidity 0.8.20;
+
+contract Generated {
+    function unsafeAuth() public view returns (bool) {
+        return tx.origin == msg.sender;
+    }
+}
+"#,
+    )];
+    let (_temp_dir, paths) = create_test_project(&files);
+    let config = config_with_solidity_vendor_mode(GeneratedCodeMode::Analyze);
+
+    let results = run_effect(analyze_files_effect(paths), config).expect("analyze");
+
+    assert_eq!(results.len(), 1);
+    assert!(!results[0].debt_items.is_empty());
+}
+
+#[test]
+fn test_solidity_generated_file_exclude_mode_skips_result() {
+    let files = vec![
+        (
+            "Generated.sol",
+            r#"// Automatically generated by forge. DO NOT EDIT.
+pragma solidity 0.8.20;
+contract Generated { function f() internal {} }
+"#,
+        ),
+        (
+            "Regular.sol",
+            r#"pragma solidity 0.8.20;
+contract Regular { function f() internal {} }
+"#,
+        ),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+    let config = config_with_solidity_vendor_mode(GeneratedCodeMode::Exclude);
+
+    let results = run_effect(analyze_files_effect(paths), config).expect("analyze");
+
+    assert_eq!(results.len(), 1);
+    assert!(results[0].path.ends_with("Regular.sol"));
+}
+
+#[test]
+fn single_solidity_analysis_uses_the_same_vendor_policy_as_batch() {
+    let source = r#"// Automatically generated by forge. DO NOT EDIT.
+pragma solidity 0.8.20;
+contract Generated {
+    function unsafeAuth() public view returns (bool) {
+        return tx.origin == msg.sender;
+    }
+}
+"#;
+
+    for mode in [
+        GeneratedCodeMode::Analyze,
+        GeneratedCodeMode::SuppressDebt,
+        GeneratedCodeMode::Exclude,
+    ] {
+        let (_temp_dir, paths) = create_test_project(&[("Generated.sol", source)]);
+        let config = config_with_solidity_vendor_mode(mode);
+        let single = run_effect(analyze_single_file_effect(paths[0].clone()), config.clone())
+            .expect("single analysis");
+        let batch = run_effect(analyze_files_effect(paths), config).expect("batch analysis");
+
+        match mode {
+            GeneratedCodeMode::Analyze => {
+                assert!(!single.debt_items.is_empty());
+                assert_eq!(single.debt_items, batch[0].debt_items);
+            }
+            GeneratedCodeMode::SuppressDebt => {
+                assert!(single.debt_items.is_empty());
+                assert_eq!(single.debt_items, batch[0].debt_items);
+            }
+            GeneratedCodeMode::Exclude => {
+                assert!(single.metrics.complexity.functions.is_empty());
+                assert!(batch.is_empty());
+            }
+        }
+    }
+}
+
+#[test]
+fn test_solidity_cross_file_calls_resolve_when_unambiguous() {
+    let files = vec![
+        (
+            "contracts/Vault.sol",
+            r#"pragma solidity 0.8.20;
+contract Vault {
+    function withdraw() public {
+        settle();
+    }
+}
+"#,
+        ),
+        (
+            "contracts/Settlement.sol",
+            r#"pragma solidity 0.8.20;
+contract Settlement {
+    function settle() public {}
+}
+"#,
+        ),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let results =
+        run_effect(analyze_files_effect(paths), DebtmapConfig::default()).expect("analyze");
+    let withdraw = results
+        .iter()
+        .flat_map(|result| &result.metrics.complexity.functions)
+        .find(|function| function.name == "Vault.withdraw")
+        .expect("withdraw function");
+    let settle = results
+        .iter()
+        .flat_map(|result| &result.metrics.complexity.functions)
+        .find(|function| function.name == "Settlement.settle")
+        .expect("settle function");
+
+    assert_eq!(
+        withdraw.downstream_callees.as_deref(),
+        Some(&["Settlement.settle".to_string()][..])
+    );
+    assert_eq!(
+        settle.upstream_callers.as_deref(),
+        Some(&["Vault.withdraw".to_string()][..])
+    );
+}
+
+#[test]
+fn test_solidity_remapping_resolves_openzeppelin_import() {
+    let files = vec![
+        (
+            "remappings.txt",
+            "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/\n",
+        ),
+        (
+            "src/Vault.sol",
+            r#"pragma solidity 0.8.20;
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract Vault is ERC20 {
+    constructor() ERC20("Vault", "VLT") {}
+}
+"#,
+        ),
+        (
+            "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+            r#"pragma solidity 0.8.20;
+contract ERC20 {
+    constructor(string memory, string memory) {}
+}
+"#,
+        ),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+    let source_paths: Vec<PathBuf> = paths
+        .into_iter()
+        .filter(|path| path.extension().is_some_and(|ext| ext == "sol"))
+        .collect();
+
+    let results =
+        run_effect(analyze_files_effect(source_paths), DebtmapConfig::default()).expect("analyze");
+    let vault = results
+        .iter()
+        .find(|result| result.path.ends_with("src/Vault.sol"))
+        .expect("vault result");
+
+    assert!(vault.metrics.dependencies.iter().any(|dep| {
+        dep.name
+            .contains("lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol")
+    }));
+}
+
+#[test]
+fn test_solidity_unresolved_external_import_stays_raw() {
+    let files = vec![(
+        "src/Vault.sol",
+        r#"pragma solidity 0.8.20;
+import "@thirdparty/contracts/Token.sol";
+
+contract Vault {}
+"#,
+    )];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let results =
+        run_effect(analyze_files_effect(paths), DebtmapConfig::default()).expect("analyze");
+    let vault = &results[0];
+
+    assert!(
+        vault
+            .metrics
+            .dependencies
+            .iter()
+            .any(|dep| { dep.name == "@thirdparty/contracts/Token.sol" })
+    );
+}
+
+#[test]
+fn test_solidity_relative_import_resolves_in_batch() {
+    let files = vec![
+        (
+            "contracts/vault/Vault.sol",
+            r#"pragma solidity 0.8.20;
+import "../interfaces/IERC20.sol";
+
+contract Vault {}
+"#,
+        ),
+        (
+            "contracts/interfaces/IERC20.sol",
+            r#"pragma solidity 0.8.20;
+interface IERC20 {}
+"#,
+        ),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let results =
+        run_effect(analyze_files_effect(paths), DebtmapConfig::default()).expect("analyze");
+    let vault = results
+        .iter()
+        .find(|result| result.path.ends_with("contracts/vault/Vault.sol"))
+        .expect("vault result");
+
+    assert!(
+        vault
+            .metrics
+            .dependencies
+            .iter()
+            .any(|dep| { dep.name.ends_with("interfaces/IERC20.sol") })
+    );
+}
+
+#[test]
+fn test_solidity_inherited_call_resolves_in_batch() {
+    let files = vec![
+        (
+            "Settlement.sol",
+            r#"pragma solidity 0.8.20;
+contract Settlement { function settle() public {} }"#,
+        ),
+        (
+            "Vault.sol",
+            r#"pragma solidity 0.8.20;
+import "./Settlement.sol";
+contract Vault is Settlement {
+    function withdraw() public { settle(); }
+}"#,
+        ),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let results =
+        run_effect(analyze_files_effect(paths), DebtmapConfig::default()).expect("analyze");
+    let withdraw = results
+        .iter()
+        .flat_map(|result| &result.metrics.complexity.functions)
+        .find(|function| function.name == "Vault.withdraw")
+        .expect("withdraw");
+
+    assert_eq!(
+        withdraw.downstream_callees.as_deref(),
+        Some(&["Settlement.settle".to_string()][..])
+    );
+}
+
+#[test]
+fn test_solidity_selector_call_resolves_via_state_variable_type() {
+    let files = vec![
+        (
+            "Settlement.sol",
+            r#"pragma solidity 0.8.20;
+contract Settlement { function settle() public {} }"#,
+        ),
+        (
+            "Vault.sol",
+            r#"pragma solidity 0.8.20;
+import "./Settlement.sol";
+contract Vault {
+    Settlement settlement;
+    function withdraw() public { settlement.settle(); }
+}"#,
+        ),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let results =
+        run_effect(analyze_files_effect(paths), DebtmapConfig::default()).expect("analyze");
+    let withdraw = results
+        .iter()
+        .flat_map(|result| &result.metrics.complexity.functions)
+        .find(|function| function.name == "Vault.withdraw")
+        .expect("withdraw");
+
+    assert_eq!(
+        withdraw.downstream_callees.as_deref(),
+        Some(&["Settlement.settle".to_string()][..])
+    );
+}
+
+#[test]
+fn test_solidity_interface_cast_call_resolves() {
+    let files = vec![
+        (
+            "IERC20.sol",
+            r#"pragma solidity 0.8.20;
+interface IERC20 { function transfer(address to, uint256 amount) external returns (bool); }"#,
+        ),
+        (
+            "Vault.sol",
+            r#"pragma solidity 0.8.20;
+import "./IERC20.sol";
+contract Vault {
+    function payout(address token, address to, uint256 amount) public {
+        IERC20(token).transfer(to, amount);
+    }
+}"#,
+        ),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let results =
+        run_effect(analyze_files_effect(paths), DebtmapConfig::default()).expect("analyze");
+    let payout = results
+        .iter()
+        .flat_map(|result| &result.metrics.complexity.functions)
+        .find(|function| function.name == "Vault.payout")
+        .expect("payout");
+
+    assert_eq!(
+        payout.downstream_callees.as_deref(),
+        Some(&["IERC20.transfer".to_string()][..])
+    );
+}
+
+#[test]
+fn test_solidity_ambiguous_bare_call_stays_unresolved_in_batch() {
+    let files = vec![
+        (
+            "Alpha.sol",
+            r#"pragma solidity 0.8.20;
+contract Alpha { function run() public {} }"#,
+        ),
+        (
+            "Beta.sol",
+            r#"pragma solidity 0.8.20;
+contract Beta { function run() public {} }"#,
+        ),
+        (
+            "Caller.sol",
+            r#"pragma solidity 0.8.20;
+contract Caller { function dispatch() public { run(); } }"#,
+        ),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let results =
+        run_effect(analyze_files_effect(paths), DebtmapConfig::default()).expect("analyze");
+    let dispatch = results
+        .iter()
+        .flat_map(|result| &result.metrics.complexity.functions)
+        .find(|function| function.name == "Caller.dispatch")
+        .expect("dispatch");
+
+    assert!(
+        dispatch
+            .downstream_callees
+            .as_ref()
+            .is_none_or(Vec::is_empty)
+    );
+}
+
+#[test]
+fn test_go_same_package_cross_file_calls_resolve() {
+    let files = vec![
+        (
+            "service/handler.go",
+            r#"package service
+
+func Serve() {
+    helper()
+}
+"#,
+        ),
+        (
+            "service/helper.go",
+            r#"package service
+
+func helper() {}
+"#,
+        ),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+    let serve = results
+        .iter()
+        .flat_map(|result| result.metrics.complexity.functions.iter())
+        .find(|function| function.name == "Serve")
+        .unwrap();
+    let helper = results
+        .iter()
+        .flat_map(|result| result.metrics.complexity.functions.iter())
+        .find(|function| function.name == "helper")
+        .unwrap();
+
+    assert_eq!(serve.downstream_callees, Some(vec!["helper".to_string()]));
+    assert_eq!(helper.upstream_callers, Some(vec!["Serve".to_string()]));
+}
+
+#[test]
+fn test_go_external_calls_do_not_resolve_as_internal_edges() {
+    let files = vec![(
+        "service/handler.go",
+        r#"package service
+
+import "fmt"
+
+func Serve() {
+    fmt.Println("hello")
+}
+"#,
+    )];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+    let serve = &results[0].metrics.complexity.functions[0];
+
+    assert_eq!(serve.call_dependencies, None);
+    assert_eq!(serve.downstream_callees, None);
+}
+
+#[test]
+fn test_go_test_package_does_not_resolve_to_internal_package() {
+    let files = vec![
+        (
+            "service/handler.go",
+            r#"package service
+
+func helper() {}
+"#,
+        ),
+        (
+            "service/handler_test.go",
+            r#"package service_test
+
+func TestServe() {
+    helper()
+}
+"#,
+        ),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+    let test_fn = results
+        .iter()
+        .flat_map(|result| result.metrics.complexity.functions.iter())
+        .find(|function| function.name == "TestServe")
+        .unwrap();
+
+    assert_eq!(test_fn.call_dependencies, None);
+    assert_eq!(test_fn.downstream_callees, None);
+}
+
+#[test]
+fn test_go_selector_calls_resolve_to_inferred_receiver_type() {
+    let files = vec![(
+        "service/handler.go",
+        r#"package service
+
+type Service struct{}
+type Logger struct{}
+
+func Serve() {
+    svc := &Service{}
+    svc.Handle()
+}
+
+func (s *Service) Handle() {}
+func (l *Logger) Handle() {}
+"#,
+    )];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+    let serve = results[0]
+        .metrics
+        .complexity
+        .functions
+        .iter()
+        .find(|function| function.name == "Serve")
+        .unwrap();
+    let service_handle = results[0]
+        .metrics
+        .complexity
+        .functions
+        .iter()
+        .find(|function| function.name == "Service.Handle")
+        .unwrap();
+    let logger_handle = results[0]
+        .metrics
+        .complexity
+        .functions
+        .iter()
+        .find(|function| function.name == "Logger.Handle")
+        .unwrap();
+
+    assert_eq!(
+        serve.downstream_callees,
+        Some(vec!["Service.Handle".to_string()])
+    );
+    assert_eq!(
+        service_handle.upstream_callers,
+        Some(vec!["Serve".to_string()])
+    );
+    assert_eq!(logger_handle.upstream_callers, None);
+}
+
+#[test]
+fn test_go_direct_receiver_method_calls_resolve_to_same_type() {
+    let files = vec![(
+        "service/handler.go",
+        r#"package service
+
+type Handler struct{}
+type Other struct{}
+
+func (h *Handler) Serve() {
+    h.validate()
+}
+
+func (h *Handler) validate() {}
+func (o *Other) validate() {}
+"#,
+    )];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+    let serve = results[0]
+        .metrics
+        .complexity
+        .functions
+        .iter()
+        .find(|function| function.name == "Handler.Serve")
+        .unwrap();
+    let other_validate = results[0]
+        .metrics
+        .complexity
+        .functions
+        .iter()
+        .find(|function| function.name == "Other.validate")
+        .unwrap();
+
+    assert_eq!(
+        serve.downstream_callees,
+        Some(vec!["Handler.validate".to_string()])
+    );
+    assert_eq!(other_validate.upstream_callers, None);
+}
+
+#[test]
+fn test_go_constructor_assignment_resolves_receiver_method_call() {
+    let files = vec![(
+        "service/handler.go",
+        r#"package service
+
+type Service struct{}
+
+func Serve() {
+    svc := NewService()
+    svc.Handle()
+}
+
+func NewService() *Service {
+    return &Service{}
+}
+
+func (s *Service) Handle() {}
+"#,
+    )];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+    let serve = results[0]
+        .metrics
+        .complexity
+        .functions
+        .iter()
+        .find(|function| function.name == "Serve")
+        .unwrap();
+    let service_handle = results[0]
+        .metrics
+        .complexity
+        .functions
+        .iter()
+        .find(|function| function.name == "Service.Handle")
+        .unwrap();
+
+    assert_eq!(
+        serve.downstream_callees,
+        Some(vec!["NewService".to_string(), "Service.Handle".to_string()])
+    );
+    assert_eq!(
+        service_handle.upstream_callers,
+        Some(vec!["Serve".to_string()])
+    );
+}
+
+#[test]
+fn test_go_unknown_selector_calls_do_not_resolve_by_method_name() {
+    let files = vec![(
+        "service/handler.go",
+        r#"package service
+
+type Service struct{}
+
+func Serve(handler interface{ Handle() }) {
+    handler.Handle()
+}
+
+func (s *Service) Handle() {}
+"#,
+    )];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+    let serve = results[0]
+        .metrics
+        .complexity
+        .functions
+        .iter()
+        .find(|function| function.name == "Serve")
+        .unwrap();
+    let service_handle = results[0]
+        .metrics
+        .complexity
+        .functions
+        .iter()
+        .find(|function| function.name == "Service.Handle")
+        .unwrap();
+
+    assert_eq!(serve.downstream_callees, None);
+    assert_eq!(service_handle.upstream_callers, None);
+}
+
+#[test]
+fn test_go_module_import_calls_resolve_to_local_package() {
+    let files = vec![
+        (
+            "cmd/app/main.go",
+            r#"package main
+
+import "example.com/app/internal/mathx"
+
+func main() {
+    mathx.Add()
+}
+"#,
+        ),
+        (
+            "internal/mathx/math.go",
+            r#"package mathx
+
+func Add() {}
+"#,
+        ),
+    ];
+    let (temp_dir, paths) = create_test_project(&files);
+    fs::write(temp_dir.path().join("go.mod"), "module example.com/app\n").unwrap();
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+    let main_fn = find_go_function(&results, "main.go", "main");
+    let add_fn = find_go_function(&results, "math.go", "Add");
+
+    assert_eq!(main_fn.downstream_callees, Some(vec!["Add".to_string()]));
+    assert_eq!(add_fn.upstream_callers, Some(vec!["main".to_string()]));
+}
+
+#[test]
+fn test_go_generic_module_import_calls_resolve() {
+    let files = vec![
+        (
+            "cmd/app/main.go",
+            r#"package main
+
+import "example.com/app/internal/mathx"
+
+func main() {
+    mathx.Identity[int](1)
+}
+"#,
+        ),
+        (
+            "internal/mathx/math.go",
+            "package mathx\n\nfunc Identity[T any](item T) T { return item }\n",
+        ),
+    ];
+    let (temp_dir, paths) = create_test_project(&files);
+    fs::write(temp_dir.path().join("go.mod"), "module example.com/app\n").unwrap();
+
+    let results =
+        run_effect(analyze_files_effect(paths), DebtmapConfig::default()).expect("analyze");
+    let main_fn = find_go_function(&results, "main.go", "main");
+    let identity = find_go_function(&results, "math.go", "Identity");
+
+    assert_eq!(
+        main_fn.downstream_callees,
+        Some(vec!["Identity".to_string()])
+    );
+    assert_eq!(identity.upstream_callers, Some(vec!["main".to_string()]));
+}
+
+#[test]
+fn test_go_module_alias_import_calls_resolve() {
+    let files = vec![
+        (
+            "cmd/app/main.go",
+            r#"package main
+
+import util "example.com/app/pkg/mathx"
+
+func main() {
+    util.Add()
+}
+"#,
+        ),
+        (
+            "pkg/mathx/math.go",
+            r#"package mathx
+
+func Add() {}
+"#,
+        ),
+    ];
+    let (temp_dir, paths) = create_test_project(&files);
+    fs::write(temp_dir.path().join("go.mod"), "module example.com/app\n").unwrap();
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+    let main_fn = find_go_function(&results, "main.go", "main");
+    let add_fn = find_go_function(&results, "math.go", "Add");
+
+    assert_eq!(main_fn.downstream_callees, Some(vec!["Add".to_string()]));
+    assert_eq!(add_fn.upstream_callers, Some(vec!["main".to_string()]));
+}
+
+#[test]
+fn test_go_external_module_imports_stay_unresolved() {
+    let files = vec![(
+        "cmd/app/main.go",
+        r#"package main
+
+import (
+    "fmt"
+    ext "github.com/acme/lib"
+)
+
+func main() {
+    fmt.Println("hello")
+    ext.Run()
+}
+"#,
+    )];
+    let (temp_dir, paths) = create_test_project(&files);
+    fs::write(temp_dir.path().join("go.mod"), "module example.com/app\n").unwrap();
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+    let main_fn = find_go_function(&results, "main.go", "main");
+
+    assert_eq!(main_fn.call_dependencies, None);
+    assert_eq!(main_fn.downstream_callees, None);
+}
+
+#[test]
+fn test_go_duplicate_package_names_resolve_by_import_path() {
+    let files = vec![
+        (
+            "cmd/app/main.go",
+            r#"package main
+
+import auth "example.com/app/internal/auth"
+
+func main() {
+    auth.Run()
+}
+"#,
+        ),
+        (
+            "internal/auth/auth.go",
+            r#"package auth
+
+func Run() {}
+"#,
+        ),
+        (
+            "pkg/auth/auth.go",
+            r#"package auth
+
+func Run() {}
+"#,
+        ),
+    ];
+    let (temp_dir, paths) = create_test_project(&files);
+    fs::write(temp_dir.path().join("go.mod"), "module example.com/app\n").unwrap();
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+    let main_fn = find_go_function(&results, "main.go", "main");
+    let internal_run = find_go_function(&results, "internal/auth/auth.go", "Run");
+    let pkg_run = find_go_function(&results, "pkg/auth/auth.go", "Run");
+
+    assert_eq!(main_fn.downstream_callees, Some(vec!["Run".to_string()]));
+    assert_eq!(
+        internal_run.upstream_callers,
+        Some(vec!["main".to_string()])
+    );
+    assert_eq!(pkg_run.upstream_callers, None);
+}
+
+#[test]
+fn test_go_dot_import_is_explicitly_ignored() {
+    let files = vec![
+        (
+            "cmd/app/main.go",
+            r#"package main
+
+import . "example.com/app/internal/mathx"
+
+func main() {
+    Add()
+}
+"#,
+        ),
+        (
+            "internal/mathx/math.go",
+            r#"package mathx
+
+func Add() {}
+"#,
+        ),
+    ];
+    let (temp_dir, paths) = create_test_project(&files);
+    fs::write(temp_dir.path().join("go.mod"), "module example.com/app\n").unwrap();
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+    let main_fn = find_go_function(&results, "main.go", "main");
+    let add_fn = find_go_function(&results, "math.go", "Add");
+
+    assert_eq!(main_fn.downstream_callees, None);
+    assert_eq!(add_fn.upstream_callers, None);
+}
+
+#[test]
+fn test_go_generic_instantiated_calls_resolve() {
+    let files = vec![(
+        "collections.go",
+        r#"package collections
+
+func Run(xs []int) []string {
+    return Map[int, string](xs, format)
+}
+
+func Map[T any, U any](items []T, f func(T) U) []U {
+    return nil
+}
+
+func format(item int) string {
+    return ""
+}
+"#,
+    )];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig::default();
+    let results = run_effect(analyze_files_effect(paths), config).expect("Analysis should succeed");
+    let run = find_go_function(&results, "collections.go", "Run");
+    let map = find_go_function(&results, "collections.go", "Map");
+
+    assert_eq!(run.downstream_callees, Some(vec!["Map".to_string()]));
+    assert_eq!(map.upstream_callers, Some(vec!["Run".to_string()]));
+}
+
+#[test]
+fn test_go_cross_file_generic_instantiated_calls_resolve() {
+    let files = vec![
+        (
+            "run.go",
+            "package collections\n\nfunc Run() int { return Identity[int](1) }\n",
+        ),
+        (
+            "identity.go",
+            "package collections\n\nfunc Identity[T any](item T) T { return item }\n",
+        ),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let results =
+        run_effect(analyze_files_effect(paths), DebtmapConfig::default()).expect("analyze");
+    let run = find_go_function(&results, "run.go", "Run");
+    let identity = find_go_function(&results, "identity.go", "Identity");
+
+    assert_eq!(run.downstream_callees, Some(vec!["Identity".to_string()]));
+    assert_eq!(identity.upstream_callers, Some(vec!["Run".to_string()]));
+}
+
+#[test]
+fn test_go_local_indexed_value_does_not_resolve_to_shadowed_function() {
+    let files = vec![(
+        "shadow.go",
+        r#"package collections
+
+func Print() {}
+
+func Run(Print []func()) {
+    Print[0]()
+}
+"#,
+    )];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let results =
+        run_effect(analyze_files_effect(paths), DebtmapConfig::default()).expect("analyze");
+    let run = find_go_function(&results, "shadow.go", "Run");
+    let print = find_go_function(&results, "shadow.go", "Print");
+
+    assert_eq!(run.downstream_callees, None);
+    assert_eq!(print.upstream_callers, None);
+}
+
+fn find_go_function<'a>(
+    results: &'a [debtmap::analyzers::batch::FileAnalysisResult],
+    file_suffix: &str,
+    name: &str,
+) -> &'a debtmap::core::FunctionMetrics {
+    results
+        .iter()
+        .flat_map(|result| result.metrics.complexity.functions.iter())
+        .find(|function| function.file.ends_with(file_suffix) && function.name == name)
+        .unwrap()
+}
+
+// ============================================================================
+// Edge Cases
+// ============================================================================
+
+#[test]
+fn test_empty_file_analysis() {
+    let files: Vec<(&str, &str)> = vec![("empty.rs", "")];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig::default();
+    let results =
+        run_effect(analyze_files_effect(paths), config).expect("Should handle empty file");
+
+    assert_eq!(results.len(), 1);
+    assert!(
+        results[0].metrics.complexity.functions.is_empty(),
+        "Empty file should have no functions"
+    );
+}
+
+#[test]
+fn test_single_file_analysis() {
+    let files: Vec<(&str, &str)> = vec![("single.rs", "fn single() {}")];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    // Single file should work with parallel config (falls back to sequential)
+    let config = DebtmapConfig {
+        batch_analysis: Some(BatchAnalysisConfig::default()),
+        ..Default::default()
+    };
+
+    let results = run_effect(analyze_files_effect(paths), config).expect("Single file should work");
+    assert_eq!(results.len(), 1);
+}
+
+#[test]
+fn test_deeply_nested_directory_structure() {
+    let files: Vec<(&str, &str)> = vec![
+        ("src/mod1/submod/file.rs", "fn deep1() {}"),
+        ("src/mod2/submod/deeper/file.rs", "fn deep2() {}"),
+        ("lib/utils/helpers/file.rs", "fn deep3() {}"),
+    ];
+    let (_temp_dir, paths) = create_test_project(&files);
+
+    let config = DebtmapConfig::default();
+    let results =
+        run_effect(analyze_files_effect(paths), config).expect("Should handle nested directories");
+
+    assert_eq!(results.len(), 3);
+}
+
+// ============================================================================
+// Performance Characteristics Tests
+// ============================================================================
+
+#[test]
+fn test_parallel_analysis_maintains_all_results() {
+    // Create files with different content to ensure independent analysis
+    let files: Vec<(String, String)> = (0..10)
+        .map(|i| {
+            let name = format!("module_{}.rs", i);
+            let content = format!(
+                r#"
+pub fn function_{}(x: i32) -> i32 {{
+    if x > {} {{
+        x * 2
+    }} else {{
+        x + 1
+    }}
+}}
+"#,
+                i, i
+            );
+            (name, content)
+        })
+        .collect();
+
+    let files_refs: Vec<(&str, &str)> = files
+        .iter()
+        .map(|(n, c)| (n.as_str(), c.as_str()))
+        .collect();
+    let (_temp_dir, paths) = create_test_project(&files_refs);
+
+    let config = DebtmapConfig {
+        batch_analysis: Some(BatchAnalysisConfig::default()),
+        ..Default::default()
+    };
+
+    let results = run_effect(analyze_files_effect(paths.clone()), config)
+        .expect("Parallel analysis should succeed");
+
+    // Verify all results are present
+    assert_eq!(results.len(), 10);
+
+    // Verify each file was analyzed (check paths are unique)
+    let result_paths: std::collections::HashSet<_> =
+        results.iter().map(|r| r.path.clone()).collect();
+    assert_eq!(
+        result_paths.len(),
+        10,
+        "All results should have unique paths"
+    );
+
+    // Verify paths match input
+    for path in &paths {
+        assert!(
+            result_paths.contains(path),
+            "Result should contain path: {}",
+            path.display()
+        );
+    }
+}

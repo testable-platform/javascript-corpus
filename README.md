@@ -1,0 +1,174 @@
+﻿# JS_V12_ESBUILD_NPM_MONO
+
+Part of the `javascript-combos` white-box test-repo corpus (GraniteMill /
+`granite-mill`, domain: Community garden plots).
+
+## Branch variables
+
+| Variable | This branch |
+| --- | --- |
+| Branch | `JS_V12_ESBUILD_NPM_MONO` |
+| Node.js | 12.22.12 (family V12) |
+| Bundler | esbuild |
+| Package manager | npm |
+| Bundled npm | 6.14.18 |
+| Architecture | Monolith |
+| Source root | `src` |
+
+The application code under `src/` (or `packages/*/src/` for Microservices
+branches) is byte-identical across all 576 branches of this corpus; only the
+build tool, package manager, architecture layout, and each tool's real
+status on this Node family vary.
+
+## Supported tools
+
+21 tools are wired on this corpus (one `tools/<dir>/` folder
+each, covering the 103-metric white-box framework). **8 of them
+run on Node 12; 13 do not.**
+
+That is the measurement, not a defect. A tool that cannot run exits **3**,
+not 0 -- a skip that looks like a pass is the failure mode this corpus
+exists to expose. Every `tools/<dir>/trigger.yaml` records whether its status
+here was actually invoked and observed by Claude Code (`measured: true`) or
+is a real npm-registry `engines.node` claim not yet individually
+invoke-verified on this exact family (`measured: false`) -- declared support
+is a claim, invoking is the fact, and this corpus never blurs the two.
+
+### Running here
+
+| Tool | Role | Pin | Why |
+| --- | --- | --- | --- |
+| `Lizard` | primary | lizard (pip) | measured directly: pip-installed and run for real against this domain's src/ (lizard 1.24.0). Found policy.js's evaluatePolicy as the highest-CCN function at 18 -- corrects an earlier assumption that dataflow.js's tally loop (CCN 17) was highest; Node-independent by construction, so this holds on every family. _(measured: real invocation confirmed by Claude Code)_ |
+| `cognitive-complexity-ts` | alternative | cognitive-complexity-ts==0.8.2 | cognitive-complexity-ts 0.8.2 declares Node 12 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+| `npm audit + npm ls` | primary | n/a | npm's own bundled audit/ls -- ships with npm itself on every Node family this corpus supports. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+| `nyc + mocha` | primary | nyc==15.1.0 | clean on every family once the architecture-aware test glob (bug #1) and the Microservices require() path (bug #4) were both fixed. _(measured: real invocation confirmed by Claude Code)_ |
+| `monocart-coverage-reports` | alternative | monocart-coverage-reports==2.13.0 | monocart-coverage-reports 2.13.0 declares Node 12 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+| `diff-cover` | primary | diff-cover (pip) | the diff-cover CLI itself was invoked for real (pip install + --help) and works; its coverage-delta output depends on nyc's cobertura report, which needs a full npm install this session's verification bridge could not complete (slow mounted filesystem + shared disk quota, not a tool defect -- see javascript-repos-build-contract.md). Node-independent by construction. _(measured: real invocation confirmed by Claude Code)_ |
+| `ESLint (eslint-scope)` | primary | eslint-scope==7.2.2 | clean on every family tested (12 through 26) -- the dataflow script is hand-written without `?.`/`??` specifically so it never depends on the same syntax features that break other tools on the oldest families. _(measured: real invocation confirmed by Claude Code)_ |
+| `PyDriller` | primary | pydriller (pip) | PyDriller is a Python package invoked externally via a small wrapper script -- Node-version-independent by construction. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+
+### Dark here
+
+| Tool | Role | Status | Why |
+| --- | --- | --- | --- |
+| `cyclomatic-complexity` | alternative | skipped | cyclomatic-complexity has no release compatible with Node 12 (npm registry engines.node range, prereleases excluded). |
+| `eslint-plugin-sonarjs` | primary | skipped | Runs through eslint itself, whose own status on Node 12 governs this plugin: eslint-plugin-sonarjs's own dependency code uses `?.`, which Node 12's V8 (7.8) cannot parse at all -- confirmed by direct invocation, not just the declared engines range. |
+| `jscpd` | primary | skipped | jscpd's dependency fs-extra uses `??`, which crashes outright on Node 12's V8 (7.8). |
+| `Dolos` | alternative | not installed | dolos's native tree-sitter step needs a C++ toolchain -- already documented as absent on this host by the C#/Python sibling corpora's own precedent; installs with --ignore-scripts, which skips the native build |
+| `eslint` | primary | skipped | eslint-plugin-sonarjs's own dependency code uses `?.`, which Node 12's V8 (7.8) cannot parse at all -- confirmed by direct invocation, not just the declared engines range. |
+| `oxlint` | alternative | skipped | ERR_UNKNOWN_FILE_EXTENSION loading oxlint's own native binary -- Node-version-independent for this pin (1.16.0); reproduces identically on 12 and 14. |
+| `eslint-plugin-security` | primary | skipped | Runs through eslint itself, whose own status on Node 12 governs this plugin: eslint-plugin-sonarjs's own dependency code uses `?.`, which Node 12's V8 (7.8) cannot parse at all -- confirmed by direct invocation, not just the declared engines range. |
+| `OpenGrep` | alternative | not installed | standalone binary, not installable via npm/pip on this host -- same category as Dolos's native step and the Python corpus's own Trivy/OpenGrep entries |
+| `Trivy` | alternative | not installed | standalone binary, not installable via npm/pip on this host |
+| `StrykerJS + Mocha` | primary | skipped | stryker's dependency chain (inquirer) uses `??`, which crashes on Node 12's V8. Separately, this family's resolved `@stryker-mutator/mocha-runner` (5.6.1, the newest release Node 12's `engines` floor allows) predates a mocha-runner internal bridge compatible with the mocha release that also resolves here -- two independent, compounding reasons this tool cannot run. |
+| `gutcheck` | alternative | skipped | gutcheck has no release compatible with Node 12 (npm registry engines.node range, prereleases excluded). |
+| `knip` | alternative | skipped | knip has no release compatible with Node 12 (npm registry engines.node range, prereleases excluded). |
+| `Git-Spark` | alternative | skipped | Git-Spark has no release compatible with Node 12 (npm registry engines.node range, prereleases excluded). |
+
+## Build
+
+```
+npm install    # or yarn / pnpm / bun, per this branch's packageManager field
+npm run build
+```
+
+## Run
+
+```
+node src/index.js
+```
+
+## Test
+
+```
+npm test              # mocha tests/**/*.test.js
+npm run coverage      # nyc + mocha
+make check            # tools/full_check.js -- cross-file consistency audit
+```
+
+
+## Tool test-data folders
+
+Three sibling folders sit at the repo root, alongside this branch's own
+`tools/` (above).
+
+### `Tool Triggering (Tool Github Test data)/`
+Each of the 21 tool subfolders is that tool's own real upstream code and test
+suite, pulled as-is from its actual GitHub (or PyPI) project -- not generated.
+`ESLint/`, `StrykerJS/`, `jscpd/`, `pydriller/`, `nyc/` and the rest are each
+that project's own real test suite. A correct run finds whatever that
+upstream project's own tests genuinely contain. Unlike the TypeScript
+corpus's `covgate`, no tool in this 21-tool roster ships a non-JS native
+binary -- every subfolder here is a real npm or pip project in its own
+right.
+
+### `Tool Clean (Synthetic Data)/`
+Each of the 21 tools carries 9 generated fixture packages, one per Node
+family (12, 14, 16, 18, 20, 21, 22, 24, 26), engineered to be clean so the
+tool should report zero findings: the **Tool Clean (100% pass)** condition.
+`diff-cover` and `pydriller` operate on git history and a coverage report
+rather than language syntax, so each carries one real git repository's
+worth of history instead of 9 per-family copies.
+
+### `Tool Invalid (Synthetic Data)/`
+Same shape as Clean -- 21 tools, the same 9-Node-family pattern -- but
+engineered so every fixture makes the tool flag or fail rather than pass:
+the **Tool Invalid** condition. `diff-cover`'s and `pydriller`'s Invalid
+fixtures are plain, git-free copies, same as their Clean counterparts.
+
+## Tool entry points
+
+Every tool directory carries a `trigger.yaml` recording its pin, its
+declared status and what a working run should find. Run one tool directly,
+or all of them:
+
+```
+bash tools/eslint/run_eslint.sh
+node tools/tool_integration.js --run
+node tools/tool_integration.js --verify
+```
+
+`--run` distinguishes three outcomes: a tool that ran, a tool that skipped
+for a reason `dataset.json` already records, and a tool that skipped for a
+reason it does not. Only the third is a finding.
+
+## Planted fixtures
+
+| Fixture | File(s) | Planted for |
+| --- | --- | --- |
+| Duplication | [`src/http-errors.js`](src/http-errors.js) + [`src/http-errors-legacy.js`](src/http-errors-legacy.js) | jscpd, Dolos |
+
+## Workspace layout
+
+```
+javascript-combos/  (JS_V12_ESBUILD_NPM_MONO)
+|-- .github/
+|-- src/
+|-- tests/  (or packages/shared/tests/ for Microservices)
+|-- tools/  (21 tool directories + _skip.sh, tool_integration.js, full_check.js)
+|-- Makefile
+|-- README.md
+|-- dataset.json
+|-- package.json
+```
+
+## History
+
+This branch's real commit history starts from the corpus's scaffolding
+generation, followed by the six genuine scaffolding-bug fixes found by
+Claude Code's actual local install/test runs across all nine Node families
+(see `javascript-repos-build-contract.md`) -- every commit here is real,
+authored by the accounts that actually did the work; nothing is
+back-filled or fabricated.
+
+## Machine-readable
+
+[`dataset.json`](dataset.json) carries every branch variable and the full
+tool-status breakdown, including the reason each dark tool is dark and
+whether that status was actually measured. It is the answer key: a run is
+correct when what the tool platform reports matches what `dataset.json`
+says should happen, including the tools that are supposed to be dark.
+
+See `javascript-repos-build-contract.md` in the Testable (Tools) project for
+the full 103-metric roster, the repair notes, and the live pin-resolution
+method (npm registry `engines.node` ranges, prereleases excluded).

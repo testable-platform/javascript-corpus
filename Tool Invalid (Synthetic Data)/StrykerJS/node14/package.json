@@ -1,0 +1,15 @@
+{
+  "name": "signalbox",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Traffic signal controller for the StrykerJS invalid-corpus folder.",
+  "type": "commonjs",
+  "scripts": {
+    "test": "mocha test/**/*.test.js"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "6.4.2",
+    "@stryker-mutator/mocha-runner": "6.4.2",
+    "mocha": "10.8.2"
+  }
+}

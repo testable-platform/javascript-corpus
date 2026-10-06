@@ -1,0 +1,16 @@
+{
+  "name": "ticketrail",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Train ticket queue for the eslint-plugin-sonarjs clean-corpus folder.",
+  "type": "commonjs",
+  "scripts": {
+    "lint": "eslint src/ test/",
+    "test": "mocha test/**/*.test.js"
+  },
+  "devDependencies": {
+    "eslint": "10.10.0",
+    "eslint-plugin-sonarjs": "4.2.1",
+    "mocha": "12.0.1"
+  }
+}

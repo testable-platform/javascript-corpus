@@ -1,0 +1,7 @@
+{
+  "name": "chronicle",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Diary entry log for the pydriller invalid-corpus folder.",
+  "type": "commonjs"
+}

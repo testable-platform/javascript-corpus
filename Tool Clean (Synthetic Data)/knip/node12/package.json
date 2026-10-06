@@ -1,0 +1,13 @@
+{
+  "name": "petalbook",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Flower catalog for the knip clean-corpus folder.",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "knip": "knip"
+  },
+  "devDependencies": {}
+}

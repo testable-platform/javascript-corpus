@@ -1,0 +1,13 @@
+{
+  "name": "meterhouse",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Utility meter reading module for the gutcheck invalid-corpus folder.",
+  "type": "commonjs",
+  "scripts": {
+    "test": "mocha test/**/*.test.js"
+  },
+  "devDependencies": {
+    "mocha": "9.2.2"
+  }
+}

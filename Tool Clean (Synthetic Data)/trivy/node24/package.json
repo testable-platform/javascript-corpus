@@ -1,0 +1,9 @@
+{
+  "name": "cargodrop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cargo drop-off scheduler for the trivy clean-corpus folder.",
+  "type": "commonjs",
+  "dependencies": {},
+  "devDependencies": {}
+}
