@@ -1,10 +1,10 @@
-# JS_V24_PARCEL_NPM_MICRO -- Node 24.20.0 / npm
+# JS_V24_PARCEL_NPM_MONO -- Node 24.20.0 / npm
 NODE ?= node
 
 .PHONY: help setup install lock test check tools verify audit clean
 
 help:
-	@echo "JS_V24_PARCEL_NPM_MICRO  (Node 24.20.0 / npm)"
+	@echo "JS_V24_PARCEL_NPM_MONO  (Node 24.20.0 / npm)"
 	@echo ""
 	@echo "  make setup     install the package manager this branch is pinned to"
 	@echo "  make install   install the project and its tool pins"
