@@ -10,6 +10,6 @@ jobs:
           node-version: '20.20.2'
       - run: npm install --no-audit --no-fund || true
       - run: npm test || true
-      # JS_V20_ESBUILD_PNPM_MICRO: exit-code contract is enforced by the corpus's own
+      # JS_V20_ESBUILD_PNPM_MONO: exit-code contract is enforced by the corpus's own
       # verification script, not by this placeholder workflow -- see
       # javascript-repos-build-contract.md for the 0/1/3/4 gate.

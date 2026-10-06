@@ -3,7 +3,7 @@ tool: knip
 dir: knip
 role: alternative
 block: All Definition Coverage / All Uses Coverage
-branch: JS_V20_ESBUILD_PNPM_MICRO
+branch: JS_V20_ESBUILD_PNPM_MONO
 node_family: "20"
 node_version: "20.20.2"
 pin: knip@6.36.0
