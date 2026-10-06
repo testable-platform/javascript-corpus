@@ -83,7 +83,7 @@ node src/index.js
 ```
 npm test              # mocha tests/**/*.test.js
 npm run coverage      # nyc + mocha
-make check            # tools/full_check.js -- cross-file consistency audit
+node tools/full_check.js   # cross-file consistency audit
 ```
 
 
