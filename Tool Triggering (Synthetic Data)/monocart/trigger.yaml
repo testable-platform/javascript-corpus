@@ -3,7 +3,7 @@ tool: monocart-coverage-reports
 dir: monocart
 role: alternative
 block: Statement Coverage / Branch Coverage / Path Coverage (proxy) / Coverage Delta
-branch: JS_V26_PARCEL_NPM_MICRO
+branch: JS_V26_PARCEL_NPM_MONO
 node_family: "26"
 node_version: "26.8.1"
 pin: monocart-coverage-reports@2.13.0
