@@ -1,10 +1,10 @@
-# JS_V26_ROLLUP_YARN_MICRO -- Node 26.8.1 / yarn
+# JS_V26_ROLLUP_YARN_MONO -- Node 26.8.1 / yarn
 NODE ?= node
 
 .PHONY: help setup install lock test check tools verify audit clean
 
 help:
-	@echo "JS_V26_ROLLUP_YARN_MICRO  (Node 26.8.1 / yarn)"
+	@echo "JS_V26_ROLLUP_YARN_MONO  (Node 26.8.1 / yarn)"
 	@echo ""
 	@echo "  make setup     install the package manager this branch is pinned to"
 	@echo "  make install   install the project and its tool pins"

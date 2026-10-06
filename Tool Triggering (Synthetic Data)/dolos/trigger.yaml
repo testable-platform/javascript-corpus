@@ -3,7 +3,7 @@ tool: Dolos
 dir: dolos
 role: alternative
 block: Code Duplication
-branch: JS_V26_ROLLUP_YARN_MICRO
+branch: JS_V26_ROLLUP_YARN_MONO
 node_family: "26"
 node_version: "26.8.1"
 pin: @dodona/dolos@2.9.3
