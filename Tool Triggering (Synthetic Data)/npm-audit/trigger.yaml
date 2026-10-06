@@ -3,7 +3,7 @@ tool: npm audit + npm ls
 dir: npm-audit
 role: primary
 block: Dependency Risk (SCA)
-branch: JS_V20_PARCEL_PNPM_MONO
+branch: JS_V20_PARCEL_YARN_MICRO
 node_family: "20"
 node_version: "20.20.2"
 pin: null
