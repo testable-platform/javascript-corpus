@@ -1,4 +1,4 @@
-﻿# JS_V22_TURBOPACK_BUN_MONO
+﻿# JS_V22_TURBOPACK_NPM_MICRO
 
 Part of the `javascript-combos` white-box test-repo corpus (GraniteMill /
 `granite-mill`, domain: Community garden plots).
@@ -7,13 +7,13 @@ Part of the `javascript-combos` white-box test-repo corpus (GraniteMill /
 
 | Variable | This branch |
 | --- | --- |
-| Branch | `JS_V22_TURBOPACK_BUN_MONO` |
+| Branch | `JS_V22_TURBOPACK_NPM_MICRO` |
 | Node.js | 22.23.2 (family V22) |
 | Bundler | Turbopack |
-| Package manager | bun |
+| Package manager | npm |
 | Bundled npm | 10.9.2 |
-| Architecture | Monolith |
-| Source root | `src` |
+| Architecture | Microservices |
+| Source root | `packages/shared/src` |
 
 The application code under `src/` (or `packages/*/src/` for Microservices
 branches) is byte-identical across all 576 branches of this corpus; only the
@@ -75,13 +75,13 @@ npm run build
 ## Run
 
 ```
-node src/index.js
+node packages/shared/src/index.js
 ```
 
 ## Test
 
 ```
-npm test              # mocha tests/**/*.test.js
+npm test              # mocha packages/shared/tests/**/*.test.js
 npm run coverage      # nyc + mocha
 make check            # tools/full_check.js -- cross-file consistency audit
 ```
@@ -136,14 +136,14 @@ reason it does not. Only the third is a finding.
 
 | Fixture | File(s) | Planted for |
 | --- | --- | --- |
-| Duplication | [`src/http-errors.js`](src/http-errors.js) + [`src/http-errors-legacy.js`](src/http-errors-legacy.js) | jscpd, Dolos |
+| Duplication | [`packages/shared/src/http-errors.js`](packages/shared/src/http-errors.js) + [`packages/shared/src/http-errors-legacy.js`](packages/shared/src/http-errors-legacy.js) | jscpd, Dolos |
 
 ## Workspace layout
 
 ```
-javascript-combos/  (JS_V22_TURBOPACK_BUN_MONO)
+javascript-combos/  (JS_V22_TURBOPACK_NPM_MICRO)
 |-- .github/
-|-- src/
+|-- packages/
 |-- tests/  (or packages/shared/tests/ for Microservices)
 |-- tools/  (21 tool directories + _skip.sh, tool_integration.js, full_check.js)
 |-- Makefile

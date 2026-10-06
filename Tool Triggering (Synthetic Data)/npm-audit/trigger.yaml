@@ -3,7 +3,7 @@ tool: npm audit + npm ls
 dir: npm-audit
 role: primary
 block: Dependency Risk (SCA)
-branch: JS_V22_TURBOPACK_BUN_MONO
+branch: JS_V22_TURBOPACK_NPM_MICRO
 node_family: "22"
 node_version: "22.23.2"
 pin: null
