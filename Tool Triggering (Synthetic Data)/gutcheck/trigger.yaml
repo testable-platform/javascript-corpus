@@ -3,7 +3,7 @@ tool: gutcheck
 dir: gutcheck
 role: alternative
 block: Mutation Score
-branch: JS_V20_VITE_PNPM_MICRO
+branch: JS_V20_VITE_PNPM_MONO
 node_family: "20"
 node_version: "20.20.2"
 pin: gutcheck@0.10.0
