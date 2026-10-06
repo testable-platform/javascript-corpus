@@ -1,0 +1,2210 @@
+[
+ {
+  "old_branch": "CE-N16-001",
+  "new_branch": "JS_V16_ESBUILD_NPM_MONO",
+  "pm": "npm",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-001\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-001\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-001\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-001\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-001\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-001\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-001\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-001\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-001\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-001\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-001/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-001/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-001/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-001/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:33:17 (19500) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:33:17 (19500) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:33:17 (19500) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 409.7
+ },
+ {
+  "old_branch": "CE-N16-002",
+  "new_branch": "JS_V16_ESBUILD_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 125.0
+ },
+ {
+  "old_branch": "CE-N16-003",
+  "new_branch": "JS_V16_ESBUILD_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-003\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-003\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-003\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-003\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-003\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-003\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-003\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-003\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-003\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-003\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-003/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-003/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-003/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-003/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:28:45 (54760) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:28:45 (54760) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:28:45 (54760) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 152.2
+ },
+ {
+  "old_branch": "CE-N16-004",
+  "new_branch": "JS_V16_ESBUILD_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 125.1
+ },
+ {
+  "old_branch": "CE-N16-005",
+  "new_branch": "JS_V16_ESBUILD_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-005\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-005\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-005\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-005\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-005\\node_modules\\.pnpm\\commander@15.0.0\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-005\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-005\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-005\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-005\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-005\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "this error. StrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at Function.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-005/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-005/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:43:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-005/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:70:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-005/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:158:39)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 127.7
+ },
+ {
+  "old_branch": "CE-N16-006",
+  "new_branch": "JS_V16_ESBUILD_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 91.6
+ },
+ {
+  "old_branch": "CE-N16-007",
+  "new_branch": "JS_V16_ESBUILD_BUN_MONO",
+  "pm": "bun",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "nternal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-007\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-007\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-007\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ jscpd .\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-007\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-007\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-007\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-007\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-007\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-007\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-007\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\nerror: script \"duplication\" exited with code 1\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 130.5
+ },
+ {
+  "old_branch": "CE-N16-008",
+  "new_branch": "JS_V16_ESBUILD_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 109.9
+ },
+ {
+  "old_branch": "CE-N16-009",
+  "new_branch": "JS_V16_VITE_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-009\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-009\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-009\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-009\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-009\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-009\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-009\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-009\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-009\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-009\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-009/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-009/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-009/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-009/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:33:17 (51884) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:33:17 (51884) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:33:17 (51884) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 317.9
+ },
+ {
+  "old_branch": "CE-N16-010",
+  "new_branch": "JS_V16_VITE_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 61.6
+ },
+ {
+  "old_branch": "CE-N16-011",
+  "new_branch": "JS_V16_VITE_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-011\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-011\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-011\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-011\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-011\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-011\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-011\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-011\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-011\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-011\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-011/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-011/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-011/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-011/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:30:44 (42828) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:30:44 (42828) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:30:44 (42828) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 129.8
+ },
+ {
+  "old_branch": "CE-N16-012",
+  "new_branch": "JS_V16_VITE_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 116.0
+ },
+ {
+  "old_branch": "CE-N16-013",
+  "new_branch": "JS_V16_VITE_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-013\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-013\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-013\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-013\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-013\\node_modules\\.pnpm\\commander@15.0.0\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-013\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-013\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-013\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-013\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-013\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "this error. StrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at Function.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-013/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-013/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:43:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-013/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:70:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-013/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:158:39)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 96.1
+ },
+ {
+  "old_branch": "CE-N16-014",
+  "new_branch": "JS_V16_VITE_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 55.8
+ },
+ {
+  "old_branch": "CE-N16-015",
+  "new_branch": "JS_V16_VITE_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "nternal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-015\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-015\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-015\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ jscpd .\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-015\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-015\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-015\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-015\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-015\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-015\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-015\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\nerror: script \"duplication\" exited with code 1\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 99.9
+ },
+ {
+  "old_branch": "CE-N16-016",
+  "new_branch": "JS_V16_VITE_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 77.4
+ },
+ {
+  "old_branch": "CE-N16-017",
+  "new_branch": "JS_V16_WEBPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-017\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-017\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-017\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-017\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-017\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-017\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-017\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-017\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-017\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-017\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-017/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-017/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-017/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-017/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:38:11 (47528) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:38:11 (47528) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:38:11 (47528) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 516.7
+ },
+ {
+  "old_branch": "CE-N16-018",
+  "new_branch": "JS_V16_WEBPACK_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 179.1
+ },
+ {
+  "old_branch": "CE-N16-019",
+  "new_branch": "JS_V16_WEBPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-019\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-019\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-019\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-019\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-019\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-019\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-019\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-019\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-019\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-019\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-019/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-019/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-019/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-019/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:33:16 (29828) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:33:16 (29828) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:33:16 (29828) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 167.9
+ },
+ {
+  "old_branch": "CE-N16-020",
+  "new_branch": "JS_V16_WEBPACK_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 106.9
+ },
+ {
+  "old_branch": "CE-N16-021",
+  "new_branch": "JS_V16_WEBPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-021\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-021\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-021\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-021\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-021\\node_modules\\.pnpm\\commander@15.0.0\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-021\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-021\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-021\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-021\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-021\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "this error. StrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at Function.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-021/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-021/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:43:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-021/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:70:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-021/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:158:39)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 120.2
+ },
+ {
+  "old_branch": "CE-N16-022",
+  "new_branch": "JS_V16_WEBPACK_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 81.0
+ },
+ {
+  "old_branch": "CE-N16-023",
+  "new_branch": "JS_V16_WEBPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "nternal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-023\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-023\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-023\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ jscpd .\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-023\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-023\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-023\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-023\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-023\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-023\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-023\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\nerror: script \"duplication\" exited with code 1\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 110.5
+ },
+ {
+  "old_branch": "CE-N16-024",
+  "new_branch": "JS_V16_WEBPACK_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 91.0
+ },
+ {
+  "old_branch": "CE-N16-025",
+  "new_branch": "JS_V16_ROLLUP_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-025\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-025\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-025\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-025\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-025\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-025\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-025\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-025\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-025\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-025\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-025/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-025/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-025/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-025/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:38:11 (43048) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:38:11 (43048) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:38:11 (43048) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 330.2
+ },
+ {
+  "old_branch": "CE-N16-026",
+  "new_branch": "JS_V16_ROLLUP_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 94.1
+ },
+ {
+  "old_branch": "CE-N16-027",
+  "new_branch": "JS_V16_ROLLUP_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-027\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-027\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-027\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-027\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-027\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-027\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-027\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-027\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-027\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-027\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-027/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-027/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-027/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-027/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:35:36 (44700) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:35:36 (44700) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:35:36 (44700) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 137.1
+ },
+ {
+  "old_branch": "CE-N16-028",
+  "new_branch": "JS_V16_ROLLUP_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 124.7
+ },
+ {
+  "old_branch": "CE-N16-029",
+  "new_branch": "JS_V16_ROLLUP_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-029\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-029\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-029\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-029\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-029\\node_modules\\.pnpm\\commander@15.0.0\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-029\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-029\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-029\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-029\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-029\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "this error. StrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at Function.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-029/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-029/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:43:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-029/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:70:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-029/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:158:39)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 91.2
+ },
+ {
+  "old_branch": "CE-N16-030",
+  "new_branch": "JS_V16_ROLLUP_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 55.3
+ },
+ {
+  "old_branch": "CE-N16-031",
+  "new_branch": "JS_V16_ROLLUP_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "nternal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-031\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-031\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-031\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ jscpd .\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-031\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-031\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-031\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-031\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-031\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-031\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-031\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\nerror: script \"duplication\" exited with code 1\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 97.4
+ },
+ {
+  "old_branch": "CE-N16-032",
+  "new_branch": "JS_V16_ROLLUP_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 92.3
+ },
+ {
+  "old_branch": "CE-N16-033",
+  "new_branch": "JS_V16_RSPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-033\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-033\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-033\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-033\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-033\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-033\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-033\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-033\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-033\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-033\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-033/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-033/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-033/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-033/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:42:28 (38052) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:42:28 (38052) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:42:28 (38052) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 464.8
+ },
+ {
+  "old_branch": "CE-N16-034",
+  "new_branch": "JS_V16_RSPACK_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 74.3
+ },
+ {
+  "old_branch": "CE-N16-035",
+  "new_branch": "JS_V16_RSPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-035\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-035\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-035\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-035\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-035\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-035\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-035\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-035\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-035\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-035\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-035/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-035/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-035/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-035/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:38:22 (39804) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:38:22 (39804) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:38:22 (39804) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 181.4
+ },
+ {
+  "old_branch": "CE-N16-036",
+  "new_branch": "JS_V16_RSPACK_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 105.8
+ },
+ {
+  "old_branch": "CE-N16-037",
+  "new_branch": "JS_V16_RSPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-037\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-037\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-037\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-037\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-037\\node_modules\\.pnpm\\commander@15.0.0\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-037\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-037\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-037\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-037\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-037\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "this error. StrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at Function.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-037/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-037/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:43:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-037/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:70:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-037/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:158:39)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 126.4
+ },
+ {
+  "old_branch": "CE-N16-038",
+  "new_branch": "JS_V16_RSPACK_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 74.3
+ },
+ {
+  "old_branch": "CE-N16-039",
+  "new_branch": "JS_V16_RSPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "nternal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-039\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-039\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-039\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ jscpd .\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-039\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-039\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-039\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-039\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-039\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-039\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-039\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\nerror: script \"duplication\" exited with code 1\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 124.5
+ },
+ {
+  "old_branch": "CE-N16-040",
+  "new_branch": "JS_V16_RSPACK_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 119.8
+ },
+ {
+  "old_branch": "CE-N16-041",
+  "new_branch": "JS_V16_PARCEL_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-041\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-041\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-041\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-041\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-041\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-041\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-041\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-041\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-041\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-041\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-041/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-041/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-041/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-041/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:44:57 (53260) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:44:57 (53260) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:44:57 (53260) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 457.6
+ },
+ {
+  "old_branch": "CE-N16-042",
+  "new_branch": "JS_V16_PARCEL_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 90.2
+ },
+ {
+  "old_branch": "CE-N16-043",
+  "new_branch": "JS_V16_PARCEL_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-043\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-043\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-043\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-043\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-043\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-043\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-043\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-043\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-043\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-043\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-043/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-043/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-043/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-043/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:40:22 (48952) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:40:22 (48952) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:40:22 (48952) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 133.9
+ },
+ {
+  "old_branch": "CE-N16-044",
+  "new_branch": "JS_V16_PARCEL_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 118.5
+ },
+ {
+  "old_branch": "CE-N16-045",
+  "new_branch": "JS_V16_PARCEL_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-045\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-045\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-045\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-045\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-045\\node_modules\\.pnpm\\commander@15.0.0\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-045\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-045\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-045\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-045\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-045\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "this error. StrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at Function.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-045/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-045/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:43:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-045/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:70:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-045/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:158:39)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 114.3
+ },
+ {
+  "old_branch": "CE-N16-046",
+  "new_branch": "JS_V16_PARCEL_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 82.9
+ },
+ {
+  "old_branch": "CE-N16-047",
+  "new_branch": "JS_V16_PARCEL_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "nternal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-047\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-047\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-047\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ jscpd .\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-047\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-047\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-047\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-047\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-047\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-047\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-047\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\nerror: script \"duplication\" exited with code 1\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 142.2
+ },
+ {
+  "old_branch": "CE-N16-048",
+  "new_branch": "JS_V16_PARCEL_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 101.8
+ },
+ {
+  "old_branch": "CE-N16-049",
+  "new_branch": "JS_V16_TURBOPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-049\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-049\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-049\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-049\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-049\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-049\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-049\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-049\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-049\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-049\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-049/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-049/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-049/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-049/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:45:51 (39568) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:45:51 (39568) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:45:51 (39568) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 361.5
+ },
+ {
+  "old_branch": "CE-N16-050",
+  "new_branch": "JS_V16_TURBOPACK_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 144.2
+ },
+ {
+  "old_branch": "CE-N16-051",
+  "new_branch": "JS_V16_TURBOPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-051\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-051\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-051\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-051\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-051\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-051\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-051\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-051\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-051\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-051\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-051/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-051/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-051/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-051/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:42:50 (48808) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:42:50 (48808) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:42:50 (48808) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 161.5
+ },
+ {
+  "old_branch": "CE-N16-052",
+  "new_branch": "JS_V16_TURBOPACK_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 128.7
+ },
+ {
+  "old_branch": "CE-N16-053",
+  "new_branch": "JS_V16_TURBOPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-053\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-053\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-053\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-053\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-053\\node_modules\\.pnpm\\commander@15.0.0\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-053\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-053\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-053\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-053\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-053\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "this error. StrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at Function.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-053/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-053/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:43:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-053/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:70:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-053/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:158:39)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 90.5
+ },
+ {
+  "old_branch": "CE-N16-054",
+  "new_branch": "JS_V16_TURBOPACK_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 39.5
+ },
+ {
+  "old_branch": "CE-N16-055",
+  "new_branch": "JS_V16_TURBOPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "nternal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-055\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-055\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-055\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ jscpd .\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-055\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-055\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-055\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-055\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-055\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-055\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-055\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\nerror: script \"duplication\" exited with code 1\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 97.8
+ },
+ {
+  "old_branch": "CE-N16-056",
+  "new_branch": "JS_V16_TURBOPACK_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 78.1
+ },
+ {
+  "old_branch": "CE-N16-057",
+  "new_branch": "JS_V16_SWC_NPM_MONO",
+  "pm": "npm",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-057\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-057\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-057\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-057\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-057\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-057\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-057\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-057\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-057\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-057\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-057/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-057/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-057/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-057/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:45:54 (29104) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:45:54 (29104) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:45:54 (29104) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 200.0
+ },
+ {
+  "old_branch": "CE-N16-058",
+  "new_branch": "JS_V16_SWC_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 123.6
+ },
+ {
+  "old_branch": "CE-N16-059",
+  "new_branch": "JS_V16_SWC_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-059\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-059\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-059\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-059\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-059\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-059\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-059\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-059\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-059\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-059\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-059/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-059/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-059/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-059/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u001b[32m05:45:02 (42488) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m05:45:02 (42488) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m05:45:02 (42488) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 147.3
+ },
+ {
+  "old_branch": "CE-N16-060",
+  "new_branch": "JS_V16_SWC_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 100.1
+ },
+ {
+  "old_branch": "CE-N16-061",
+  "new_branch": "JS_V16_SWC_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-061\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-061\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-061\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-061\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-061\\node_modules\\.pnpm\\commander@15.0.0\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-061\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-061\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-061\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-061\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-061\\node_modules\\.pnpm\\jscpd@4.3.0\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "this error. StrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at Function.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-061/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-061/node_modules/.pnpm/typed-inject@4.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:43:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-061/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:70:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N16-061/node_modules/.pnpm/@stryker-mutator+core@7.3.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:158:39)\n    at ChildProcess.emit (node:events:513:28)\n    at emit (node:internal/child_process:946:14)\n    at processTicksAndRejections (node:internal/process/task_queues:84:21) {\n  innerError: undefined\n}\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 69.8
+ },
+ {
+  "old_branch": "CE-N16-062",
+  "new_branch": "JS_V16_SWC_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 52.6
+ },
+ {
+  "old_branch": "CE-N16-063",
+  "new_branch": "JS_V16_SWC_BUN_MONO",
+  "pm": "bun",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "nternal/errors:478\n    ErrorCaptureStackTrace(err);\n    ^\n\nTypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension \"\" for C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-063\\node_modules\\oxlint\\bin\\oxlint. Loading extensionless files is not supported inside of \"type\":\"module\" package.json contexts. The package.json file C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-063\\node_modules\\oxlint\\package.json caused this \"type\":\"module\" context. Try changing C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-063\\node_modules\\oxlint\\bin\\oxlint to have a file extension. Note the \"bin\" field of package.json can point to a file with an extension, for example {\"type\":\"module\",\"bin\":{\"oxlint\":\".\\bin\\oxlint.js\"}}\n    at new NodeError (node:internal/errors:387:5)\n    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:75:11)\n    at defaultGetFormat (node:internal/modules/esm/get_format:117:38)\n    at defaultLoad (node:internal/modules/esm/load:81:20)\n    at nextLoad (node:internal/modules/esm/loader:163:28)\n    at ESMLoader.load (node:internal/modules/esm/loader:605:26)\n    at ESMLoader.moduleProvider (node:internal/modules/esm/loader:457:22)\n    at new ModuleJob (node:internal/modules/esm/module_job:63:26)\n    at ESMLoader.#createModuleJob (node:internal/modules/esm/loader:480:17)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:434:34) {\n  code: 'ERR_UNKNOWN_FILE_EXTENSION'\n}\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ jscpd .\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-063\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21\nvar _commander = require('commander');\n                 ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-063\\node_modules\\jscpd\\node_modules\\commander\\index.js from C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-063\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js not supported.\nInstead change the require of index.js in C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-063\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js to a dynamic import() which is available in all CommonJS modules.\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-063\\node_modules\\jscpd\\dist\\chunk-RJJ75QFW.js:21:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-063\\node_modules\\jscpd\\dist\\bin\\jscpd.js:5:24)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N16-063\\node_modules\\jscpd\\bin\\jscpd:3:1) {\n  code: 'ERR_REQUIRE_ESM'\n}\nerror: script \"duplication\" exited with code 1\n"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 83.4
+ },
+ {
+  "old_branch": "CE-N16-064",
+  "new_branch": "JS_V16_SWC_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 76.4
+ }
+]

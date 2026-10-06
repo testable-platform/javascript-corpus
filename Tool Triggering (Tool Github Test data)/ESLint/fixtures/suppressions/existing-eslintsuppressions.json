@@ -1,7 +1,0 @@
-{
-    "tests/fixtures/suppressions/extra-file.js": {
-      "no-undef": {
-        "count": 1
-      }
-    }
-  }

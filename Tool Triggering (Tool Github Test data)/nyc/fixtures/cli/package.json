@@ -1,6 +1,0 @@
-{
-  "private": true,
-  "nyc": {
-    "reporter": ["text"]
-  }
-}

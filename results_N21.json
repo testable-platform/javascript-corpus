@@ -1,0 +1,2210 @@
+[
+ {
+  "old_branch": "CE-N21-001",
+  "new_branch": "JS_V21_ESBUILD_NPM_MONO",
+  "pm": "npm",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "/modules/run_main:120:12) {\n      cause: Error: Cannot find module '@oxlint/binding-win32-x64-msvc'\n      Require stack:\n      - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-001\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-001/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-001\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-001/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-001/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-001/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 387.4
+ },
+ {
+  "old_branch": "CE-N21-002",
+  "new_branch": "JS_V21_ESBUILD_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 99.2
+ },
+ {
+  "old_branch": "CE-N21-003",
+  "new_branch": "JS_V21_ESBUILD_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 120.2
+ },
+ {
+  "old_branch": "CE-N21-004",
+  "new_branch": "JS_V21_ESBUILD_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 92.4
+ },
+ {
+  "old_branch": "CE-N21-005",
+  "new_branch": "JS_V21_ESBUILD_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": ".pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-005/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-005\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-005/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-005/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-005/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 125.9
+ },
+ {
+  "old_branch": "CE-N21-006",
+  "new_branch": "JS_V21_ESBUILD_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 96.5
+ },
+ {
+  "old_branch": "CE-N21-007",
+  "new_branch": "JS_V21_ESBUILD_BUN_MONO",
+  "pm": "bun",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 125.9
+ },
+ {
+  "old_branch": "CE-N21-008",
+  "new_branch": "JS_V21_ESBUILD_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 100.7
+ },
+ {
+  "old_branch": "CE-N21-009",
+  "new_branch": "JS_V21_VITE_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "/modules/run_main:120:12) {\n      cause: Error: Cannot find module '@oxlint/binding-win32-x64-msvc'\n      Require stack:\n      - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-009\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-009/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-009\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-009/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-009/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-009/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 400.0
+ },
+ {
+  "old_branch": "CE-N21-010",
+  "new_branch": "JS_V21_VITE_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 90.9
+ },
+ {
+  "old_branch": "CE-N21-011",
+  "new_branch": "JS_V21_VITE_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 127.8
+ },
+ {
+  "old_branch": "CE-N21-012",
+  "new_branch": "JS_V21_VITE_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 98.8
+ },
+ {
+  "old_branch": "CE-N21-013",
+  "new_branch": "JS_V21_VITE_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": ".pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-013/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-013\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-013/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-013/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-013/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 112.2
+ },
+ {
+  "old_branch": "CE-N21-014",
+  "new_branch": "JS_V21_VITE_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 76.5
+ },
+ {
+  "old_branch": "CE-N21-015",
+  "new_branch": "JS_V21_VITE_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 112.4
+ },
+ {
+  "old_branch": "CE-N21-016",
+  "new_branch": "JS_V21_VITE_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 64.5
+ },
+ {
+  "old_branch": "CE-N21-017",
+  "new_branch": "JS_V21_WEBPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "/modules/run_main:120:12) {\n      cause: Error: Cannot find module '@oxlint/binding-win32-x64-msvc'\n      Require stack:\n      - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-017\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-017/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-017\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-017/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-017/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-017/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 439.8
+ },
+ {
+  "old_branch": "CE-N21-018",
+  "new_branch": "JS_V21_WEBPACK_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 191.7
+ },
+ {
+  "old_branch": "CE-N21-019",
+  "new_branch": "JS_V21_WEBPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 163.3
+ },
+ {
+  "old_branch": "CE-N21-020",
+  "new_branch": "JS_V21_WEBPACK_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 145.1
+ },
+ {
+  "old_branch": "CE-N21-021",
+  "new_branch": "JS_V21_WEBPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": ".pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-021/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-021\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-021/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-021/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-021/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 148.2
+ },
+ {
+  "old_branch": "CE-N21-022",
+  "new_branch": "JS_V21_WEBPACK_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 119.5
+ },
+ {
+  "old_branch": "CE-N21-023",
+  "new_branch": "JS_V21_WEBPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 156.9
+ },
+ {
+  "old_branch": "CE-N21-024",
+  "new_branch": "JS_V21_WEBPACK_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 95.5
+ },
+ {
+  "old_branch": "CE-N21-025",
+  "new_branch": "JS_V21_ROLLUP_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "/modules/run_main:120:12) {\n      cause: Error: Cannot find module '@oxlint/binding-win32-x64-msvc'\n      Require stack:\n      - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-025\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-025/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-025\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-025/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-025/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-025/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 265.5
+ },
+ {
+  "old_branch": "CE-N21-026",
+  "new_branch": "JS_V21_ROLLUP_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 113.4
+ },
+ {
+  "old_branch": "CE-N21-027",
+  "new_branch": "JS_V21_ROLLUP_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 138.5
+ },
+ {
+  "old_branch": "CE-N21-028",
+  "new_branch": "JS_V21_ROLLUP_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 98.7
+ },
+ {
+  "old_branch": "CE-N21-029",
+  "new_branch": "JS_V21_ROLLUP_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": ".pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-029/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-029\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-029/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-029/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-029/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 78.0
+ },
+ {
+  "old_branch": "CE-N21-030",
+  "new_branch": "JS_V21_ROLLUP_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 51.9
+ },
+ {
+  "old_branch": "CE-N21-031",
+  "new_branch": "JS_V21_ROLLUP_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 146.8
+ },
+ {
+  "old_branch": "CE-N21-032",
+  "new_branch": "JS_V21_ROLLUP_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 89.9
+ },
+ {
+  "old_branch": "CE-N21-033",
+  "new_branch": "JS_V21_RSPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "/modules/run_main:120:12) {\n      cause: Error: Cannot find module '@oxlint/binding-win32-x64-msvc'\n      Require stack:\n      - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-033\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-033/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-033\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-033/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-033/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-033/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 490.0
+ },
+ {
+  "old_branch": "CE-N21-034",
+  "new_branch": "JS_V21_RSPACK_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 172.9
+ },
+ {
+  "old_branch": "CE-N21-035",
+  "new_branch": "JS_V21_RSPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 172.2
+ },
+ {
+  "old_branch": "CE-N21-036",
+  "new_branch": "JS_V21_RSPACK_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 157.4
+ },
+ {
+  "old_branch": "CE-N21-037",
+  "new_branch": "JS_V21_RSPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": ".pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-037/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-037\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-037/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-037/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-037/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 126.4
+ },
+ {
+  "old_branch": "CE-N21-038",
+  "new_branch": "JS_V21_RSPACK_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 77.8
+ },
+ {
+  "old_branch": "CE-N21-039",
+  "new_branch": "JS_V21_RSPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 209.0
+ },
+ {
+  "old_branch": "CE-N21-040",
+  "new_branch": "JS_V21_RSPACK_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 125.5
+ },
+ {
+  "old_branch": "CE-N21-041",
+  "new_branch": "JS_V21_PARCEL_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "/modules/run_main:120:12) {\n      cause: Error: Cannot find module '@oxlint/binding-win32-x64-msvc'\n      Require stack:\n      - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-041\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-041/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-041\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-041/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-041/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-041/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 481.5
+ },
+ {
+  "old_branch": "CE-N21-042",
+  "new_branch": "JS_V21_PARCEL_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 153.6
+ },
+ {
+  "old_branch": "CE-N21-043",
+  "new_branch": "JS_V21_PARCEL_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 143.8
+ },
+ {
+  "old_branch": "CE-N21-044",
+  "new_branch": "JS_V21_PARCEL_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 121.2
+ },
+ {
+  "old_branch": "CE-N21-045",
+  "new_branch": "JS_V21_PARCEL_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": ".pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-045/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-045\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-045/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-045/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-045/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 161.6
+ },
+ {
+  "old_branch": "CE-N21-046",
+  "new_branch": "JS_V21_PARCEL_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 74.8
+ },
+ {
+  "old_branch": "CE-N21-047",
+  "new_branch": "JS_V21_PARCEL_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 158.3
+ },
+ {
+  "old_branch": "CE-N21-048",
+  "new_branch": "JS_V21_PARCEL_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 90.9
+ },
+ {
+  "old_branch": "CE-N21-049",
+  "new_branch": "JS_V21_TURBOPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "/modules/run_main:120:12) {\n      cause: Error: Cannot find module '@oxlint/binding-win32-x64-msvc'\n      Require stack:\n      - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-049\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-049/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-049\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-049/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-049/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-049/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 354.8
+ },
+ {
+  "old_branch": "CE-N21-050",
+  "new_branch": "JS_V21_TURBOPACK_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 132.9
+ },
+ {
+  "old_branch": "CE-N21-051",
+  "new_branch": "JS_V21_TURBOPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 159.0
+ },
+ {
+  "old_branch": "CE-N21-052",
+  "new_branch": "JS_V21_TURBOPACK_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 113.9
+ },
+ {
+  "old_branch": "CE-N21-053",
+  "new_branch": "JS_V21_TURBOPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": ".pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-053/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-053\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-053/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-053/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-053/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 91.5
+ },
+ {
+  "old_branch": "CE-N21-054",
+  "new_branch": "JS_V21_TURBOPACK_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 53.5
+ },
+ {
+  "old_branch": "CE-N21-055",
+  "new_branch": "JS_V21_TURBOPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 169.0
+ },
+ {
+  "old_branch": "CE-N21-056",
+  "new_branch": "JS_V21_TURBOPACK_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 83.0
+ },
+ {
+  "old_branch": "CE-N21-057",
+  "new_branch": "JS_V21_SWC_NPM_MONO",
+  "pm": "npm",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "/modules/run_main:120:12) {\n      cause: Error: Cannot find module '@oxlint/binding-win32-x64-msvc'\n      Require stack:\n      - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-057\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-057/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-057\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-057/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-057/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-057/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 244.2
+ },
+ {
+  "old_branch": "CE-N21-058",
+  "new_branch": "JS_V21_SWC_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 162.9
+ },
+ {
+  "old_branch": "CE-N21-059",
+  "new_branch": "JS_V21_SWC_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 157.7
+ },
+ {
+  "old_branch": "CE-N21-060",
+  "new_branch": "JS_V21_SWC_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 136.8
+ },
+ {
+  "old_branch": "CE-N21-061",
+  "new_branch": "JS_V21_SWC_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": ".pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-061/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:120:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N21-061\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-061/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-061/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N21-061/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:222:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)\n            at async loadESM (node:internal/process/esm_loader:28:7)\n            at async handleMainPromise (node:internal/modules/run_main:120:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v21.7.3\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 121.5
+ },
+ {
+  "old_branch": "CE-N21-062",
+  "new_branch": "JS_V21_SWC_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 34.7
+ },
+ {
+  "old_branch": "CE-N21-063",
+  "new_branch": "JS_V21_SWC_BUN_MONO",
+  "pm": "bun",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 69.8
+ },
+ {
+  "old_branch": "CE-N21-064",
+  "new_branch": "JS_V21_SWC_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 58.0
+ }
+]

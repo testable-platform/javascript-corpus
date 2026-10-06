@@ -1,0 +1,546 @@
+[
+ {
+  "old_branch": "CE-N14-001",
+  "new_branch": "JS_V14_ESBUILD_NPM_MONO",
+  "pm": "npm",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "npm ERR! code ELIFECYCLE\nnpm ERR! errno 1\nnpm ERR! granite-mill@1.0.0 mutation: `stryker run`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the granite-mill@1.0.0 mutation script.\nnpm ERR! This is probably not a problem with npm. There is likely additional logging output above.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     C:\\Users\\Prajith K\\AppData\\Roaming\\npm-cache\\_logs\\2026-09-17T13_21_28_202Z-debug.log\n"
+  },
+  "elapsed_s": 159.4
+ },
+ {
+  "old_branch": "CE-N14-003",
+  "new_branch": "JS_V14_ESBUILD_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "forEach is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-003/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-003/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-003/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-003/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:21:35 (53392) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:21:35 (53392) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:21:35 (53392) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 170.8
+ },
+ {
+  "old_branch": "CE-N14-005",
+  "new_branch": "JS_V14_ESBUILD_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "unner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-005/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-005/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-005/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:21:26 (59336) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:21:26 (59336) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:21:26 (59336) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 164.1
+ },
+ {
+  "old_branch": "CE-N14-007",
+  "new_branch": "JS_V14_ESBUILD_BUN_MONO",
+  "pm": "bun",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 165.8
+ },
+ {
+  "old_branch": "CE-N14-009",
+  "new_branch": "JS_V14_VITE_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "npm ERR! code ELIFECYCLE\nnpm ERR! errno 1\nnpm ERR! granite-mill@1.0.0 mutation: `stryker run`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the granite-mill@1.0.0 mutation script.\nnpm ERR! This is probably not a problem with npm. There is likely additional logging output above.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     C:\\Users\\Prajith K\\AppData\\Roaming\\npm-cache\\_logs\\2026-09-17T13_21_28_249Z-debug.log\n"
+  },
+  "elapsed_s": 157.7
+ },
+ {
+  "old_branch": "CE-N14-011",
+  "new_branch": "JS_V14_VITE_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "forEach is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-011/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-011/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-011/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-011/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:21:35 (12516) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:21:35 (12516) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:21:35 (12516) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 168.8
+ },
+ {
+  "old_branch": "CE-N14-013",
+  "new_branch": "JS_V14_VITE_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "unner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-013/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-013/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-013/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:21:26 (59012) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:21:26 (59012) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:21:26 (59012) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 162.6
+ },
+ {
+  "old_branch": "CE-N14-015",
+  "new_branch": "JS_V14_VITE_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 165.8
+ },
+ {
+  "old_branch": "CE-N14-017",
+  "new_branch": "JS_V14_WEBPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "npm ERR! code ELIFECYCLE\nnpm ERR! errno 1\nnpm ERR! granite-mill@1.0.0 mutation: `stryker run`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the granite-mill@1.0.0 mutation script.\nnpm ERR! This is probably not a problem with npm. There is likely additional logging output above.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     C:\\Users\\Prajith K\\AppData\\Roaming\\npm-cache\\_logs\\2026-09-17T13_24_21_662Z-debug.log\n"
+  },
+  "elapsed_s": 177.0
+ },
+ {
+  "old_branch": "CE-N14-019",
+  "new_branch": "JS_V14_WEBPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "forEach is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-019/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-019/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-019/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-019/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:24:23 (59784) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:24:23 (59784) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:24:23 (59784) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 182.4
+ },
+ {
+  "old_branch": "CE-N14-021",
+  "new_branch": "JS_V14_WEBPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "unner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-021/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-021/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-021/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:24:11 (54144) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:24:11 (54144) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:24:11 (54144) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 166.4
+ },
+ {
+  "old_branch": "CE-N14-023",
+  "new_branch": "JS_V14_WEBPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 167.3
+ },
+ {
+  "old_branch": "CE-N14-025",
+  "new_branch": "JS_V14_ROLLUP_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "npm ERR! code ELIFECYCLE\nnpm ERR! errno 1\nnpm ERR! granite-mill@1.0.0 mutation: `stryker run`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the granite-mill@1.0.0 mutation script.\nnpm ERR! This is probably not a problem with npm. There is likely additional logging output above.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     C:\\Users\\Prajith K\\AppData\\Roaming\\npm-cache\\_logs\\2026-09-17T13_24_21_286Z-debug.log\n"
+  },
+  "elapsed_s": 167.2
+ },
+ {
+  "old_branch": "CE-N14-027",
+  "new_branch": "JS_V14_ROLLUP_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "es.forEach is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-027/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-027/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-027/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-027/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:24:20 (7008) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:24:20 (7008) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:24:20 (7008) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 167.3
+ },
+ {
+  "old_branch": "CE-N14-029",
+  "new_branch": "JS_V14_ROLLUP_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "unner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-029/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-029/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-029/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:24:12 (54320) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:24:12 (54320) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:24:12 (54320) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 160.0
+ },
+ {
+  "old_branch": "CE-N14-031",
+  "new_branch": "JS_V14_ROLLUP_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 160.6
+ },
+ {
+  "old_branch": "CE-N14-033",
+  "new_branch": "JS_V14_RSPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "npm ERR! code ELIFECYCLE\nnpm ERR! errno 1\nnpm ERR! granite-mill@1.0.0 mutation: `stryker run`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the granite-mill@1.0.0 mutation script.\nnpm ERR! This is probably not a problem with npm. There is likely additional logging output above.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     C:\\Users\\Prajith K\\AppData\\Roaming\\npm-cache\\_logs\\2026-09-17T13_27_41_733Z-debug.log\n"
+  },
+  "elapsed_s": 213.3
+ },
+ {
+  "old_branch": "CE-N14-035",
+  "new_branch": "JS_V14_RSPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "forEach is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-035/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-035/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-035/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-035/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:30:20 (58196) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:30:20 (58196) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:30:20 (58196) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 363.8
+ },
+ {
+  "old_branch": "CE-N14-037",
+  "new_branch": "JS_V14_RSPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "unner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-037/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-037/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-037/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:26:27 (56184) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:26:27 (56184) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:26:27 (56184) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 132.6
+ },
+ {
+  "old_branch": "CE-N14-039",
+  "new_branch": "JS_V14_RSPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 175.9
+ },
+ {
+  "old_branch": "CE-N14-041",
+  "new_branch": "JS_V14_PARCEL_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "npm ERR! code ELIFECYCLE\nnpm ERR! errno 1\nnpm ERR! granite-mill@1.0.0 mutation: `stryker run`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the granite-mill@1.0.0 mutation script.\nnpm ERR! This is probably not a problem with npm. There is likely additional logging output above.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     C:\\Users\\Prajith K\\AppData\\Roaming\\npm-cache\\_logs\\2026-09-17T13_27_42_823Z-debug.log\n"
+  },
+  "elapsed_s": 208.1
+ },
+ {
+  "old_branch": "CE-N14-043",
+  "new_branch": "JS_V14_PARCEL_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "forEach is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-043/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-043/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-043/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-043/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:28:13 (50508) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:28:13 (50508) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:28:13 (50508) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 232.2
+ },
+ {
+  "old_branch": "CE-N14-045",
+  "new_branch": "JS_V14_PARCEL_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "unner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-045/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-045/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-045/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:26:41 (43368) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:26:41 (43368) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:26:41 (43368) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 157.5
+ },
+ {
+  "old_branch": "CE-N14-047",
+  "new_branch": "JS_V14_PARCEL_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 162.8
+ },
+ {
+  "old_branch": "CE-N14-049",
+  "new_branch": "JS_V14_TURBOPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "npm ERR! code ELIFECYCLE\nnpm ERR! errno 1\nnpm ERR! granite-mill@1.0.0 mutation: `stryker run`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the granite-mill@1.0.0 mutation script.\nnpm ERR! This is probably not a problem with npm. There is likely additional logging output above.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     C:\\Users\\Prajith K\\AppData\\Roaming\\npm-cache\\_logs\\2026-09-17T13_29_15_709Z-debug.log\n"
+  },
+  "elapsed_s": 165.8
+ },
+ {
+  "old_branch": "CE-N14-051",
+  "new_branch": "JS_V14_TURBOPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "forEach is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-051/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-051/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-051/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-051/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:30:53 (58112) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:30:53 (58112) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:30:53 (58112) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 225.8
+ },
+ {
+  "old_branch": "CE-N14-053",
+  "new_branch": "JS_V14_TURBOPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "unner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-053/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-053/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-053/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:29:44 (56596) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:29:44 (56596) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:29:44 (56596) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 179.2
+ },
+ {
+  "old_branch": "CE-N14-055",
+  "new_branch": "JS_V14_TURBOPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 100.5
+ },
+ {
+  "old_branch": "CE-N14-057",
+  "new_branch": "JS_V14_SWC_NPM_MONO",
+  "pm": "npm",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "npm ERR! code ELIFECYCLE\nnpm ERR! errno 1\nnpm ERR! granite-mill@1.0.0 mutation: `stryker run`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the granite-mill@1.0.0 mutation script.\nnpm ERR! This is probably not a problem with npm. There is likely additional logging output above.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     C:\\Users\\Prajith K\\AppData\\Roaming\\npm-cache\\_logs\\2026-09-17T13_30_38_511Z-debug.log\n"
+  },
+  "elapsed_s": 162.1
+ },
+ {
+  "old_branch": "CE-N14-059",
+  "new_branch": "JS_V14_SWC_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "forEach is not a function\n    at MochaTestRunner.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-059/node_modules/@stryker-mutator/mocha-runner/dist/src/mocha-test-runner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-059/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-059/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-059/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:30:54 (59836) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:30:54 (59836) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:30:54 (59836) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n"
+  },
+  "elapsed_s": 177.2
+ },
+ {
+  "old_branch": "CE-N14-061",
+  "new_branch": "JS_V14_SWC_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "unner.js:39:23)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async ChildProcessTestRunnerWorker.init (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-061/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/test-runner/child-process-test-runner-worker.js:14:13)\n    at async ChildProcessProxyWorker.handleCall (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-061/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:82:28)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N14-061/node_modules/.pnpm/@stryker-mutator+core@6.4.2/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:149:68)\n    at ChildProcess.emit (events.js:400:28)\n    at emit (internal/child_process.js:935:14)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21) {\n  innerError: undefined\n}\n\u001b[32m08:30:06 (57668) INFO Stryker\u001b[39m This might be a known problem with a solution documented in our troubleshooting guide.\n\u001b[32m08:30:06 (57668) INFO Stryker\u001b[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/\n\u001b[32m08:30:06 (57668) INFO Stryker\u001b[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "elapsed_s": 123.3
+ },
+ {
+  "old_branch": "CE-N14-063",
+  "new_branch": "JS_V14_SWC_BUN_MONO",
+  "pm": "bun",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 101.4
+ }
+]

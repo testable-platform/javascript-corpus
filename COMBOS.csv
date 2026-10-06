@@ -1,0 +1,577 @@
+Branch ID,Legacy Branch ID,Node.js Version,Bundler,Package Manager,Architecture,Status,SharePoint Link,GitHub Link
+JS_V12_ESBUILD_NPM_MONO,CE-N12-001,12,esbuild,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ESBUILD_NPM_MONO
+JS_V12_ESBUILD_NPM_MICRO,CE-N12-002,12,esbuild,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ESBUILD_NPM_MICRO
+JS_V12_ESBUILD_YARN_MONO,CE-N12-003,12,esbuild,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ESBUILD_YARN_MONO
+JS_V12_ESBUILD_YARN_MICRO,CE-N12-004,12,esbuild,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ESBUILD_YARN_MICRO
+JS_V12_ESBUILD_PNPM_MONO,CE-N12-005,12,esbuild,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ESBUILD_PNPM_MONO
+JS_V12_ESBUILD_PNPM_MICRO,CE-N12-006,12,esbuild,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ESBUILD_PNPM_MICRO
+JS_V12_ESBUILD_BUN_MONO,CE-N12-007,12,esbuild,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ESBUILD_BUN_MONO
+JS_V12_ESBUILD_BUN_MICRO,CE-N12-008,12,esbuild,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ESBUILD_BUN_MICRO
+JS_V12_VITE_NPM_MONO,CE-N12-009,12,Vite (built as esbuild),npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_VITE_NPM_MONO
+JS_V12_VITE_NPM_MICRO,CE-N12-010,12,Vite (built as esbuild),npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_VITE_NPM_MICRO
+JS_V12_VITE_YARN_MONO,CE-N12-011,12,Vite (built as esbuild),yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_VITE_YARN_MONO
+JS_V12_VITE_YARN_MICRO,CE-N12-012,12,Vite (built as esbuild),yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_VITE_YARN_MICRO
+JS_V12_VITE_PNPM_MONO,CE-N12-013,12,Vite (built as esbuild),pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_VITE_PNPM_MONO
+JS_V12_VITE_PNPM_MICRO,CE-N12-014,12,Vite (built as esbuild),pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_VITE_PNPM_MICRO
+JS_V12_VITE_BUN_MONO,CE-N12-015,12,Vite (built as esbuild),bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_VITE_BUN_MONO
+JS_V12_VITE_BUN_MICRO,CE-N12-016,12,Vite (built as esbuild),bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_VITE_BUN_MICRO
+JS_V12_WEBPACK_NPM_MONO,CE-N12-017,12,Webpack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_WEBPACK_NPM_MONO
+JS_V12_WEBPACK_NPM_MICRO,CE-N12-018,12,Webpack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_WEBPACK_NPM_MICRO
+JS_V12_WEBPACK_YARN_MONO,CE-N12-019,12,Webpack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_WEBPACK_YARN_MONO
+JS_V12_WEBPACK_YARN_MICRO,CE-N12-020,12,Webpack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_WEBPACK_YARN_MICRO
+JS_V12_WEBPACK_PNPM_MONO,CE-N12-021,12,Webpack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_WEBPACK_PNPM_MONO
+JS_V12_WEBPACK_PNPM_MICRO,CE-N12-022,12,Webpack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_WEBPACK_PNPM_MICRO
+JS_V12_WEBPACK_BUN_MONO,CE-N12-023,12,Webpack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_WEBPACK_BUN_MONO
+JS_V12_WEBPACK_BUN_MICRO,CE-N12-024,12,Webpack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_WEBPACK_BUN_MICRO
+JS_V12_ROLLUP_NPM_MONO,CE-N12-025,12,Rollup,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ROLLUP_NPM_MONO
+JS_V12_ROLLUP_NPM_MICRO,CE-N12-026,12,Rollup,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ROLLUP_NPM_MICRO
+JS_V12_ROLLUP_YARN_MONO,CE-N12-027,12,Rollup,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ROLLUP_YARN_MONO
+JS_V12_ROLLUP_YARN_MICRO,CE-N12-028,12,Rollup,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ROLLUP_YARN_MICRO
+JS_V12_ROLLUP_PNPM_MONO,CE-N12-029,12,Rollup,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ROLLUP_PNPM_MONO
+JS_V12_ROLLUP_PNPM_MICRO,CE-N12-030,12,Rollup,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ROLLUP_PNPM_MICRO
+JS_V12_ROLLUP_BUN_MONO,CE-N12-031,12,Rollup,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ROLLUP_BUN_MONO
+JS_V12_ROLLUP_BUN_MICRO,CE-N12-032,12,Rollup,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ROLLUP_BUN_MICRO
+JS_V12_RSPACK_NPM_MONO,CE-N12-033,12,Rspack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_RSPACK_NPM_MONO
+JS_V12_RSPACK_NPM_MICRO,CE-N12-034,12,Rspack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_RSPACK_NPM_MICRO
+JS_V12_RSPACK_YARN_MONO,CE-N12-035,12,Rspack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_RSPACK_YARN_MONO
+JS_V12_RSPACK_YARN_MICRO,CE-N12-036,12,Rspack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_RSPACK_YARN_MICRO
+JS_V12_RSPACK_PNPM_MONO,CE-N12-037,12,Rspack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_RSPACK_PNPM_MONO
+JS_V12_RSPACK_PNPM_MICRO,CE-N12-038,12,Rspack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_RSPACK_PNPM_MICRO
+JS_V12_RSPACK_BUN_MONO,CE-N12-039,12,Rspack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_RSPACK_BUN_MONO
+JS_V12_RSPACK_BUN_MICRO,CE-N12-040,12,Rspack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_RSPACK_BUN_MICRO
+JS_V12_PARCEL_NPM_MONO,CE-N12-041,12,Parcel,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_PARCEL_NPM_MONO
+JS_V12_PARCEL_NPM_MICRO,CE-N12-042,12,Parcel,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_PARCEL_NPM_MICRO
+JS_V12_PARCEL_YARN_MONO,CE-N12-043,12,Parcel,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_PARCEL_YARN_MONO
+JS_V12_PARCEL_YARN_MICRO,CE-N12-044,12,Parcel,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_PARCEL_YARN_MICRO
+JS_V12_PARCEL_PNPM_MONO,CE-N12-045,12,Parcel,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_PARCEL_PNPM_MONO
+JS_V12_PARCEL_PNPM_MICRO,CE-N12-046,12,Parcel,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_PARCEL_PNPM_MICRO
+JS_V12_PARCEL_BUN_MONO,CE-N12-047,12,Parcel,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_PARCEL_BUN_MONO
+JS_V12_PARCEL_BUN_MICRO,CE-N12-048,12,Parcel,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_PARCEL_BUN_MICRO
+JS_V12_TURBOPACK_NPM_MONO,CE-N12-049,12,Turbopack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_TURBOPACK_NPM_MONO
+JS_V12_TURBOPACK_NPM_MICRO,CE-N12-050,12,Turbopack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_TURBOPACK_NPM_MICRO
+JS_V12_TURBOPACK_YARN_MONO,CE-N12-051,12,Turbopack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_TURBOPACK_YARN_MONO
+JS_V12_TURBOPACK_YARN_MICRO,CE-N12-052,12,Turbopack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_TURBOPACK_YARN_MICRO
+JS_V12_TURBOPACK_PNPM_MONO,CE-N12-053,12,Turbopack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_TURBOPACK_PNPM_MONO
+JS_V12_TURBOPACK_PNPM_MICRO,CE-N12-054,12,Turbopack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_TURBOPACK_PNPM_MICRO
+JS_V12_TURBOPACK_BUN_MONO,CE-N12-055,12,Turbopack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_TURBOPACK_BUN_MONO
+JS_V12_TURBOPACK_BUN_MICRO,CE-N12-056,12,Turbopack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_TURBOPACK_BUN_MICRO
+JS_V12_SWC_NPM_MONO,CE-N12-057,12,SWC,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_SWC_NPM_MONO
+JS_V12_SWC_NPM_MICRO,CE-N12-058,12,SWC,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_SWC_NPM_MICRO
+JS_V12_SWC_YARN_MONO,CE-N12-059,12,SWC,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_SWC_YARN_MONO
+JS_V12_SWC_YARN_MICRO,CE-N12-060,12,SWC,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_SWC_YARN_MICRO
+JS_V12_SWC_PNPM_MONO,CE-N12-061,12,SWC,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_SWC_PNPM_MONO
+JS_V12_SWC_PNPM_MICRO,CE-N12-062,12,SWC,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_SWC_PNPM_MICRO
+JS_V12_SWC_BUN_MONO,CE-N12-063,12,SWC,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_SWC_BUN_MONO
+JS_V12_SWC_BUN_MICRO,CE-N12-064,12,SWC,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V12_SWC_BUN_MICRO
+JS_V14_ESBUILD_NPM_MONO,CE-N14-001,14,esbuild,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ESBUILD_NPM_MONO
+JS_V14_ESBUILD_NPM_MICRO,CE-N14-002,14,esbuild,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ESBUILD_NPM_MICRO
+JS_V14_ESBUILD_YARN_MONO,CE-N14-003,14,esbuild,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ESBUILD_YARN_MONO
+JS_V14_ESBUILD_YARN_MICRO,CE-N14-004,14,esbuild,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ESBUILD_YARN_MICRO
+JS_V14_ESBUILD_PNPM_MONO,CE-N14-005,14,esbuild,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ESBUILD_PNPM_MONO
+JS_V14_ESBUILD_PNPM_MICRO,CE-N14-006,14,esbuild,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ESBUILD_PNPM_MICRO
+JS_V14_ESBUILD_BUN_MONO,CE-N14-007,14,esbuild,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ESBUILD_BUN_MONO
+JS_V14_ESBUILD_BUN_MICRO,CE-N14-008,14,esbuild,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ESBUILD_BUN_MICRO
+JS_V14_VITE_NPM_MONO,CE-N14-009,14,Vite (built as esbuild),npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_VITE_NPM_MONO
+JS_V14_VITE_NPM_MICRO,CE-N14-010,14,Vite (built as esbuild),npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_VITE_NPM_MICRO
+JS_V14_VITE_YARN_MONO,CE-N14-011,14,Vite (built as esbuild),yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_VITE_YARN_MONO
+JS_V14_VITE_YARN_MICRO,CE-N14-012,14,Vite (built as esbuild),yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_VITE_YARN_MICRO
+JS_V14_VITE_PNPM_MONO,CE-N14-013,14,Vite (built as esbuild),pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_VITE_PNPM_MONO
+JS_V14_VITE_PNPM_MICRO,CE-N14-014,14,Vite (built as esbuild),pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_VITE_PNPM_MICRO
+JS_V14_VITE_BUN_MONO,CE-N14-015,14,Vite (built as esbuild),bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_VITE_BUN_MONO
+JS_V14_VITE_BUN_MICRO,CE-N14-016,14,Vite (built as esbuild),bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_VITE_BUN_MICRO
+JS_V14_WEBPACK_NPM_MONO,CE-N14-017,14,Webpack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_WEBPACK_NPM_MONO
+JS_V14_WEBPACK_NPM_MICRO,CE-N14-018,14,Webpack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_WEBPACK_NPM_MICRO
+JS_V14_WEBPACK_YARN_MONO,CE-N14-019,14,Webpack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_WEBPACK_YARN_MONO
+JS_V14_WEBPACK_YARN_MICRO,CE-N14-020,14,Webpack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_WEBPACK_YARN_MICRO
+JS_V14_WEBPACK_PNPM_MONO,CE-N14-021,14,Webpack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_WEBPACK_PNPM_MONO
+JS_V14_WEBPACK_PNPM_MICRO,CE-N14-022,14,Webpack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_WEBPACK_PNPM_MICRO
+JS_V14_WEBPACK_BUN_MONO,CE-N14-023,14,Webpack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_WEBPACK_BUN_MONO
+JS_V14_WEBPACK_BUN_MICRO,CE-N14-024,14,Webpack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_WEBPACK_BUN_MICRO
+JS_V14_ROLLUP_NPM_MONO,CE-N14-025,14,Rollup,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ROLLUP_NPM_MONO
+JS_V14_ROLLUP_NPM_MICRO,CE-N14-026,14,Rollup,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ROLLUP_NPM_MICRO
+JS_V14_ROLLUP_YARN_MONO,CE-N14-027,14,Rollup,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ROLLUP_YARN_MONO
+JS_V14_ROLLUP_YARN_MICRO,CE-N14-028,14,Rollup,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ROLLUP_YARN_MICRO
+JS_V14_ROLLUP_PNPM_MONO,CE-N14-029,14,Rollup,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ROLLUP_PNPM_MONO
+JS_V14_ROLLUP_PNPM_MICRO,CE-N14-030,14,Rollup,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ROLLUP_PNPM_MICRO
+JS_V14_ROLLUP_BUN_MONO,CE-N14-031,14,Rollup,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ROLLUP_BUN_MONO
+JS_V14_ROLLUP_BUN_MICRO,CE-N14-032,14,Rollup,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_ROLLUP_BUN_MICRO
+JS_V14_RSPACK_NPM_MONO,CE-N14-033,14,Rspack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_RSPACK_NPM_MONO
+JS_V14_RSPACK_NPM_MICRO,CE-N14-034,14,Rspack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_RSPACK_NPM_MICRO
+JS_V14_RSPACK_YARN_MONO,CE-N14-035,14,Rspack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_RSPACK_YARN_MONO
+JS_V14_RSPACK_YARN_MICRO,CE-N14-036,14,Rspack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_RSPACK_YARN_MICRO
+JS_V14_RSPACK_PNPM_MONO,CE-N14-037,14,Rspack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_RSPACK_PNPM_MONO
+JS_V14_RSPACK_PNPM_MICRO,CE-N14-038,14,Rspack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_RSPACK_PNPM_MICRO
+JS_V14_RSPACK_BUN_MONO,CE-N14-039,14,Rspack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_RSPACK_BUN_MONO
+JS_V14_RSPACK_BUN_MICRO,CE-N14-040,14,Rspack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_RSPACK_BUN_MICRO
+JS_V14_PARCEL_NPM_MONO,CE-N14-041,14,Parcel,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_PARCEL_NPM_MONO
+JS_V14_PARCEL_NPM_MICRO,CE-N14-042,14,Parcel,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_PARCEL_NPM_MICRO
+JS_V14_PARCEL_YARN_MONO,CE-N14-043,14,Parcel,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_PARCEL_YARN_MONO
+JS_V14_PARCEL_YARN_MICRO,CE-N14-044,14,Parcel,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_PARCEL_YARN_MICRO
+JS_V14_PARCEL_PNPM_MONO,CE-N14-045,14,Parcel,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_PARCEL_PNPM_MONO
+JS_V14_PARCEL_PNPM_MICRO,CE-N14-046,14,Parcel,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_PARCEL_PNPM_MICRO
+JS_V14_PARCEL_BUN_MONO,CE-N14-047,14,Parcel,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_PARCEL_BUN_MONO
+JS_V14_PARCEL_BUN_MICRO,CE-N14-048,14,Parcel,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_PARCEL_BUN_MICRO
+JS_V14_TURBOPACK_NPM_MONO,CE-N14-049,14,Turbopack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_TURBOPACK_NPM_MONO
+JS_V14_TURBOPACK_NPM_MICRO,CE-N14-050,14,Turbopack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_TURBOPACK_NPM_MICRO
+JS_V14_TURBOPACK_YARN_MONO,CE-N14-051,14,Turbopack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_TURBOPACK_YARN_MONO
+JS_V14_TURBOPACK_YARN_MICRO,CE-N14-052,14,Turbopack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_TURBOPACK_YARN_MICRO
+JS_V14_TURBOPACK_PNPM_MONO,CE-N14-053,14,Turbopack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_TURBOPACK_PNPM_MONO
+JS_V14_TURBOPACK_PNPM_MICRO,CE-N14-054,14,Turbopack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_TURBOPACK_PNPM_MICRO
+JS_V14_TURBOPACK_BUN_MONO,CE-N14-055,14,Turbopack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_TURBOPACK_BUN_MONO
+JS_V14_TURBOPACK_BUN_MICRO,CE-N14-056,14,Turbopack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_TURBOPACK_BUN_MICRO
+JS_V14_SWC_NPM_MONO,CE-N14-057,14,SWC,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_SWC_NPM_MONO
+JS_V14_SWC_NPM_MICRO,CE-N14-058,14,SWC,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_SWC_NPM_MICRO
+JS_V14_SWC_YARN_MONO,CE-N14-059,14,SWC,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_SWC_YARN_MONO
+JS_V14_SWC_YARN_MICRO,CE-N14-060,14,SWC,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_SWC_YARN_MICRO
+JS_V14_SWC_PNPM_MONO,CE-N14-061,14,SWC,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_SWC_PNPM_MONO
+JS_V14_SWC_PNPM_MICRO,CE-N14-062,14,SWC,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_SWC_PNPM_MICRO
+JS_V14_SWC_BUN_MONO,CE-N14-063,14,SWC,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_SWC_BUN_MONO
+JS_V14_SWC_BUN_MICRO,CE-N14-064,14,SWC,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V14_SWC_BUN_MICRO
+JS_V16_ESBUILD_NPM_MONO,CE-N16-001,16,esbuild,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ESBUILD_NPM_MONO
+JS_V16_ESBUILD_NPM_MICRO,CE-N16-002,16,esbuild,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ESBUILD_NPM_MICRO
+JS_V16_ESBUILD_YARN_MONO,CE-N16-003,16,esbuild,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ESBUILD_YARN_MONO
+JS_V16_ESBUILD_YARN_MICRO,CE-N16-004,16,esbuild,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ESBUILD_YARN_MICRO
+JS_V16_ESBUILD_PNPM_MONO,CE-N16-005,16,esbuild,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ESBUILD_PNPM_MONO
+JS_V16_ESBUILD_PNPM_MICRO,CE-N16-006,16,esbuild,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ESBUILD_PNPM_MICRO
+JS_V16_ESBUILD_BUN_MONO,CE-N16-007,16,esbuild,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ESBUILD_BUN_MONO
+JS_V16_ESBUILD_BUN_MICRO,CE-N16-008,16,esbuild,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ESBUILD_BUN_MICRO
+JS_V16_VITE_NPM_MONO,CE-N16-009,16,Vite (built as esbuild),npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_VITE_NPM_MONO
+JS_V16_VITE_NPM_MICRO,CE-N16-010,16,Vite (built as esbuild),npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_VITE_NPM_MICRO
+JS_V16_VITE_YARN_MONO,CE-N16-011,16,Vite (built as esbuild),yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_VITE_YARN_MONO
+JS_V16_VITE_YARN_MICRO,CE-N16-012,16,Vite (built as esbuild),yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_VITE_YARN_MICRO
+JS_V16_VITE_PNPM_MONO,CE-N16-013,16,Vite (built as esbuild),pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_VITE_PNPM_MONO
+JS_V16_VITE_PNPM_MICRO,CE-N16-014,16,Vite (built as esbuild),pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_VITE_PNPM_MICRO
+JS_V16_VITE_BUN_MONO,CE-N16-015,16,Vite (built as esbuild),bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_VITE_BUN_MONO
+JS_V16_VITE_BUN_MICRO,CE-N16-016,16,Vite (built as esbuild),bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_VITE_BUN_MICRO
+JS_V16_WEBPACK_NPM_MONO,CE-N16-017,16,Webpack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_WEBPACK_NPM_MONO
+JS_V16_WEBPACK_NPM_MICRO,CE-N16-018,16,Webpack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_WEBPACK_NPM_MICRO
+JS_V16_WEBPACK_YARN_MONO,CE-N16-019,16,Webpack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_WEBPACK_YARN_MONO
+JS_V16_WEBPACK_YARN_MICRO,CE-N16-020,16,Webpack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_WEBPACK_YARN_MICRO
+JS_V16_WEBPACK_PNPM_MONO,CE-N16-021,16,Webpack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_WEBPACK_PNPM_MONO
+JS_V16_WEBPACK_PNPM_MICRO,CE-N16-022,16,Webpack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_WEBPACK_PNPM_MICRO
+JS_V16_WEBPACK_BUN_MONO,CE-N16-023,16,Webpack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_WEBPACK_BUN_MONO
+JS_V16_WEBPACK_BUN_MICRO,CE-N16-024,16,Webpack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_WEBPACK_BUN_MICRO
+JS_V16_ROLLUP_NPM_MONO,CE-N16-025,16,Rollup,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ROLLUP_NPM_MONO
+JS_V16_ROLLUP_NPM_MICRO,CE-N16-026,16,Rollup,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ROLLUP_NPM_MICRO
+JS_V16_ROLLUP_YARN_MONO,CE-N16-027,16,Rollup,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ROLLUP_YARN_MONO
+JS_V16_ROLLUP_YARN_MICRO,CE-N16-028,16,Rollup,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ROLLUP_YARN_MICRO
+JS_V16_ROLLUP_PNPM_MONO,CE-N16-029,16,Rollup,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ROLLUP_PNPM_MONO
+JS_V16_ROLLUP_PNPM_MICRO,CE-N16-030,16,Rollup,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ROLLUP_PNPM_MICRO
+JS_V16_ROLLUP_BUN_MONO,CE-N16-031,16,Rollup,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ROLLUP_BUN_MONO
+JS_V16_ROLLUP_BUN_MICRO,CE-N16-032,16,Rollup,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_ROLLUP_BUN_MICRO
+JS_V16_RSPACK_NPM_MONO,CE-N16-033,16,Rspack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_RSPACK_NPM_MONO
+JS_V16_RSPACK_NPM_MICRO,CE-N16-034,16,Rspack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_RSPACK_NPM_MICRO
+JS_V16_RSPACK_YARN_MONO,CE-N16-035,16,Rspack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_RSPACK_YARN_MONO
+JS_V16_RSPACK_YARN_MICRO,CE-N16-036,16,Rspack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_RSPACK_YARN_MICRO
+JS_V16_RSPACK_PNPM_MONO,CE-N16-037,16,Rspack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_RSPACK_PNPM_MONO
+JS_V16_RSPACK_PNPM_MICRO,CE-N16-038,16,Rspack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_RSPACK_PNPM_MICRO
+JS_V16_RSPACK_BUN_MONO,CE-N16-039,16,Rspack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_RSPACK_BUN_MONO
+JS_V16_RSPACK_BUN_MICRO,CE-N16-040,16,Rspack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_RSPACK_BUN_MICRO
+JS_V16_PARCEL_NPM_MONO,CE-N16-041,16,Parcel,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_PARCEL_NPM_MONO
+JS_V16_PARCEL_NPM_MICRO,CE-N16-042,16,Parcel,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_PARCEL_NPM_MICRO
+JS_V16_PARCEL_YARN_MONO,CE-N16-043,16,Parcel,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_PARCEL_YARN_MONO
+JS_V16_PARCEL_YARN_MICRO,CE-N16-044,16,Parcel,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_PARCEL_YARN_MICRO
+JS_V16_PARCEL_PNPM_MONO,CE-N16-045,16,Parcel,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_PARCEL_PNPM_MONO
+JS_V16_PARCEL_PNPM_MICRO,CE-N16-046,16,Parcel,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_PARCEL_PNPM_MICRO
+JS_V16_PARCEL_BUN_MONO,CE-N16-047,16,Parcel,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_PARCEL_BUN_MONO
+JS_V16_PARCEL_BUN_MICRO,CE-N16-048,16,Parcel,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_PARCEL_BUN_MICRO
+JS_V16_TURBOPACK_NPM_MONO,CE-N16-049,16,Turbopack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_TURBOPACK_NPM_MONO
+JS_V16_TURBOPACK_NPM_MICRO,CE-N16-050,16,Turbopack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_TURBOPACK_NPM_MICRO
+JS_V16_TURBOPACK_YARN_MONO,CE-N16-051,16,Turbopack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_TURBOPACK_YARN_MONO
+JS_V16_TURBOPACK_YARN_MICRO,CE-N16-052,16,Turbopack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_TURBOPACK_YARN_MICRO
+JS_V16_TURBOPACK_PNPM_MONO,CE-N16-053,16,Turbopack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_TURBOPACK_PNPM_MONO
+JS_V16_TURBOPACK_PNPM_MICRO,CE-N16-054,16,Turbopack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_TURBOPACK_PNPM_MICRO
+JS_V16_TURBOPACK_BUN_MONO,CE-N16-055,16,Turbopack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_TURBOPACK_BUN_MONO
+JS_V16_TURBOPACK_BUN_MICRO,CE-N16-056,16,Turbopack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_TURBOPACK_BUN_MICRO
+JS_V16_SWC_NPM_MONO,CE-N16-057,16,SWC,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_SWC_NPM_MONO
+JS_V16_SWC_NPM_MICRO,CE-N16-058,16,SWC,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_SWC_NPM_MICRO
+JS_V16_SWC_YARN_MONO,CE-N16-059,16,SWC,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_SWC_YARN_MONO
+JS_V16_SWC_YARN_MICRO,CE-N16-060,16,SWC,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_SWC_YARN_MICRO
+JS_V16_SWC_PNPM_MONO,CE-N16-061,16,SWC,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_SWC_PNPM_MONO
+JS_V16_SWC_PNPM_MICRO,CE-N16-062,16,SWC,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_SWC_PNPM_MICRO
+JS_V16_SWC_BUN_MONO,CE-N16-063,16,SWC,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_SWC_BUN_MONO
+JS_V16_SWC_BUN_MICRO,CE-N16-064,16,SWC,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V16_SWC_BUN_MICRO
+JS_V18_ESBUILD_NPM_MONO,CE-N18-001,18,esbuild,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ESBUILD_NPM_MONO
+JS_V18_ESBUILD_NPM_MICRO,CE-N18-002,18,esbuild,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ESBUILD_NPM_MICRO
+JS_V18_ESBUILD_YARN_MONO,CE-N18-003,18,esbuild,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ESBUILD_YARN_MONO
+JS_V18_ESBUILD_YARN_MICRO,CE-N18-004,18,esbuild,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ESBUILD_YARN_MICRO
+JS_V18_ESBUILD_PNPM_MONO,CE-N18-005,18,esbuild,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ESBUILD_PNPM_MONO
+JS_V18_ESBUILD_PNPM_MICRO,CE-N18-006,18,esbuild,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ESBUILD_PNPM_MICRO
+JS_V18_ESBUILD_BUN_MONO,CE-N18-007,18,esbuild,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ESBUILD_BUN_MONO
+JS_V18_ESBUILD_BUN_MICRO,CE-N18-008,18,esbuild,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ESBUILD_BUN_MICRO
+JS_V18_VITE_NPM_MONO,CE-N18-009,18,Vite (built as esbuild),npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_VITE_NPM_MONO
+JS_V18_VITE_NPM_MICRO,CE-N18-010,18,Vite (built as esbuild),npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_VITE_NPM_MICRO
+JS_V18_VITE_YARN_MONO,CE-N18-011,18,Vite (built as esbuild),yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_VITE_YARN_MONO
+JS_V18_VITE_YARN_MICRO,CE-N18-012,18,Vite (built as esbuild),yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_VITE_YARN_MICRO
+JS_V18_VITE_PNPM_MONO,CE-N18-013,18,Vite (built as esbuild),pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_VITE_PNPM_MONO
+JS_V18_VITE_PNPM_MICRO,CE-N18-014,18,Vite (built as esbuild),pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_VITE_PNPM_MICRO
+JS_V18_VITE_BUN_MONO,CE-N18-015,18,Vite (built as esbuild),bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_VITE_BUN_MONO
+JS_V18_VITE_BUN_MICRO,CE-N18-016,18,Vite (built as esbuild),bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_VITE_BUN_MICRO
+JS_V18_WEBPACK_NPM_MONO,CE-N18-017,18,Webpack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_WEBPACK_NPM_MONO
+JS_V18_WEBPACK_NPM_MICRO,CE-N18-018,18,Webpack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_WEBPACK_NPM_MICRO
+JS_V18_WEBPACK_YARN_MONO,CE-N18-019,18,Webpack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_WEBPACK_YARN_MONO
+JS_V18_WEBPACK_YARN_MICRO,CE-N18-020,18,Webpack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_WEBPACK_YARN_MICRO
+JS_V18_WEBPACK_PNPM_MONO,CE-N18-021,18,Webpack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_WEBPACK_PNPM_MONO
+JS_V18_WEBPACK_PNPM_MICRO,CE-N18-022,18,Webpack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_WEBPACK_PNPM_MICRO
+JS_V18_WEBPACK_BUN_MONO,CE-N18-023,18,Webpack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_WEBPACK_BUN_MONO
+JS_V18_WEBPACK_BUN_MICRO,CE-N18-024,18,Webpack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_WEBPACK_BUN_MICRO
+JS_V18_ROLLUP_NPM_MONO,CE-N18-025,18,Rollup,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ROLLUP_NPM_MONO
+JS_V18_ROLLUP_NPM_MICRO,CE-N18-026,18,Rollup,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ROLLUP_NPM_MICRO
+JS_V18_ROLLUP_YARN_MONO,CE-N18-027,18,Rollup,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ROLLUP_YARN_MONO
+JS_V18_ROLLUP_YARN_MICRO,CE-N18-028,18,Rollup,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ROLLUP_YARN_MICRO
+JS_V18_ROLLUP_PNPM_MONO,CE-N18-029,18,Rollup,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ROLLUP_PNPM_MONO
+JS_V18_ROLLUP_PNPM_MICRO,CE-N18-030,18,Rollup,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ROLLUP_PNPM_MICRO
+JS_V18_ROLLUP_BUN_MONO,CE-N18-031,18,Rollup,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ROLLUP_BUN_MONO
+JS_V18_ROLLUP_BUN_MICRO,CE-N18-032,18,Rollup,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_ROLLUP_BUN_MICRO
+JS_V18_RSPACK_NPM_MONO,CE-N18-033,18,Rspack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_RSPACK_NPM_MONO
+JS_V18_RSPACK_NPM_MICRO,CE-N18-034,18,Rspack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_RSPACK_NPM_MICRO
+JS_V18_RSPACK_YARN_MONO,CE-N18-035,18,Rspack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_RSPACK_YARN_MONO
+JS_V18_RSPACK_YARN_MICRO,CE-N18-036,18,Rspack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_RSPACK_YARN_MICRO
+JS_V18_RSPACK_PNPM_MONO,CE-N18-037,18,Rspack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_RSPACK_PNPM_MONO
+JS_V18_RSPACK_PNPM_MICRO,CE-N18-038,18,Rspack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_RSPACK_PNPM_MICRO
+JS_V18_RSPACK_BUN_MONO,CE-N18-039,18,Rspack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_RSPACK_BUN_MONO
+JS_V18_RSPACK_BUN_MICRO,CE-N18-040,18,Rspack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_RSPACK_BUN_MICRO
+JS_V18_PARCEL_NPM_MONO,CE-N18-041,18,Parcel,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_PARCEL_NPM_MONO
+JS_V18_PARCEL_NPM_MICRO,CE-N18-042,18,Parcel,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_PARCEL_NPM_MICRO
+JS_V18_PARCEL_YARN_MONO,CE-N18-043,18,Parcel,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_PARCEL_YARN_MONO
+JS_V18_PARCEL_YARN_MICRO,CE-N18-044,18,Parcel,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_PARCEL_YARN_MICRO
+JS_V18_PARCEL_PNPM_MONO,CE-N18-045,18,Parcel,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_PARCEL_PNPM_MONO
+JS_V18_PARCEL_PNPM_MICRO,CE-N18-046,18,Parcel,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_PARCEL_PNPM_MICRO
+JS_V18_PARCEL_BUN_MONO,CE-N18-047,18,Parcel,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_PARCEL_BUN_MONO
+JS_V18_PARCEL_BUN_MICRO,CE-N18-048,18,Parcel,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_PARCEL_BUN_MICRO
+JS_V18_TURBOPACK_NPM_MONO,CE-N18-049,18,Turbopack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_TURBOPACK_NPM_MONO
+JS_V18_TURBOPACK_NPM_MICRO,CE-N18-050,18,Turbopack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_TURBOPACK_NPM_MICRO
+JS_V18_TURBOPACK_YARN_MONO,CE-N18-051,18,Turbopack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_TURBOPACK_YARN_MONO
+JS_V18_TURBOPACK_YARN_MICRO,CE-N18-052,18,Turbopack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_TURBOPACK_YARN_MICRO
+JS_V18_TURBOPACK_PNPM_MONO,CE-N18-053,18,Turbopack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_TURBOPACK_PNPM_MONO
+JS_V18_TURBOPACK_PNPM_MICRO,CE-N18-054,18,Turbopack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_TURBOPACK_PNPM_MICRO
+JS_V18_TURBOPACK_BUN_MONO,CE-N18-055,18,Turbopack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_TURBOPACK_BUN_MONO
+JS_V18_TURBOPACK_BUN_MICRO,CE-N18-056,18,Turbopack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_TURBOPACK_BUN_MICRO
+JS_V18_SWC_NPM_MONO,CE-N18-057,18,SWC,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_SWC_NPM_MONO
+JS_V18_SWC_NPM_MICRO,CE-N18-058,18,SWC,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_SWC_NPM_MICRO
+JS_V18_SWC_YARN_MONO,CE-N18-059,18,SWC,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_SWC_YARN_MONO
+JS_V18_SWC_YARN_MICRO,CE-N18-060,18,SWC,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_SWC_YARN_MICRO
+JS_V18_SWC_PNPM_MONO,CE-N18-061,18,SWC,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_SWC_PNPM_MONO
+JS_V18_SWC_PNPM_MICRO,CE-N18-062,18,SWC,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_SWC_PNPM_MICRO
+JS_V18_SWC_BUN_MONO,CE-N18-063,18,SWC,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_SWC_BUN_MONO
+JS_V18_SWC_BUN_MICRO,CE-N18-064,18,SWC,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V18_SWC_BUN_MICRO
+JS_V20_ESBUILD_NPM_MONO,CE-N20-001,20,esbuild,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ESBUILD_NPM_MONO
+JS_V20_ESBUILD_NPM_MICRO,CE-N20-002,20,esbuild,npm,Microservices,completed,CE-003,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ESBUILD_NPM_MICRO
+JS_V20_ESBUILD_YARN_MONO,CE-N20-003,20,esbuild,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ESBUILD_YARN_MONO
+JS_V20_ESBUILD_YARN_MICRO,CE-N20-004,20,esbuild,yarn (Berry),Microservices,completed,CE-008,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ESBUILD_YARN_MICRO
+JS_V20_ESBUILD_PNPM_MONO,CE-N20-005,20,esbuild,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ESBUILD_PNPM_MONO
+JS_V20_ESBUILD_PNPM_MICRO,CE-N20-006,20,esbuild,pnpm,Microservices,completed,CE-013,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ESBUILD_PNPM_MICRO
+JS_V20_ESBUILD_BUN_MONO,CE-N20-007,20,esbuild,bun,Monolith,completed,CE-016,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ESBUILD_BUN_MONO
+JS_V20_ESBUILD_BUN_MICRO,CE-N20-008,20,esbuild,bun,Microservices,completed,CE-018,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ESBUILD_BUN_MICRO
+JS_V20_VITE_NPM_MONO,CE-N20-009,20,Vite (built as esbuild),npm,Monolith,completed,CE-021,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_VITE_NPM_MONO
+JS_V20_VITE_NPM_MICRO,CE-N20-010,20,Vite (built as esbuild),npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_VITE_NPM_MICRO
+JS_V20_VITE_YARN_MONO,CE-N20-011,20,Vite (built as esbuild),yarn (Berry),Monolith,completed,CE-026,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_VITE_YARN_MONO
+JS_V20_VITE_YARN_MICRO,CE-N20-012,20,Vite (built as esbuild),yarn (Berry),Microservices,in progress,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_VITE_YARN_MICRO
+JS_V20_VITE_PNPM_MONO,CE-N20-013,20,Vite (built as esbuild),pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_VITE_PNPM_MONO
+JS_V20_VITE_PNPM_MICRO,CE-N20-014,20,Vite (built as esbuild),pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_VITE_PNPM_MICRO
+JS_V20_VITE_BUN_MONO,CE-N20-015,20,Vite (built as esbuild),bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_VITE_BUN_MONO
+JS_V20_VITE_BUN_MICRO,CE-N20-016,20,Vite (built as esbuild),bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_VITE_BUN_MICRO
+JS_V20_WEBPACK_NPM_MONO,CE-N20-017,20,Webpack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_WEBPACK_NPM_MONO
+JS_V20_WEBPACK_NPM_MICRO,CE-N20-018,20,Webpack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_WEBPACK_NPM_MICRO
+JS_V20_WEBPACK_YARN_MONO,CE-N20-019,20,Webpack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_WEBPACK_YARN_MONO
+JS_V20_WEBPACK_YARN_MICRO,CE-N20-020,20,Webpack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_WEBPACK_YARN_MICRO
+JS_V20_WEBPACK_PNPM_MONO,CE-N20-021,20,Webpack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_WEBPACK_PNPM_MONO
+JS_V20_WEBPACK_PNPM_MICRO,CE-N20-022,20,Webpack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_WEBPACK_PNPM_MICRO
+JS_V20_WEBPACK_BUN_MONO,CE-N20-023,20,Webpack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_WEBPACK_BUN_MONO
+JS_V20_WEBPACK_BUN_MICRO,CE-N20-024,20,Webpack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_WEBPACK_BUN_MICRO
+JS_V20_ROLLUP_NPM_MONO,CE-N20-025,20,Rollup,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ROLLUP_NPM_MONO
+JS_V20_ROLLUP_NPM_MICRO,CE-N20-026,20,Rollup,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ROLLUP_NPM_MICRO
+JS_V20_ROLLUP_YARN_MONO,CE-N20-027,20,Rollup,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ROLLUP_YARN_MONO
+JS_V20_ROLLUP_YARN_MICRO,CE-N20-028,20,Rollup,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ROLLUP_YARN_MICRO
+JS_V20_ROLLUP_PNPM_MONO,CE-N20-029,20,Rollup,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ROLLUP_PNPM_MONO
+JS_V20_ROLLUP_PNPM_MICRO,CE-N20-030,20,Rollup,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ROLLUP_PNPM_MICRO
+JS_V20_ROLLUP_BUN_MONO,CE-N20-031,20,Rollup,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ROLLUP_BUN_MONO
+JS_V20_ROLLUP_BUN_MICRO,CE-N20-032,20,Rollup,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_ROLLUP_BUN_MICRO
+JS_V20_RSPACK_NPM_MONO,CE-N20-033,20,Rspack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_RSPACK_NPM_MONO
+JS_V20_RSPACK_NPM_MICRO,CE-N20-034,20,Rspack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_RSPACK_NPM_MICRO
+JS_V20_RSPACK_YARN_MONO,CE-N20-035,20,Rspack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_RSPACK_YARN_MONO
+JS_V20_RSPACK_YARN_MICRO,CE-N20-036,20,Rspack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_RSPACK_YARN_MICRO
+JS_V20_RSPACK_PNPM_MONO,CE-N20-037,20,Rspack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_RSPACK_PNPM_MONO
+JS_V20_RSPACK_PNPM_MICRO,CE-N20-038,20,Rspack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_RSPACK_PNPM_MICRO
+JS_V20_RSPACK_BUN_MONO,CE-N20-039,20,Rspack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_RSPACK_BUN_MONO
+JS_V20_RSPACK_BUN_MICRO,CE-N20-040,20,Rspack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_RSPACK_BUN_MICRO
+JS_V20_PARCEL_NPM_MONO,CE-N20-041,20,Parcel,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_PARCEL_NPM_MONO
+JS_V20_PARCEL_NPM_MICRO,CE-N20-042,20,Parcel,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_PARCEL_NPM_MICRO
+JS_V20_PARCEL_YARN_MONO,CE-N20-043,20,Parcel,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_PARCEL_YARN_MONO
+JS_V20_PARCEL_YARN_MICRO,CE-N20-044,20,Parcel,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_PARCEL_YARN_MICRO
+JS_V20_PARCEL_PNPM_MONO,CE-N20-045,20,Parcel,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_PARCEL_PNPM_MONO
+JS_V20_PARCEL_PNPM_MICRO,CE-N20-046,20,Parcel,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_PARCEL_PNPM_MICRO
+JS_V20_PARCEL_BUN_MONO,CE-N20-047,20,Parcel,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_PARCEL_BUN_MONO
+JS_V20_PARCEL_BUN_MICRO,CE-N20-048,20,Parcel,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_PARCEL_BUN_MICRO
+JS_V20_TURBOPACK_NPM_MONO,CE-N20-049,20,Turbopack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_TURBOPACK_NPM_MONO
+JS_V20_TURBOPACK_NPM_MICRO,CE-N20-050,20,Turbopack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_TURBOPACK_NPM_MICRO
+JS_V20_TURBOPACK_YARN_MONO,CE-N20-051,20,Turbopack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_TURBOPACK_YARN_MONO
+JS_V20_TURBOPACK_YARN_MICRO,CE-N20-052,20,Turbopack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_TURBOPACK_YARN_MICRO
+JS_V20_TURBOPACK_PNPM_MONO,CE-N20-053,20,Turbopack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_TURBOPACK_PNPM_MONO
+JS_V20_TURBOPACK_PNPM_MICRO,CE-N20-054,20,Turbopack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_TURBOPACK_PNPM_MICRO
+JS_V20_TURBOPACK_BUN_MONO,CE-N20-055,20,Turbopack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_TURBOPACK_BUN_MONO
+JS_V20_TURBOPACK_BUN_MICRO,CE-N20-056,20,Turbopack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_TURBOPACK_BUN_MICRO
+JS_V20_SWC_NPM_MONO,CE-N20-057,20,SWC,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_SWC_NPM_MONO
+JS_V20_SWC_NPM_MICRO,CE-N20-058,20,SWC,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_SWC_NPM_MICRO
+JS_V20_SWC_YARN_MONO,CE-N20-059,20,SWC,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_SWC_YARN_MONO
+JS_V20_SWC_YARN_MICRO,CE-N20-060,20,SWC,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_SWC_YARN_MICRO
+JS_V20_SWC_PNPM_MONO,CE-N20-061,20,SWC,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_SWC_PNPM_MONO
+JS_V20_SWC_PNPM_MICRO,CE-N20-062,20,SWC,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_SWC_PNPM_MICRO
+JS_V20_SWC_BUN_MONO,CE-N20-063,20,SWC,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_SWC_BUN_MONO
+JS_V20_SWC_BUN_MICRO,CE-N20-064,20,SWC,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V20_SWC_BUN_MICRO
+JS_V21_ESBUILD_NPM_MONO,CE-N21-001,21,esbuild,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ESBUILD_NPM_MONO
+JS_V21_ESBUILD_NPM_MICRO,CE-N21-002,21,esbuild,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ESBUILD_NPM_MICRO
+JS_V21_ESBUILD_YARN_MONO,CE-N21-003,21,esbuild,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ESBUILD_YARN_MONO
+JS_V21_ESBUILD_YARN_MICRO,CE-N21-004,21,esbuild,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ESBUILD_YARN_MICRO
+JS_V21_ESBUILD_PNPM_MONO,CE-N21-005,21,esbuild,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ESBUILD_PNPM_MONO
+JS_V21_ESBUILD_PNPM_MICRO,CE-N21-006,21,esbuild,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ESBUILD_PNPM_MICRO
+JS_V21_ESBUILD_BUN_MONO,CE-N21-007,21,esbuild,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ESBUILD_BUN_MONO
+JS_V21_ESBUILD_BUN_MICRO,CE-N21-008,21,esbuild,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ESBUILD_BUN_MICRO
+JS_V21_VITE_NPM_MONO,CE-N21-009,21,Vite (built as esbuild),npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_VITE_NPM_MONO
+JS_V21_VITE_NPM_MICRO,CE-N21-010,21,Vite (built as esbuild),npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_VITE_NPM_MICRO
+JS_V21_VITE_YARN_MONO,CE-N21-011,21,Vite (built as esbuild),yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_VITE_YARN_MONO
+JS_V21_VITE_YARN_MICRO,CE-N21-012,21,Vite (built as esbuild),yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_VITE_YARN_MICRO
+JS_V21_VITE_PNPM_MONO,CE-N21-013,21,Vite (built as esbuild),pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_VITE_PNPM_MONO
+JS_V21_VITE_PNPM_MICRO,CE-N21-014,21,Vite (built as esbuild),pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_VITE_PNPM_MICRO
+JS_V21_VITE_BUN_MONO,CE-N21-015,21,Vite (built as esbuild),bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_VITE_BUN_MONO
+JS_V21_VITE_BUN_MICRO,CE-N21-016,21,Vite (built as esbuild),bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_VITE_BUN_MICRO
+JS_V21_WEBPACK_NPM_MONO,CE-N21-017,21,Webpack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_WEBPACK_NPM_MONO
+JS_V21_WEBPACK_NPM_MICRO,CE-N21-018,21,Webpack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_WEBPACK_NPM_MICRO
+JS_V21_WEBPACK_YARN_MONO,CE-N21-019,21,Webpack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_WEBPACK_YARN_MONO
+JS_V21_WEBPACK_YARN_MICRO,CE-N21-020,21,Webpack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_WEBPACK_YARN_MICRO
+JS_V21_WEBPACK_PNPM_MONO,CE-N21-021,21,Webpack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_WEBPACK_PNPM_MONO
+JS_V21_WEBPACK_PNPM_MICRO,CE-N21-022,21,Webpack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_WEBPACK_PNPM_MICRO
+JS_V21_WEBPACK_BUN_MONO,CE-N21-023,21,Webpack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_WEBPACK_BUN_MONO
+JS_V21_WEBPACK_BUN_MICRO,CE-N21-024,21,Webpack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_WEBPACK_BUN_MICRO
+JS_V21_ROLLUP_NPM_MONO,CE-N21-025,21,Rollup,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ROLLUP_NPM_MONO
+JS_V21_ROLLUP_NPM_MICRO,CE-N21-026,21,Rollup,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ROLLUP_NPM_MICRO
+JS_V21_ROLLUP_YARN_MONO,CE-N21-027,21,Rollup,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ROLLUP_YARN_MONO
+JS_V21_ROLLUP_YARN_MICRO,CE-N21-028,21,Rollup,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ROLLUP_YARN_MICRO
+JS_V21_ROLLUP_PNPM_MONO,CE-N21-029,21,Rollup,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ROLLUP_PNPM_MONO
+JS_V21_ROLLUP_PNPM_MICRO,CE-N21-030,21,Rollup,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ROLLUP_PNPM_MICRO
+JS_V21_ROLLUP_BUN_MONO,CE-N21-031,21,Rollup,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ROLLUP_BUN_MONO
+JS_V21_ROLLUP_BUN_MICRO,CE-N21-032,21,Rollup,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_ROLLUP_BUN_MICRO
+JS_V21_RSPACK_NPM_MONO,CE-N21-033,21,Rspack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_RSPACK_NPM_MONO
+JS_V21_RSPACK_NPM_MICRO,CE-N21-034,21,Rspack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_RSPACK_NPM_MICRO
+JS_V21_RSPACK_YARN_MONO,CE-N21-035,21,Rspack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_RSPACK_YARN_MONO
+JS_V21_RSPACK_YARN_MICRO,CE-N21-036,21,Rspack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_RSPACK_YARN_MICRO
+JS_V21_RSPACK_PNPM_MONO,CE-N21-037,21,Rspack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_RSPACK_PNPM_MONO
+JS_V21_RSPACK_PNPM_MICRO,CE-N21-038,21,Rspack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_RSPACK_PNPM_MICRO
+JS_V21_RSPACK_BUN_MONO,CE-N21-039,21,Rspack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_RSPACK_BUN_MONO
+JS_V21_RSPACK_BUN_MICRO,CE-N21-040,21,Rspack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_RSPACK_BUN_MICRO
+JS_V21_PARCEL_NPM_MONO,CE-N21-041,21,Parcel,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_PARCEL_NPM_MONO
+JS_V21_PARCEL_NPM_MICRO,CE-N21-042,21,Parcel,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_PARCEL_NPM_MICRO
+JS_V21_PARCEL_YARN_MONO,CE-N21-043,21,Parcel,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_PARCEL_YARN_MONO
+JS_V21_PARCEL_YARN_MICRO,CE-N21-044,21,Parcel,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_PARCEL_YARN_MICRO
+JS_V21_PARCEL_PNPM_MONO,CE-N21-045,21,Parcel,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_PARCEL_PNPM_MONO
+JS_V21_PARCEL_PNPM_MICRO,CE-N21-046,21,Parcel,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_PARCEL_PNPM_MICRO
+JS_V21_PARCEL_BUN_MONO,CE-N21-047,21,Parcel,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_PARCEL_BUN_MONO
+JS_V21_PARCEL_BUN_MICRO,CE-N21-048,21,Parcel,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_PARCEL_BUN_MICRO
+JS_V21_TURBOPACK_NPM_MONO,CE-N21-049,21,Turbopack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_TURBOPACK_NPM_MONO
+JS_V21_TURBOPACK_NPM_MICRO,CE-N21-050,21,Turbopack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_TURBOPACK_NPM_MICRO
+JS_V21_TURBOPACK_YARN_MONO,CE-N21-051,21,Turbopack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_TURBOPACK_YARN_MONO
+JS_V21_TURBOPACK_YARN_MICRO,CE-N21-052,21,Turbopack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_TURBOPACK_YARN_MICRO
+JS_V21_TURBOPACK_PNPM_MONO,CE-N21-053,21,Turbopack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_TURBOPACK_PNPM_MONO
+JS_V21_TURBOPACK_PNPM_MICRO,CE-N21-054,21,Turbopack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_TURBOPACK_PNPM_MICRO
+JS_V21_TURBOPACK_BUN_MONO,CE-N21-055,21,Turbopack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_TURBOPACK_BUN_MONO
+JS_V21_TURBOPACK_BUN_MICRO,CE-N21-056,21,Turbopack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_TURBOPACK_BUN_MICRO
+JS_V21_SWC_NPM_MONO,CE-N21-057,21,SWC,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_SWC_NPM_MONO
+JS_V21_SWC_NPM_MICRO,CE-N21-058,21,SWC,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_SWC_NPM_MICRO
+JS_V21_SWC_YARN_MONO,CE-N21-059,21,SWC,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_SWC_YARN_MONO
+JS_V21_SWC_YARN_MICRO,CE-N21-060,21,SWC,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_SWC_YARN_MICRO
+JS_V21_SWC_PNPM_MONO,CE-N21-061,21,SWC,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_SWC_PNPM_MONO
+JS_V21_SWC_PNPM_MICRO,CE-N21-062,21,SWC,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_SWC_PNPM_MICRO
+JS_V21_SWC_BUN_MONO,CE-N21-063,21,SWC,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_SWC_BUN_MONO
+JS_V21_SWC_BUN_MICRO,CE-N21-064,21,SWC,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V21_SWC_BUN_MICRO
+JS_V22_ESBUILD_NPM_MONO,CE-N22-001,22,esbuild,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ESBUILD_NPM_MONO
+JS_V22_ESBUILD_NPM_MICRO,CE-N22-002,22,esbuild,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ESBUILD_NPM_MICRO
+JS_V22_ESBUILD_YARN_MONO,CE-N22-003,22,esbuild,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ESBUILD_YARN_MONO
+JS_V22_ESBUILD_YARN_MICRO,CE-N22-004,22,esbuild,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ESBUILD_YARN_MICRO
+JS_V22_ESBUILD_PNPM_MONO,CE-N22-005,22,esbuild,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ESBUILD_PNPM_MONO
+JS_V22_ESBUILD_PNPM_MICRO,CE-N22-006,22,esbuild,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ESBUILD_PNPM_MICRO
+JS_V22_ESBUILD_BUN_MONO,CE-N22-007,22,esbuild,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ESBUILD_BUN_MONO
+JS_V22_ESBUILD_BUN_MICRO,CE-N22-008,22,esbuild,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ESBUILD_BUN_MICRO
+JS_V22_VITE_NPM_MONO,CE-N22-009,22,Vite (built as esbuild),npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_VITE_NPM_MONO
+JS_V22_VITE_NPM_MICRO,CE-N22-010,22,Vite (built as esbuild),npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_VITE_NPM_MICRO
+JS_V22_VITE_YARN_MONO,CE-N22-011,22,Vite (built as esbuild),yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_VITE_YARN_MONO
+JS_V22_VITE_YARN_MICRO,CE-N22-012,22,Vite (built as esbuild),yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_VITE_YARN_MICRO
+JS_V22_VITE_PNPM_MONO,CE-N22-013,22,Vite (built as esbuild),pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_VITE_PNPM_MONO
+JS_V22_VITE_PNPM_MICRO,CE-N22-014,22,Vite (built as esbuild),pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_VITE_PNPM_MICRO
+JS_V22_VITE_BUN_MONO,CE-N22-015,22,Vite (built as esbuild),bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_VITE_BUN_MONO
+JS_V22_VITE_BUN_MICRO,CE-N22-016,22,Vite (built as esbuild),bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_VITE_BUN_MICRO
+JS_V22_WEBPACK_NPM_MONO,CE-N22-017,22,Webpack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_WEBPACK_NPM_MONO
+JS_V22_WEBPACK_NPM_MICRO,CE-N22-018,22,Webpack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_WEBPACK_NPM_MICRO
+JS_V22_WEBPACK_YARN_MONO,CE-N22-019,22,Webpack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_WEBPACK_YARN_MONO
+JS_V22_WEBPACK_YARN_MICRO,CE-N22-020,22,Webpack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_WEBPACK_YARN_MICRO
+JS_V22_WEBPACK_PNPM_MONO,CE-N22-021,22,Webpack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_WEBPACK_PNPM_MONO
+JS_V22_WEBPACK_PNPM_MICRO,CE-N22-022,22,Webpack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_WEBPACK_PNPM_MICRO
+JS_V22_WEBPACK_BUN_MONO,CE-N22-023,22,Webpack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_WEBPACK_BUN_MONO
+JS_V22_WEBPACK_BUN_MICRO,CE-N22-024,22,Webpack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_WEBPACK_BUN_MICRO
+JS_V22_ROLLUP_NPM_MONO,CE-N22-025,22,Rollup,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ROLLUP_NPM_MONO
+JS_V22_ROLLUP_NPM_MICRO,CE-N22-026,22,Rollup,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ROLLUP_NPM_MICRO
+JS_V22_ROLLUP_YARN_MONO,CE-N22-027,22,Rollup,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ROLLUP_YARN_MONO
+JS_V22_ROLLUP_YARN_MICRO,CE-N22-028,22,Rollup,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ROLLUP_YARN_MICRO
+JS_V22_ROLLUP_PNPM_MONO,CE-N22-029,22,Rollup,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ROLLUP_PNPM_MONO
+JS_V22_ROLLUP_PNPM_MICRO,CE-N22-030,22,Rollup,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ROLLUP_PNPM_MICRO
+JS_V22_ROLLUP_BUN_MONO,CE-N22-031,22,Rollup,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ROLLUP_BUN_MONO
+JS_V22_ROLLUP_BUN_MICRO,CE-N22-032,22,Rollup,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_ROLLUP_BUN_MICRO
+JS_V22_RSPACK_NPM_MONO,CE-N22-033,22,Rspack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_RSPACK_NPM_MONO
+JS_V22_RSPACK_NPM_MICRO,CE-N22-034,22,Rspack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_RSPACK_NPM_MICRO
+JS_V22_RSPACK_YARN_MONO,CE-N22-035,22,Rspack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_RSPACK_YARN_MONO
+JS_V22_RSPACK_YARN_MICRO,CE-N22-036,22,Rspack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_RSPACK_YARN_MICRO
+JS_V22_RSPACK_PNPM_MONO,CE-N22-037,22,Rspack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_RSPACK_PNPM_MONO
+JS_V22_RSPACK_PNPM_MICRO,CE-N22-038,22,Rspack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_RSPACK_PNPM_MICRO
+JS_V22_RSPACK_BUN_MONO,CE-N22-039,22,Rspack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_RSPACK_BUN_MONO
+JS_V22_RSPACK_BUN_MICRO,CE-N22-040,22,Rspack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_RSPACK_BUN_MICRO
+JS_V22_PARCEL_NPM_MONO,CE-N22-041,22,Parcel,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_PARCEL_NPM_MONO
+JS_V22_PARCEL_NPM_MICRO,CE-N22-042,22,Parcel,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_PARCEL_NPM_MICRO
+JS_V22_PARCEL_YARN_MONO,CE-N22-043,22,Parcel,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_PARCEL_YARN_MONO
+JS_V22_PARCEL_YARN_MICRO,CE-N22-044,22,Parcel,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_PARCEL_YARN_MICRO
+JS_V22_PARCEL_PNPM_MONO,CE-N22-045,22,Parcel,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_PARCEL_PNPM_MONO
+JS_V22_PARCEL_PNPM_MICRO,CE-N22-046,22,Parcel,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_PARCEL_PNPM_MICRO
+JS_V22_PARCEL_BUN_MONO,CE-N22-047,22,Parcel,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_PARCEL_BUN_MONO
+JS_V22_PARCEL_BUN_MICRO,CE-N22-048,22,Parcel,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_PARCEL_BUN_MICRO
+JS_V22_TURBOPACK_NPM_MONO,CE-N22-049,22,Turbopack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_TURBOPACK_NPM_MONO
+JS_V22_TURBOPACK_NPM_MICRO,CE-N22-050,22,Turbopack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_TURBOPACK_NPM_MICRO
+JS_V22_TURBOPACK_YARN_MONO,CE-N22-051,22,Turbopack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_TURBOPACK_YARN_MONO
+JS_V22_TURBOPACK_YARN_MICRO,CE-N22-052,22,Turbopack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_TURBOPACK_YARN_MICRO
+JS_V22_TURBOPACK_PNPM_MONO,CE-N22-053,22,Turbopack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_TURBOPACK_PNPM_MONO
+JS_V22_TURBOPACK_PNPM_MICRO,CE-N22-054,22,Turbopack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_TURBOPACK_PNPM_MICRO
+JS_V22_TURBOPACK_BUN_MONO,CE-N22-055,22,Turbopack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_TURBOPACK_BUN_MONO
+JS_V22_TURBOPACK_BUN_MICRO,CE-N22-056,22,Turbopack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_TURBOPACK_BUN_MICRO
+JS_V22_SWC_NPM_MONO,CE-N22-057,22,SWC,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_SWC_NPM_MONO
+JS_V22_SWC_NPM_MICRO,CE-N22-058,22,SWC,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_SWC_NPM_MICRO
+JS_V22_SWC_YARN_MONO,CE-N22-059,22,SWC,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_SWC_YARN_MONO
+JS_V22_SWC_YARN_MICRO,CE-N22-060,22,SWC,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_SWC_YARN_MICRO
+JS_V22_SWC_PNPM_MONO,CE-N22-061,22,SWC,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_SWC_PNPM_MONO
+JS_V22_SWC_PNPM_MICRO,CE-N22-062,22,SWC,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_SWC_PNPM_MICRO
+JS_V22_SWC_BUN_MONO,CE-N22-063,22,SWC,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_SWC_BUN_MONO
+JS_V22_SWC_BUN_MICRO,CE-N22-064,22,SWC,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V22_SWC_BUN_MICRO
+JS_V24_ESBUILD_NPM_MONO,CE-N24-001,24,esbuild,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ESBUILD_NPM_MONO
+JS_V24_ESBUILD_NPM_MICRO,CE-N24-002,24,esbuild,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ESBUILD_NPM_MICRO
+JS_V24_ESBUILD_YARN_MONO,CE-N24-003,24,esbuild,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ESBUILD_YARN_MONO
+JS_V24_ESBUILD_YARN_MICRO,CE-N24-004,24,esbuild,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ESBUILD_YARN_MICRO
+JS_V24_ESBUILD_PNPM_MONO,CE-N24-005,24,esbuild,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ESBUILD_PNPM_MONO
+JS_V24_ESBUILD_PNPM_MICRO,CE-N24-006,24,esbuild,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ESBUILD_PNPM_MICRO
+JS_V24_ESBUILD_BUN_MONO,CE-N24-007,24,esbuild,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ESBUILD_BUN_MONO
+JS_V24_ESBUILD_BUN_MICRO,CE-N24-008,24,esbuild,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ESBUILD_BUN_MICRO
+JS_V24_VITE_NPM_MONO,CE-N24-009,24,Vite (built as esbuild),npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_VITE_NPM_MONO
+JS_V24_VITE_NPM_MICRO,CE-N24-010,24,Vite (built as esbuild),npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_VITE_NPM_MICRO
+JS_V24_VITE_YARN_MONO,CE-N24-011,24,Vite (built as esbuild),yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_VITE_YARN_MONO
+JS_V24_VITE_YARN_MICRO,CE-N24-012,24,Vite (built as esbuild),yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_VITE_YARN_MICRO
+JS_V24_VITE_PNPM_MONO,CE-N24-013,24,Vite (built as esbuild),pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_VITE_PNPM_MONO
+JS_V24_VITE_PNPM_MICRO,CE-N24-014,24,Vite (built as esbuild),pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_VITE_PNPM_MICRO
+JS_V24_VITE_BUN_MONO,CE-N24-015,24,Vite (built as esbuild),bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_VITE_BUN_MONO
+JS_V24_VITE_BUN_MICRO,CE-N24-016,24,Vite (built as esbuild),bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_VITE_BUN_MICRO
+JS_V24_WEBPACK_NPM_MONO,CE-N24-017,24,Webpack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_WEBPACK_NPM_MONO
+JS_V24_WEBPACK_NPM_MICRO,CE-N24-018,24,Webpack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_WEBPACK_NPM_MICRO
+JS_V24_WEBPACK_YARN_MONO,CE-N24-019,24,Webpack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_WEBPACK_YARN_MONO
+JS_V24_WEBPACK_YARN_MICRO,CE-N24-020,24,Webpack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_WEBPACK_YARN_MICRO
+JS_V24_WEBPACK_PNPM_MONO,CE-N24-021,24,Webpack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_WEBPACK_PNPM_MONO
+JS_V24_WEBPACK_PNPM_MICRO,CE-N24-022,24,Webpack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_WEBPACK_PNPM_MICRO
+JS_V24_WEBPACK_BUN_MONO,CE-N24-023,24,Webpack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_WEBPACK_BUN_MONO
+JS_V24_WEBPACK_BUN_MICRO,CE-N24-024,24,Webpack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_WEBPACK_BUN_MICRO
+JS_V24_ROLLUP_NPM_MONO,CE-N24-025,24,Rollup,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ROLLUP_NPM_MONO
+JS_V24_ROLLUP_NPM_MICRO,CE-N24-026,24,Rollup,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ROLLUP_NPM_MICRO
+JS_V24_ROLLUP_YARN_MONO,CE-N24-027,24,Rollup,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ROLLUP_YARN_MONO
+JS_V24_ROLLUP_YARN_MICRO,CE-N24-028,24,Rollup,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ROLLUP_YARN_MICRO
+JS_V24_ROLLUP_PNPM_MONO,CE-N24-029,24,Rollup,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ROLLUP_PNPM_MONO
+JS_V24_ROLLUP_PNPM_MICRO,CE-N24-030,24,Rollup,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ROLLUP_PNPM_MICRO
+JS_V24_ROLLUP_BUN_MONO,CE-N24-031,24,Rollup,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ROLLUP_BUN_MONO
+JS_V24_ROLLUP_BUN_MICRO,CE-N24-032,24,Rollup,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_ROLLUP_BUN_MICRO
+JS_V24_RSPACK_NPM_MONO,CE-N24-033,24,Rspack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_RSPACK_NPM_MONO
+JS_V24_RSPACK_NPM_MICRO,CE-N24-034,24,Rspack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_RSPACK_NPM_MICRO
+JS_V24_RSPACK_YARN_MONO,CE-N24-035,24,Rspack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_RSPACK_YARN_MONO
+JS_V24_RSPACK_YARN_MICRO,CE-N24-036,24,Rspack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_RSPACK_YARN_MICRO
+JS_V24_RSPACK_PNPM_MONO,CE-N24-037,24,Rspack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_RSPACK_PNPM_MONO
+JS_V24_RSPACK_PNPM_MICRO,CE-N24-038,24,Rspack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_RSPACK_PNPM_MICRO
+JS_V24_RSPACK_BUN_MONO,CE-N24-039,24,Rspack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_RSPACK_BUN_MONO
+JS_V24_RSPACK_BUN_MICRO,CE-N24-040,24,Rspack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_RSPACK_BUN_MICRO
+JS_V24_PARCEL_NPM_MONO,CE-N24-041,24,Parcel,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_PARCEL_NPM_MONO
+JS_V24_PARCEL_NPM_MICRO,CE-N24-042,24,Parcel,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_PARCEL_NPM_MICRO
+JS_V24_PARCEL_YARN_MONO,CE-N24-043,24,Parcel,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_PARCEL_YARN_MONO
+JS_V24_PARCEL_YARN_MICRO,CE-N24-044,24,Parcel,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_PARCEL_YARN_MICRO
+JS_V24_PARCEL_PNPM_MONO,CE-N24-045,24,Parcel,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_PARCEL_PNPM_MONO
+JS_V24_PARCEL_PNPM_MICRO,CE-N24-046,24,Parcel,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_PARCEL_PNPM_MICRO
+JS_V24_PARCEL_BUN_MONO,CE-N24-047,24,Parcel,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_PARCEL_BUN_MONO
+JS_V24_PARCEL_BUN_MICRO,CE-N24-048,24,Parcel,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_PARCEL_BUN_MICRO
+JS_V24_TURBOPACK_NPM_MONO,CE-N24-049,24,Turbopack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_TURBOPACK_NPM_MONO
+JS_V24_TURBOPACK_NPM_MICRO,CE-N24-050,24,Turbopack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_TURBOPACK_NPM_MICRO
+JS_V24_TURBOPACK_YARN_MONO,CE-N24-051,24,Turbopack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_TURBOPACK_YARN_MONO
+JS_V24_TURBOPACK_YARN_MICRO,CE-N24-052,24,Turbopack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_TURBOPACK_YARN_MICRO
+JS_V24_TURBOPACK_PNPM_MONO,CE-N24-053,24,Turbopack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_TURBOPACK_PNPM_MONO
+JS_V24_TURBOPACK_PNPM_MICRO,CE-N24-054,24,Turbopack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_TURBOPACK_PNPM_MICRO
+JS_V24_TURBOPACK_BUN_MONO,CE-N24-055,24,Turbopack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_TURBOPACK_BUN_MONO
+JS_V24_TURBOPACK_BUN_MICRO,CE-N24-056,24,Turbopack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_TURBOPACK_BUN_MICRO
+JS_V24_SWC_NPM_MONO,CE-N24-057,24,SWC,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_SWC_NPM_MONO
+JS_V24_SWC_NPM_MICRO,CE-N24-058,24,SWC,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_SWC_NPM_MICRO
+JS_V24_SWC_YARN_MONO,CE-N24-059,24,SWC,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_SWC_YARN_MONO
+JS_V24_SWC_YARN_MICRO,CE-N24-060,24,SWC,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_SWC_YARN_MICRO
+JS_V24_SWC_PNPM_MONO,CE-N24-061,24,SWC,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_SWC_PNPM_MONO
+JS_V24_SWC_PNPM_MICRO,CE-N24-062,24,SWC,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_SWC_PNPM_MICRO
+JS_V24_SWC_BUN_MONO,CE-N24-063,24,SWC,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_SWC_BUN_MONO
+JS_V24_SWC_BUN_MICRO,CE-N24-064,24,SWC,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V24_SWC_BUN_MICRO
+JS_V26_ESBUILD_NPM_MONO,CE-N26-001,26,esbuild,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ESBUILD_NPM_MONO
+JS_V26_ESBUILD_NPM_MICRO,CE-N26-002,26,esbuild,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ESBUILD_NPM_MICRO
+JS_V26_ESBUILD_YARN_MONO,CE-N26-003,26,esbuild,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ESBUILD_YARN_MONO
+JS_V26_ESBUILD_YARN_MICRO,CE-N26-004,26,esbuild,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ESBUILD_YARN_MICRO
+JS_V26_ESBUILD_PNPM_MONO,CE-N26-005,26,esbuild,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ESBUILD_PNPM_MONO
+JS_V26_ESBUILD_PNPM_MICRO,CE-N26-006,26,esbuild,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ESBUILD_PNPM_MICRO
+JS_V26_ESBUILD_BUN_MONO,CE-N26-007,26,esbuild,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ESBUILD_BUN_MONO
+JS_V26_ESBUILD_BUN_MICRO,CE-N26-008,26,esbuild,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ESBUILD_BUN_MICRO
+JS_V26_VITE_NPM_MONO,CE-N26-009,26,Vite (built as esbuild),npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_VITE_NPM_MONO
+JS_V26_VITE_NPM_MICRO,CE-N26-010,26,Vite (built as esbuild),npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_VITE_NPM_MICRO
+JS_V26_VITE_YARN_MONO,CE-N26-011,26,Vite (built as esbuild),yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_VITE_YARN_MONO
+JS_V26_VITE_YARN_MICRO,CE-N26-012,26,Vite (built as esbuild),yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_VITE_YARN_MICRO
+JS_V26_VITE_PNPM_MONO,CE-N26-013,26,Vite (built as esbuild),pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_VITE_PNPM_MONO
+JS_V26_VITE_PNPM_MICRO,CE-N26-014,26,Vite (built as esbuild),pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_VITE_PNPM_MICRO
+JS_V26_VITE_BUN_MONO,CE-N26-015,26,Vite (built as esbuild),bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_VITE_BUN_MONO
+JS_V26_VITE_BUN_MICRO,CE-N26-016,26,Vite (built as esbuild),bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_VITE_BUN_MICRO
+JS_V26_WEBPACK_NPM_MONO,CE-N26-017,26,Webpack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_WEBPACK_NPM_MONO
+JS_V26_WEBPACK_NPM_MICRO,CE-N26-018,26,Webpack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_WEBPACK_NPM_MICRO
+JS_V26_WEBPACK_YARN_MONO,CE-N26-019,26,Webpack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_WEBPACK_YARN_MONO
+JS_V26_WEBPACK_YARN_MICRO,CE-N26-020,26,Webpack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_WEBPACK_YARN_MICRO
+JS_V26_WEBPACK_PNPM_MONO,CE-N26-021,26,Webpack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_WEBPACK_PNPM_MONO
+JS_V26_WEBPACK_PNPM_MICRO,CE-N26-022,26,Webpack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_WEBPACK_PNPM_MICRO
+JS_V26_WEBPACK_BUN_MONO,CE-N26-023,26,Webpack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_WEBPACK_BUN_MONO
+JS_V26_WEBPACK_BUN_MICRO,CE-N26-024,26,Webpack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_WEBPACK_BUN_MICRO
+JS_V26_ROLLUP_NPM_MONO,CE-N26-025,26,Rollup,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ROLLUP_NPM_MONO
+JS_V26_ROLLUP_NPM_MICRO,CE-N26-026,26,Rollup,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ROLLUP_NPM_MICRO
+JS_V26_ROLLUP_YARN_MONO,CE-N26-027,26,Rollup,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ROLLUP_YARN_MONO
+JS_V26_ROLLUP_YARN_MICRO,CE-N26-028,26,Rollup,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ROLLUP_YARN_MICRO
+JS_V26_ROLLUP_PNPM_MONO,CE-N26-029,26,Rollup,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ROLLUP_PNPM_MONO
+JS_V26_ROLLUP_PNPM_MICRO,CE-N26-030,26,Rollup,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ROLLUP_PNPM_MICRO
+JS_V26_ROLLUP_BUN_MONO,CE-N26-031,26,Rollup,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ROLLUP_BUN_MONO
+JS_V26_ROLLUP_BUN_MICRO,CE-N26-032,26,Rollup,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_ROLLUP_BUN_MICRO
+JS_V26_RSPACK_NPM_MONO,CE-N26-033,26,Rspack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_RSPACK_NPM_MONO
+JS_V26_RSPACK_NPM_MICRO,CE-N26-034,26,Rspack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_RSPACK_NPM_MICRO
+JS_V26_RSPACK_YARN_MONO,CE-N26-035,26,Rspack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_RSPACK_YARN_MONO
+JS_V26_RSPACK_YARN_MICRO,CE-N26-036,26,Rspack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_RSPACK_YARN_MICRO
+JS_V26_RSPACK_PNPM_MONO,CE-N26-037,26,Rspack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_RSPACK_PNPM_MONO
+JS_V26_RSPACK_PNPM_MICRO,CE-N26-038,26,Rspack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_RSPACK_PNPM_MICRO
+JS_V26_RSPACK_BUN_MONO,CE-N26-039,26,Rspack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_RSPACK_BUN_MONO
+JS_V26_RSPACK_BUN_MICRO,CE-N26-040,26,Rspack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_RSPACK_BUN_MICRO
+JS_V26_PARCEL_NPM_MONO,CE-N26-041,26,Parcel,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_PARCEL_NPM_MONO
+JS_V26_PARCEL_NPM_MICRO,CE-N26-042,26,Parcel,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_PARCEL_NPM_MICRO
+JS_V26_PARCEL_YARN_MONO,CE-N26-043,26,Parcel,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_PARCEL_YARN_MONO
+JS_V26_PARCEL_YARN_MICRO,CE-N26-044,26,Parcel,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_PARCEL_YARN_MICRO
+JS_V26_PARCEL_PNPM_MONO,CE-N26-045,26,Parcel,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_PARCEL_PNPM_MONO
+JS_V26_PARCEL_PNPM_MICRO,CE-N26-046,26,Parcel,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_PARCEL_PNPM_MICRO
+JS_V26_PARCEL_BUN_MONO,CE-N26-047,26,Parcel,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_PARCEL_BUN_MONO
+JS_V26_PARCEL_BUN_MICRO,CE-N26-048,26,Parcel,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_PARCEL_BUN_MICRO
+JS_V26_TURBOPACK_NPM_MONO,CE-N26-049,26,Turbopack,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_TURBOPACK_NPM_MONO
+JS_V26_TURBOPACK_NPM_MICRO,CE-N26-050,26,Turbopack,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_TURBOPACK_NPM_MICRO
+JS_V26_TURBOPACK_YARN_MONO,CE-N26-051,26,Turbopack,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_TURBOPACK_YARN_MONO
+JS_V26_TURBOPACK_YARN_MICRO,CE-N26-052,26,Turbopack,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_TURBOPACK_YARN_MICRO
+JS_V26_TURBOPACK_PNPM_MONO,CE-N26-053,26,Turbopack,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_TURBOPACK_PNPM_MONO
+JS_V26_TURBOPACK_PNPM_MICRO,CE-N26-054,26,Turbopack,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_TURBOPACK_PNPM_MICRO
+JS_V26_TURBOPACK_BUN_MONO,CE-N26-055,26,Turbopack,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_TURBOPACK_BUN_MONO
+JS_V26_TURBOPACK_BUN_MICRO,CE-N26-056,26,Turbopack,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_TURBOPACK_BUN_MICRO
+JS_V26_SWC_NPM_MONO,CE-N26-057,26,SWC,npm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_SWC_NPM_MONO
+JS_V26_SWC_NPM_MICRO,CE-N26-058,26,SWC,npm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_SWC_NPM_MICRO
+JS_V26_SWC_YARN_MONO,CE-N26-059,26,SWC,yarn (Berry),Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_SWC_YARN_MONO
+JS_V26_SWC_YARN_MICRO,CE-N26-060,26,SWC,yarn (Berry),Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_SWC_YARN_MICRO
+JS_V26_SWC_PNPM_MONO,CE-N26-061,26,SWC,pnpm,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_SWC_PNPM_MONO
+JS_V26_SWC_PNPM_MICRO,CE-N26-062,26,SWC,pnpm,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_SWC_PNPM_MICRO
+JS_V26_SWC_BUN_MONO,CE-N26-063,26,SWC,bun,Monolith,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_SWC_BUN_MONO
+JS_V26_SWC_BUN_MICRO,CE-N26-064,26,SWC,bun,Microservices,,,https://github.com/BENNYameen/javascript-combos/tree/JS_V26_SWC_BUN_MICRO

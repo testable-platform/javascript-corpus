@@ -1,7 +1,0 @@
-{
-  "name": "chronicle",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Diary entry log for the pydriller clean-corpus folder.",
-  "type": "commonjs"
-}

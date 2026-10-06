@@ -1,0 +1,514 @@
+[
+ {
+  "old_branch": "CE-N12-001",
+  "new_branch": "JS_V12_ESBUILD_NPM_MONO",
+  "pm": "npm",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-001\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-001\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\nnpm ERR! code ELIFECYCLE\nnpm ERR! errno 1\nnpm ERR! granite-mill@1.0.0 mutation: `stryker run`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the granite-mill@1.0.0 mutation script.\nnpm ERR! This is probably not a problem with npm. There is likely additional logging output above.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     C:\\Users\\Prajith K\\AppData\\Roaming\\npm-cache\\_logs\\2026-09-17T13_04_20_219Z-debug.log\n"
+  },
+  "elapsed_s": 191.6
+ },
+ {
+  "old_branch": "CE-N12-003",
+  "new_branch": "JS_V12_ESBUILD_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-003\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-003\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n"
+  },
+  "elapsed_s": 341.8
+ },
+ {
+  "old_branch": "CE-N12-005",
+  "new_branch": "JS_V12_ESBUILD_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-005\\node_modules\\.pnpm\\@inquirer+external-editor@1.0.3\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-005\\node_modules\\.pnpm\\inquirer@8.2.7\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n"
+  },
+  "elapsed_s": 162.2
+ },
+ {
+  "old_branch": "CE-N12-007",
+  "new_branch": "JS_V12_ESBUILD_BUN_MONO",
+  "pm": "bun",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-007\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-007\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 255.5
+ },
+ {
+  "old_branch": "CE-N12-009",
+  "new_branch": "JS_V12_VITE_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-009\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-009\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\nnpm ERR! code ELIFECYCLE\nnpm ERR! errno 1\nnpm ERR! granite-mill@1.0.0 mutation: `stryker run`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the granite-mill@1.0.0 mutation script.\nnpm ERR! This is probably not a problem with npm. There is likely additional logging output above.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     C:\\Users\\Prajith K\\AppData\\Roaming\\npm-cache\\_logs\\2026-09-17T13_04_13_973Z-debug.log\n"
+  },
+  "elapsed_s": 184.9
+ },
+ {
+  "old_branch": "CE-N12-011",
+  "new_branch": "JS_V12_VITE_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-011\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-011\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n"
+  },
+  "elapsed_s": 339.0
+ },
+ {
+  "old_branch": "CE-N12-013",
+  "new_branch": "JS_V12_VITE_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-013\\node_modules\\.pnpm\\@inquirer+external-editor@1.0.3\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-013\\node_modules\\.pnpm\\inquirer@8.2.7\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n"
+  },
+  "elapsed_s": 160.8
+ },
+ {
+  "old_branch": "CE-N12-015",
+  "new_branch": "JS_V12_VITE_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-015\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-015\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 255.5
+ },
+ {
+  "old_branch": "CE-N12-017",
+  "new_branch": "JS_V12_WEBPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-017\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-017\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\nnpm ERR! code ELIFECYCLE\nnpm ERR! errno 1\nnpm ERR! granite-mill@1.0.0 mutation: `stryker run`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the granite-mill@1.0.0 mutation script.\nnpm ERR! This is probably not a problem with npm. There is likely additional logging output above.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     C:\\Users\\Prajith K\\AppData\\Roaming\\npm-cache\\_logs\\2026-09-17T13_08_37_859Z-debug.log\n"
+  },
+  "elapsed_s": 288.8
+ },
+ {
+  "old_branch": "CE-N12-019",
+  "new_branch": "JS_V12_WEBPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": -1,
+   "err_tail": "TIMEOUT after 300s"
+  },
+  "skipped_rest": true,
+  "elapsed_s": 314.4
+ },
+ {
+  "old_branch": "CE-N12-021",
+  "new_branch": "JS_V12_WEBPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-021\\node_modules\\.pnpm\\@inquirer+external-editor@1.0.3_@types+node@22.20.3\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-021\\node_modules\\.pnpm\\inquirer@8.2.7_@types+node@22.20.3\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n"
+  },
+  "elapsed_s": 108.0
+ },
+ {
+  "old_branch": "CE-N12-023",
+  "new_branch": "JS_V12_WEBPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-023\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-023\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 145.4
+ },
+ {
+  "old_branch": "CE-N12-025",
+  "new_branch": "JS_V12_ROLLUP_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-025\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-025\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\nnpm ERR! code ELIFECYCLE\nnpm ERR! errno 1\nnpm ERR! granite-mill@1.0.0 mutation: `stryker run`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the granite-mill@1.0.0 mutation script.\nnpm ERR! This is probably not a problem with npm. There is likely additional logging output above.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     C:\\Users\\Prajith K\\AppData\\Roaming\\npm-cache\\_logs\\2026-09-17T13_10_10_349Z-debug.log\n"
+  },
+  "elapsed_s": 290.0
+ },
+ {
+  "old_branch": "CE-N12-027",
+  "new_branch": "JS_V12_ROLLUP_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": -1,
+   "err_tail": "TIMEOUT after 300s"
+  },
+  "skipped_rest": true,
+  "elapsed_s": 467.5
+ },
+ {
+  "old_branch": "CE-N12-029",
+  "new_branch": "JS_V12_ROLLUP_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-029\\node_modules\\.pnpm\\@inquirer+external-editor@1.0.3\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-029\\node_modules\\.pnpm\\inquirer@8.2.7\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n"
+  },
+  "elapsed_s": 111.3
+ },
+ {
+  "old_branch": "CE-N12-031",
+  "new_branch": "JS_V12_ROLLUP_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-031\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-031\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 106.3
+ },
+ {
+  "old_branch": "CE-N12-033",
+  "new_branch": "JS_V12_RSPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": -1,
+   "err_tail": "TIMEOUT after 300s"
+  },
+  "skipped_rest": true,
+  "elapsed_s": 474.4
+ },
+ {
+  "old_branch": "CE-N12-035",
+  "new_branch": "JS_V12_RSPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": -1,
+   "err_tail": "TIMEOUT after 300s"
+  },
+  "skipped_rest": true,
+  "elapsed_s": 585.0
+ },
+ {
+  "old_branch": "CE-N12-037",
+  "new_branch": "JS_V12_RSPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-037\\node_modules\\.pnpm\\@inquirer+external-editor@1.0.3_@types+node@22.20.3\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-037\\node_modules\\.pnpm\\inquirer@8.2.7_@types+node@22.20.3\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n"
+  },
+  "elapsed_s": 112.5
+ },
+ {
+  "old_branch": "CE-N12-039",
+  "new_branch": "JS_V12_RSPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-039\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-039\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 128.0
+ },
+ {
+  "old_branch": "CE-N12-041",
+  "new_branch": "JS_V12_PARCEL_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": -1,
+   "err_tail": "TIMEOUT after 300s"
+  },
+  "skipped_rest": true,
+  "elapsed_s": 398.1
+ },
+ {
+  "old_branch": "CE-N12-043",
+  "new_branch": "JS_V12_PARCEL_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": -1,
+   "err_tail": "TIMEOUT after 300s"
+  },
+  "skipped_rest": true,
+  "elapsed_s": 540.1
+ },
+ {
+  "old_branch": "CE-N12-045",
+  "new_branch": "JS_V12_PARCEL_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-045\\node_modules\\.pnpm\\@inquirer+external-editor@1.0.3\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-045\\node_modules\\.pnpm\\inquirer@8.2.7\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n"
+  },
+  "elapsed_s": 100.3
+ },
+ {
+  "old_branch": "CE-N12-047",
+  "new_branch": "JS_V12_PARCEL_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-047\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-047\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 105.9
+ },
+ {
+  "old_branch": "CE-N12-049",
+  "new_branch": "JS_V12_TURBOPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": -1,
+   "err_tail": "TIMEOUT after 300s"
+  },
+  "skipped_rest": true,
+  "elapsed_s": 386.0
+ },
+ {
+  "old_branch": "CE-N12-051",
+  "new_branch": "JS_V12_TURBOPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": -1,
+   "err_tail": "TIMEOUT after 300s"
+  },
+  "skipped_rest": true,
+  "elapsed_s": 436.9
+ },
+ {
+  "old_branch": "CE-N12-053",
+  "new_branch": "JS_V12_TURBOPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-053\\node_modules\\.pnpm\\@inquirer+external-editor@1.0.3\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-053\\node_modules\\.pnpm\\inquirer@8.2.7\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n"
+  },
+  "elapsed_s": 111.0
+ },
+ {
+  "old_branch": "CE-N12-055",
+  "new_branch": "JS_V12_TURBOPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-055\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-055\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 105.2
+ },
+ {
+  "old_branch": "CE-N12-057",
+  "new_branch": "JS_V12_SWC_NPM_MONO",
+  "pm": "npm",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-057\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-057\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\nnpm ERR! code ELIFECYCLE\nnpm ERR! errno 1\nnpm ERR! granite-mill@1.0.0 mutation: `stryker run`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the granite-mill@1.0.0 mutation script.\nnpm ERR! This is probably not a problem with npm. There is likely additional logging output above.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     C:\\Users\\Prajith K\\AppData\\Roaming\\npm-cache\\_logs\\2026-09-17T13_17_51_549Z-debug.log\n"
+  },
+  "elapsed_s": 240.2
+ },
+ {
+  "old_branch": "CE-N12-059",
+  "new_branch": "JS_V12_SWC_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-059\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-059\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n"
+  },
+  "elapsed_s": 242.2
+ },
+ {
+  "old_branch": "CE-N12-061",
+  "new_branch": "JS_V12_SWC_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-061\\node_modules\\.pnpm\\@inquirer+external-editor@1.0.3_@types+node@22.20.3\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-061\\node_modules\\.pnpm\\inquirer@8.2.7_@types+node@22.20.3\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n"
+  },
+  "elapsed_s": 127.2
+ },
+ {
+  "old_branch": "CE-N12-063",
+  "new_branch": "JS_V12_SWC_BUN_MONO",
+  "pm": "bun",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nC:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-063\\node_modules\\@inquirer\\external-editor\\dist\\commonjs\\index.js:133\n            const baseDir = this.fileOptions.dir ?? node_os_1.default.tmpdir();\n                                                  ^\n\nSyntaxError: Unexpected token '?'\n    at wrapSafe (internal/modules/cjs/loader.js:915:16)\n    at Module._compile (internal/modules/cjs/loader.js:963:27)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\n    at Module.load (internal/modules/cjs/loader.js:863:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:708:14)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at Object.<anonymous> (C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N12-063\\node_modules\\inquirer\\lib\\prompts\\editor.js:7:23)\n    at Module._compile (internal/modules/cjs/loader.js:999:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 153.9
+ }
+]

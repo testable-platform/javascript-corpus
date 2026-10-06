@@ -1,10 +1,3 @@
+.DS_Store
+*.xlsx
 node_modules/
-dist/
-coverage/
-.nyc_output/
-.stryker-tmp/
-.parcel-cache/
-.turbo/
-.yarn/
-.pnp.*
-*.log

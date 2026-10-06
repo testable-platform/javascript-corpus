@@ -1,174 +1,85 @@
-﻿# JS_V26_WEBPACK_YARN_MONO
+# javascript-combos
 
-Part of the `javascript-combos` white-box test-repo corpus (GraniteMill /
-`granite-mill`, domain: Community garden plots).
+Single GitHub repo for the JavaScript white-box combo corpus. All 576 combos live as branches in this one repo.
 
-## Branch variables
+Two naming schemes have existed before this one: split across four repos per Node version (`javascript-n12-001-016`, `017-032`, …), then briefly consolidated under `CE-N{version}-{id}` (version embedded, id resetting every family). Both are retired.
 
-| Variable | This branch |
-| --- | --- |
-| Branch | `JS_V26_WEBPACK_YARN_MONO` |
-| Node.js | 26.8.1 (family V26) |
-| Bundler | Webpack |
-| Package manager | yarn (Berry) |
-| Bundled npm | 10.9.2 |
-| Architecture | Monolith |
-| Source root | `src` |
+## Branch naming
 
-The application code under `src/` (or `packages/*/src/` for Microservices
-branches) is byte-identical across all 576 branches of this corpus; only the
-build tool, package manager, architecture layout, and each tool's real
-status on this Node family vary.
+`JS_V{version}_{BUNDLER}_{PACKAGE_MANAGER}_{ARCHITECTURE}`
 
-## Supported tools
+Matches the convention already in use on the Python corpus (`PY_V313_POETRY_PIP_MONO`, `PY_V313_SETUPTOOLS_CONDA_MICRO`, …): language prefix, version, build/bundle tool, package manager, architecture, all upper-case and underscore-separated — everything that varies is readable straight out of the branch name, nothing needs a lookup table to decode.
 
-21 tools are wired on this corpus (one `tools/<dir>/` folder
-each, covering the 103-metric white-box framework). **16 of them
-run on Node 26; 5 do not.**
+- **version:** `V12`, `V14`, `V16`, `V18`, `V20`, `V21`, `V22`, `V24`, `V26`
+- **bundler:** `ESBUILD`, `VITE` (Vite, built as esbuild), `WEBPACK`, `ROLLUP`, `RSPACK`, `PARCEL`, `TURBOPACK`, `SWC`
+- **package manager:** `NPM`, `YARN` (Berry), `PNPM`, `BUN`
+- **architecture:** `MONO` (Monolith), `MICRO` (Microservices)
 
-That is the measurement, not a defect. A tool that cannot run exits **3**,
-not 0 -- a skip that looks like a pass is the failure mode this corpus
-exists to expose. Every `tools/<dir>/trigger.yaml` records whether its status
-here was actually invoked and observed by Claude Code (`measured: true`) or
-is a real npm-registry `engines.node` claim not yet individually
-invoke-verified on this exact family (`measured: false`) -- declared support
-is a claim, invoking is the fact, and this corpus never blurs the two.
+Example:
 
-### Running here
+```bash
+git clone https://github.com/BENNYameen/javascript-combos.git
+cd javascript-combos
+git checkout JS_V12_ESBUILD_NPM_MONO
+```
 
-| Tool | Role | Pin | Why |
+Direct URL: `https://github.com/BENNYameen/javascript-combos/tree/JS_V12_ESBUILD_NPM_MONO`
+
+### Migrating from the old `CE-N{version}-{id}` names
+
+`branch_rename_map.csv` carries the full old→new mapping, and `rename_branches.sh`
+applies it (local branch rename, worktree move, push new / delete old on
+origin). Both assume the one-branch-per-directory worktree layout already in
+use here. Run with no arguments first for a dry-run printout before passing
+`--apply`.
+
+## Combo grid (64 per Node version, 9 families, 576 branches total)
+
+For each Node version: 8 bundlers × 4 package managers × 2 architectures = 64 branches, e.g. for V12:
+
+| Branch | Bundler | Package manager | Architecture |
 | --- | --- | --- | --- |
-| `Lizard` | primary | lizard (pip) | measured directly: pip-installed and run for real against this domain's src/ (lizard 1.24.0). Found policy.js's evaluatePolicy as the highest-CCN function at 18 -- corrects an earlier assumption that dataflow.js's tally loop (CCN 17) was highest; Node-independent by construction, so this holds on every family. _(measured: real invocation confirmed by Claude Code)_ |
-| `cyclomatic-complexity` | alternative | cyclomatic-complexity==1.2.5 | cyclomatic-complexity 1.2.5 declares Node 26 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `eslint-plugin-sonarjs` | primary | eslint-plugin-sonarjs==4.2.1 | eslint-plugin-sonarjs 4.2.1 declares Node 26 compatibility; runs through eslint itself. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `cognitive-complexity-ts` | alternative | cognitive-complexity-ts==0.8.2 | cognitive-complexity-ts 0.8.2 declares Node 26 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `jscpd` | primary | jscpd==5.2.1 | jscpd 5.2.1 declares Node 26 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `eslint` | primary | eslint==10.10.0 | eslint 10.10.0 declares Node 26 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `eslint-plugin-security` | primary | eslint-plugin-security==4.0.1 | eslint-plugin-security 4.0.1 declares Node 26 compatibility; runs through eslint itself. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `npm audit + npm ls` | primary | n/a | npm's own bundled audit/ls -- ships with npm itself on every Node family this corpus supports. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `nyc + mocha` | primary | nyc==18.0.0 | clean on every family once the architecture-aware test glob (bug #1) and the Microservices require() path (bug #4) were both fixed. _(measured: real invocation confirmed by Claude Code)_ |
-| `monocart-coverage-reports` | alternative | monocart-coverage-reports==2.13.0 | monocart-coverage-reports 2.13.0 declares Node 26 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `gutcheck` | alternative | gutcheck==0.10.0 | gutcheck 0.10.0 declares Node 26 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `diff-cover` | primary | diff-cover (pip) | the diff-cover CLI itself was invoked for real (pip install + --help) and works; its coverage-delta output depends on nyc's cobertura report, which needs a full npm install this session's verification bridge could not complete (slow mounted filesystem + shared disk quota, not a tool defect -- see javascript-repos-build-contract.md). Node-independent by construction. _(measured: real invocation confirmed by Claude Code)_ |
-| `ESLint (eslint-scope)` | primary | eslint-scope==9.1.2 | clean on every family tested (12 through 26) -- the dataflow script is hand-written without `?.`/`??` specifically so it never depends on the same syntax features that break other tools on the oldest families. _(measured: real invocation confirmed by Claude Code)_ |
-| `knip` | alternative | knip==6.36.0 | knip 6.36.0 declares Node 26 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `PyDriller` | primary | pydriller (pip) | PyDriller is a Python package invoked externally via a small wrapper script -- Node-version-independent by construction. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `Git-Spark` | alternative | git-spark==1.3.2 | Git-Spark 1.3.2 declares Node 26 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+| JS_V12_ESBUILD_NPM_MONO | esbuild | npm | Monolith |
+| JS_V12_ESBUILD_NPM_MICRO | esbuild | npm | Microservices |
+| JS_V12_ESBUILD_YARN_MONO | esbuild | yarn (Berry) | Monolith |
+| JS_V12_ESBUILD_YARN_MICRO | esbuild | yarn (Berry) | Microservices |
+| JS_V12_ESBUILD_PNPM_MONO | esbuild | pnpm | Monolith |
+| JS_V12_ESBUILD_PNPM_MICRO | esbuild | pnpm | Microservices |
+| JS_V12_ESBUILD_BUN_MONO | esbuild | bun | Monolith |
+| JS_V12_ESBUILD_BUN_MICRO | esbuild | bun | Microservices |
+| … | VITE, WEBPACK, ROLLUP, RSPACK, PARCEL, TURBOPACK, SWC | same 4 | same 2 |
 
-### Dark here
+...and the same 64-branch pattern repeats for V14, V16, V18, V20, V21, V22, V24, V26.
 
-| Tool | Role | Status | Why |
-| --- | --- | --- | --- |
-| `Dolos` | alternative | not installed | dolos's native tree-sitter step needs a C++ toolchain -- already documented as absent on this host by the C#/Python sibling corpora's own precedent; installs with --ignore-scripts, which skips the native build |
-| `oxlint` | alternative | skipped | same 1.83.0 config-schema break as every family from 18 onward. |
-| `OpenGrep` | alternative | not installed | standalone binary, not installable via npm/pip on this host -- same category as Dolos's native step and the Python corpus's own Trivy/OpenGrep entries |
-| `Trivy` | alternative | not installed | standalone binary, not installable via npm/pip on this host |
-| `StrykerJS + Mocha` | primary | skipped | same mocha-12/Stryker incompatibility as N20/N22/N24. |
+Full index: [COMBOS.csv](COMBOS.csv) (576 rows, includes each branch's retired `CE-N...` name under `Legacy Branch ID`).
 
-## Build
+## Rebuild (2026-09-16)
 
-```
-npm install    # or yarn / pnpm / bun, per this branch's packageManager field
-npm run build
-```
+All 576 branches were regenerated from scratch by `generator/gen_js_corpus.py`
+to fix a broken prior state: an empty Node 20 family, incoherent per-family
+tool wiring, a domain layer that wasn't byte-identical across branches
+(different fictional product names, a hardcoded per-branch ID prefix), stale
+ES-module-syntax duplicate source under Microservices branches, and a
+103-metric tool roster with two fabricated tools and a fake copy-paste
+version drag on the Path Coverage / Data-Flow blocks. Full detail —
+the repaired roster, the live npm-registry-verified per-family tool-pin
+table, the domain-invariant decision, and what was verified vs. what's
+deferred to real local installs — is in `javascript-repos-build-contract.md`
+in the Testable (Tools) Claude Project.
 
-## Run
+Domain: **GraniteMill** (`granite-mill`, "Community garden plots"),
+ID prefix `GM-`, byte-identical across all 576 branches (verified by
+SHA-256 across every branch's domain source).
 
-```
-node src/index.js
-```
+`CLAUDE_CODE_PROMPT.md` in this directory has the exact instructions for
+finishing the corpus locally: real per-branch package-manager installs,
+real per-Node-version test runs, live pin re-verification, then running
+the branch rename above and pushing.
 
-## Test
+## Notes
 
-```
-npm test              # mocha tests/**/*.test.js
-npm run coverage      # nyc + mocha
-make check            # tools/full_check.js -- cross-file consistency audit
-```
-
-
-## Tool test-data folders
-
-Three sibling folders sit at the repo root, alongside this branch's own
-`tools/` (above).
-
-### `Tool Triggering (Tool Github Test data)/`
-Each of the 21 tool subfolders is that tool's own real upstream code and test
-suite, pulled as-is from its actual GitHub (or PyPI) project -- not generated.
-`ESLint/`, `StrykerJS/`, `jscpd/`, `pydriller/`, `nyc/` and the rest are each
-that project's own real test suite. A correct run finds whatever that
-upstream project's own tests genuinely contain. Unlike the TypeScript
-corpus's `covgate`, no tool in this 21-tool roster ships a non-JS native
-binary -- every subfolder here is a real npm or pip project in its own
-right.
-
-### `Tool Clean (Synthetic Data)/`
-Each of the 21 tools carries 9 generated fixture packages, one per Node
-family (12, 14, 16, 18, 20, 21, 22, 24, 26), engineered to be clean so the
-tool should report zero findings: the **Tool Clean (100% pass)** condition.
-`diff-cover` and `pydriller` operate on git history and a coverage report
-rather than language syntax, so each carries one real git repository's
-worth of history instead of 9 per-family copies.
-
-### `Tool Invalid (Synthetic Data)/`
-Same shape as Clean -- 21 tools, the same 9-Node-family pattern -- but
-engineered so every fixture makes the tool flag or fail rather than pass:
-the **Tool Invalid** condition. `diff-cover`'s and `pydriller`'s Invalid
-fixtures are plain, git-free copies, same as their Clean counterparts.
-
-## Tool entry points
-
-Every tool directory carries a `trigger.yaml` recording its pin, its
-declared status and what a working run should find. Run one tool directly,
-or all of them:
-
-```
-bash tools/eslint/run_eslint.sh
-node tools/tool_integration.js --run
-node tools/tool_integration.js --verify
-```
-
-`--run` distinguishes three outcomes: a tool that ran, a tool that skipped
-for a reason `dataset.json` already records, and a tool that skipped for a
-reason it does not. Only the third is a finding.
-
-## Planted fixtures
-
-| Fixture | File(s) | Planted for |
-| --- | --- | --- |
-| Duplication | [`src/http-errors.js`](src/http-errors.js) + [`src/http-errors-legacy.js`](src/http-errors-legacy.js) | jscpd, Dolos |
-
-## Workspace layout
-
-```
-javascript-combos/  (JS_V26_WEBPACK_YARN_MONO)
-|-- .github/
-|-- src/
-|-- tests/  (or packages/shared/tests/ for Microservices)
-|-- tools/  (21 tool directories + _skip.sh, tool_integration.js, full_check.js)
-|-- Makefile
-|-- README.md
-|-- dataset.json
-|-- package.json
-```
-
-## History
-
-This branch's real commit history starts from the corpus's scaffolding
-generation, followed by the six genuine scaffolding-bug fixes found by
-Claude Code's actual local install/test runs across all nine Node families
-(see `javascript-repos-build-contract.md`) -- every commit here is real,
-authored by the accounts that actually did the work; nothing is
-back-filled or fabricated.
-
-## Machine-readable
-
-[`dataset.json`](dataset.json) carries every branch variable and the full
-tool-status breakdown, including the reason each dark tool is dark and
-whether that status was actually measured. It is the answer key: a run is
-correct when what the tool platform reports matches what `dataset.json`
-says should happen, including the tools that are supposed to be dark.
-
-See `javascript-repos-build-contract.md` in the Testable (Tools) project for
-the full 103-metric roster, the repair notes, and the live pin-resolution
-method (npm registry `engines.node` ranges, prereleases excluded).
+- Node **20** now has full generated content, same as every other family —
+  it previously had none (bare placeholders copied from `main`).
+- Other versions' worktrees were regenerated in place (old content wiped,
+  not merely added to) — see the build contract for exactly what was
+  removed and why.

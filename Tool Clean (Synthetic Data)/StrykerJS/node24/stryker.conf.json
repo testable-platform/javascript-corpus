@@ -1,9 +1,0 @@
-{
-  "packageManager": "npm",
-  "testRunner": "mocha",
-  "mutate": ["src/**/*.js"],
-  "reporters": ["clear-text"],
-  "concurrency": 1,
-  "thresholds": { "high": 100, "low": 100, "break": 100 },
-  "mochaOptions": { "spec": ["test/**/*.test.js"] }
-}

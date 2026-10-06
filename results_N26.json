@@ -1,0 +1,2210 @@
+[
+ {
+  "old_branch": "CE-N26-001",
+  "new_branch": "JS_V26_ESBUILD_NPM_MONO",
+  "pm": "npm",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-001/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-001/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-001/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-001/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 442.3
+ },
+ {
+  "old_branch": "CE-N26-002",
+  "new_branch": "JS_V26_ESBUILD_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 107.6
+ },
+ {
+  "old_branch": "CE-N26-003",
+  "new_branch": "JS_V26_ESBUILD_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-003/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-003/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-003/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-003/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 116.1
+ },
+ {
+  "old_branch": "CE-N26-004",
+  "new_branch": "JS_V26_ESBUILD_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 92.2
+ },
+ {
+  "old_branch": "CE-N26-005",
+  "new_branch": "JS_V26_ESBUILD_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N26-005\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": " fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-005/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-005/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-005/node_modules/.pnpm/@stryker-mutator+core@10.0.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-005/node_modules/.pnpm/@stryker-mutator+core@10.0.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 121.7
+ },
+ {
+  "old_branch": "CE-N26-006",
+  "new_branch": "JS_V26_ESBUILD_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 96.0
+ },
+ {
+  "old_branch": "CE-N26-007",
+  "new_branch": "JS_V26_ESBUILD_BUN_MONO",
+  "pm": "bun",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nnode:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-007/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-007/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-007/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-007/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 129.6
+ },
+ {
+  "old_branch": "CE-N26-008",
+  "new_branch": "JS_V26_ESBUILD_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 112.7
+ },
+ {
+  "old_branch": "CE-N26-009",
+  "new_branch": "JS_V26_VITE_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-009/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-009/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-009/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-009/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 461.3
+ },
+ {
+  "old_branch": "CE-N26-010",
+  "new_branch": "JS_V26_VITE_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 144.6
+ },
+ {
+  "old_branch": "CE-N26-011",
+  "new_branch": "JS_V26_VITE_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-011/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-011/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-011/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-011/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 144.2
+ },
+ {
+  "old_branch": "CE-N26-012",
+  "new_branch": "JS_V26_VITE_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 117.0
+ },
+ {
+  "old_branch": "CE-N26-013",
+  "new_branch": "JS_V26_VITE_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N26-013\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": " fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-013/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-013/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-013/node_modules/.pnpm/@stryker-mutator+core@10.0.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-013/node_modules/.pnpm/@stryker-mutator+core@10.0.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 141.2
+ },
+ {
+  "old_branch": "CE-N26-014",
+  "new_branch": "JS_V26_VITE_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 107.8
+ },
+ {
+  "old_branch": "CE-N26-015",
+  "new_branch": "JS_V26_VITE_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nnode:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-015/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-015/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-015/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-015/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 119.0
+ },
+ {
+  "old_branch": "CE-N26-016",
+  "new_branch": "JS_V26_VITE_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 111.6
+ },
+ {
+  "old_branch": "CE-N26-017",
+  "new_branch": "JS_V26_WEBPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-017/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-017/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-017/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-017/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 507.7
+ },
+ {
+  "old_branch": "CE-N26-018",
+  "new_branch": "JS_V26_WEBPACK_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 147.2
+ },
+ {
+  "old_branch": "CE-N26-019",
+  "new_branch": "JS_V26_WEBPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-019/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-019/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-019/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-019/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 131.2
+ },
+ {
+  "old_branch": "CE-N26-020",
+  "new_branch": "JS_V26_WEBPACK_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 111.7
+ },
+ {
+  "old_branch": "CE-N26-021",
+  "new_branch": "JS_V26_WEBPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N26-021\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "rror: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-021/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-021/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-021/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.3/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-021/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.3/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 126.0
+ },
+ {
+  "old_branch": "CE-N26-022",
+  "new_branch": "JS_V26_WEBPACK_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 37.1
+ },
+ {
+  "old_branch": "CE-N26-023",
+  "new_branch": "JS_V26_WEBPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nnode:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-023/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-023/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-023/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-023/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 162.5
+ },
+ {
+  "old_branch": "CE-N26-024",
+  "new_branch": "JS_V26_WEBPACK_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 78.7
+ },
+ {
+  "old_branch": "CE-N26-025",
+  "new_branch": "JS_V26_ROLLUP_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-025/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-025/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-025/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-025/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 356.6
+ },
+ {
+  "old_branch": "CE-N26-026",
+  "new_branch": "JS_V26_ROLLUP_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 114.7
+ },
+ {
+  "old_branch": "CE-N26-027",
+  "new_branch": "JS_V26_ROLLUP_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-027/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-027/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-027/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-027/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 136.1
+ },
+ {
+  "old_branch": "CE-N26-028",
+  "new_branch": "JS_V26_ROLLUP_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 80.4
+ },
+ {
+  "old_branch": "CE-N26-029",
+  "new_branch": "JS_V26_ROLLUP_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N26-029\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": " fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-029/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-029/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-029/node_modules/.pnpm/@stryker-mutator+core@10.0.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-029/node_modules/.pnpm/@stryker-mutator+core@10.0.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 87.2
+ },
+ {
+  "old_branch": "CE-N26-030",
+  "new_branch": "JS_V26_ROLLUP_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 37.6
+ },
+ {
+  "old_branch": "CE-N26-031",
+  "new_branch": "JS_V26_ROLLUP_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nnode:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-031/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-031/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-031/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-031/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 128.7
+ },
+ {
+  "old_branch": "CE-N26-032",
+  "new_branch": "JS_V26_ROLLUP_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 106.8
+ },
+ {
+  "old_branch": "CE-N26-033",
+  "new_branch": "JS_V26_RSPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-033/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-033/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-033/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-033/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 515.6
+ },
+ {
+  "old_branch": "CE-N26-034",
+  "new_branch": "JS_V26_RSPACK_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 109.8
+ },
+ {
+  "old_branch": "CE-N26-035",
+  "new_branch": "JS_V26_RSPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-035/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-035/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-035/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-035/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 133.8
+ },
+ {
+  "old_branch": "CE-N26-036",
+  "new_branch": "JS_V26_RSPACK_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 152.3
+ },
+ {
+  "old_branch": "CE-N26-037",
+  "new_branch": "JS_V26_RSPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N26-037\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "rror: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-037/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-037/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-037/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.3/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-037/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.3/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 87.4
+ },
+ {
+  "old_branch": "CE-N26-038",
+  "new_branch": "JS_V26_RSPACK_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 63.0
+ },
+ {
+  "old_branch": "CE-N26-039",
+  "new_branch": "JS_V26_RSPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nnode:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-039/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-039/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-039/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-039/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 184.5
+ },
+ {
+  "old_branch": "CE-N26-040",
+  "new_branch": "JS_V26_RSPACK_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 119.6
+ },
+ {
+  "old_branch": "CE-N26-041",
+  "new_branch": "JS_V26_PARCEL_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-041/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-041/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-041/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-041/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 494.9
+ },
+ {
+  "old_branch": "CE-N26-042",
+  "new_branch": "JS_V26_PARCEL_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 164.5
+ },
+ {
+  "old_branch": "CE-N26-043",
+  "new_branch": "JS_V26_PARCEL_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-043/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-043/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-043/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-043/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 148.8
+ },
+ {
+  "old_branch": "CE-N26-044",
+  "new_branch": "JS_V26_PARCEL_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 128.1
+ },
+ {
+  "old_branch": "CE-N26-045",
+  "new_branch": "JS_V26_PARCEL_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N26-045\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": " fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-045/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-045/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-045/node_modules/.pnpm/@stryker-mutator+core@10.0.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-045/node_modules/.pnpm/@stryker-mutator+core@10.0.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 156.0
+ },
+ {
+  "old_branch": "CE-N26-046",
+  "new_branch": "JS_V26_PARCEL_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 76.4
+ },
+ {
+  "old_branch": "CE-N26-047",
+  "new_branch": "JS_V26_PARCEL_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nnode:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-047/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-047/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-047/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-047/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 206.3
+ },
+ {
+  "old_branch": "CE-N26-048",
+  "new_branch": "JS_V26_PARCEL_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 145.7
+ },
+ {
+  "old_branch": "CE-N26-049",
+  "new_branch": "JS_V26_TURBOPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-049/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-049/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-049/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-049/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 351.1
+ },
+ {
+  "old_branch": "CE-N26-050",
+  "new_branch": "JS_V26_TURBOPACK_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 119.8
+ },
+ {
+  "old_branch": "CE-N26-051",
+  "new_branch": "JS_V26_TURBOPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-051/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-051/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-051/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-051/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 134.5
+ },
+ {
+  "old_branch": "CE-N26-052",
+  "new_branch": "JS_V26_TURBOPACK_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 113.5
+ },
+ {
+  "old_branch": "CE-N26-053",
+  "new_branch": "JS_V26_TURBOPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N26-053\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": " fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-053/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-053/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-053/node_modules/.pnpm/@stryker-mutator+core@10.0.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-053/node_modules/.pnpm/@stryker-mutator+core@10.0.0/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 61.6
+ },
+ {
+  "old_branch": "CE-N26-054",
+  "new_branch": "JS_V26_TURBOPACK_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 44.2
+ },
+ {
+  "old_branch": "CE-N26-055",
+  "new_branch": "JS_V26_TURBOPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nnode:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-055/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-055/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-055/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-055/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 162.8
+ },
+ {
+  "old_branch": "CE-N26-056",
+  "new_branch": "JS_V26_TURBOPACK_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 108.3
+ },
+ {
+  "old_branch": "CE-N26-057",
+  "new_branch": "JS_V26_SWC_NPM_MONO",
+  "pm": "npm",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-057/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-057/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-057/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-057/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 242.4
+ },
+ {
+  "old_branch": "CE-N26-058",
+  "new_branch": "JS_V26_SWC_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 155.1
+ },
+ {
+  "old_branch": "CE-N26-059",
+  "new_branch": "JS_V26_SWC_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "node:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-059/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-059/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-059/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-059/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 147.2
+ },
+ {
+  "old_branch": "CE-N26-060",
+  "new_branch": "JS_V26_SWC_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 140.6
+ },
+ {
+  "old_branch": "CE-N26-061",
+  "new_branch": "JS_V26_SWC_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "\n> granite-mill@1.0.0 lint:oxlint C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N26-061\n> oxlint .\n\nFailed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "rror: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-061/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-061/node_modules/.pnpm/typed-inject@5.0.0/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-061/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.3/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-061/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.3/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\n"
+  },
+  "elapsed_s": 95.1
+ },
+ {
+  "old_branch": "CE-N26-062",
+  "new_branch": "JS_V26_SWC_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 38.5
+ },
+ {
+  "old_branch": "CE-N26-063",
+  "new_branch": "JS_V26_SWC_BUN_MONO",
+  "pm": "bun",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ stryker run\nnode:internal/process/promises:324\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nStrykerError: Error: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\nError: Could not inject [class ChildProcessTestRunnerWorker]. Cause: Cannot find TestRunner plugin \"mocha\". In fact, no TestRunner plugins were loaded. Did you forget to install it?\n    at InjectionError.create (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-063/node_modules/typed-inject/dist/src/errors.js:53:20)\n    at ClassProvider.injectClass (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-063/node_modules/typed-inject/dist/src/InjectorImpl.js:45:34)\n    at ChildProcessProxyWorker.handleInit (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-063/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy-worker.js:75:41)\n    at ChildProcess.<anonymous> (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N26-063/node_modules/@stryker-mutator/core/dist/src/child-proxy/child-process-proxy.js:132:39)\n    at ChildProcess.emit (node:events:514:20)\n    at emit (node:internal/child_process:973:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {\n  innerError: undefined\n}\n\nNode.js v26.9.0\nerror: script \"mutation\" exited with code 1\n"
+  },
+  "elapsed_s": 77.1
+ },
+ {
+  "old_branch": "CE-N26-064",
+  "new_branch": "JS_V26_SWC_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 67.1
+ }
+]

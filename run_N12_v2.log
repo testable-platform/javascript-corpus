@@ -1,0 +1,120 @@
+Exception in thread Thread-516 (_readerthread):
+Traceback (most recent call last):
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 1599, in _readerthread
+    buffer.append(fh.read())
+                  ^^^^^^^^^
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x90 in position 198: character maps to <undefined>
+Exception in thread Thread-542 (_readerthread):
+Traceback (most recent call last):
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 1599, in _readerthread
+    buffer.append(fh.read())
+                  ^^^^^^^^^
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x90 in position 198: character maps to <undefined>
+Exception in thread Thread-778 (_readerthread):
+Traceback (most recent call last):
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 1599, in _readerthread
+    buffer.append(fh.read())
+                  ^^^^^^^^^
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x90 in position 198: character maps to <undefined>
+Exception in thread Thread-972 (_readerthread):
+Traceback (most recent call last):
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 1599, in _readerthread
+    buffer.append(fh.read())
+                  ^^^^^^^^^
+  File "C:\Users\Prajith K\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x90 in position 198: character maps to <undefined>
+Family N12: 64 branches to process (six=True partial=False)
+Using node dir: C:\Users\Prajith K\AppData\Roaming\fnm\node-versions\v12.22.12\installation -> node v12.22.12 npm 6.14.16
+Parallel workers: 8
+[1/64] CE-N12-007 (esbuild/bun/Monolith): FAIL:lint,lint:oxlint,duplication,mutation (137.4s)
+[2/64] CE-N12-008 (esbuild/bun/Microservices): FAIL:test,lint,lint:oxlint,coverage,duplication,mutation (152.1s)
+[3/64] CE-N12-006 (esbuild/pnpm/Microservices): FAIL:test,lint,lint:oxlint,coverage,duplication,mutation (167.9s)
+[4/64] CE-N12-005 (esbuild/pnpm/Monolith): FAIL:lint,lint:oxlint,duplication,mutation (171.7s)
+[5/64] CE-N12-003 (esbuild/yarn (Berry)/Monolith): FAIL:lint,lint:oxlint,duplication,mutation (300.0s)
+[6/64] CE-N12-004 (esbuild/yarn (Berry)/Microservices): FAIL:test,lint,lint:oxlint,coverage,duplication,mutation (301.5s)
+[7/64] CE-N12-001 (esbuild/npm/Monolith): FAIL:lint,lint:oxlint,duplication,mutation (362.5s)
+[8/64] CE-N12-002 (esbuild/npm/Microservices): FAIL:test,lint,lint:oxlint,coverage,duplication,mutation (383.4s)
+[9/64] CE-N12-009 (Vite (built as esbuild)/npm/Monolith): install-FAIL (330.0s)
+[10/64] CE-N12-010 (Vite (built as esbuild)/npm/Microservices): install-FAIL (315.3s)
+[11/64] CE-N12-012 (Vite (built as esbuild)/yarn (Berry)/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (298.3s)
+[12/64] CE-N12-011 (Vite (built as esbuild)/yarn (Berry)/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (302.2s)
+[13/64] CE-N12-013 (Vite (built as esbuild)/pnpm/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (181.7s)
+[14/64] CE-N12-014 (Vite (built as esbuild)/pnpm/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (180.2s)
+[15/64] CE-N12-016 (Vite (built as esbuild)/bun/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (241.7s)
+[16/64] CE-N12-015 (Vite (built as esbuild)/bun/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (262.8s)
+[17/64] CE-N12-019 (Webpack/yarn (Berry)/Monolith): FAIL:lint,lint:oxlint,duplication,mutation (258.5s)
+[18/64] CE-N12-020 (Webpack/yarn (Berry)/Microservices): FAIL:test,lint,lint:oxlint,coverage,duplication,mutation (260.2s)
+[19/64] CE-N12-018 (Webpack/npm/Microservices): FAIL:test,lint,lint:oxlint,coverage,duplication,mutation (312.3s)
+[20/64] CE-N12-017 (Webpack/npm/Monolith): FAIL:lint,lint:oxlint,duplication,mutation (316.9s)
+[21/64] CE-N12-022 (Webpack/pnpm/Microservices): FAIL:test,lint,lint:oxlint,coverage,duplication,mutation (305.6s)
+[22/64] CE-N12-021 (Webpack/pnpm/Monolith): FAIL:lint,lint:oxlint,duplication,mutation (305.7s)
+[23/64] CE-N12-023 (Webpack/bun/Monolith): FAIL:lint,lint:oxlint,duplication,mutation (177.1s)
+[24/64] CE-N12-024 (Webpack/bun/Microservices): FAIL:test,lint,lint:oxlint,coverage,duplication,mutation (181.4s)
+[25/64] CE-N12-028 (Rollup/yarn (Berry)/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (202.0s)
+[26/64] CE-N12-027 (Rollup/yarn (Berry)/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (206.6s)
+[27/64] CE-N12-030 (Rollup/pnpm/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (204.7s)
+[28/64] CE-N12-029 (Rollup/pnpm/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (204.9s)
+[29/64] CE-N12-032 (Rollup/bun/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (185.5s)
+[30/64] CE-N12-031 (Rollup/bun/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (189.9s)
+[31/64] CE-N12-025 (Rollup/npm/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (275.7s)
+[32/64] CE-N12-026 (Rollup/npm/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (273.9s)
+[33/64] CE-N12-037 (Rspack/pnpm/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (184.7s)
+[34/64] CE-N12-039 (Rspack/bun/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (183.2s)
+[35/64] CE-N12-040 (Rspack/bun/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (183.2s)
+[36/64] CE-N12-038 (Rspack/pnpm/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (197.2s)
+[37/64] CE-N12-035 (Rspack/yarn (Berry)/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (261.3s)
+[38/64] CE-N12-036 (Rspack/yarn (Berry)/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (262.7s)
+[39/64] CE-N12-033 (Rspack/npm/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (362.3s)
+[40/64] CE-N12-034 (Rspack/npm/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (372.0s)
+[41/64] CE-N12-045 (Parcel/pnpm/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (192.4s)
+[42/64] CE-N12-046 (Parcel/pnpm/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (190.9s)
+[43/64] CE-N12-041 (Parcel/npm/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (287.3s)
+[44/64] CE-N12-042 (Parcel/npm/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (282.8s)
+[45/64] CE-N12-043 (Parcel/yarn (Berry)/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (290.2s)
+[46/64] CE-N12-044 (Parcel/yarn (Berry)/Microservices): install-FAIL (315.2s)
+[47/64] CE-N12-048 (Parcel/bun/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (156.5s)
+[48/64] CE-N12-047 (Parcel/bun/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (188.3s)
+[49/64] CE-N12-053 (Turbopack/pnpm/Monolith): FAIL:lint,lint:oxlint,duplication,mutation (169.9s)
+[50/64] CE-N12-054 (Turbopack/pnpm/Microservices): FAIL:test,lint,lint:oxlint,coverage,duplication,mutation (149.5s)
+[51/64] CE-N12-055 (Turbopack/bun/Monolith): FAIL:lint,lint:oxlint,duplication,mutation (142.1s)
+[52/64] CE-N12-050 (Turbopack/npm/Microservices): FAIL:test,lint,lint:oxlint,coverage,duplication,mutation (232.4s)
+[53/64] CE-N12-049 (Turbopack/npm/Monolith): FAIL:lint,lint:oxlint,duplication,mutation (232.5s)
+[54/64] CE-N12-056 (Turbopack/bun/Microservices): FAIL:test,lint,lint:oxlint,coverage,duplication,mutation (145.9s)
+[55/64] CE-N12-051 (Turbopack/yarn (Berry)/Monolith): FAIL:lint,lint:oxlint,duplication,mutation (347.4s)
+[56/64] CE-N12-052 (Turbopack/yarn (Berry)/Microservices): FAIL:test,lint,lint:oxlint,coverage,duplication,mutation (345.0s)
+[57/64] CE-N12-058 (SWC/npm/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (181.1s)
+[58/64] CE-N12-057 (SWC/npm/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (189.3s)
+[59/64] CE-N12-061 (SWC/pnpm/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (162.1s)
+[60/64] CE-N12-062 (SWC/pnpm/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (159.9s)
+[61/64] CE-N12-059 (SWC/yarn (Berry)/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (210.8s)
+[62/64] CE-N12-060 (SWC/yarn (Berry)/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (189.4s)
+[63/64] CE-N12-064 (SWC/bun/Microservices): FAIL:test,build,lint,lint:oxlint,coverage,duplication,mutation (78.9s)
+[64/64] CE-N12-063 (SWC/bun/Monolith): FAIL:build,lint,lint:oxlint,duplication,mutation (82.4s)
+Saved: C:\Users\Prajith K\Desktop\javascript corpus\main\results_N12.json

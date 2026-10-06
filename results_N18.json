@@ -1,0 +1,2210 @@
+[
+ {
+  "old_branch": "CE-N18-001",
+  "new_branch": "JS_V18_ESBUILD_NPM_MONO",
+  "pm": "npm",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 493.0
+ },
+ {
+  "old_branch": "CE-N18-002",
+  "new_branch": "JS_V18_ESBUILD_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 115.6
+ },
+ {
+  "old_branch": "CE-N18-003",
+  "new_branch": "JS_V18_ESBUILD_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 169.2
+ },
+ {
+  "old_branch": "CE-N18-004",
+  "new_branch": "JS_V18_ESBUILD_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 109.6
+ },
+ {
+  "old_branch": "CE-N18-005",
+  "new_branch": "JS_V18_ESBUILD_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-005/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:106:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N18-005\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-005/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-005/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-005/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:195:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:337:24)\n            at async loadESM (node:internal/process/esm_loader:34:7)\n            at async handleMainPromise (node:internal/modules/run_main:106:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v18.20.8\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 126.7
+ },
+ {
+  "old_branch": "CE-N18-006",
+  "new_branch": "JS_V18_ESBUILD_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 85.1
+ },
+ {
+  "old_branch": "CE-N18-007",
+  "new_branch": "JS_V18_ESBUILD_BUN_MONO",
+  "pm": "bun",
+  "bundler": "esbuild",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 117.4
+ },
+ {
+  "old_branch": "CE-N18-008",
+  "new_branch": "JS_V18_ESBUILD_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "esbuild",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 88.7
+ },
+ {
+  "old_branch": "CE-N18-009",
+  "new_branch": "JS_V18_VITE_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 427.5
+ },
+ {
+  "old_branch": "CE-N18-010",
+  "new_branch": "JS_V18_VITE_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 131.2
+ },
+ {
+  "old_branch": "CE-N18-011",
+  "new_branch": "JS_V18_VITE_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 156.0
+ },
+ {
+  "old_branch": "CE-N18-012",
+  "new_branch": "JS_V18_VITE_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 106.7
+ },
+ {
+  "old_branch": "CE-N18-013",
+  "new_branch": "JS_V18_VITE_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-013/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:106:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N18-013\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-013/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-013/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-013/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:195:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:337:24)\n            at async loadESM (node:internal/process/esm_loader:34:7)\n            at async handleMainPromise (node:internal/modules/run_main:106:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v18.20.8\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 105.3
+ },
+ {
+  "old_branch": "CE-N18-014",
+  "new_branch": "JS_V18_VITE_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 44.4
+ },
+ {
+  "old_branch": "CE-N18-015",
+  "new_branch": "JS_V18_VITE_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 126.4
+ },
+ {
+  "old_branch": "CE-N18-016",
+  "new_branch": "JS_V18_VITE_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Vite (built as esbuild)",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 59.4
+ },
+ {
+  "old_branch": "CE-N18-017",
+  "new_branch": "JS_V18_WEBPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 478.7
+ },
+ {
+  "old_branch": "CE-N18-018",
+  "new_branch": "JS_V18_WEBPACK_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 149.9
+ },
+ {
+  "old_branch": "CE-N18-019",
+  "new_branch": "JS_V18_WEBPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 145.3
+ },
+ {
+  "old_branch": "CE-N18-020",
+  "new_branch": "JS_V18_WEBPACK_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 115.9
+ },
+ {
+  "old_branch": "CE-N18-021",
+  "new_branch": "JS_V18_WEBPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-021/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:106:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N18-021\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-021/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-021/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-021/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:195:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:337:24)\n            at async loadESM (node:internal/process/esm_loader:34:7)\n            at async handleMainPromise (node:internal/modules/run_main:106:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v18.20.8\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 95.7
+ },
+ {
+  "old_branch": "CE-N18-022",
+  "new_branch": "JS_V18_WEBPACK_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 48.4
+ },
+ {
+  "old_branch": "CE-N18-023",
+  "new_branch": "JS_V18_WEBPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Webpack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 162.6
+ },
+ {
+  "old_branch": "CE-N18-024",
+  "new_branch": "JS_V18_WEBPACK_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Webpack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 66.1
+ },
+ {
+  "old_branch": "CE-N18-025",
+  "new_branch": "JS_V18_ROLLUP_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 336.2
+ },
+ {
+  "old_branch": "CE-N18-026",
+  "new_branch": "JS_V18_ROLLUP_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 110.6
+ },
+ {
+  "old_branch": "CE-N18-027",
+  "new_branch": "JS_V18_ROLLUP_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 156.8
+ },
+ {
+  "old_branch": "CE-N18-028",
+  "new_branch": "JS_V18_ROLLUP_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 92.9
+ },
+ {
+  "old_branch": "CE-N18-029",
+  "new_branch": "JS_V18_ROLLUP_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-029/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:106:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N18-029\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-029/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-029/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-029/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:195:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:337:24)\n            at async loadESM (node:internal/process/esm_loader:34:7)\n            at async handleMainPromise (node:internal/modules/run_main:106:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v18.20.8\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 66.1
+ },
+ {
+  "old_branch": "CE-N18-030",
+  "new_branch": "JS_V18_ROLLUP_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 41.0
+ },
+ {
+  "old_branch": "CE-N18-031",
+  "new_branch": "JS_V18_ROLLUP_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Rollup",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 168.1
+ },
+ {
+  "old_branch": "CE-N18-032",
+  "new_branch": "JS_V18_ROLLUP_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Rollup",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 73.2
+ },
+ {
+  "old_branch": "CE-N18-033",
+  "new_branch": "JS_V18_RSPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 460.9
+ },
+ {
+  "old_branch": "CE-N18-034",
+  "new_branch": "JS_V18_RSPACK_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 140.0
+ },
+ {
+  "old_branch": "CE-N18-035",
+  "new_branch": "JS_V18_RSPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 182.1
+ },
+ {
+  "old_branch": "CE-N18-036",
+  "new_branch": "JS_V18_RSPACK_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 104.0
+ },
+ {
+  "old_branch": "CE-N18-037",
+  "new_branch": "JS_V18_RSPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-037/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:106:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N18-037\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-037/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-037/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-037/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:195:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:337:24)\n            at async loadESM (node:internal/process/esm_loader:34:7)\n            at async handleMainPromise (node:internal/modules/run_main:106:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v18.20.8\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 103.6
+ },
+ {
+  "old_branch": "CE-N18-038",
+  "new_branch": "JS_V18_RSPACK_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 43.7
+ },
+ {
+  "old_branch": "CE-N18-039",
+  "new_branch": "JS_V18_RSPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Rspack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 125.2
+ },
+ {
+  "old_branch": "CE-N18-040",
+  "new_branch": "JS_V18_RSPACK_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Rspack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 94.5
+ },
+ {
+  "old_branch": "CE-N18-041",
+  "new_branch": "JS_V18_PARCEL_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 433.7
+ },
+ {
+  "old_branch": "CE-N18-042",
+  "new_branch": "JS_V18_PARCEL_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 113.1
+ },
+ {
+  "old_branch": "CE-N18-043",
+  "new_branch": "JS_V18_PARCEL_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 149.1
+ },
+ {
+  "old_branch": "CE-N18-044",
+  "new_branch": "JS_V18_PARCEL_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 124.2
+ },
+ {
+  "old_branch": "CE-N18-045",
+  "new_branch": "JS_V18_PARCEL_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-045/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:106:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N18-045\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-045/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-045/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-045/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:195:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:337:24)\n            at async loadESM (node:internal/process/esm_loader:34:7)\n            at async handleMainPromise (node:internal/modules/run_main:106:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v18.20.8\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 126.4
+ },
+ {
+  "old_branch": "CE-N18-046",
+  "new_branch": "JS_V18_PARCEL_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 48.2
+ },
+ {
+  "old_branch": "CE-N18-047",
+  "new_branch": "JS_V18_PARCEL_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Parcel",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 157.6
+ },
+ {
+  "old_branch": "CE-N18-048",
+  "new_branch": "JS_V18_PARCEL_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Parcel",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 96.9
+ },
+ {
+  "old_branch": "CE-N18-049",
+  "new_branch": "JS_V18_TURBOPACK_NPM_MONO",
+  "pm": "npm",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 335.0
+ },
+ {
+  "old_branch": "CE-N18-050",
+  "new_branch": "JS_V18_TURBOPACK_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 125.9
+ },
+ {
+  "old_branch": "CE-N18-051",
+  "new_branch": "JS_V18_TURBOPACK_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 143.5
+ },
+ {
+  "old_branch": "CE-N18-052",
+  "new_branch": "JS_V18_TURBOPACK_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 84.5
+ },
+ {
+  "old_branch": "CE-N18-053",
+  "new_branch": "JS_V18_TURBOPACK_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-053/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:106:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N18-053\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-053/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-053/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-053/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:195:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:337:24)\n            at async loadESM (node:internal/process/esm_loader:34:7)\n            at async handleMainPromise (node:internal/modules/run_main:106:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v18.20.8\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 77.4
+ },
+ {
+  "old_branch": "CE-N18-054",
+  "new_branch": "JS_V18_TURBOPACK_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 41.1
+ },
+ {
+  "old_branch": "CE-N18-055",
+  "new_branch": "JS_V18_TURBOPACK_BUN_MONO",
+  "pm": "bun",
+  "bundler": "Turbopack",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 128.2
+ },
+ {
+  "old_branch": "CE-N18-056",
+  "new_branch": "JS_V18_TURBOPACK_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "Turbopack",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 68.2
+ },
+ {
+  "old_branch": "CE-N18-057",
+  "new_branch": "JS_V18_SWC_NPM_MONO",
+  "pm": "npm",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 203.0
+ },
+ {
+  "old_branch": "CE-N18-058",
+  "new_branch": "JS_V18_SWC_NPM_MICRO",
+  "pm": "npm",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 130.8
+ },
+ {
+  "old_branch": "CE-N18-059",
+  "new_branch": "JS_V18_SWC_YARN_MONO",
+  "pm": "yarn (Berry)",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "Failed to parse oxlint configuration file.\n\n  x Rule 'correctness' not found in plugin 'eslint'\n\n  x Rule 'suspicious' not found in plugin 'eslint'\n\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 146.0
+ },
+ {
+  "old_branch": "CE-N18-060",
+  "new_branch": "JS_V18_SWC_YARN_MICRO",
+  "pm": "yarn (Berry)",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 97.6
+ },
+ {
+  "old_branch": "CE-N18-061",
+  "new_branch": "JS_V18_SWC_PNPM_MONO",
+  "pm": "pnpm",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n          at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-061/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n          ... 6 lines matching cause stack trace ...\n          at async handleMainPromise (node:internal/modules/run_main:106:12) {\n        cause: Error: Cannot find module './oxlint.win32-x64-msvc.node'\n        Require stack:\n        - C:\\Users\\Prajith K\\Desktop\\javascript corpus\\CE-N18-061\\node_modules\\.pnpm\\oxlint@1.83.0\\node_modules\\oxlint\\dist\\bindings.js\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-061/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:401:15\n            at Array.reduce (<anonymous>)\n            at createLoadErrorChain (file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-061/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:394:16)\n            at file:///C:/Users/Prajith%20K/Desktop/javascript%20corpus/CE-N18-061/node_modules/.pnpm/oxlint@1.83.0/node_modules/oxlint/dist/bindings.js:469:23\n            at ModuleJob.run (node:internal/modules/esm/module_job:195:25)\n            at async ModuleLoader.import (node:internal/modules/esm/loader:337:24)\n            at async loadESM (node:internal/process/esm_loader:34:7)\n            at async handleMainPromise (node:internal/modules/run_main:106:12) {\n          cause: null\n        }\n      }\n    }\n  }\n}\n\nNode.js v18.20.8\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 102.0
+ },
+ {
+  "old_branch": "CE-N18-062",
+  "new_branch": "JS_V18_SWC_PNPM_MICRO",
+  "pm": "pnpm",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 44.9
+ },
+ {
+  "old_branch": "CE-N18-063",
+  "new_branch": "JS_V18_SWC_BUN_MONO",
+  "pm": "bun",
+  "bundler": "SWC",
+  "arch": "Monolith",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "lint:oxlint": {
+   "code": 1,
+   "crashed_despite_exit_code": false,
+   "tail": "$ oxlint .\nerror: script \"lint:oxlint\" exited with code 1\n"
+  },
+  "duplication": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "dataflow": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "mutation": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 76.4
+ },
+ {
+  "old_branch": "CE-N18-064",
+  "new_branch": "JS_V18_SWC_BUN_MICRO",
+  "pm": "bun",
+  "bundler": "SWC",
+  "arch": "Microservices",
+  "install": {
+   "code": 0,
+   "err_tail": ""
+  },
+  "test": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "build": {
+   "code": 0,
+   "crashed_despite_exit_code": false,
+   "tail": "ok"
+  },
+  "elapsed_s": 57.7
+ }
+]

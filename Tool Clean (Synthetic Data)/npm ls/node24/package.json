@@ -1,9 +1,0 @@
-{
-  "name": "satchel",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Delivery satchel route tracker for the npm-ls clean-corpus folder.",
-  "type": "commonjs",
-  "dependencies": {},
-  "devDependencies": {}
-}
