@@ -1,10 +1,10 @@
-# JS_V26_SWC_NPM_MICRO -- Node 26.8.1 / npm
+# JS_V26_SWC_NPM_MONO -- Node 26.8.1 / npm
 NODE ?= node
 
 .PHONY: help setup install lock test check tools verify audit clean
 
 help:
-	@echo "JS_V26_SWC_NPM_MICRO  (Node 26.8.1 / npm)"
+	@echo "JS_V26_SWC_NPM_MONO  (Node 26.8.1 / npm)"
 	@echo ""
 	@echo "  make setup     install the package manager this branch is pinned to"
 	@echo "  make install   install the project and its tool pins"
