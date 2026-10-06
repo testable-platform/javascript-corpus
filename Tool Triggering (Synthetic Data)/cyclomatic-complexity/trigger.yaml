@@ -3,9 +3,9 @@ tool: cyclomatic-complexity
 dir: cyclomatic-complexity
 role: alternative
 block: Cyclomatic Complexity
-branch: JS_V21_WEBPACK_YARN_MONO
-node_family: "21"
-node_version: "21.7.3"
+branch: JS_V22_ESBUILD_BUN_MICRO
+node_family: "22"
+node_version: "22.23.2"
 pin: cyclomatic-complexity@1.2.5
 status: active
 measured: false
@@ -14,6 +14,6 @@ outputs: reports/cyclomatic-complexity.json
 expects: >-
   the same per-function CCN as Lizard (evaluatePolicy at 18 the highest), from an independent implementation
 note: >-
-  cyclomatic-complexity 1.2.5 declares Node 21 compatibility (npm registry engines.node range).
+  cyclomatic-complexity 1.2.5 declares Node 22 compatibility (npm registry engines.node range).
 skip_exit_code: 3          # cannot run on this Node family
 missing_exit_code: 4       # binary/toolchain absent from this host

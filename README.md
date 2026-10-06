@@ -1,4 +1,4 @@
-﻿# JS_V21_WEBPACK_YARN_MONO
+﻿# JS_V22_ESBUILD_BUN_MICRO
 
 Part of the `javascript-combos` white-box test-repo corpus (GraniteMill /
 `granite-mill`, domain: Community garden plots).
@@ -7,13 +7,13 @@ Part of the `javascript-combos` white-box test-repo corpus (GraniteMill /
 
 | Variable | This branch |
 | --- | --- |
-| Branch | `JS_V21_WEBPACK_YARN_MONO` |
-| Node.js | 21.7.3 (family V21) |
-| Bundler | Webpack |
-| Package manager | yarn (Berry) |
+| Branch | `JS_V22_ESBUILD_BUN_MICRO` |
+| Node.js | 22.23.2 (family V22) |
+| Bundler | esbuild |
+| Package manager | bun |
 | Bundled npm | 10.9.2 |
-| Architecture | Monolith |
-| Source root | `src` |
+| Architecture | Microservices |
+| Source root | `packages/shared/src` |
 
 The application code under `src/` (or `packages/*/src/` for Microservices
 branches) is byte-identical across all 576 branches of this corpus; only the
@@ -23,8 +23,8 @@ status on this Node family vary.
 ## Supported tools
 
 21 tools are wired on this corpus (one `tools/<dir>/` folder
-each, covering the 103-metric white-box framework). **17 of them
-run on Node 21; 4 do not.**
+each, covering the 103-metric white-box framework). **16 of them
+run on Node 22; 5 do not.**
 
 That is the measurement, not a defect. A tool that cannot run exits **3**,
 not 0 -- a skip that looks like a pass is the failure mode this corpus
@@ -39,31 +39,31 @@ is a claim, invoking is the fact, and this corpus never blurs the two.
 | Tool | Role | Pin | Why |
 | --- | --- | --- | --- |
 | `Lizard` | primary | lizard (pip) | measured directly: pip-installed and run for real against this domain's src/ (lizard 1.24.0). Found policy.js's evaluatePolicy as the highest-CCN function at 18 -- corrects an earlier assumption that dataflow.js's tally loop (CCN 17) was highest; Node-independent by construction, so this holds on every family. _(measured: real invocation confirmed by Claude Code)_ |
-| `cyclomatic-complexity` | alternative | cyclomatic-complexity==1.2.5 | cyclomatic-complexity 1.2.5 declares Node 21 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `eslint-plugin-sonarjs` | primary | eslint-plugin-sonarjs==4.2.1 | eslint-plugin-sonarjs 4.2.1 declares Node 21 compatibility; runs through eslint itself. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `cognitive-complexity-ts` | alternative | cognitive-complexity-ts==0.8.2 | cognitive-complexity-ts 0.8.2 declares Node 21 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `jscpd` | primary | jscpd==5.2.1 | jscpd 5.2.1 declares Node 21 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `eslint` | primary | eslint==9.39.5 | eslint 9.39.5 declares Node 21 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `eslint-plugin-security` | primary | eslint-plugin-security==4.0.1 | eslint-plugin-security 4.0.1 declares Node 21 compatibility; runs through eslint itself. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+| `cyclomatic-complexity` | alternative | cyclomatic-complexity==1.2.5 | cyclomatic-complexity 1.2.5 declares Node 22 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+| `eslint-plugin-sonarjs` | primary | eslint-plugin-sonarjs==4.2.1 | eslint-plugin-sonarjs 4.2.1 declares Node 22 compatibility; runs through eslint itself. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+| `cognitive-complexity-ts` | alternative | cognitive-complexity-ts==0.8.2 | cognitive-complexity-ts 0.8.2 declares Node 22 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+| `jscpd` | primary | jscpd==5.2.1 | jscpd 5.2.1 declares Node 22 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+| `eslint` | primary | eslint==10.10.0 | eslint 10.10.0 declares Node 22 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+| `eslint-plugin-security` | primary | eslint-plugin-security==4.0.1 | eslint-plugin-security 4.0.1 declares Node 22 compatibility; runs through eslint itself. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
 | `npm audit + npm ls` | primary | n/a | npm's own bundled audit/ls -- ships with npm itself on every Node family this corpus supports. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `nyc + mocha` | primary | nyc==17.1.0 | clean on every family once the architecture-aware test glob (bug #1) and the Microservices require() path (bug #4) were both fixed. _(measured: real invocation confirmed by Claude Code)_ |
-| `monocart-coverage-reports` | alternative | monocart-coverage-reports==2.13.0 | monocart-coverage-reports 2.13.0 declares Node 21 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `StrykerJS + Mocha` | primary | @stryker-mutator/core==9.6.1 | this family happened to resolve an older, mutually-compatible mocha/Stryker pairing at install time -- confirms the N20 incompatibility is driven by registry/cache state, not Node version. _(measured: real invocation confirmed by Claude Code)_ |
-| `gutcheck` | alternative | gutcheck==0.10.0 | gutcheck 0.10.0 declares Node 21 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+| `nyc + mocha` | primary | nyc==18.0.0 | clean on every family once the architecture-aware test glob (bug #1) and the Microservices require() path (bug #4) were both fixed. _(measured: real invocation confirmed by Claude Code)_ |
+| `monocart-coverage-reports` | alternative | monocart-coverage-reports==2.13.0 | monocart-coverage-reports 2.13.0 declares Node 22 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+| `gutcheck` | alternative | gutcheck==0.10.0 | gutcheck 0.10.0 declares Node 22 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
 | `diff-cover` | primary | diff-cover (pip) | the diff-cover CLI itself was invoked for real (pip install + --help) and works; its coverage-delta output depends on nyc's cobertura report, which needs a full npm install this session's verification bridge could not complete (slow mounted filesystem + shared disk quota, not a tool defect -- see javascript-repos-build-contract.md). Node-independent by construction. _(measured: real invocation confirmed by Claude Code)_ |
-| `ESLint (eslint-scope)` | primary | eslint-scope==8.4.0 | clean on every family tested (12 through 26) -- the dataflow script is hand-written without `?.`/`??` specifically so it never depends on the same syntax features that break other tools on the oldest families. _(measured: real invocation confirmed by Claude Code)_ |
-| `knip` | alternative | knip==5.88.1 | knip 5.88.1 declares Node 21 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+| `ESLint (eslint-scope)` | primary | eslint-scope==9.1.2 | clean on every family tested (12 through 26) -- the dataflow script is hand-written without `?.`/`??` specifically so it never depends on the same syntax features that break other tools on the oldest families. _(measured: real invocation confirmed by Claude Code)_ |
+| `knip` | alternative | knip==6.36.0 | knip 6.36.0 declares Node 22 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
 | `PyDriller` | primary | pydriller (pip) | PyDriller is a Python package invoked externally via a small wrapper script -- Node-version-independent by construction. _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
-| `Git-Spark` | alternative | git-spark==1.3.0 | Git-Spark 1.3.0 declares Node 21 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
+| `Git-Spark` | alternative | git-spark==1.3.2 | Git-Spark 1.3.2 declares Node 22 compatibility (npm registry engines.node range). _(declared active from npm registry data; not yet individually invoke-verified on this family)_ |
 
 ### Dark here
 
 | Tool | Role | Status | Why |
 | --- | --- | --- | --- |
 | `Dolos` | alternative | not installed | dolos's native tree-sitter step needs a C++ toolchain -- already documented as absent on this host by the C#/Python sibling corpora's own precedent; installs with --ignore-scripts, which skips the native build |
-| `oxlint` | alternative | skipped | a third distinct oxlint-1.83.0 breakage mode: `node_modules/@oxlint/` exists but is empty -- the platform-specific native-binding optional dependency didn't install, so oxlint's own bindings loader has nothing to load, regardless of package manager. |
+| `oxlint` | alternative | skipped | oxlint resolved to 1.83.0 again; same config-schema break as N18/N20. |
 | `OpenGrep` | alternative | not installed | standalone binary, not installable via npm/pip on this host -- same category as Dolos's native step and the Python corpus's own Trivy/OpenGrep entries |
 | `Trivy` | alternative | not installed | standalone binary, not installable via npm/pip on this host |
+| `StrykerJS + Mocha` | primary | skipped | mocha resolved to 12.0.2 (newer even than N20's 12.0.1) -- reproduces the same mocha-12/Stryker incompatibility as N20. |
 
 ## Build
 
@@ -75,13 +75,13 @@ npm run build
 ## Run
 
 ```
-node src/index.js
+node packages/shared/src/index.js
 ```
 
 ## Test
 
 ```
-npm test              # mocha tests/**/*.test.js
+npm test              # mocha packages/shared/tests/**/*.test.js
 npm run coverage      # nyc + mocha
 make check            # tools/full_check.js -- cross-file consistency audit
 ```
@@ -136,14 +136,14 @@ reason it does not. Only the third is a finding.
 
 | Fixture | File(s) | Planted for |
 | --- | --- | --- |
-| Duplication | [`src/http-errors.js`](src/http-errors.js) + [`src/http-errors-legacy.js`](src/http-errors-legacy.js) | jscpd, Dolos |
+| Duplication | [`packages/shared/src/http-errors.js`](packages/shared/src/http-errors.js) + [`packages/shared/src/http-errors-legacy.js`](packages/shared/src/http-errors-legacy.js) | jscpd, Dolos |
 
 ## Workspace layout
 
 ```
-javascript-combos/  (JS_V21_WEBPACK_YARN_MONO)
+javascript-combos/  (JS_V22_ESBUILD_BUN_MICRO)
 |-- .github/
-|-- src/
+|-- packages/
 |-- tests/  (or packages/shared/tests/ for Microservices)
 |-- tools/  (21 tool directories + _skip.sh, tool_integration.js, full_check.js)
 |-- Makefile
