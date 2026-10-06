@@ -3,7 +3,7 @@ tool: cyclomatic-complexity
 dir: cyclomatic-complexity
 role: alternative
 block: Cyclomatic Complexity
-branch: JS_V24_ESBUILD_NPM_MICRO
+branch: JS_V24_ESBUILD_NPM_MONO
 node_family: "24"
 node_version: "24.20.0"
 pin: cyclomatic-complexity@1.2.5
