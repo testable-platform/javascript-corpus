@@ -3,7 +3,7 @@ tool: Git-Spark
 dir: git-spark
 role: alternative
 block: Code Churn
-branch: JS_V21_VITE_YARN_MICRO
+branch: JS_V21_VITE_YARN_MONO
 node_family: "21"
 node_version: "21.7.3"
 pin: git-spark@1.3.0
