@@ -3,7 +3,7 @@ tool: knip
 dir: knip
 role: alternative
 block: All Definition Coverage / All Uses Coverage
-branch: JS_V21_RSPACK_BUN_MONO
+branch: JS_V21_RSPACK_NPM_MICRO
 node_family: "21"
 node_version: "21.7.3"
 pin: knip@5.88.1
