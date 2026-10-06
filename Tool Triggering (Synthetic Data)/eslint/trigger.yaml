@@ -3,7 +3,7 @@ tool: eslint
 dir: eslint
 role: primary
 block: Lint / Rule Violations
-branch: JS_V26_ROLLUP_YARN_MONO
+branch: JS_V26_RSPACK_BUN_MICRO
 node_family: "26"
 node_version: "26.8.1"
 pin: eslint@10.10.0
