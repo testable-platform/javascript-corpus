@@ -3,7 +3,7 @@ tool: eslint
 dir: eslint
 role: primary
 block: Lint / Rule Violations
-branch: JS_V20_WEBPACK_BUN_MICRO
+branch: JS_V20_WEBPACK_BUN_MONO
 node_family: "20"
 node_version: "20.20.2"
 pin: eslint@10.10.0
