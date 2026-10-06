@@ -3,7 +3,7 @@ tool: ESLint (eslint-scope)
 dir: eslint-scope
 role: primary
 block: All Definition Coverage / All Uses Coverage
-branch: JS_V20_VITE_NPM_MONO
+branch: JS_V20_VITE_PNPM_MICRO
 node_family: "20"
 node_version: "20.20.2"
 pin: eslint-scope@9.1.2
