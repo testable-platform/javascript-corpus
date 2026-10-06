@@ -3,7 +3,7 @@ tool: Dolos
 dir: dolos
 role: alternative
 block: Code Duplication
-branch: JS_V22_VITE_BUN_MONO
+branch: JS_V22_VITE_NPM_MICRO
 node_family: "22"
 node_version: "22.23.2"
 pin: @dodona/dolos@2.9.3
