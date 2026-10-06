@@ -3,7 +3,7 @@ tool: jscpd
 dir: jscpd
 role: primary
 block: Code Duplication
-branch: JS_V26_SWC_PNPM_MONO
+branch: JS_V26_SWC_YARN_MICRO
 node_family: "26"
 node_version: "26.8.1"
 pin: jscpd@5.2.1
