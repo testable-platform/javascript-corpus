@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 /**
- * Tool integration entry point for branch JS_V20_ROLLUP_YARN_MONO (Node 20).
+ * Tool integration entry point for branch JS_V20_RSPACK_BUN_MICRO (Node 20).
  *
  *   node tools/tool_integration.js            banner
  *   node tools/tool_integration.js --verify   check every tool is wired
@@ -52,7 +52,7 @@ function loadDataset() {
 function banner() {
   const data = loadDataset();
   console.log('='.repeat(78));
-  console.log(`  JS_V20_ROLLUP_YARN_MONO  --  Node 20 (20.20.2)`);
+  console.log(`  JS_V20_RSPACK_BUN_MICRO  --  Node 20 (20.20.2)`);
   console.log('='.repeat(78));
   console.log(`  bundler        : ${data.bundler}`);
   console.log(`  package manager: ${data.packageManager}`);
