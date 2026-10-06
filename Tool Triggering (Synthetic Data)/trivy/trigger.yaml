@@ -3,7 +3,7 @@ tool: Trivy
 dir: trivy
 role: alternative
 block: Dependency Risk (SCA)
-branch: JS_V12_ESBUILD_NPM_MICRO
+branch: JS_V12_ESBUILD_PNPM_MICRO
 node_family: "12"
 node_version: "12.22.12"
 pin: null

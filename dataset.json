@@ -1,5 +1,5 @@
 {
-  "branchId": "JS_V12_ESBUILD_NPM_MICRO",
+  "branchId": "JS_V12_ESBUILD_PNPM_MICRO",
   "repository": "javascript-combos",
   "productName": "GraniteMill",
   "packageName": "granite-mill",
@@ -8,7 +8,7 @@
   "node": "12.22.12",
   "nodeFamily": 12,
   "bundler": "esbuild",
-  "packageManager": "npm",
+  "packageManager": "pnpm",
   "bundledNpm": "6.14.18",
   "architecture": "Microservices",
   "sourceRoot": "packages",
