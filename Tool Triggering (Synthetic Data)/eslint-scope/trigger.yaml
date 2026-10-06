@@ -3,7 +3,7 @@ tool: ESLint (eslint-scope)
 dir: eslint-scope
 role: primary
 block: All Definition Coverage / All Uses Coverage
-branch: JS_V22_VITE_YARN_MONO
+branch: JS_V22_WEBPACK_BUN_MICRO
 node_family: "22"
 node_version: "22.23.2"
 pin: eslint-scope@9.1.2
