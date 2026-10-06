@@ -1,5 +1,5 @@
 {
-  "branchId": "JS_V20_WEBPACK_YARN_MICRO",
+  "branchId": "JS_V20_WEBPACK_YARN_MONO",
   "repository": "javascript-combos",
   "productName": "GraniteMill",
   "packageName": "granite-mill",
@@ -10,8 +10,8 @@
   "bundler": "Webpack",
   "packageManager": "yarn (Berry)",
   "bundledNpm": "10.8.2",
-  "architecture": "Microservices",
-  "sourceRoot": "packages",
+  "architecture": "Monolith",
+  "sourceRoot": "src",
   "package": "granite-mill",
   "testRunner": "mocha@12.0.1",
   "branchFunctional": true,
@@ -286,8 +286,8 @@
   ],
   "plantedFixtures": {
     "duplication": [
-      "packages/shared/src/http-errors.js",
-      "packages/shared/src/http-errors-legacy.js"
+      "src/http-errors.js",
+      "src/http-errors-legacy.js"
     ]
   },
   "metrics": [
