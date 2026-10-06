@@ -3,7 +3,7 @@ tool: monocart-coverage-reports
 dir: monocart
 role: alternative
 block: Statement Coverage / Branch Coverage / Path Coverage (proxy) / Coverage Delta
-branch: JS_V24_SWC_PNPM_MONO
+branch: JS_V24_SWC_YARN_MICRO
 node_family: "24"
 node_version: "24.20.0"
 pin: monocart-coverage-reports@2.13.0

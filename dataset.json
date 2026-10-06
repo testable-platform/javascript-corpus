@@ -1,5 +1,5 @@
 {
-  "branchId": "JS_V24_SWC_PNPM_MONO",
+  "branchId": "JS_V24_SWC_YARN_MICRO",
   "repository": "javascript-combos",
   "productName": "GraniteMill",
   "packageName": "granite-mill",
@@ -8,10 +8,10 @@
   "node": "24.20.0",
   "nodeFamily": 24,
   "bundler": "SWC",
-  "packageManager": "pnpm",
+  "packageManager": "yarn (Berry)",
   "bundledNpm": "10.9.2",
-  "architecture": "Monolith",
-  "sourceRoot": "src",
+  "architecture": "Microservices",
+  "sourceRoot": "packages",
   "package": "granite-mill",
   "testRunner": "mocha@12.0.1",
   "branchFunctional": true,
@@ -286,8 +286,8 @@
   ],
   "plantedFixtures": {
     "duplication": [
-      "src/http-errors.js",
-      "src/http-errors-legacy.js"
+      "packages/shared/src/http-errors.js",
+      "packages/shared/src/http-errors-legacy.js"
     ]
   },
   "metrics": [
