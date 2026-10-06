@@ -3,7 +3,7 @@ tool: nyc + mocha
 dir: nyc
 role: primary
 block: Statement Coverage / Branch Coverage / Path Coverage (proxy)
-branch: JS_V20_RSPACK_PNPM_MICRO
+branch: JS_V20_RSPACK_PNPM_MONO
 node_family: "20"
 node_version: "20.20.2"
 pin: nyc@18.0.0
