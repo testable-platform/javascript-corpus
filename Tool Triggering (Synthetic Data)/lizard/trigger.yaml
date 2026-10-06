@@ -3,7 +3,7 @@ tool: Lizard
 dir: lizard
 role: primary
 block: Cyclomatic Complexity
-branch: JS_V26_RSPACK_NPM_MONO
+branch: JS_V26_RSPACK_PNPM_MICRO
 node_family: "26"
 node_version: "26.8.1"
 pin: lizard (pip, latest)

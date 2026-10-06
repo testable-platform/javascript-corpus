@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './src/index.js',
+  entry: './packages/api/src/index.js',
   target: 'node',
   mode: 'production',
   output: {
