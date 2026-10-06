@@ -3,7 +3,7 @@ tool: monocart-coverage-reports
 dir: monocart
 role: alternative
 block: Statement Coverage / Branch Coverage / Path Coverage (proxy) / Coverage Delta
-branch: JS_V20_ESBUILD_YARN_MONO
+branch: JS_V20_PARCEL_BUN_MICRO
 node_family: "20"
 node_version: "20.20.2"
 pin: monocart-coverage-reports@2.13.0
