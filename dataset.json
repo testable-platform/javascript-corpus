@@ -1,5 +1,5 @@
 {
-  "branchId": "JS_V21_ESBUILD_BUN_MONO",
+  "branchId": "JS_V21_ESBUILD_NPM_MICRO",
   "repository": "javascript-combos",
   "productName": "GraniteMill",
   "packageName": "granite-mill",
@@ -8,10 +8,10 @@
   "node": "21.7.3",
   "nodeFamily": 21,
   "bundler": "esbuild",
-  "packageManager": "bun",
+  "packageManager": "npm",
   "bundledNpm": "10.9.2",
-  "architecture": "Monolith",
-  "sourceRoot": "src",
+  "architecture": "Microservices",
+  "sourceRoot": "packages",
   "package": "granite-mill",
   "testRunner": "mocha@11.8.0",
   "branchFunctional": true,
@@ -276,8 +276,8 @@
   ],
   "plantedFixtures": {
     "duplication": [
-      "src/http-errors.js",
-      "src/http-errors-legacy.js"
+      "packages/shared/src/http-errors.js",
+      "packages/shared/src/http-errors-legacy.js"
     ]
   },
   "metrics": [
