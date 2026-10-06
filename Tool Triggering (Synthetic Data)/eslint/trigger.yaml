@@ -3,7 +3,7 @@ tool: eslint
 dir: eslint
 role: primary
 block: Lint / Rule Violations
-branch: JS_V22_TURBOPACK_NPM_MICRO
+branch: JS_V22_TURBOPACK_NPM_MONO
 node_family: "22"
 node_version: "22.23.2"
 pin: eslint@10.10.0
