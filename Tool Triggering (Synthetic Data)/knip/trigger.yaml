@@ -3,7 +3,7 @@ tool: knip
 dir: knip
 role: alternative
 block: All Definition Coverage / All Uses Coverage
-branch: JS_V22_WEBPACK_PNPM_MONO
+branch: JS_V22_WEBPACK_YARN_MICRO
 node_family: "22"
 node_version: "22.23.2"
 pin: knip@6.36.0
