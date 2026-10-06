@@ -1,10 +1,10 @@
-# JS_V24_VITE_YARN_MICRO -- Node 24.20.0 / yarn
+# JS_V24_VITE_YARN_MONO -- Node 24.20.0 / yarn
 NODE ?= node
 
 .PHONY: help setup install lock test check tools verify audit clean
 
 help:
-	@echo "JS_V24_VITE_YARN_MICRO  (Node 24.20.0 / yarn)"
+	@echo "JS_V24_VITE_YARN_MONO  (Node 24.20.0 / yarn)"
 	@echo ""
 	@echo "  make setup     install the package manager this branch is pinned to"
 	@echo "  make install   install the project and its tool pins"
