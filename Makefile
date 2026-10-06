@@ -1,10 +1,10 @@
-# JS_V24_TURBOPACK_PNPM_MICRO -- Node 24.20.0 / pnpm
+# JS_V24_TURBOPACK_PNPM_MONO -- Node 24.20.0 / pnpm
 NODE ?= node
 
 .PHONY: help setup install lock test check tools verify audit clean
 
 help:
-	@echo "JS_V24_TURBOPACK_PNPM_MICRO  (Node 24.20.0 / pnpm)"
+	@echo "JS_V24_TURBOPACK_PNPM_MONO  (Node 24.20.0 / pnpm)"
 	@echo ""
 	@echo "  make setup     install the package manager this branch is pinned to"
 	@echo "  make install   install the project and its tool pins"
