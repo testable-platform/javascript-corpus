@@ -1,10 +1,10 @@
-# JS_V21_WEBPACK_NPM_MONO -- Node 21.7.3 / npm
+# JS_V21_WEBPACK_PNPM_MICRO -- Node 21.7.3 / pnpm
 NODE ?= node
 
 .PHONY: help setup install lock test check tools verify audit clean
 
 help:
-	@echo "JS_V21_WEBPACK_NPM_MONO  (Node 21.7.3 / npm)"
+	@echo "JS_V21_WEBPACK_PNPM_MICRO  (Node 21.7.3 / pnpm)"
 	@echo ""
 	@echo "  make setup     install the package manager this branch is pinned to"
 	@echo "  make install   install the project and its tool pins"
@@ -16,13 +16,13 @@ help:
 	@echo "  make audit     dependency listing for this branch's manager"
 
 setup:
-	@echo "this branch is pinned to npm -- see README.md for install instructions"
+	@echo "this branch is pinned to pnpm -- see README.md for install instructions"
 
 install:
-	npm install
+	pnpm install
 
 lock:
-	npm ci
+	pnpm install --frozen-lockfile
 
 test:
 	npm test
@@ -37,7 +37,7 @@ verify:
 	$(NODE) tools/tool_integration.js --verify
 
 audit:
-	npm ls --all
+	pnpm list -r
 
 clean:
 	rm -rf reports coverage dist .nyc_output .stryker-tmp .parcel-cache .turbo
