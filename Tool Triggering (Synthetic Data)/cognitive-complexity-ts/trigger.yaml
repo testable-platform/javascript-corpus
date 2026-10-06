@@ -3,7 +3,7 @@ tool: cognitive-complexity-ts
 dir: cognitive-complexity-ts
 role: alternative
 block: Cognitive Complexity
-branch: JS_V24_SWC_YARN_MICRO
+branch: JS_V24_SWC_YARN_MONO
 node_family: "24"
 node_version: "24.20.0"
 pin: cognitive-complexity-ts@0.8.2
