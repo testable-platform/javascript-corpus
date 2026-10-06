@@ -1,10 +1,10 @@
-# JS_V12_ESBUILD_BUN_MONO -- Node 12.22.12 / bun
+# JS_V12_ESBUILD_BUN_MICRO -- Node 12.22.12 / bun
 NODE ?= node
 
 .PHONY: help setup install lock test check tools verify audit clean
 
 help:
-	@echo "JS_V12_ESBUILD_BUN_MONO  (Node 12.22.12 / bun)"
+	@echo "JS_V12_ESBUILD_BUN_MICRO  (Node 12.22.12 / bun)"
 	@echo ""
 	@echo "  make setup     install the package manager this branch is pinned to"
 	@echo "  make install   install the project and its tool pins"
