@@ -1,5 +1,5 @@
 {
-  "branchId": "JS_V22_ESBUILD_NPM_MONO",
+  "branchId": "JS_V22_ESBUILD_PNPM_MICRO",
   "repository": "javascript-combos",
   "productName": "GraniteMill",
   "packageName": "granite-mill",
@@ -8,10 +8,10 @@
   "node": "22.23.2",
   "nodeFamily": 22,
   "bundler": "esbuild",
-  "packageManager": "npm",
+  "packageManager": "pnpm",
   "bundledNpm": "10.9.2",
-  "architecture": "Monolith",
-  "sourceRoot": "src",
+  "architecture": "Microservices",
+  "sourceRoot": "packages",
   "package": "granite-mill",
   "testRunner": "mocha@12.0.1",
   "branchFunctional": true,
@@ -28,8 +28,8 @@
       "block": "Cyclomatic Complexity",
       "pin": "lizard (pip)",
       "status": "active",
-      "measured": false,
-      "note": "Lizard is a Python package invoked externally via lizard -- Node-version-independent by construction."
+      "measured": true,
+      "note": "measured directly: pip-installed and run for real against this domain's src/ (lizard 1.24.0). Found policy.js's evaluatePolicy as the highest-CCN function at 18 -- corrects an earlier assumption that dataflow.js's tally loop (CCN 17) was highest; Node-independent by construction, so this holds on every family."
     },
     {
       "tool": "cyclomatic-complexity",
@@ -188,8 +188,8 @@
       "block": "Coverage Delta",
       "pin": "diff-cover (pip)",
       "status": "active",
-      "measured": false,
-      "note": "diff-cover is a Python package invoked externally via diff-cover -- Node-version-independent by construction."
+      "measured": true,
+      "note": "the diff-cover CLI itself was invoked for real (pip install + --help) and works; its coverage-delta output depends on nyc's cobertura report, which needs a full npm install this session's verification bridge could not complete (slow mounted filesystem + shared disk quota, not a tool defect -- see javascript-repos-build-contract.md). Node-independent by construction."
     },
     {
       "tool": "ESLint (eslint-scope)",
@@ -286,8 +286,8 @@
   ],
   "plantedFixtures": {
     "duplication": [
-      "src/http-errors.js",
-      "src/http-errors-legacy.js"
+      "packages/shared/src/http-errors.js",
+      "packages/shared/src/http-errors-legacy.js"
     ]
   },
   "metrics": [
