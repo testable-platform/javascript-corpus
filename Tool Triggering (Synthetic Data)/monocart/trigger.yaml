@@ -3,9 +3,9 @@ tool: monocart-coverage-reports
 dir: monocart
 role: alternative
 block: Statement Coverage / Branch Coverage / Path Coverage (proxy) / Coverage Delta
-branch: JS_V24_WEBPACK_YARN_MONO
-node_family: "24"
-node_version: "24.20.0"
+branch: JS_V26_ESBUILD_BUN_MICRO
+node_family: "26"
+node_version: "26.8.1"
 pin: monocart-coverage-reports@2.13.0
 status: active
 measured: false
@@ -14,6 +14,6 @@ outputs: reports/monocart
 expects: >-
   coverage numbers within rounding of nyc's, from an independent V8-coverage-based reporter
 note: >-
-  monocart-coverage-reports 2.13.0 declares Node 24 compatibility (npm registry engines.node range).
+  monocart-coverage-reports 2.13.0 declares Node 26 compatibility (npm registry engines.node range).
 skip_exit_code: 3          # cannot run on this Node family
 missing_exit_code: 4       # binary/toolchain absent from this host

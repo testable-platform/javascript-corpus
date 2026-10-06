@@ -1,17 +1,17 @@
 {
-  "branchId": "JS_V24_WEBPACK_YARN_MONO",
+  "branchId": "JS_V26_ESBUILD_BUN_MICRO",
   "repository": "javascript-combos",
   "productName": "GraniteMill",
   "packageName": "granite-mill",
   "domain": "Community garden plots",
   "language": "JavaScript",
-  "node": "24.20.0",
-  "nodeFamily": 24,
-  "bundler": "Webpack",
-  "packageManager": "yarn (Berry)",
+  "node": "26.8.1",
+  "nodeFamily": 26,
+  "bundler": "esbuild",
+  "packageManager": "bun",
   "bundledNpm": "10.9.2",
-  "architecture": "Monolith",
-  "sourceRoot": "src",
+  "architecture": "Microservices",
+  "sourceRoot": "packages",
   "package": "granite-mill",
   "testRunner": "mocha@12.0.1",
   "branchFunctional": true,
@@ -39,7 +39,7 @@
       "pin": "cyclomatic-complexity==1.2.5",
       "status": "active",
       "measured": false,
-      "note": "cyclomatic-complexity 1.2.5 declares Node 24 compatibility (npm registry engines.node range)."
+      "note": "cyclomatic-complexity 1.2.5 declares Node 26 compatibility (npm registry engines.node range)."
     },
     {
       "tool": "eslint-plugin-sonarjs",
@@ -49,7 +49,7 @@
       "pin": "eslint-plugin-sonarjs==4.2.1",
       "status": "active",
       "measured": false,
-      "note": "eslint-plugin-sonarjs 4.2.1 declares Node 24 compatibility; runs through eslint itself."
+      "note": "eslint-plugin-sonarjs 4.2.1 declares Node 26 compatibility; runs through eslint itself."
     },
     {
       "tool": "cognitive-complexity-ts",
@@ -59,7 +59,7 @@
       "pin": "cognitive-complexity-ts==0.8.2",
       "status": "active",
       "measured": false,
-      "note": "cognitive-complexity-ts 0.8.2 declares Node 24 compatibility (npm registry engines.node range)."
+      "note": "cognitive-complexity-ts 0.8.2 declares Node 26 compatibility (npm registry engines.node range)."
     },
     {
       "tool": "jscpd",
@@ -69,7 +69,7 @@
       "pin": "jscpd==5.2.1",
       "status": "active",
       "measured": false,
-      "note": "jscpd 5.2.1 declares Node 24 compatibility (npm registry engines.node range)."
+      "note": "jscpd 5.2.1 declares Node 26 compatibility (npm registry engines.node range)."
     },
     {
       "tool": "Dolos",
@@ -89,7 +89,7 @@
       "pin": "eslint==10.10.0",
       "status": "active",
       "measured": false,
-      "note": "eslint 10.10.0 declares Node 24 compatibility (npm registry engines.node range)."
+      "note": "eslint 10.10.0 declares Node 26 compatibility (npm registry engines.node range)."
     },
     {
       "tool": "oxlint",
@@ -99,7 +99,7 @@
       "pin": "oxlint==1.83.0",
       "status": "skipped",
       "measured": true,
-      "note": "same 1.83.0 config-schema break as N18/N20/N22."
+      "note": "same 1.83.0 config-schema break as every family from 18 onward."
     },
     {
       "tool": "eslint-plugin-security",
@@ -109,7 +109,7 @@
       "pin": "eslint-plugin-security==4.0.1",
       "status": "active",
       "measured": false,
-      "note": "eslint-plugin-security 4.0.1 declares Node 24 compatibility; runs through eslint itself."
+      "note": "eslint-plugin-security 4.0.1 declares Node 26 compatibility; runs through eslint itself."
     },
     {
       "tool": "OpenGrep",
@@ -159,7 +159,7 @@
       "pin": "monocart-coverage-reports==2.13.0",
       "status": "active",
       "measured": false,
-      "note": "monocart-coverage-reports 2.13.0 declares Node 24 compatibility (npm registry engines.node range)."
+      "note": "monocart-coverage-reports 2.13.0 declares Node 26 compatibility (npm registry engines.node range)."
     },
     {
       "tool": "StrykerJS + Mocha",
@@ -169,7 +169,7 @@
       "pin": "@stryker-mutator/core==10.0.0",
       "status": "skipped",
       "measured": true,
-      "note": "same mocha-12/Stryker incompatibility as N20/N22."
+      "note": "same mocha-12/Stryker incompatibility as N20/N22/N24."
     },
     {
       "tool": "gutcheck",
@@ -179,7 +179,7 @@
       "pin": "gutcheck==0.10.0",
       "status": "active",
       "measured": false,
-      "note": "gutcheck 0.10.0 declares Node 24 compatibility (npm registry engines.node range)."
+      "note": "gutcheck 0.10.0 declares Node 26 compatibility (npm registry engines.node range)."
     },
     {
       "tool": "diff-cover",
@@ -209,7 +209,7 @@
       "pin": "knip==6.36.0",
       "status": "active",
       "measured": false,
-      "note": "knip 6.36.0 declares Node 24 compatibility (npm registry engines.node range)."
+      "note": "knip 6.36.0 declares Node 26 compatibility (npm registry engines.node range)."
     },
     {
       "tool": "PyDriller",
@@ -229,7 +229,7 @@
       "pin": "git-spark==1.3.2",
       "status": "active",
       "measured": false,
-      "note": "Git-Spark 1.3.2 declares Node 24 compatibility (npm registry engines.node range)."
+      "note": "Git-Spark 1.3.2 declares Node 26 compatibility (npm registry engines.node range)."
     }
   ],
   "toolsInactive": [
@@ -251,7 +251,7 @@
       "pin": "oxlint==1.83.0",
       "status": "skipped",
       "measured": true,
-      "note": "same 1.83.0 config-schema break as N18/N20/N22."
+      "note": "same 1.83.0 config-schema break as every family from 18 onward."
     },
     {
       "tool": "OpenGrep",
@@ -281,13 +281,13 @@
       "pin": "@stryker-mutator/core==10.0.0",
       "status": "skipped",
       "measured": true,
-      "note": "same mocha-12/Stryker incompatibility as N20/N22."
+      "note": "same mocha-12/Stryker incompatibility as N20/N22/N24."
     }
   ],
   "plantedFixtures": {
     "duplication": [
-      "src/http-errors.js",
-      "src/http-errors-legacy.js"
+      "packages/shared/src/http-errors.js",
+      "packages/shared/src/http-errors-legacy.js"
     ]
   },
   "metrics": [

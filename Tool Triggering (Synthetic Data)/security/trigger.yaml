@@ -3,9 +3,9 @@ tool: eslint-plugin-security
 dir: security
 role: primary
 block: Static Vulnerabilities (SAST)
-branch: JS_V24_WEBPACK_YARN_MONO
-node_family: "24"
-node_version: "24.20.0"
+branch: JS_V26_ESBUILD_BUN_MICRO
+node_family: "26"
+node_version: "26.8.1"
 pin: eslint-plugin-security@4.0.1
 status: active
 measured: false
@@ -14,6 +14,6 @@ outputs: reports/security.json
 expects: >-
   the object-injection / non-literal-fs-filename warnings the eslint config already enables
 note: >-
-  eslint-plugin-security 4.0.1 declares Node 24 compatibility; runs through eslint itself.
+  eslint-plugin-security 4.0.1 declares Node 26 compatibility; runs through eslint itself.
 skip_exit_code: 3          # cannot run on this Node family
 missing_exit_code: 4       # binary/toolchain absent from this host

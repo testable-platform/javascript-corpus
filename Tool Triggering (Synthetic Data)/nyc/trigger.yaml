@@ -3,9 +3,9 @@ tool: nyc + mocha
 dir: nyc
 role: primary
 block: Statement Coverage / Branch Coverage / Path Coverage (proxy)
-branch: JS_V24_WEBPACK_YARN_MONO
-node_family: "24"
-node_version: "24.20.0"
+branch: JS_V26_ESBUILD_BUN_MICRO
+node_family: "26"
+node_version: "26.8.1"
 pin: nyc@18.0.0
 status: active
 measured: true

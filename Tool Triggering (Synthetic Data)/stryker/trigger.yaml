@@ -3,9 +3,9 @@ tool: StrykerJS + Mocha
 dir: stryker
 role: primary
 block: Mutation Score
-branch: JS_V24_WEBPACK_YARN_MONO
-node_family: "24"
-node_version: "24.20.0"
+branch: JS_V26_ESBUILD_BUN_MICRO
+node_family: "26"
+node_version: "26.8.1"
 pin: @stryker-mutator/core@10.0.0
 status: skipped
 measured: true
@@ -14,6 +14,6 @@ outputs: reports/mutation.json
 expects: >-
   mutants in policy.js/service.js's decision branches to be killed by the existing mocha suite
 note: >-
-  same mocha-12/Stryker incompatibility as N20/N22.
+  same mocha-12/Stryker incompatibility as N20/N22/N24.
 skip_exit_code: 3          # cannot run on this Node family
 missing_exit_code: 4       # binary/toolchain absent from this host
