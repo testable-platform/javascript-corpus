@@ -9,7 +9,7 @@ node_version: "20.20.2"
 pin: null
 status: not_installed
 measured: false
-entrypoint: tools/trivy/run_trivy.sh
+entrypoint: Tool Triggering (Synthetic Data)/trivy/run_trivy.sh
 outputs: reports/trivy.json
 expects: >-
   the same class of advisory as npm audit, scanning the manifest/lockfile directly rather than through npm's own registry client
