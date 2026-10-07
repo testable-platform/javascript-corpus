@@ -9,7 +9,7 @@ node_version: "20.20.2"
 pin: pydriller (pip, latest)
 status: active
 measured: false
-entrypoint: tools/pydriller/run_pydriller.py
+entrypoint: Tool Triggering (Synthetic Data)/pydriller/run_pydriller.py
 outputs: reports/pydriller.json
 expects: >-
   per-file commit/churn counts from this branch's real git history. A real invocation was attempted from this session's Linux verification bridge and failed only because that bridge mounts this worktree through a `.git` file whose `gitdir:` pointer is a Windows-style absolute path it cannot resolve -- not a pydriller or corpus defect. The same command is expected to run normally on the real Windows host, the same way Claude Code's other real per-family verifications did.
