@@ -6,10 +6,10 @@ block: Mutation Score
 branch: JS_V22_ROLLUP_NPM_MONO
 node_family: "22"
 node_version: "22.23.2"
-pin: @stryker-mutator/core@10.0.0
+pin: "@stryker-mutator/core@10.0.0"
 status: skipped
 measured: true
-entrypoint: tools/stryker/run_stryker.sh
+entrypoint: Tool Triggering (Synthetic Data)/stryker/run_stryker.sh
 outputs: reports/mutation.json
 expects: >-
   mutants in policy.js/service.js's decision branches to be killed by the existing mocha suite
