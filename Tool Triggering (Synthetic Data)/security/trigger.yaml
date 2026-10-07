@@ -9,7 +9,7 @@ node_version: "22.23.2"
 pin: eslint-plugin-security@4.0.1
 status: active
 measured: false
-entrypoint: tools/security/run_security.sh
+entrypoint: Tool Triggering (Synthetic Data)/security/run_security.sh
 outputs: reports/security.json
 expects: >-
   the object-injection / non-literal-fs-filename warnings the eslint config already enables
