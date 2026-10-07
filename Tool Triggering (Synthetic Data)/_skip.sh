@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Shared runner preamble. Sourced by every tools/*/run_*.sh.
+# Shared runner preamble. Sourced by every run_* script in Tool Triggering (Synthetic Data)/*/.
 # Ported from the sibling Python corpus's tools/_skip.sh -- same four-code
 # discipline, same reason for it:
 #
@@ -109,7 +109,7 @@ require_binary() {
   echo "  tool  : $dir"
   echo "  reason: '$exe' is not on PATH -- a standalone binary, not an npm"
   echo "          pin, so no package manager here can supply it. See"
-  echo "          tools/$dir/INSTALL.md."
+  echo "          $dir/trigger.yaml in Tool Triggering (Synthetic Data)."
   _status "$dir" "NOT_INSTALLED" "$exe not on PATH"
   exit $MISSING_EXIT
 }
