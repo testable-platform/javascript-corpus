@@ -9,7 +9,7 @@ node_version: "12.22.12"
 pin: oxlint@1.16.0
 status: skipped
 measured: true
-entrypoint: tools/oxlint/run_oxlint.sh
+entrypoint: Tool Triggering (Synthetic Data)/oxlint/run_oxlint.sh
 outputs: reports/oxlint.json
 expects: >-
   the same lint findings as eslint, from an independent (Rust-based) linter
