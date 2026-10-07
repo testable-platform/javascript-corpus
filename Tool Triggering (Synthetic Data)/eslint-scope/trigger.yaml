@@ -9,7 +9,7 @@ node_version: "24.20.0"
 pin: eslint-scope@9.1.2
 status: active
 measured: true
-entrypoint: tools/eslint-scope/run_eslint_scope.sh
+entrypoint: Tool Triggering (Synthetic Data)/eslint-scope/run_eslint_scope.sh
 outputs: reports/dataflow.json
 expects: >-
   every definition/use pair in the domain, and any definition left unreached
