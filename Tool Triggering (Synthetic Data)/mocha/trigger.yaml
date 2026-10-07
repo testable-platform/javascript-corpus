@@ -1,0 +1,19 @@
+# Mocha -- generated for the 23-tool list (not by gen_js_corpus.py).
+tool: Mocha
+dir: mocha
+role: primary
+block: Statement Coverage / Branch Coverage / Path Coverage (proxy) / Mutation Score
+branch: JS_V26_SWC_NPM_MICRO
+node_family: "26"
+node_version: "26.8.1"
+pin: mocha@12.0.1
+status: active
+measured: false
+entrypoint: Tool Triggering (Synthetic Data)/mocha/run_mocha.sh
+outputs: reports/mocha.json
+expects: >-
+  the pass/fail result of this branch's own mocha suite, as a JSON report
+note: >-
+  mocha 12.0.1 declares Node 26 compatibility (npm registry engines.node range).
+skip_exit_code: 3          # cannot run on this Node family
+missing_exit_code: 4       # binary/toolchain absent from this host
