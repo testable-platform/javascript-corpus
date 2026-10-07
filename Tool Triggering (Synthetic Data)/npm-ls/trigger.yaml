@@ -1,0 +1,19 @@
+# npm ls -- generated for the 23-tool list (not by gen_js_corpus.py).
+tool: npm ls
+dir: npm-ls
+role: primary
+block: Dependency Risk (SCA)
+branch: JS_V12_RSPACK_YARN_MICRO
+node_family: "12"
+node_version: "12.22.12"
+pin: null
+status: active
+measured: false
+entrypoint: Tool Triggering (Synthetic Data)/npm-ls/run_npm_ls.sh
+outputs: reports/npm-ls-only.json
+expects: >-
+  the resolved dependency tree of this branch, with any missing or invalid-version problems npm ls reports
+note: >-
+  npm's own bundled `npm ls` -- ships with npm itself on every Node family this corpus supports (npm 6.14.18 on this branch).
+skip_exit_code: 3          # cannot run on this Node family
+missing_exit_code: 4       # binary/toolchain absent from this host
