@@ -9,7 +9,7 @@ node_version: "18.20.8"
 pin: knip@5.88.1
 status: active
 measured: false
-entrypoint: tools/knip/run_knip.sh
+entrypoint: Tool Triggering (Synthetic Data)/knip/run_knip.sh
 outputs: reports/knip.json
 expects: >-
   the same unused-export/unreached-definition signal as eslint-scope, from an independent dependency-graph tool
