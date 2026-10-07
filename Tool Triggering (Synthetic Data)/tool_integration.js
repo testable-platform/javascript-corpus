@@ -3,9 +3,9 @@
 /**
  * Tool integration entry point for branch JS_V21_ROLLUP_YARN_MICRO (Node 21).
  *
- *   node tools/tool_integration.js            banner
- *   node tools/tool_integration.js --verify   check every tool is wired
- *   node tools/tool_integration.js --run      run every tool, honouring skips
+ *   node "Tool Triggering (Synthetic Data)/tool_integration.js"            banner
+ *   node "Tool Triggering (Synthetic Data)/tool_integration.js" --verify   check every tool is wired
+ *   node "Tool Triggering (Synthetic Data)/tool_integration.js" --run      run every tool, honouring skips
  *
  * Exit codes from --run mirror the runners' own contract:
  *   0  every tool either ran, or skipped for a reason dataset.json records
@@ -19,30 +19,34 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const ROOT = path.dirname(__dirname);
-const TOOLS_DIR = path.join(ROOT, 'tools');
+const FOLDER = path.basename(__dirname);
+const TOOLS_DIR = __dirname;
 
 const WIRING = [
-  { dir: "lizard", label: "Lizard", role: "primary", entrypoint: "tools/lizard/run_lizard.sh" },
-  { dir: "cyclomatic-complexity", label: "cyclomatic-complexity", role: "alternative", entrypoint: "tools/cyclomatic-complexity/run_cyclomatic_complexity.sh" },
-  { dir: "sonarjs", label: "eslint-plugin-sonarjs", role: "primary", entrypoint: "tools/sonarjs/run_sonarjs.sh" },
-  { dir: "cognitive-complexity-ts", label: "cognitive-complexity-ts", role: "alternative", entrypoint: "tools/cognitive-complexity-ts/run_cognitive_complexity_ts.sh" },
-  { dir: "jscpd", label: "jscpd", role: "primary", entrypoint: "tools/jscpd/run_jscpd.sh" },
-  { dir: "dolos", label: "Dolos", role: "alternative", entrypoint: "tools/dolos/run_dolos.sh" },
-  { dir: "eslint", label: "eslint", role: "primary", entrypoint: "tools/eslint/run_eslint.sh" },
-  { dir: "oxlint", label: "oxlint", role: "alternative", entrypoint: "tools/oxlint/run_oxlint.sh" },
-  { dir: "security", label: "eslint-plugin-security", role: "primary", entrypoint: "tools/security/run_security.sh" },
-  { dir: "opengrep", label: "OpenGrep", role: "alternative", entrypoint: "tools/opengrep/run_opengrep.sh" },
-  { dir: "npm-audit", label: "npm audit + npm ls", role: "primary", entrypoint: "tools/npm-audit/run_npm_audit.sh" },
-  { dir: "trivy", label: "Trivy", role: "alternative", entrypoint: "tools/trivy/run_trivy.sh" },
-  { dir: "nyc", label: "nyc + mocha", role: "primary", entrypoint: "tools/nyc/run_nyc.sh" },
-  { dir: "monocart", label: "monocart-coverage-reports", role: "alternative", entrypoint: "tools/monocart/run_monocart.sh" },
-  { dir: "stryker", label: "StrykerJS + Mocha", role: "primary", entrypoint: "tools/stryker/run_stryker.sh" },
-  { dir: "gutcheck", label: "gutcheck", role: "alternative", entrypoint: "tools/gutcheck/run_gutcheck.sh" },
-  { dir: "diff-cover", label: "diff-cover", role: "primary", entrypoint: "tools/diff-cover/run_diff_cover.sh" },
-  { dir: "eslint-scope", label: "ESLint (eslint-scope)", role: "primary", entrypoint: "tools/eslint-scope/run_eslint_scope.sh" },
-  { dir: "knip", label: "knip", role: "alternative", entrypoint: "tools/knip/run_knip.sh" },
-  { dir: "pydriller", label: "PyDriller", role: "primary", entrypoint: "tools/pydriller/run_pydriller.py" },
-  { dir: "git-spark", label: "Git-Spark", role: "alternative", entrypoint: "tools/git-spark/run_git_spark.sh" }
+  { dir: "lizard", label: "Lizard", role: "primary", entrypoint: "Tool Triggering (Synthetic Data)/lizard/run_lizard.sh" },
+  { dir: "debtmap", label: "debtmap", role: "alternative", entrypoint: "Tool Triggering (Synthetic Data)/debtmap/run_debtmap.sh" },
+  { dir: "sonarjs", label: "eslint-plugin-sonarjs", role: "primary", entrypoint: "Tool Triggering (Synthetic Data)/sonarjs/run_sonarjs.sh" },
+  { dir: "cccc", label: "cccc", role: "alternative", entrypoint: "Tool Triggering (Synthetic Data)/cccc/run_cccc.sh" },
+  { dir: "jscpd", label: "jscpd", role: "primary", entrypoint: "Tool Triggering (Synthetic Data)/jscpd/run_jscpd.sh" },
+  { dir: "dolos", label: "Dolos", role: "alternative", entrypoint: "Tool Triggering (Synthetic Data)/dolos/run_dolos.sh" },
+  { dir: "eslint", label: "eslint", role: "primary", entrypoint: "Tool Triggering (Synthetic Data)/eslint/run_eslint.sh" },
+  { dir: "oxlint", label: "oxlint", role: "alternative", entrypoint: "Tool Triggering (Synthetic Data)/oxlint/run_oxlint.sh" },
+  { dir: "security", label: "eslint-plugin-security", role: "primary", entrypoint: "Tool Triggering (Synthetic Data)/security/run_security.sh" },
+  { dir: "opengrep", label: "OpenGrep", role: "alternative", entrypoint: "Tool Triggering (Synthetic Data)/opengrep/run_opengrep.sh" },
+  { dir: "npm-audit", label: "npm audit + npm ls", role: "primary", entrypoint: "Tool Triggering (Synthetic Data)/npm-audit/run_npm_audit.sh" },
+  { dir: "npm-ls", label: "npm ls", role: "primary", entrypoint: "Tool Triggering (Synthetic Data)/npm-ls/run_npm_ls.sh" },
+  { dir: "trivy", label: "Trivy", role: "alternative", entrypoint: "Tool Triggering (Synthetic Data)/trivy/run_trivy.sh" },
+  { dir: "nyc", label: "nyc + mocha", role: "primary", entrypoint: "Tool Triggering (Synthetic Data)/nyc/run_nyc.sh" },
+  { dir: "mocha", label: "Mocha", role: "primary", entrypoint: "Tool Triggering (Synthetic Data)/mocha/run_mocha.sh" },
+  { dir: "monocart", label: "monocart-coverage-reports", role: "alternative", entrypoint: "Tool Triggering (Synthetic Data)/monocart/run_monocart.sh" },
+  { dir: "stryker", label: "StrykerJS + Mocha", role: "primary", entrypoint: "Tool Triggering (Synthetic Data)/stryker/run_stryker.sh" },
+  { dir: "gutcheck", label: "gutcheck", role: "alternative", entrypoint: "Tool Triggering (Synthetic Data)/gutcheck/run_gutcheck.sh" },
+  { dir: "diff-cover", label: "diff-cover", role: "primary", entrypoint: "Tool Triggering (Synthetic Data)/diff-cover/run_diff_cover.sh" },
+  { dir: "eslint-scope", label: "ESLint (eslint-scope)", role: "primary", entrypoint: "Tool Triggering (Synthetic Data)/eslint-scope/run_eslint_scope.sh" },
+  { dir: "codeql", label: "CodeQL", role: "alternative", entrypoint: "Tool Triggering (Synthetic Data)/codeql/run_codeql.sh" },
+  { dir: "knip", label: "knip", role: "alternative", entrypoint: "Tool Triggering (Synthetic Data)/knip/run_knip.sh" },
+  { dir: "pydriller", label: "PyDriller", role: "primary", entrypoint: "Tool Triggering (Synthetic Data)/pydriller/run_pydriller.py" },
+  { dir: "git-spark", label: "Git-Spark", role: "alternative", entrypoint: "Tool Triggering (Synthetic Data)/git-spark/run_git_spark.sh" }
 ];
 
 function loadDataset() {
@@ -69,8 +73,8 @@ function verify() {
   const problems = [];
   for (const row of WIRING) {
     const folder = path.join(TOOLS_DIR, row.dir);
-    if (!fs.existsSync(folder)) { problems.push(`missing directory: tools/${row.dir}`); continue; }
-    if (!fs.existsSync(path.join(folder, 'trigger.yaml'))) problems.push(`missing manifest: tools/${row.dir}/trigger.yaml`);
+    if (!fs.existsSync(folder)) { problems.push(`missing directory: ${FOLDER}/${row.dir}`); continue; }
+    if (!fs.existsSync(path.join(folder, 'trigger.yaml'))) problems.push(`missing manifest: ${FOLDER}/${row.dir}/trigger.yaml`);
     if (!fs.existsSync(path.join(ROOT, row.entrypoint))) problems.push(`missing entrypoint: ${row.entrypoint}`);
   }
   const declared = new Set(WIRING.map((r) => r.dir));
@@ -78,8 +82,8 @@ function verify() {
     const full = path.join(TOOLS_DIR, n);
     return fs.statSync(full).isDirectory() && !n.startsWith('_');
   }));
-  for (const extra of [...present].filter((n) => !declared.has(n)).sort()) problems.push(`orphan tool directory with no wiring row: tools/${extra}`);
-  for (const missing of [...declared].filter((n) => !present.has(n)).sort()) problems.push(`wiring row with no directory: tools/${missing}`);
+  for (const extra of [...present].filter((n) => !declared.has(n)).sort()) problems.push(`orphan tool directory with no wiring row: ${FOLDER}/${extra}`);
+  for (const missing of [...declared].filter((n) => !present.has(n)).sort()) problems.push(`wiring row with no directory: ${FOLDER}/${missing}`);
   if (data.toolsWired !== WIRING.length) problems.push(`dataset.json says ${data.toolsWired} tools wired, wiring table has ${WIRING.length}`);
 
   if (problems.length) {
