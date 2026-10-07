@@ -3,13 +3,13 @@ tool: nyc + mocha
 dir: nyc
 role: primary
 block: Statement Coverage / Branch Coverage / Path Coverage (proxy)
-branch: JS_V12_PARCEL_BUN_MICRO
+branch: JS_V12_PARCEL_BUN_MONO
 node_family: "12"
 node_version: "12.22.12"
 pin: nyc@15.1.0
 status: active
 measured: true
-entrypoint: tools/nyc/run_nyc.sh
+entrypoint: Tool Triggering (Synthetic Data)/nyc/run_nyc.sh
 outputs: coverage/coverage-final.json
 expects: >-
   line/branch coverage over the domain's owner/editor/viewer authorization branches

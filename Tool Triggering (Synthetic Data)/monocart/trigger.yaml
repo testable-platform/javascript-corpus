@@ -3,13 +3,13 @@ tool: monocart-coverage-reports
 dir: monocart
 role: alternative
 block: Statement Coverage / Branch Coverage / Path Coverage (proxy) / Coverage Delta
-branch: JS_V12_PARCEL_BUN_MICRO
+branch: JS_V12_PARCEL_BUN_MONO
 node_family: "12"
 node_version: "12.22.12"
 pin: monocart-coverage-reports@2.13.0
 status: active
 measured: false
-entrypoint: tools/monocart/run_monocart.sh
+entrypoint: Tool Triggering (Synthetic Data)/monocart/run_monocart.sh
 outputs: reports/monocart
 expects: >-
   coverage numbers within rounding of nyc's, from an independent V8-coverage-based reporter

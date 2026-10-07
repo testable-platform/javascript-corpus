@@ -3,13 +3,13 @@ tool: OpenGrep
 dir: opengrep
 role: alternative
 block: Static Vulnerabilities (SAST)
-branch: JS_V12_PARCEL_BUN_MICRO
+branch: JS_V12_PARCEL_BUN_MONO
 node_family: "12"
 node_version: "12.22.12"
 pin: null
 status: not_installed
 measured: false
-entrypoint: tools/opengrep/run_opengrep.sh
+entrypoint: Tool Triggering (Synthetic Data)/opengrep/run_opengrep.sh
 outputs: reports/opengrep.json
 expects: >-
   the same SAST class of finding as eslint-plugin-security, from an independent semantic-grep engine

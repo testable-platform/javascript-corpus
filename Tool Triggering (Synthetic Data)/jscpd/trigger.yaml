@@ -3,13 +3,13 @@ tool: jscpd
 dir: jscpd
 role: primary
 block: Code Duplication
-branch: JS_V12_PARCEL_BUN_MICRO
+branch: JS_V12_PARCEL_BUN_MONO
 node_family: "12"
 node_version: "12.22.12"
 pin: jscpd@4.3.0
 status: skipped
 measured: true
-entrypoint: tools/jscpd/run_jscpd.sh
+entrypoint: Tool Triggering (Synthetic Data)/jscpd/run_jscpd.sh
 outputs: reports/jscpd-report.json
 expects: >-
   the planted http-errors.js / http-errors-legacy.js near-duplicate pair

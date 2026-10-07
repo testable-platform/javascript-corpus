@@ -3,13 +3,13 @@ tool: eslint
 dir: eslint
 role: primary
 block: Lint / Rule Violations
-branch: JS_V12_PARCEL_BUN_MICRO
+branch: JS_V12_PARCEL_BUN_MONO
 node_family: "12"
 node_version: "12.22.12"
 pin: eslint@8.57.1
 status: skipped
 measured: true
-entrypoint: tools/eslint/run_eslint.sh
+entrypoint: Tool Triggering (Synthetic Data)/eslint/run_eslint.sh
 outputs: reports/eslint.json
 expects: >-
   the unused-variable / rule warnings the eslint config already enables

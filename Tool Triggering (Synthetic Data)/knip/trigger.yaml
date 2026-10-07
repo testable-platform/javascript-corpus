@@ -3,13 +3,13 @@ tool: knip
 dir: knip
 role: alternative
 block: All Definition Coverage / All Uses Coverage
-branch: JS_V12_PARCEL_BUN_MICRO
+branch: JS_V12_PARCEL_BUN_MONO
 node_family: "12"
 node_version: "12.22.12"
 pin: null
 status: skipped
 measured: false
-entrypoint: tools/knip/run_knip.sh
+entrypoint: Tool Triggering (Synthetic Data)/knip/run_knip.sh
 outputs: reports/knip.json
 expects: >-
   the same unused-export/unreached-definition signal as eslint-scope, from an independent dependency-graph tool

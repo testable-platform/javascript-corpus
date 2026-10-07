@@ -3,13 +3,13 @@ tool: ESLint (eslint-scope)
 dir: eslint-scope
 role: primary
 block: All Definition Coverage / All Uses Coverage
-branch: JS_V12_PARCEL_BUN_MICRO
+branch: JS_V12_PARCEL_BUN_MONO
 node_family: "12"
 node_version: "12.22.12"
 pin: eslint-scope@7.2.2
 status: active
 measured: true
-entrypoint: tools/eslint-scope/run_eslint_scope.sh
+entrypoint: Tool Triggering (Synthetic Data)/eslint-scope/run_eslint_scope.sh
 outputs: reports/dataflow.json
 expects: >-
   every definition/use pair in the domain, and any definition left unreached

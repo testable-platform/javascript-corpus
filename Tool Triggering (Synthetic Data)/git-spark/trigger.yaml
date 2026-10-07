@@ -3,13 +3,13 @@ tool: Git-Spark
 dir: git-spark
 role: alternative
 block: Code Churn
-branch: JS_V12_PARCEL_BUN_MICRO
+branch: JS_V12_PARCEL_BUN_MONO
 node_family: "12"
 node_version: "12.22.12"
 pin: null
 status: skipped
 measured: false
-entrypoint: tools/git-spark/run_git_spark.sh
+entrypoint: Tool Triggering (Synthetic Data)/git-spark/run_git_spark.sh
 outputs: reports/git-spark.json
 expects: >-
   the same churn signal as PyDriller, from an independent git-log miner
