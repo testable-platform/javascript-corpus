@@ -9,7 +9,7 @@ node_version: "24.20.0"
 pin: nyc@18.0.0
 status: active
 measured: true
-entrypoint: tools/nyc/run_nyc.sh
+entrypoint: Tool Triggering (Synthetic Data)/nyc/run_nyc.sh
 outputs: coverage/coverage-final.json
 expects: >-
   line/branch coverage over the domain's owner/editor/viewer authorization branches
