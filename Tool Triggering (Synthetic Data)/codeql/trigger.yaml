@@ -1,0 +1,19 @@
+# CodeQL -- generated for the 23-tool list (not by gen_js_corpus.py).
+tool: CodeQL
+dir: codeql
+role: alternative
+block: All Definition Coverage
+branch: JS_V20_VITE_PNPM_MONO
+node_family: "20"
+node_version: "20.20.2"
+pin: codeql-cli@2.27.1 (GitHub release)
+status: not_installed
+measured: false
+entrypoint: Tool Triggering (Synthetic Data)/codeql/run_codeql.sh
+outputs: reports/codeql.sarif
+expects: >-
+  a SARIF report from the JavaScript/TypeScript query pack over this branch's source
+note: >-
+  standalone binary (CodeQL CLI release bundle), not installable via npm/pip on this host; the Clean corpus's CodeQL README records GitHub release downloads returning 403 in the build environment.
+skip_exit_code: 3          # cannot run on this Node family
+missing_exit_code: 4       # binary/toolchain absent from this host
