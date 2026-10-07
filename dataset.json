@@ -17,9 +17,9 @@
   "branchFunctional": true,
   "toolRosterVersion": "js-roster-v2-2026-09-17",
   "uniqueMetrics": 103,
-  "toolsWired": 21,
-  "toolsActive": 15,
-  "toolsDark": 6,
+  "toolsWired": 24,
+  "toolsActive": 14,
+  "toolsDark": 10,
   "toolsActiveDetail": [
     {
       "tool": "Lizard",
@@ -32,14 +32,14 @@
       "note": "measured directly: pip-installed and run for real against this domain's src/ (lizard 1.24.0). Found policy.js's evaluatePolicy as the highest-CCN function at 18 -- corrects an earlier assumption that dataflow.js's tally loop (CCN 17) was highest; Node-independent by construction, so this holds on every family."
     },
     {
-      "tool": "cyclomatic-complexity",
-      "dir": "cyclomatic-complexity",
+      "tool": "debtmap",
+      "dir": "debtmap",
       "role": "alternative",
       "block": "Cyclomatic Complexity",
-      "pin": "cyclomatic-complexity==1.2.4",
-      "status": "active",
+      "pin": "debtmap==0.24.1 (cargo)",
+      "status": "not_installed",
       "measured": false,
-      "note": "cyclomatic-complexity 1.2.4 declares Node 16 compatibility (npm registry engines.node range)."
+      "note": "debtmap is a Rust CLI (`cargo install debtmap`; version 0.24.1 on crates.io), not present on this host. The Clean corpus's debtmap README records it built from crates.io and run for real there."
     },
     {
       "tool": "eslint-plugin-sonarjs",
@@ -52,14 +52,14 @@
       "note": "Runs through eslint itself, whose own status on Node 16 governs this plugin: clean -- neither the N12 syntax wall nor the N14 node:-submodule gap reproduces here."
     },
     {
-      "tool": "cognitive-complexity-ts",
-      "dir": "cognitive-complexity-ts",
+      "tool": "cccc",
+      "dir": "cccc",
       "role": "alternative",
       "block": "Cognitive Complexity",
-      "pin": "cognitive-complexity-ts==0.8.2",
-      "status": "active",
+      "pin": "cccc==3.2.0 (distro package)",
+      "status": "not_installed",
       "measured": false,
-      "note": "cognitive-complexity-ts 0.8.2 declares Node 16 compatibility (npm registry engines.node range)."
+      "note": "CCCC (C and C++ Code Counter) is a native program, not installable via npm/pip on this host. It parses C, C++, Ada and Java, not JavaScript, so on this branch's JavaScript it is not expected to produce meaningful metrics (see Tool Clean (Synthetic Data)/cccc/README.md). Version 3.2.0 is the Debian package's upstream version; it was not confirmed against the upstream project."
     },
     {
       "tool": "jscpd",
@@ -132,6 +132,16 @@
       "note": "npm's own bundled audit/ls -- ships with npm itself on every Node family this corpus supports."
     },
     {
+      "tool": "npm ls",
+      "dir": "npm-ls",
+      "role": "primary",
+      "block": "Dependency Risk (SCA)",
+      "pin": null,
+      "status": "active",
+      "measured": false,
+      "note": "npm's own bundled `npm ls` -- ships with npm itself on every Node family this corpus supports (npm 8.19.4 on this branch)."
+    },
+    {
       "tool": "Trivy",
       "dir": "trivy",
       "role": "alternative",
@@ -150,6 +160,16 @@
       "status": "active",
       "measured": true,
       "note": "clean on every family once the architecture-aware test glob (bug #1) and the Microservices require() path (bug #4) were both fixed."
+    },
+    {
+      "tool": "Mocha",
+      "dir": "mocha",
+      "role": "primary",
+      "block": "Statement Coverage / Branch Coverage / Path Coverage (proxy) / Mutation Score",
+      "pin": "mocha==12.0.1",
+      "status": "skipped",
+      "measured": false,
+      "note": "mocha 12.0.1 declares Node ^20.19.0 || >=22.12.0 (npm registry engines.node range); Node 16.20.2 does not satisfy it. This branch's own `npm test` runs mocha@10.8.2."
     },
     {
       "tool": "monocart-coverage-reports",
@@ -202,6 +222,16 @@
       "note": "clean on every family tested (12 through 26) -- the dataflow script is hand-written without `?.`/`??` specifically so it never depends on the same syntax features that break other tools on the oldest families."
     },
     {
+      "tool": "CodeQL",
+      "dir": "codeql",
+      "role": "alternative",
+      "block": "All Definition Coverage",
+      "pin": "codeql-cli==2.27.1 (GitHub release)",
+      "status": "not_installed",
+      "measured": false,
+      "note": "standalone binary (CodeQL CLI release bundle), not installable via npm/pip on this host; the Clean corpus's CodeQL README records GitHub release downloads returning 403 in the build environment."
+    },
+    {
       "tool": "knip",
       "dir": "knip",
       "role": "alternative",
@@ -233,6 +263,26 @@
     }
   ],
   "toolsInactive": [
+    {
+      "tool": "debtmap",
+      "dir": "debtmap",
+      "role": "alternative",
+      "block": "Cyclomatic Complexity",
+      "pin": "debtmap==0.24.1 (cargo)",
+      "status": "not_installed",
+      "measured": false,
+      "note": "debtmap is a Rust CLI (`cargo install debtmap`; version 0.24.1 on crates.io), not present on this host. The Clean corpus's debtmap README records it built from crates.io and run for real there."
+    },
+    {
+      "tool": "cccc",
+      "dir": "cccc",
+      "role": "alternative",
+      "block": "Cognitive Complexity",
+      "pin": "cccc==3.2.0 (distro package)",
+      "status": "not_installed",
+      "measured": false,
+      "note": "CCCC (C and C++ Code Counter) is a native program, not installable via npm/pip on this host. It parses C, C++, Ada and Java, not JavaScript, so on this branch's JavaScript it is not expected to produce meaningful metrics (see Tool Clean (Synthetic Data)/cccc/README.md). Version 3.2.0 is the Debian package's upstream version; it was not confirmed against the upstream project."
+    },
     {
       "tool": "Dolos",
       "dir": "dolos",
@@ -274,6 +324,16 @@
       "note": "standalone binary, not installable via npm/pip on this host"
     },
     {
+      "tool": "Mocha",
+      "dir": "mocha",
+      "role": "primary",
+      "block": "Statement Coverage / Branch Coverage / Path Coverage (proxy) / Mutation Score",
+      "pin": "mocha==12.0.1",
+      "status": "skipped",
+      "measured": false,
+      "note": "mocha 12.0.1 declares Node ^20.19.0 || >=22.12.0 (npm registry engines.node range); Node 16.20.2 does not satisfy it. This branch's own `npm test` runs mocha@10.8.2."
+    },
+    {
       "tool": "gutcheck",
       "dir": "gutcheck",
       "role": "alternative",
@@ -282,6 +342,16 @@
       "status": "skipped",
       "measured": false,
       "note": "gutcheck has no release compatible with Node 16 (npm registry engines.node range, prereleases excluded)."
+    },
+    {
+      "tool": "CodeQL",
+      "dir": "codeql",
+      "role": "alternative",
+      "block": "All Definition Coverage",
+      "pin": "codeql-cli==2.27.1 (GitHub release)",
+      "status": "not_installed",
+      "measured": false,
+      "note": "standalone binary (CodeQL CLI release bundle), not installable via npm/pip on this host; the Clean corpus's CodeQL README records GitHub release downloads returning 403 in the build environment."
     },
     {
       "tool": "Git-Spark",
@@ -306,8 +376,8 @@
       "metricCount": 6,
       "primaryTool": "Lizard",
       "primaryVersion": null,
-      "alternativeTool": "cyclomatic-complexity",
-      "alternativeVersion": "1.2.4",
+      "alternativeTool": "debtmap",
+      "alternativeVersion": "0.24.1",
       "compatNotes": []
     },
     {
@@ -315,9 +385,11 @@
       "metricCount": 7,
       "primaryTool": "eslint-plugin-sonarjs",
       "primaryVersion": "4.2.1",
-      "alternativeTool": "cognitive-complexity-ts",
-      "alternativeVersion": "0.8.2",
-      "compatNotes": []
+      "alternativeTool": "cccc",
+      "alternativeVersion": "3.2.0",
+      "compatNotes": [
+        "CCCC parses C, C++, Ada and Java, not JavaScript (see Tool Clean (Synthetic Data)/cccc/README.md)."
+      ]
     },
     {
       "block": "Code Duplication",
@@ -411,7 +483,9 @@
       "primaryVersion": "7.2.2",
       "alternativeTool": "knip",
       "alternativeVersion": "2.43.0",
-      "compatNotes": []
+      "compatNotes": [
+        "The tool list also names gutcheck, CodeQL and OpenGrep as the alternative on some rows of this block; knip is the alternative wired for the block as a whole, and CodeQL has its own folder."
+      ]
     },
     {
       "block": "All Uses Coverage",
@@ -420,7 +494,9 @@
       "primaryVersion": "7.2.2",
       "alternativeTool": "knip",
       "alternativeVersion": "2.43.0",
-      "compatNotes": []
+      "compatNotes": [
+        "The tool list also names OpenGrep as the alternative on some rows of this block; knip is the alternative wired for the block as a whole."
+      ]
     },
     {
       "block": "Code Churn",
