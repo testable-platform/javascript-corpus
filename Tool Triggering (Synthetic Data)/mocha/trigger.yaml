@@ -1,0 +1,19 @@
+# Mocha -- generated for the 23-tool list (not by gen_js_corpus.py).
+tool: Mocha
+dir: mocha
+role: primary
+block: Statement Coverage / Branch Coverage / Path Coverage (proxy) / Mutation Score
+branch: JS_V18_ESBUILD_PNPM_MONO
+node_family: "18"
+node_version: "18.20.8"
+pin: mocha@12.0.1
+status: skipped
+measured: false
+entrypoint: Tool Triggering (Synthetic Data)/mocha/run_mocha.sh
+outputs: reports/mocha.json
+expects: >-
+  the pass/fail result of this branch's own mocha suite, as a JSON report
+note: >-
+  mocha 12.0.1 declares Node ^20.19.0 || >=22.12.0 (npm registry engines.node range); Node 18.20.8 does not satisfy it. This branch's own `npm test` runs mocha@11.8.0.
+skip_exit_code: 3          # cannot run on this Node family
+missing_exit_code: 4       # binary/toolchain absent from this host
