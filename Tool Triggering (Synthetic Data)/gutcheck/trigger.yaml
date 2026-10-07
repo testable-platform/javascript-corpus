@@ -9,7 +9,7 @@ node_version: "12.22.12"
 pin: null
 status: skipped
 measured: false
-entrypoint: tools/gutcheck/run_gutcheck.sh
+entrypoint: Tool Triggering (Synthetic Data)/gutcheck/run_gutcheck.sh
 outputs: reports/gutcheck.json
 expects: >-
   a second, independent mutation-score reading to cross-check Stryker's
