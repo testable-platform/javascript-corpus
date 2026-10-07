@@ -3,7 +3,7 @@
 /**
  * Cross-file consistency audit for this branch. Every rule here reads its
  * expected value from the repository itself (.nvmrc, dataset.json, the
- * tools/ tree) -- never a hardcoded literal. Ported from the sibling
+ * Tool Triggering (Synthetic Data) tree) -- never a hardcoded literal. Ported from the sibling
  * Python corpus's tools/full_check.py, whose own comment records why:
  * a full_check that once asserted a version literal produced a spurious
  * FAIL on every later family once that literal went stale.
@@ -38,21 +38,22 @@ if (!enginesNode.includes(NODE_FAMILY)) {
 }
 
 check();
-const toolsDir = path.join(ROOT, 'tools');
+const FOLDER = path.basename(__dirname);
+const toolsDir = __dirname;
 const presentToolDirs = fs.existsSync(toolsDir)
   ? fs.readdirSync(toolsDir).filter((n) => fs.statSync(path.join(toolsDir, n)).isDirectory() && !n.startsWith('_'))
   : [];
 const datasetToolDirs = (DATA.toolsActiveDetail || []).map((t) => t.dir);
 for (const extra of presentToolDirs.filter((d) => !datasetToolDirs.includes(d)).sort()) {
-  fail(`tools/${extra} exists on disk but has no entry in dataset.json's toolsActiveDetail`);
+  fail(`${FOLDER}/${extra} exists on disk but has no entry in dataset.json's toolsActiveDetail`);
 }
 for (const missing of datasetToolDirs.filter((d) => !presentToolDirs.includes(d)).sort()) {
-  fail(`dataset.json's toolsActiveDetail references tools/${missing}, which does not exist on disk`);
+  fail(`dataset.json's toolsActiveDetail references ${FOLDER}/${missing}, which does not exist on disk`);
 }
 
 check();
 if (typeof DATA.toolsWired === 'number' && DATA.toolsWired !== presentToolDirs.length) {
-  fail(`dataset.json toolsWired=${DATA.toolsWired} disagrees with the actual tools/ directory count (${presentToolDirs.length})`);
+  fail(`dataset.json toolsWired=${DATA.toolsWired} disagrees with the actual ${FOLDER}/ directory count (${presentToolDirs.length})`);
 }
 
 check();
@@ -63,9 +64,9 @@ if (exists('src') === exists('packages')) {
 
 check();
 for (const t of DATA.toolsActiveDetail || []) {
-  const entrypoint = path.join(ROOT, 'tools', t.dir, t.dir === 'pydriller' ? 'run_pydriller.py' : `run_${t.dir.replace(/-/g, '_')}.sh`);
+  const entrypoint = path.join(toolsDir, t.dir, t.dir === 'pydriller' ? 'run_pydriller.py' : `run_${t.dir.replace(/-/g, '_')}.sh`);
   if (!fs.existsSync(entrypoint)) {
-    fail(`dataset.json declares tools/${t.dir} but its entrypoint is missing: ${path.relative(ROOT, entrypoint)}`);
+    fail(`dataset.json declares ${FOLDER}/${t.dir} but its entrypoint is missing: ${path.relative(ROOT, entrypoint)}`);
   }
 }
 
