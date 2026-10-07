@@ -9,7 +9,7 @@ node_version: "20.20.2"
 pin: lizard (pip, latest)
 status: active
 measured: true
-entrypoint: tools/lizard/run_lizard.sh
+entrypoint: Tool Triggering (Synthetic Data)/lizard/run_lizard.sh
 outputs: reports/lizard.csv
 expects: >-
   cyclomatic complexity for every function; measured directly (a real lizard run against this domain's src/): policy.js's evaluatePolicy is the highest-CCN function at 18, not the dataflow.js tally loop (17), which is the closer runner-up
