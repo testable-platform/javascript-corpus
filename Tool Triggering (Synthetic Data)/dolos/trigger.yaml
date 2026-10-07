@@ -6,10 +6,10 @@ block: Code Duplication
 branch: JS_V18_PARCEL_PNPM_MICRO
 node_family: "18"
 node_version: "18.20.8"
-pin: @dodona/dolos@2.9.3
+pin: "@dodona/dolos@2.9.3"
 status: not_installed
 measured: false
-entrypoint: tools/dolos/run_dolos.sh
+entrypoint: Tool Triggering (Synthetic Data)/dolos/run_dolos.sh
 outputs: reports/dolos.json
 expects: >-
   the same planted duplicate pair as jscpd, from an independent (tree-sitter-based) engine
