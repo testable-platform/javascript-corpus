@@ -5,7 +5,7 @@ set -uo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$HERE/../.." && pwd)"
 # shellcheck source=/dev/null
-. "$ROOT/tools/_skip.sh"
+. "$ROOT/Tool Triggering (Synthetic Data)/_skip.sh"
 
 mkdir -p "$ROOT/reports"
 require_require "knip" "knip" "n/a"
