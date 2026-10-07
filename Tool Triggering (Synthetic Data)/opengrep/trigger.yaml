@@ -9,7 +9,7 @@ node_version: "22.23.2"
 pin: null
 status: not_installed
 measured: false
-entrypoint: tools/opengrep/run_opengrep.sh
+entrypoint: Tool Triggering (Synthetic Data)/opengrep/run_opengrep.sh
 outputs: reports/opengrep.json
 expects: >-
   the same SAST class of finding as eslint-plugin-security, from an independent semantic-grep engine
