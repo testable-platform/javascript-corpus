@@ -6,10 +6,10 @@ block: Code Duplication
 branch: JS_V20_TURBOPACK_BUN_MICRO
 node_family: "20"
 node_version: "20.20.2"
-pin: @dodona/dolos@2.9.3
+pin: "@dodona/dolos@2.9.3"
 status: not_installed
 measured: false
-entrypoint: tools/dolos/run_dolos.sh
+entrypoint: Tool Triggering (Synthetic Data)/dolos/run_dolos.sh
 outputs: reports/dolos.json
 expects: >-
   the same planted duplicate pair as jscpd, from an independent (tree-sitter-based) engine
