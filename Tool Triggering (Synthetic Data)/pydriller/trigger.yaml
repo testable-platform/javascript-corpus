@@ -9,7 +9,7 @@ node_version: "22.23.2"
 pin: pydriller (pip, latest)
 status: active
 measured: false
-entrypoint: tools/pydriller/run_pydriller.sh
+entrypoint: Tool Triggering (Synthetic Data)/pydriller/run_pydriller.py
 outputs: reports/pydriller.json
 expects: >-
   per-file commit/churn counts from this branch's real git history
