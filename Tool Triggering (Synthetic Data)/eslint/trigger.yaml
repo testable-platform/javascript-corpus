@@ -9,7 +9,7 @@ node_version: "14.21.3"
 pin: eslint@8.57.1
 status: skipped
 measured: true
-entrypoint: tools/eslint/run_eslint.sh
+entrypoint: Tool Triggering (Synthetic Data)/eslint/run_eslint.sh
 outputs: reports/eslint.json
 expects: >-
   the unused-variable / rule warnings the eslint config already enables
