@@ -1,0 +1,19 @@
+# cccc -- generated for the 23-tool list (not by gen_js_corpus.py).
+tool: cccc
+dir: cccc
+role: alternative
+block: Cognitive Complexity
+branch: JS_V21_RSPACK_PNPM_MONO
+node_family: "21"
+node_version: "21.7.3"
+pin: cccc@3.2.0 (distro package)
+status: not_installed
+measured: false
+entrypoint: Tool Triggering (Synthetic Data)/cccc/run_cccc.sh
+outputs: reports/cccc
+expects: >-
+  CCCC's cccc.xml report for this branch's source files (cyclomatic complexity and line counts per module)
+note: >-
+  CCCC (C and C++ Code Counter) is a native program, not installable via npm/pip on this host. It parses C, C++, Ada and Java, not JavaScript, so on this branch's JavaScript it is not expected to produce meaningful metrics (see Tool Clean (Synthetic Data)/cccc/README.md). Version 3.2.0 is the Debian package's upstream version; it was not confirmed against the upstream project.
+skip_exit_code: 3          # cannot run on this Node family
+missing_exit_code: 4       # binary/toolchain absent from this host
