@@ -9,7 +9,7 @@ node_version: "20.20.2"
 pin: diff-cover (pip, latest)
 status: active
 measured: true
-entrypoint: tools/diff-cover/run_diff_cover.sh
+entrypoint: Tool Triggering (Synthetic Data)/diff-cover/run_diff_cover.sh
 outputs: reports/diff-cover.json
 expects: >-
   coverage delta against origin/main, reading nyc's own cobertura report -- never a hardcoded percentage
