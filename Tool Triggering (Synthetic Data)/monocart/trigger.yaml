@@ -9,7 +9,7 @@ node_version: "20.20.2"
 pin: monocart-coverage-reports@2.13.0
 status: active
 measured: false
-entrypoint: tools/monocart/run_monocart.sh
+entrypoint: Tool Triggering (Synthetic Data)/monocart/run_monocart.sh
 outputs: reports/monocart
 expects: >-
   coverage numbers within rounding of nyc's, from an independent V8-coverage-based reporter
