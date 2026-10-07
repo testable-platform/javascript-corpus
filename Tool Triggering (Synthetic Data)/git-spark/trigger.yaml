@@ -9,7 +9,7 @@ node_version: "14.21.3"
 pin: null
 status: skipped
 measured: false
-entrypoint: tools/git-spark/run_git_spark.sh
+entrypoint: Tool Triggering (Synthetic Data)/git-spark/run_git_spark.sh
 outputs: reports/git-spark.json
 expects: >-
   the same churn signal as PyDriller, from an independent git-log miner
