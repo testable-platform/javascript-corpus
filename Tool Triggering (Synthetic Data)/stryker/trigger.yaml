@@ -6,10 +6,10 @@ block: Mutation Score
 branch: JS_V21_TURBOPACK_YARN_MICRO
 node_family: "21"
 node_version: "21.7.3"
-pin: @stryker-mutator/core@9.6.1
+pin: "@stryker-mutator/core@9.6.1"
 status: active
 measured: true
-entrypoint: tools/stryker/run_stryker.sh
+entrypoint: Tool Triggering (Synthetic Data)/stryker/run_stryker.sh
 outputs: reports/mutation.json
 expects: >-
   mutants in policy.js/service.js's decision branches to be killed by the existing mocha suite
