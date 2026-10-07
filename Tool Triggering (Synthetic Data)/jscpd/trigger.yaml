@@ -9,7 +9,7 @@ node_version: "20.20.2"
 pin: jscpd@5.2.1
 status: active
 measured: false
-entrypoint: tools/jscpd/run_jscpd.sh
+entrypoint: Tool Triggering (Synthetic Data)/jscpd/run_jscpd.sh
 outputs: reports/jscpd-report.json
 expects: >-
   the planted http-errors.js / http-errors-legacy.js near-duplicate pair
