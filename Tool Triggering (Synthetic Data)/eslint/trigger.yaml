@@ -9,7 +9,7 @@ node_version: "16.20.2"
 pin: eslint@8.57.1
 status: active
 measured: true
-entrypoint: tools/eslint/run_eslint.sh
+entrypoint: Tool Triggering (Synthetic Data)/eslint/run_eslint.sh
 outputs: reports/eslint.json
 expects: >-
   the unused-variable / rule warnings the eslint config already enables
