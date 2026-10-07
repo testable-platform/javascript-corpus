@@ -9,7 +9,7 @@ node_version: "16.20.2"
 pin: null
 status: active
 measured: false
-entrypoint: tools/npm-audit/run_npm_audit.sh
+entrypoint: Tool Triggering (Synthetic Data)/npm-audit/run_npm_audit.sh
 outputs: reports/npm-audit.json
 expects: >-
   advisories against this branch's declared devDependency versions
