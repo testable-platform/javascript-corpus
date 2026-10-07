@@ -9,7 +9,7 @@ node_version: "21.7.3"
 pin: eslint-plugin-sonarjs@4.2.1
 status: active
 measured: false
-entrypoint: tools/sonarjs/run_sonarjs.sh
+entrypoint: Tool Triggering (Synthetic Data)/sonarjs/run_sonarjs.sh
 outputs: reports/sonarjs.json
 expects: >-
   a cognitive-complexity warning on the tallyHours branch/loop mix in dataflow.js
