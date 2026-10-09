@@ -36,5 +36,6 @@
     "nyc": "^17.1.0",
     "oxlint": "^1.16.0",
     "rollup": "^4.24.0"
-  }
+  },
+  "packageManager": "npm@9.8.1"
 }
