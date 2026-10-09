@@ -13,7 +13,7 @@
   "architecture": "Microservices",
   "sourceRoot": "packages",
   "package": "granite-mill",
-  "testRunner": "mocha@12.0.1",
+  "testRunner": "mocha@11.8.0",
   "branchFunctional": true,
   "toolRosterVersion": "js-roster-v2-2026-09-17",
   "uniqueMetrics": 103,
@@ -169,7 +169,7 @@
       "pin": "mocha==12.0.1",
       "status": "active",
       "measured": false,
-      "note": "mocha 12.0.1 declares Node 20 compatibility (npm registry engines.node range)."
+      "note": "mocha 12.0.1 declares Node 20 compatibility (npm registry engines.node range). This branch's own `npm test` runs mocha@11.8.0."
     },
     {
       "tool": "monocart-coverage-reports",
@@ -189,7 +189,7 @@
       "pin": "@stryker-mutator/core==9.6.1",
       "status": "skipped",
       "measured": true,
-      "note": "mocha's own latest release (12.0.1) has moved ahead of what any current Stryker release supports -- `@stryker-mutator/mocha-runner@9.6.1`'s peer range caps at `mocha < 12`; on npm this is install-blocking (ERESOLVE), on yarn/pnpm/bun (which only warn on unmet peers) it installs but fails at runtime with `Cannot find module '.../mocha/lib/cli/run-helpers'` -- mocha 12 relocated an internal CLI module Stryker's runner still requires by hardcoded path. An upstream incompatibility between two independently-versioned tools, not fixable from this corpus's own config."
+      "note": "`@stryker-mutator/mocha-runner@9.6.1` accepts `mocha >= 7.2 < 12`, so this branch pins `mocha ^11.8.0` (the pairing the node20 fixtures already use) and `npm install` resolves. The mutation run itself has not been re-measured on this branch family."
     },
     {
       "tool": "gutcheck",
@@ -331,7 +331,7 @@
       "pin": "@stryker-mutator/core==9.6.1",
       "status": "skipped",
       "measured": true,
-      "note": "mocha's own latest release (12.0.1) has moved ahead of what any current Stryker release supports -- `@stryker-mutator/mocha-runner@9.6.1`'s peer range caps at `mocha < 12`; on npm this is install-blocking (ERESOLVE), on yarn/pnpm/bun (which only warn on unmet peers) it installs but fails at runtime with `Cannot find module '.../mocha/lib/cli/run-helpers'` -- mocha 12 relocated an internal CLI module Stryker's runner still requires by hardcoded path. An upstream incompatibility between two independently-versioned tools, not fixable from this corpus's own config."
+      "note": "`@stryker-mutator/mocha-runner@9.6.1` accepts `mocha >= 7.2 < 12`, so this branch pins `mocha ^11.8.0` (the pairing the node20 fixtures already use) and `npm install` resolves. The mutation run itself has not been re-measured on this branch family."
     },
     {
       "tool": "CodeQL",
