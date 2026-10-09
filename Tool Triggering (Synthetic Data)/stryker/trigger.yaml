@@ -14,6 +14,6 @@ outputs: reports/mutation.json
 expects: >-
   mutants in policy.js/service.js's decision branches to be killed by the existing mocha suite
 note: >-
-  mocha's own latest release (12.0.1) has moved ahead of what any current Stryker release supports -- `@stryker-mutator/mocha-runner@9.6.1`'s peer range caps at `mocha < 12`; on npm this is install-blocking (ERESOLVE), on yarn/pnpm/bun (which only warn on unmet peers) it installs but fails at runtime with `Cannot find module '.../mocha/lib/cli/run-helpers'` -- mocha 12 relocated an internal CLI module Stryker's runner still requires by hardcoded path. An upstream incompatibility between two independently-versioned tools, not fixable from this corpus's own config.
+  `@stryker-mutator/mocha-runner@9.6.1` accepts `mocha >= 7.2 < 12`, so this branch pins `mocha ^11.8.0` (the pairing the node20 fixtures already use) and `npm install` resolves. The mutation run itself has not been re-measured on this branch family.
 skip_exit_code: 3          # cannot run on this Node family
 missing_exit_code: 4       # binary/toolchain absent from this host
