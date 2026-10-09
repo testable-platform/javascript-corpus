@@ -37,5 +37,6 @@
     "monocart-coverage-reports": "^2.13.0",
     "nyc": "^18.0.0",
     "oxlint": "^1.83.0"
-  }
+  },
+  "packageManager": "npm@10.9.2"
 }
