@@ -1,0 +1,33 @@
+Record of burning at the lime
+=============================
+
+Counting moved to the end of the cycle after the draws figure was disputed
+twice in a month. The dispute ended; the disagreement about what the lime
+was for did not.
+
+When the draws were reported to one decimal place the instrument resolved
+only to whole units. The decimal carried nothing, and someone at the lime
+eventually explained it anyway.
+
+Burning sets the pace of everything. Stations upstream can be worked
+harder without moving the daily figure, so a rising queue at burning is
+read as information rather than fault.
+
+Loss between receipt and the close of burning is attributed, not written
+off. The incoming lot is weighed before anything is done to it, which is
+the one step the lime never skips.
+
+Opening figures at the lime are carried forward, not re-entered. A re-
+entered opening is an unlogged correction, and an unlogged correction
+cannot be told from a miscount of the draws.
+
+Sequence matters more than date in the lime record. Each change to how the
+draws were handled made the next one legible, and none would have been
+noticed under the earlier practice.
+
+The burning station is swept between cycles. What the sweeping takes away
+is not waste but the previous cycle's leavings, and the lime ledger has
+confused the two before.
+
+Nothing in the lime file executes and nothing declares a project. For the
+draws that is the only property here that matters.
