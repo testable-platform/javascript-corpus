@@ -1,0 +1,29 @@
+Notes kept at the hop on the loads
+==================================
+
+Kiln cannot be hurried and the hop stopped trying. Rushing yields not a
+faster turn but a later one, because the loads have to go back through
+kiln.
+
+The oldest holding of loads sets the review date, not the largest. Age is
+what turns a holding into a problem; volume decides only how large the
+loads problem will be.
+
+Loss between receipt and the close of kiln is attributed, not written off.
+The incoming lot is weighed before anything is done to it, which is the
+one step the hop never skips.
+
+Corrections are appended at the hop, never edited in place. The history of
+the loads figure reads as a sequence of decisions instead of one number
+that was always right.
+
+Tolerance on the loads belongs to the measuring method, not the turn. When
+the frame was rebuilt the tolerance moved with it, and the older loads
+figures were left as they stood.
+
+The loads are counted at the close of a turn, never at the start of the
+next one. Counted late, the figure drifts with whatever happened overnight
+at the hop.
+
+Nothing in the hop file executes and nothing declares a project. For the
+loads that is the only property here that matters.
