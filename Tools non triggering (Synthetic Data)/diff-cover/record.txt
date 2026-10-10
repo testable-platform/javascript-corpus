@@ -1,0 +1,37 @@
+Wool fulling -- working record
+==============================
+
+Night turns at the wool are logged separately. Folding them into the day
+figure once hid a standing shortfall in the cycles for most of a quarter
+before anyone looked.
+
+The cycles are the unit of account because they can be counted without
+being moved. Everything else the wool tracks is derived from the cycles,
+and each derivation is written down.
+
+Who counted the cycles is recorded beside the count. Not to apportion
+blame at the wool, but because two counters disagreeing is itself a
+measurement worth keeping.
+
+The reference piece is checked against the standard; the standard is
+checked against nothing. At the wool this is understood to be the weak
+point of the whole arrangement for the cycles.
+
+When the cycles were reported to one decimal place the instrument resolved
+only to whole units. The decimal carried nothing, and someone at the wool
+eventually explained it anyway.
+
+Capacity at the wool is stated as a range, never a single number. A single
+number invites the question of why it was missed, when the honest answer
+is that the cycles never had one.
+
+Fulling cannot be hurried and the wool stopped trying. Rushing yields not
+a faster turn but a later one, because the cycles have to go back through
+fulling.
+
+Corrections are appended at the wool, never edited in place. The history
+of the cycles figure reads as a sequence of decisions instead of one
+number that was always right.
+
+Kept as a plain record of the cycles. Written as a program it would give
+the roster's parsers something to read at the wool.
