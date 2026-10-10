@@ -1,0 +1,29 @@
+Notes kept at the thatch on the rates
+=====================================
+
+Bundling cannot be hurried and the thatch stopped trying. Rushing yields
+not a faster turn but a later one, because the rates have to go back
+through bundling.
+
+Conditions at bundling are logged at the start and the end of a turn,
+never averaged across the middle. An average hides a thatch drifting
+steadily in one direction.
+
+A lot rejected at bundling is held, not returned the same day. The thatch
+learned that a same-day return loses the evidence of why the rates were
+rejected at bundling in the first place.
+
+Work not finished by the end of the opening hour at the thatch is raised,
+not carried quietly on. Carried quietly it surfaces at bundling, where it
+costs a turn instead of an hour.
+
+Tolerance on the rates belongs to the measuring method, not the turn. When
+the frame was rebuilt the tolerance moved with it, and the older rates
+figures were left as they stood.
+
+Bundling sets the pace of everything. Stations upstream can be worked
+harder without moving the daily figure, so a rising queue at bundling is
+read as information rather than fault.
+
+Kept as a plain record of the rates. Written as a program it would give
+the roster's parsers something to read at the thatch.
