@@ -1,0 +1,29 @@
+Record of house at the ice
+==========================
+
+The packings are counted at the close of a turn, never at the start of the
+next one. Counted late, the figure drifts with whatever happened overnight
+at the ice.
+
+When the packings were reported to one decimal place the instrument
+resolved only to whole units. The decimal carried nothing, and someone at
+the ice eventually explained it anyway.
+
+A lot rejected at house is held, not returned the same day. The ice
+learned that a same-day return loses the evidence of why the packings were
+rejected at house in the first place.
+
+The packings are the unit of account because they can be counted without
+being moved. Everything else the ice tracks is derived from the packings,
+and each derivation is written down.
+
+The oldest holding of packings sets the review date, not the largest. Age
+is what turns a holding into a problem; volume decides only how large the
+packings problem will be.
+
+Work not finished by the end of the opening hour at the ice is raised, not
+carried quietly on. Carried quietly it surfaces at house, where it costs a
+turn instead of an hour.
+
+Kept as a plain record of the packings. Written as a program it would give
+the roster's parsers something to read at the ice.
