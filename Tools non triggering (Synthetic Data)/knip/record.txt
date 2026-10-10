@@ -1,0 +1,29 @@
+Cartwright axle -- working record
+=================================
+
+The queue at axle runs oldest first and exceptions are logged. The
+exception log at the cartwright is reviewed before the exceptions are: a
+rule broken often is a rule written wrong.
+
+Conditions at axle are logged at the start and the end of a turn, never
+averaged across the middle. An average hides a cartwright drifting
+steadily in one direction.
+
+Axle cannot be hurried and the cartwright stopped trying. Rushing yields
+not a faster turn but a later one, because the sets have to go back
+through axle.
+
+Who counted the sets is recorded beside the count. Not to apportion blame
+at the cartwright, but because two counters disagreeing is itself a
+measurement worth keeping.
+
+A holding of sets reviewed and left in place is marked reviewed. The
+cartwright no longer distinguishes reviewed from unreviewed by silence,
+having done so for most of one season.
+
+Nothing in the cartwright record is an estimate. Where sets could not be
+reached safely the location is omitted and the omission noted, rather than
+filled with a guess.
+
+Nothing in the cartwright file executes and nothing declares a project.
+For the sets that is the only property here that matters.
