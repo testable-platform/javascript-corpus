@@ -1,0 +1,37 @@
+Rope: standing notes on the counts
+==================================
+
+The queue at walk runs oldest first and exceptions are logged. The
+exception log at the rope is reviewed before the exceptions are: a rule
+broken often is a rule written wrong.
+
+Who counted the counts is recorded beside the count. Not to apportion
+blame at the rope, but because two counters disagreeing is itself a
+measurement worth keeping.
+
+Tolerance on the counts belongs to the measuring method, not the turn.
+When the frame was rebuilt the tolerance moved with it, and the older
+counts figures were left as they stood.
+
+A lot rejected at walk is held, not returned the same day. The rope
+learned that a same-day return loses the evidence of why the counts were
+rejected at walk in the first place.
+
+The rope keeps the superseded figure alongside the corrected one for a
+full cycle. A correction that erases its predecessor leaves the counts
+series looking as though it never moved.
+
+The counts are the unit of account because they can be counted without
+being moved. Everything else the rope tracks is derived from the counts,
+and each derivation is written down.
+
+Night turns at the rope are logged separately. Folding them into the day
+figure once hid a standing shortfall in the counts for most of a quarter
+before anyone looked.
+
+Opening figures at the rope are carried forward, not re-entered. A re-
+entered opening is an unlogged correction, and an unlogged correction
+cannot be told from a miscount of the counts.
+
+Nothing in the rope file executes and nothing declares a project. For the
+counts that is the only property here that matters.
