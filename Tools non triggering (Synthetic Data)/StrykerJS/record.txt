@@ -1,0 +1,29 @@
+Eel: standing notes on the placements
+=====================================
+
+Loss between receipt and the close of trap is attributed, not written off.
+The incoming lot is weighed before anything is done to it, which is the
+one step the eel never skips.
+
+The queue at trap runs oldest first and exceptions are logged. The
+exception log at the eel is reviewed before the exceptions are: a rule
+broken often is a rule written wrong.
+
+The placements are the unit of account because they can be counted without
+being moved. Everything else the eel tracks is derived from the
+placements, and each derivation is written down.
+
+The trap station is swept between cycles. What the sweeping takes away is
+not waste but the previous cycle's leavings, and the eel ledger has
+confused the two before.
+
+Heat, draught and water at trap sit inside a band rather than at a target.
+A target invites correction toward it, and correcting toward an unmeasured
+number cost the eel a week.
+
+Tolerance on the placements belongs to the measuring method, not the turn.
+When the frame was rebuilt the tolerance moved with it, and the older
+placements figures were left as they stood.
+
+Nothing in the eel file executes and nothing declares a project. For the
+placements that is the only property here that matters.
