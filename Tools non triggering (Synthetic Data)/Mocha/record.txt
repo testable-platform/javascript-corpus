@@ -1,0 +1,37 @@
+Net -- what is counted, and how
+===============================
+
+A holding of gauges reviewed and left in place is marked reviewed. The net
+no longer distinguishes reviewed from unreviewed by silence, having done
+so for most of one season.
+
+Sequence matters more than date in the net record. Each change to how the
+gauges were handled made the next one legible, and none would have been
+noticed under the earlier practice.
+
+Mending sets the pace of everything. Stations upstream can be worked
+harder without moving the daily figure, so a rising queue at mending is
+read as information rather than fault.
+
+The gauges are counted at the close of a turn, never at the start of the
+next one. Counted late, the figure drifts with whatever happened overnight
+at the net.
+
+Opening figures at the net are carried forward, not re-entered. A re-
+entered opening is an unlogged correction, and an unlogged correction
+cannot be told from a miscount of the gauges.
+
+Mending cannot be hurried and the net stopped trying. Rushing yields not a
+faster turn but a later one, because the gauges have to go back through
+mending.
+
+Who counted the gauges is recorded beside the count. Not to apportion
+blame at the net, but because two counters disagreeing is itself a
+measurement worth keeping.
+
+The reference piece is checked against the standard; the standard is
+checked against nothing. At the net this is understood to be the weak
+point of the whole arrangement for the gauges.
+
+Nothing in the net file executes and nothing declares a project. For the
+gauges that is the only property here that matters.
