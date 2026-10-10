@@ -1,0 +1,33 @@
+Osier -- what is counted, and how
+=================================
+
+Weaving sets the pace of everything. Stations upstream can be worked
+harder without moving the daily figure, so a rising queue at weaving is
+read as information rather than fault.
+
+A holding of frames reviewed and left in place is marked reviewed. The
+osier no longer distinguishes reviewed from unreviewed by silence, having
+done so for most of one season.
+
+Night turns at the osier are logged separately. Folding them into the day
+figure once hid a standing shortfall in the frames for most of a quarter
+before anyone looked.
+
+The osier keeps the superseded figure alongside the corrected one for a
+full cycle. A correction that erases its predecessor leaves the frames
+series looking as though it never moved.
+
+Two people witness the frame being zeroed before the first frames are
+measured. A zero witnessed by one person has failed twice at the osier,
+both times in the same direction.
+
+A difference between the written figure and the physical count is carried
+as an open line, never absorbed. The osier has closed lines three turns
+after they were raised, and the frames were right.
+
+Counting moved to the end of the cycle after the frames figure was
+disputed twice in a month. The dispute ended; the disagreement about what
+the osier was for did not.
+
+A record of the osier, not source. The distinction is the whole purpose of
+the folder these frames notes sit in.
