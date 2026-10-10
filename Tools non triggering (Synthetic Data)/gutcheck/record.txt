@@ -1,0 +1,37 @@
+Tin smelting -- working record
+==============================
+
+Smelting sets the pace of everything. Stations upstream can be worked
+harder without moving the daily figure, so a rising queue at smelting is
+read as information rather than fault.
+
+Opening figures at the tin are carried forward, not re-entered. A re-
+entered opening is an unlogged correction, and an unlogged correction
+cannot be told from a miscount of the charges.
+
+Corrections are appended at the tin, never edited in place. The history of
+the charges figure reads as a sequence of decisions instead of one number
+that was always right.
+
+Throughput was not measured at the tin until the charges were counted in
+writing. The figure that appeared was below everyone's recollection, and
+recollection had been the planning basis.
+
+Smelting cannot be hurried and the tin stopped trying. Rushing yields not
+a faster turn but a later one, because the charges have to go back through
+smelting.
+
+Tolerance on the charges belongs to the measuring method, not the turn.
+When the frame was rebuilt the tolerance moved with it, and the older
+charges figures were left as they stood.
+
+The tin keeps the superseded figure alongside the corrected one for a full
+cycle. A correction that erases its predecessor leaves the charges series
+looking as though it never moved.
+
+The queue at smelting runs oldest first and exceptions are logged. The
+exception log at the tin is reviewed before the exceptions are: a rule
+broken often is a rule written wrong.
+
+A record of the tin, not source. The distinction is the whole purpose of
+the folder these charges notes sit in.
